@@ -236,7 +236,41 @@
             color: #555;
             margin-bottom: 15px;
         }
+/* ================= MOBILE ROOMS ================= */
 
+@media (max-width: 768px) {
+
+    .room-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .room-card {
+        width: 100%;
+    }
+
+    .room-card img {
+        height: 210px;
+    }
+
+    .room-content {
+        padding: 16px;
+    }
+
+    .room-content h3 {
+        font-size: 20px;
+    }
+
+    .room-price {
+        font-size: 19px;
+    }
+
+    .room-view,
+    .room-capacity {
+        font-size: 14px;
+    }
+}
         /* ================= ROOM AMENITIES ================= */
 
         .room-amenities {

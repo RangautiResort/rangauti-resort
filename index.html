@@ -1069,6 +1069,112 @@
     font-size: 40px;
     cursor: pointer;
 }
+/* ================= AMENITIES & COMPLIMENTARY ================= */
+
+#amenities-complimentary {
+    background: #f7f7f7;
+}
+
+.amenities-complimentary-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.amenities-box,
+.complimentary-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.10);
+    border: 1px solid #eee;
+}
+
+.amenities-box h3,
+.complimentary-box h3 {
+    text-align: center;
+    font-size: 27px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.amenities-box > p,
+.complimentary-box > p {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* Room Amenities */
+
+.amenities-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.amenities-list li {
+    background: #f7f7f7;
+    padding: 10px 12px;
+    border-radius: 7px;
+    font-size: 14px;
+    color: #555;
+    border: 1px solid #eee;
+}
+
+/* Complimentary */
+
+.complimentary-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.complimentary-list-item {
+    background: #f7f7f7;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #444;
+    border: 1px solid #eee;
+}
+
+.complimentary-list-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .amenities-complimentary-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .amenities-box,
+    .complimentary-box {
+        padding: 22px 15px;
+    }
+
+    .amenities-box h3,
+    .complimentary-box h3 {
+        font-size: 23px;
+    }
+
+    .amenities-list {
+        grid-template-columns: 1fr;
+    }
+
+}
     </style>
 
 
@@ -2530,16 +2636,20 @@ Please check room availability and confirm the booking.`;
 </div>
 </section>
 
-   <!-- ================= ROOMS ================= -->
+  <!-- ================= ROOMS ================= -->
 
 <section class="rooms" id="rooms">
 
     <div class="section-title">
-        <h2>Rooms & Suites</h2>
+
+        <h2>
+            Rooms & Suites
+        </h2>
 
         <p>
             Choose the perfect room for your stay at Rangauti Resort.
         </p>
+
     </div>
 
 
@@ -2557,7 +2667,9 @@ Please check room availability and confirm the booking.`;
 
             <div class="room-content">
 
-                <h3>Super Family Deluxe (Lake View)</h3>
+                <h3>
+                    Super Family Deluxe (Lake View)
+                </h3>
 
                 <div class="room-price">
                     BDT 8,400 / Night
@@ -2566,35 +2678,6 @@ Please check room availability and confirm the booking.`;
                 <div class="room-capacity">
                     Maximum 4 Guests
                 </div>
-
-                <div class="room-amenities">
-
-                    <h4>Room Amenities</h4>
-
-                    <ul>
-                        <li>✓ Comfortable Bed</li>
-                        <li>✓ Air Conditioning</li>
-                        <li>✓ LED TV</li>
-                        <li>✓ Attached Bathroom</li>
-                        <li>✓ Hot & Cold Water</li>
-                        <li>✓ Shampoo</li>
-                        <li>✓ Soap</li>
-                        <li>✓ Toothbrush & Toothpaste</li>
-                        <li>✓ Towels</li>
-                        <li>✓ Wardrobe</li>
-                        <li>✓ Dressing Mirror</li>
-                        <li>✓ Mini Refrigerator</li>
-                        <li>✓ Electric Kettle</li>
-                        <li>✓ Complimentary Coffee Mini Pack</li>
-                        <li>✓ Power Backup</li>
-                        <li>✓ Daily Housekeeping</li>
-                        <li>✓ Room Service</li>
-                        <li>✓ WiFi</li>
-                        <li>✓ Common Veranda + Lake View</li>
-                    </ul>
-
-                </div>
-
 
                 <div class="room-buttons">
 
@@ -2621,7 +2704,6 @@ Please check room availability and confirm the booking.`;
         </div>
 
 
-
         <!-- ================= ROOM 2 ================= -->
 
         <div class="room-card">
@@ -2633,7 +2715,9 @@ Please check room availability and confirm the booking.`;
 
             <div class="room-content">
 
-                <h3>Family Deluxe</h3>
+                <h3>
+                    Family Deluxe
+                </h3>
 
                 <div class="room-view">
                     Lake View
@@ -2646,35 +2730,6 @@ Please check room availability and confirm the booking.`;
                 <div class="room-capacity">
                     Maximum 3 Guests
                 </div>
-
-                <div class="room-amenities">
-
-                    <h4>Room Amenities</h4>
-
-                    <ul>
-                        <li>✓ Comfortable Bed</li>
-                        <li>✓ Air Conditioning</li>
-                        <li>✓ LED TV</li>
-                        <li>✓ Attached Bathroom</li>
-                        <li>✓ Hot & Cold Water</li>
-                        <li>✓ Shampoo</li>
-                        <li>✓ Soap</li>
-                        <li>✓ Toothbrush & Toothpaste</li>
-                        <li>✓ Towels</li>
-                        <li>✓ Wardrobe</li>
-                        <li>✓ Dressing Mirror</li>
-                        <li>✓ Mini Refrigerator</li>
-                        <li>✓ Electric Kettle</li>
-                        <li>✓ Complimentary Coffee Mini Pack</li>
-                        <li>✓ Power Backup</li>
-                        <li>✓ Daily Housekeeping</li>
-                        <li>✓ Room Service</li>
-                        <li>✓ WiFi</li>
-                        <li>✓ Common Veranda + Lake View</li>
-                    </ul>
-
-                </div>
-
 
                 <div class="room-buttons">
 
@@ -2701,7 +2756,6 @@ Please check room availability and confirm the booking.`;
         </div>
 
 
-
         <!-- ================= ROOM 3 ================= -->
 
         <div class="room-card">
@@ -2713,7 +2767,9 @@ Please check room availability and confirm the booking.`;
 
             <div class="room-content">
 
-                <h3>Super Deluxe</h3>
+                <h3>
+                    Super Deluxe
+                </h3>
 
                 <div class="room-view">
                     Cottage
@@ -2726,35 +2782,6 @@ Please check room availability and confirm the booking.`;
                 <div class="room-capacity">
                     Maximum 2 Guests
                 </div>
-
-                <div class="room-amenities">
-
-                    <h4>Room Amenities</h4>
-
-                    <ul>
-                        <li>✓ Comfortable Bed</li>
-                        <li>✓ Air Conditioning</li>
-                        <li>✓ LED TV</li>
-                        <li>✓ Attached Bathroom</li>
-                        <li>✓ Hot & Cold Water</li>
-                        <li>✓ Shampoo</li>
-                        <li>✓ Soap</li>
-                        <li>✓ Toothbrush & Toothpaste</li>
-                        <li>✓ Towels</li>
-                        <li>✓ Wardrobe</li>
-                        <li>✓ Dressing Mirror</li>
-                        <li>✓ Mini Refrigerator</li>
-                        <li>✓ Electric Kettle</li>
-                        <li>✓ Complimentary Coffee Mini Pack</li>
-                        <li>✓ Power Backup</li>
-                        <li>✓ Daily Housekeeping</li>
-                        <li>✓ Room Service</li>
-                        <li>✓ WiFi</li>
-                        <li>✓ Common Veranda</li>
-                    </ul>
-
-                </div>
-
 
                 <div class="room-buttons">
 
@@ -2781,7 +2808,6 @@ Please check room availability and confirm the booking.`;
         </div>
 
 
-
         <!-- ================= ROOM 4 ================= -->
 
         <div class="room-card">
@@ -2793,7 +2819,9 @@ Please check room availability and confirm the booking.`;
 
             <div class="room-content">
 
-                <h3>Super Deluxe</h3>
+                <h3>
+                    Super Deluxe
+                </h3>
 
                 <div class="room-view">
                     Swimming Pool View
@@ -2806,34 +2834,6 @@ Please check room availability and confirm the booking.`;
                 <div class="room-capacity">
                     Maximum 2 Guests
                 </div>
-
-                <div class="room-amenities">
-
-                    <h4>Room Amenities</h4>
-
-                    <ul>
-                        <li>✓ Comfortable Bed</li>
-                        <li>✓ Air Conditioning</li>
-                        <li>✓ LED TV</li>
-                        <li>✓ Attached Bathroom</li>
-                        <li>✓ Hot & Cold Water</li>
-                        <li>✓ Shampoo</li>
-                        <li>✓ Soap</li>
-                        <li>✓ Toothbrush & Toothpaste</li>
-                        <li>✓ Towels</li>
-                        <li>✓ Wardrobe</li>
-                        <li>✓ Dressing Mirror</li>
-                        <li>✓ Electric Kettle</li>
-                        <li>✓ Complimentary Coffee Mini Pack</li>
-                        <li>✓ Power Backup</li>
-                        <li>✓ Daily Housekeeping</li>
-                        <li>✓ Room Service</li>
-                        <li>✓ WiFi</li>
-                        <li>✓ Common Veranda + Swimming Pool View</li>
-                    </ul>
-
-                </div>
-
 
                 <div class="room-buttons">
 
@@ -2860,7 +2860,6 @@ Please check room availability and confirm the booking.`;
         </div>
 
 
-
         <!-- ================= ROOM 5 ================= -->
 
         <div class="room-card">
@@ -2872,7 +2871,9 @@ Please check room availability and confirm the booking.`;
 
             <div class="room-content">
 
-                <h3>Suite Jolojuchona</h3>
+                <h3>
+                    Suite Jolojuchona
+                </h3>
 
                 <div class="room-view">
                     Floating Honeymoon
@@ -2885,35 +2886,6 @@ Please check room availability and confirm the booking.`;
                 <div class="room-capacity">
                     Maximum 2 Guests
                 </div>
-
-                <div class="room-amenities">
-
-                    <h4>Room Amenities</h4>
-
-                    <ul>
-                        <li>✓ Comfortable Bed</li>
-                        <li>✓ Air Conditioning</li>
-                        <li>✓ LED TV</li>
-                        <li>✓ Attached Bathroom</li>
-                        <li>✓ Hot & Cold Water</li>
-                        <li>✓ Shampoo</li>
-                        <li>✓ Soap</li>
-                        <li>✓ Toothbrush & Toothpaste</li>
-                        <li>✓ Towels</li>
-                        <li>✓ Wardrobe</li>
-                        <li>✓ Dressing Mirror</li>
-                        <li>✓ Mini Refrigerator</li>
-                        <li>✓ Electric Kettle</li>
-                        <li>✓ Complimentary Coffee Mini Pack</li>
-                        <li>✓ Power Backup</li>
-                        <li>✓ Daily Housekeeping</li>
-                        <li>✓ Room Service</li>
-                        <li>✓ WiFi</li>
-                        <li>✓ Private Veranda</li>
-                    </ul>
-
-                </div>
-
 
                 <div class="room-buttons">
 
@@ -2940,7 +2912,6 @@ Please check room availability and confirm the booking.`;
         </div>
 
 
-
         <!-- ================= ROOM 6 ================= -->
 
         <div class="room-card">
@@ -2952,7 +2923,9 @@ Please check room availability and confirm the booking.`;
 
             <div class="room-content">
 
-                <h3>Special Family Deluxe</h3>
+                <h3>
+                    Special Family Deluxe
+                </h3>
 
                 <div class="room-view">
                     Swimming Pool View
@@ -2965,34 +2938,6 @@ Please check room availability and confirm the booking.`;
                 <div class="room-capacity">
                     Maximum 3 Guests
                 </div>
-
-                <div class="room-amenities">
-
-                    <h4>Room Amenities</h4>
-
-                    <ul>
-                        <li>✓ Comfortable Bed</li>
-                        <li>✓ Air Conditioning</li>
-                        <li>✓ LED TV</li>
-                        <li>✓ Attached Bathroom</li>
-                        <li>✓ Hot & Cold Water</li>
-                        <li>✓ Shampoo</li>
-                        <li>✓ Soap</li>
-                        <li>✓ Toothbrush & Toothpaste</li>
-                        <li>✓ Towels</li>
-                        <li>✓ Wardrobe</li>
-                        <li>✓ Dressing Mirror</li>
-                        <li>✓ Electric Kettle</li>
-                        <li>✓ Complimentary Coffee Mini Pack</li>
-                        <li>✓ Power Backup</li>
-                        <li>✓ Daily Housekeeping</li>
-                        <li>✓ Room Service</li>
-                        <li>✓ WiFi</li>
-                        <li>✓ Common Veranda + Swimming Pool View</li>
-                    </ul>
-
-                </div>
-
 
                 <div class="room-buttons">
 
@@ -3019,7 +2964,6 @@ Please check room availability and confirm the booking.`;
         </div>
 
 
-
         <!-- ================= ROOM 7 ================= -->
 
         <div class="room-card">
@@ -3031,7 +2975,9 @@ Please check room availability and confirm the booking.`;
 
             <div class="room-content">
 
-                <h3>Special Super Deluxe</h3>
+                <h3>
+                    Special Super Deluxe
+                </h3>
 
                 <div class="room-view">
                     Lake View
@@ -3044,35 +2990,6 @@ Please check room availability and confirm the booking.`;
                 <div class="room-capacity">
                     Maximum 2 Guests
                 </div>
-
-                <div class="room-amenities">
-
-                    <h4>Room Amenities</h4>
-
-                    <ul>
-                        <li>✓ Comfortable Bed</li>
-                        <li>✓ Air Conditioning</li>
-                        <li>✓ LED TV</li>
-                        <li>✓ Attached Bathroom</li>
-                        <li>✓ Hot & Cold Water</li>
-                        <li>✓ Shampoo</li>
-                        <li>✓ Soap</li>
-                        <li>✓ Toothbrush & Toothpaste</li>
-                        <li>✓ Towels</li>
-                        <li>✓ Wardrobe</li>
-                        <li>✓ Dressing Mirror</li>
-                        <li>✓ Mini Refrigerator</li>
-                        <li>✓ Electric Kettle</li>
-                        <li>✓ Complimentary Coffee Mini Pack</li>
-                        <li>✓ Power Backup</li>
-                        <li>✓ Daily Housekeeping</li>
-                        <li>✓ Room Service</li>
-                        <li>✓ WiFi</li>
-                        <li>✓ Common Veranda + Lake View</li>
-                    </ul>
-
-                </div>
-
 
                 <div class="room-buttons">
 
@@ -3098,71 +3015,129 @@ Please check room availability and confirm the booking.`;
 
         </div>
 
+    </div>
 
 
-        <!-- ================= COMPLIMENTARY ================= -->
+    <!-- ================= AMENITIES & COMPLIMENTARY ================= -->
 
-        <div
-            class="complimentary"
-            id="complimentary"
-        >
+    <section id="amenities-complimentary">
 
-            <div class="complimentary-title">
+        <div class="section-title">
 
-                <h2>
-                    🎁 Complimentary Facilities
-                </h2>
+            <h2>
+                Amenities & Complimentary
+            </h2>
+
+            <p>
+                Enjoy comfortable room facilities and complimentary benefits during your stay.
+            </p>
+
+        </div>
+
+
+        <div class="amenities-complimentary-container">
+
+
+            <!-- ================= ROOM AMENITIES ================= -->
+
+            <div class="amenities-box">
+
+                <h3>
+                    🛏️ Room Amenities
+                </h3>
 
                 <p>
-                    Complimentary facilities available for our Room guests.
+                    Standard amenities available in our rooms.
                 </p>
+
+                <ul class="amenities-list">
+
+                    <li>✓ Comfortable Bed</li>
+                    <li>✓ Air Conditioning</li>
+                    <li>✓ LED TV</li>
+                    <li>✓ Attached Bathroom</li>
+                    <li>✓ Hot & Cold Water</li>
+                    <li>✓ Shampoo</li>
+                    <li>✓ Soap</li>
+                    <li>✓ Toothbrush & Toothpaste</li>
+                    <li>✓ Towels</li>
+                    <li>✓ Wardrobe</li>
+                    <li>✓ Dressing Mirror</li>
+                    <li>✓ Mini Refrigerator</li>
+                    <li>✓ Electric Kettle</li>
+                    <li>✓ Complimentary Coffee Mini Pack</li>
+                    <li>✓ Power Backup</li>
+                    <li>✓ Daily Housekeeping</li>
+                    <li>✓ Room Service</li>
+                    <li>✓ WiFi</li>
+                    <li>✓ Common Veranda / Lake View</li>
+
+                </ul>
 
             </div>
 
 
-            <div class="complimentary-container">
+            <!-- ================= COMPLIMENTARY FACILITIES ================= -->
 
-                <div class="complimentary-item">
-                    ✔️ Welcome Drinks
-                </div>
+            <div
+                class="complimentary-box"
+                id="complimentary"
+            >
 
-                <div class="complimentary-item">
-                    ✔️ Breakfast Included
-                </div>
+                <h3>
+                    🎁 Complimentary Facilities
+                </h3>
 
-                <div class="complimentary-item">
-                    ✔️ Swimming Pool Access
-                </div>
+                <p>
+                    Complimentary facilities available for our room guests.
+                </p>
 
-                <div class="complimentary-item">
-                    ✔️ 24/7 Room Service
-                </div>
+                <div class="complimentary-list">
 
-                <div class="complimentary-item">
-                    ✔️ Cycling & Pool Billiard
-                </div>
+                    <div class="complimentary-list-item">
+                        ✔️ Welcome Drinks
+                    </div>
 
-                <div class="complimentary-item">
-                    ✔️ Kayaking Boat
-                </div>
+                    <div class="complimentary-list-item">
+                        ✔️ Breakfast Included
+                    </div>
 
-                <div class="complimentary-item">
-                    ✔️ Kids Playground
-                </div>
+                    <div class="complimentary-list-item">
+                        ✔️ Swimming Pool Access
+                    </div>
 
-                <div class="complimentary-item">
-                    ✔️ WiFi (In-house Guests)
+                    <div class="complimentary-list-item">
+                        ✔️ 24/7 Room Service
+                    </div>
+
+                    <div class="complimentary-list-item">
+                        ✔️ Cycling & Pool Billiard
+                    </div>
+
+                    <div class="complimentary-list-item">
+                        ✔️ Kayaking Boat
+                    </div>
+
+                    <div class="complimentary-list-item">
+                        ✔️ Kids Playground
+                    </div>
+
+                    <div class="complimentary-list-item">
+                        ✔️ WiFi (In-house Guests)
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
 
-
-    </div>
+    </section>
 
 </section>
 
+
+<!-- ================= BOOKING ================= -->
 
     <!-- ================= BOOKING ================= -->
 

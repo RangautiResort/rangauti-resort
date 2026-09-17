@@ -1,0 +1,5464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rangauti Resort | Nature, Comfort & Memorable Experiences</title>
+
+<meta name="description"
+content="Rangauti Resort, Moulvibazar, Sylhet — peaceful accommodation, swimming pool, restaurant, boat ride, nature and memorable resort experiences.">
+
+
+<style>
+
+/* =========================================================
+   RANGAUTI RESORT
+   PREMIUM RESORT DESIGN
+========================================================= */
+
+:root{
+    --dark:#162019;
+    --dark2:#202c24;
+    --green:#506b59;
+    --green-dark:#344a3c;
+    --cream:#f5f1e8;
+    --light:#faf9f5;
+    --white:#ffffff;
+    --gold:#b59663;
+    --text:#283129;
+    --muted:#6c746d;
+    --border:#e5e1d8;
+    --shadow:0 18px 50px rgba(20,30,24,.10);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--light);
+    color:var(--text);
+    line-height:1.7;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(0,0,0,.07);
+}
+
+.navbar{
+    max-width:1400px;
+    margin:auto;
+    min-height:82px;
+    padding:0 35px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.logo img{
+    width:145px;
+    height:auto;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:#273028;
+    transition:.3s;
+    position:relative;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:1px;
+    background:var(--green);
+    left:0;
+    bottom:-7px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--green);
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-book{
+    padding:12px 20px;
+    background:var(--dark);
+    color:white !important;
+}
+
+.nav-book::after{
+    display:none;
+}
+
+.nav-book:hover{
+    background:var(--green);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:calc(100vh - 82px);
+    position:relative;
+
+    background:
+        linear-gradient(rgba(10,18,13,.34),rgba(10,18,13,.48)),
+        url("rooms/home.jpeg") center/cover no-repeat;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    color:white;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,.05),
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.45)
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:850px;
+    padding:50px 25px;
+    margin-right:50%;
+}
+
+
+.hero-content h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(45px,7vw,90px);
+    font-weight:400;
+    letter-spacing:-2px;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero-content p:first-of-type{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(20px,3vw,31px);
+    letter-spacing:1px;
+    margin-bottom:20px;
+}
+
+.hero-content p:last-of-type{
+    max-width:650px;
+    margin:0 auto 35px;
+    font-size:16px;
+    color:rgba(255,255,255,.92);
+}
+
+.eyebrow{
+    color:var(--gold);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:3px;
+    margin-bottom:15px;
+    text-transform:uppercase;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    min-width:175px;
+
+    padding:15px 27px;
+
+    border:1px solid white;
+    background:white;
+    color:var(--dark);
+
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.5px;
+
+    transition:.35s;
+}
+
+.btn:hover{
+    background:transparent;
+    color:white;
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+section{
+    scroll-margin-top:90px;
+}
+
+.section{
+    padding:105px 7%;
+}
+
+.section-head{
+    max-width:760px;
+    margin:0 auto 60px;
+    text-align:center;
+}
+
+.section-head h2{
+    font-family:Georgia,"Times New Roman",serif;
+    font-weight:400;
+    font-size:clamp(35px,5vw,58px);
+    line-height:1.15;
+    color:var(--dark);
+    margin-bottom:20px;
+}
+
+.section-head p{
+    color:var(--muted);
+    max-width:650px;
+    margin:auto;
+}
+
+
+/* =========================================================
+   FACILITIES
+========================================================= */
+
+.facilities-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.facility-card{
+    position:relative;
+    min-height:300px;
+
+    background-size:cover;
+    background-position:center;
+
+    overflow:hidden;
+
+    display:flex;
+    align-items:flex-end;
+
+    border-radius:4px;
+
+    box-shadow:0 15px 40px rgba(20,30,24,.12);
+
+    transition:transform .35s ease;
+}
+
+.facility-card:hover{
+    transform:translateY(-5px);
+}
+
+.facility-overlay{
+    width:100%;
+
+    padding:32px 28px;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.78),
+        rgba(0,0,0,.25),
+        transparent
+    );
+
+    color:white;
+}
+
+.facility-overlay h3{
+    font-family:Georgia,serif;
+    font-size:25px;
+    font-weight:400;
+    margin:0 0 12px;
+}
+
+.facility-overlay p{
+    margin:0;
+    font-size:14px;
+    line-height:1.7;
+    color:rgba(255,255,255,.92);
+}
+
+
+/* =========================================================
+   PACKAGES
+========================================================= */
+
+.packages-section{
+    background:white;
+}
+
+.packages-grid{
+    max-width:1350px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+
+    gap:18px;
+}
+
+.package-card{
+    background:white;
+    border:1px solid var(--border);
+    overflow:hidden;
+    transition:.4s;
+}
+
+.package-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow);
+}
+
+.package-image{
+    height:245px;
+    overflow:hidden;
+}
+
+.package-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.package-card:hover .package-image img{
+    transform:scale(1.06);
+}
+
+.package-content{
+    padding:28px 22px 25px;
+}
+
+.package-content h3{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.package-price{
+    color:var(--green);
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:16px;
+}
+
+.package-content ul{
+    padding-left:18px;
+    margin-bottom:22px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.package-content li{
+    margin-bottom:5px;
+}
+
+.package-note{
+    font-size:11px;
+    color:#8b806e;
+    margin-bottom:18px;
+}
+
+.package-actions{
+    display:flex;
+    gap:8px;
+}
+
+.small-btn{
+    flex:1;
+
+    padding:11px 8px;
+
+    text-align:center;
+
+    border:1px solid var(--dark);
+
+    background:white;
+    color:var(--dark);
+
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1px;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+.small-btn:hover{
+    background:var(--dark);
+    color:white;
+}
+
+.small-btn.whatsapp{
+    background:#344f3c;
+    border-color:#344f3c;
+    color:white;
+}
+
+
+/* =========================================================
+   ROOMS
+========================================================= */
+
+.rooms-section{
+    background:var(--cream);
+}
+
+.rooms-grid{
+    max-width:1350px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:24px;
+}
+
+.room-card{
+    background:white;
+    border:1px solid #e2ddd2;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.room-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow);
+}
+
+.room-image{
+    height:320px;
+    overflow:hidden;
+}
+
+.room-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.room-card:hover .room-image img{
+    transform:scale(1.05);
+}
+
+.room-content{
+    padding:28px;
+}
+
+.room-content h3{
+    font-family:Georgia,serif;
+    font-size:27px;
+    font-weight:400;
+    line-height:1.2;
+    margin-bottom:8px;
+}
+
+.room-view{
+    color:var(--gold);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    margin-bottom:18px;
+}
+
+.room-info{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:15px;
+
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+
+    padding:15px 0;
+    margin-bottom:20px;
+}
+
+.room-price{
+    font-size:21px;
+    font-weight:700;
+    color:var(--green-dark);
+}
+
+.room-capacity{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.room-actions{
+    display:flex;
+    gap:10px;
+}
+
+.room-actions button{
+    flex:1;
+}
+
+
+/* =========================================================
+   ROOM 7
+========================================================= */
+
+.room7-wrap{
+    max-width:1350px;
+    margin:24px auto 0;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:24px;
+}
+
+.room7-wrap .room-card{
+    grid-column:1;
+}
+
+.complimentary-card{
+    grid-column:2 / span 2;
+
+    background:var(--dark);
+    color:white;
+
+    padding:42px;
+}
+
+.complimentary-card h3{
+    font-family:Georgia,serif;
+    font-size:31px;
+    font-weight:400;
+    margin-bottom:22px;
+}
+
+.complimentary-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.complimentary-item{
+    border:1px solid rgba(255,255,255,.15);
+    padding:18px 12px;
+
+    text-align:center;
+
+    font-size:12px;
+    color:#e4e9e5;
+}
+
+
+/* =========================================================
+   AMENITIES
+========================================================= */
+
+.amenities-section{
+    background:var(--light);
+}
+
+.amenities-grid{
+    max-width:1250px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:24px;
+}
+
+.amenities-column{
+    background:#fff;
+
+    padding:32px;
+
+    border:1px solid var(--border);
+
+    box-shadow:0 10px 30px rgba(20,30,24,.06);
+}
+
+.amenities-column h3{
+    font-family:Georgia,serif;
+
+    font-weight:400;
+
+    font-size:24px;
+
+    margin-bottom:18px;
+
+    color:var(--dark);
+}
+
+.amenity-item{
+    border-top:1px solid var(--border);
+
+    padding:13px 0;
+
+    color:#59615b;
+
+    font-size:14px;
+
+    line-height:1.5;
+}
+
+.amenity-item::before{
+    content:"✓";
+
+    color:var(--gold);
+
+    font-weight:bold;
+
+    margin-right:10px;
+}
+
+
+/* =========================================================
+   BOOKING
+========================================================= */
+
+.booking-section{
+    background:var(--dark);
+    color:white;
+}
+
+.booking-section .section-head h2{
+    color:white;
+}
+
+.booking-section .section-head p{
+    color:#bdc6bf;
+}
+
+.booking-form{
+    max-width:950px;
+    margin:auto;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    display:block;
+
+    margin-bottom:7px;
+
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+
+    color:#c8d0ca;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+
+    border:1px solid rgba(255,255,255,.18);
+
+    background:rgba(255,255,255,.06);
+
+    color:white;
+
+    padding:14px 15px;
+
+    outline:none;
+
+    font-size:14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#b59663;
+}
+
+.form-group select option{
+    color:#222;
+}
+
+.form-group textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.room-details{
+    margin-top:10px;
+    margin-bottom:25px;
+}
+
+.room-detail-box{
+    border:1px solid rgba(255,255,255,.16);
+    padding:20px;
+    margin-bottom:15px;
+}
+
+.room-detail-box h4{
+    font-family:Georgia,serif;
+    font-size:20px;
+    font-weight:400;
+    margin-bottom:15px;
+}
+
+.booking-submit{
+    width:100%;
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:17px;
+
+    background:white;
+
+    color:var(--dark);
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    transition:.3s;
+}
+
+.booking-submit:hover{
+    background:var(--gold);
+    color:white;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section{
+    background:#202b24;
+    color:white;
+}
+
+.contact-grid{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:1px;
+
+    background:rgba(255,255,255,.12);
+}
+
+.contact-card{
+    background:#202b24;
+    padding:38px 28px;
+}
+
+.contact-card span{
+    display:block;
+
+    color:var(--gold);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+.contact-card h3{
+    font-family:Georgia,serif;
+    font-weight:400;
+    font-size:21px;
+    margin-bottom:10px;
+}
+
+.contact-card p,
+.contact-card a{
+    color:#cbd2cc;
+    font-size:13px;
+}
+
+.contact-card a:hover{
+    color:white;
+}
+
+
+/* =========================================================
+   TERMS
+========================================================= */
+
+.terms-section{
+    background:var(--cream);
+}
+
+.terms-box{
+    max-width:1000px;
+    margin:auto;
+}
+
+.terms-box ol{
+    padding-left:23px;
+}
+
+.terms-box li{
+    margin-bottom:14px;
+    color:#59615b;
+    font-size:14px;
+}
+
+.terms-box strong{
+    color:var(--dark);
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-section{
+    background:white;
+}
+
+.about-content{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.about-content h2{
+    font-family:Georgia,serif;
+    font-size:48px;
+    font-weight:400;
+    margin-bottom:25px;
+}
+
+.about-content p{
+    color:var(--muted);
+    margin-bottom:18px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#111812;
+    color:white;
+    padding:55px 7% 25px;
+}
+
+.footer-top{
+    max-width:1250px;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr;
+
+    gap:60px;
+
+    padding-bottom:45px;
+}
+
+.footer-brand img{
+    width:140px;
+    margin-bottom:20px;
+    filter:brightness(0) invert(1);
+}
+
+.footer-brand p{
+    max-width:420px;
+    color:#aeb7b0;
+    font-size:13px;
+}
+
+.footer-column h4{
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:var(--gold);
+
+    margin-bottom:18px;
+}
+
+.footer-column a{
+    display:block;
+
+    color:#b9c0bb;
+
+    font-size:13px;
+
+    margin-bottom:8px;
+}
+
+.footer-column a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    max-width:1250px;
+    margin:auto;
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+    padding-top:20px;
+
+    text-align:center;
+
+    color:#7f8981;
+
+    font-size:11px;
+}
+
+
+/* =========================================================
+   RESORT GALLERY
+========================================================= */
+
+.resort-gallery-section{
+    padding:90px 5%;
+    background:#ffffff;
+}
+
+.resort-gallery-header{
+    max-width:760px;
+    margin:0 auto 45px;
+    text-align:center;
+}
+
+.resort-gallery-label{
+    display:inline-block;
+
+    margin-bottom:12px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    letter-spacing:2.5px;
+
+    color:#8a6a32;
+}
+
+.resort-gallery-header h2{
+    margin:0 0 15px;
+
+    font-family:Georgia,serif;
+
+    font-size:38px;
+
+    line-height:1.2;
+
+    font-weight:400;
+
+    color:#222;
+}
+
+.resort-gallery-header p{
+    margin:0 auto;
+
+    max-width:680px;
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    color:#666;
+}
+
+.resort-gallery-grid{
+    max-width:1350px;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    grid-auto-rows:250px;
+
+    gap:18px;
+}
+
+.resort-gallery-item{
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:#eee;
+}
+
+.resort-gallery-large{
+    grid-column:span 2;
+    grid-row:span 2;
+}
+
+.resort-gallery-wide{
+    grid-column:span 2;
+}
+
+.resort-gallery-item img{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:
+        transform .6s ease,
+        filter .4s ease;
+}
+
+.resort-gallery-item::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.05) 65%
+    );
+
+    opacity:.8;
+
+    transition:.4s;
+}
+
+.resort-gallery-overlay{
+    position:absolute;
+
+    left:24px;
+    bottom:20px;
+
+    z-index:2;
+
+    color:#fff;
+
+    font-size:19px;
+
+    font-weight:800;
+
+    letter-spacing:.3px;
+
+    text-shadow:0 2px 8px rgba(0,0,0,.5);
+
+    transition:.3s;
+}
+
+.resort-gallery-item:hover img{
+    transform:scale(1.07);
+    filter:brightness(.9);
+}
+
+.resort-gallery-item:hover::after{
+    opacity:1;
+}
+
+.resort-gallery-item:hover .resort-gallery-overlay{
+    transform:translateY(-3px);
+}
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: #fff;
+    width: 95%;
+    max-width: 1100px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+}
+
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+.modal{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:10000;
+
+    background:rgba(0,0,0,.88);
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:25px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-content{
+    position:relative;
+
+    max-width:1100px;
+
+    width:100%;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:white;
+
+    padding:25px;
+}
+
+.modal-close{
+    position:absolute;
+
+    right:15px;
+    top:10px;
+
+    width:40px;
+    height:40px;
+
+    border:none;
+
+    background:var(--dark);
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    z-index:5;
+}
+
+.modal-close:hover{
+    background:var(--green);
+}
+
+.gallery-title{
+    font-family:Georgia,serif;
+
+    text-align:center;
+
+    font-size:30px;
+
+    font-weight:400;
+
+    margin:5px 0 8px;
+
+    padding-right:50px;
+}
+
+.gallery-subtitle{
+    text-align:center;
+
+    margin:0 0 25px;
+
+    color:#777;
+
+    font-size:15px;
+}
+
+.gallery-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+}
+
+.gallery-grid img{
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.03);
+    opacity:.9;
+}
+
+
+/* =========================================================
+   SINGLE IMAGE
+========================================================= */
+
+.single-image-modal{
+    padding:20px;
+    z-index:99999;
+}
+
+.single-image-wrapper{
+    position:relative;
+
+    width:95%;
+
+    max-width:1200px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+#singleImage{
+    max-width:95vw;
+
+    max-height:90vh;
+
+    width:auto;
+
+    height:auto;
+
+    object-fit:contain;
+
+    border-radius:10px;
+
+    box-shadow:0 20px 70px rgba(0,0,0,.5);
+}
+
+
+/* =========================================================
+   PACKAGE IMAGE MODAL
+========================================================= */
+
+.package-modal-image{
+    width:100%;
+    max-height:75vh;
+    object-fit:contain;
+}
+
+
+/* =========================================================
+   WHATSAPP FLOAT
+========================================================= */
+
+.whatsapp-float{
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    z-index:9998;
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    background:#25D366;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:27px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+
+    transition:.3s;
+}
+
+.whatsapp-float:hover{
+    transform:scale(1.08);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        gap:13px;
+    }
+
+    .packages-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .rooms-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .facilities-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .contact-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-top{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .resort-gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+        grid-auto-rows:220px;
+    }
+
+    .resort-gallery-large{
+        grid-column:span 2;
+        grid-row:span 2;
+    }
+
+    .resort-gallery-wide{
+        grid-column:span 2;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+    .navbar{
+        min-height:auto;
+
+        padding:15px 18px;
+
+        flex-direction:column;
+
+        gap:15px;
+    }
+
+    .nav-links{
+        width:100%;
+
+        overflow-x:auto;
+
+        justify-content:flex-start;
+
+        flex-wrap:nowrap;
+
+        padding-bottom:4px;
+    }
+
+    .nav-links a{
+        white-space:nowrap;
+
+        font-size:10px;
+    }
+
+    .hero{
+        min-height:calc(100vh - 120px);
+    }
+
+    .hero-content{
+        padding:35px 20px;
+    }
+
+    .hero-content h1{
+        font-size:48px;
+        letter-spacing:-1px;
+    }
+
+    .hero-content p:first-of-type{
+        font-size:22px;
+    }
+
+    .hero-content p:last-of-type{
+        font-size:14px;
+    }
+
+    .section{
+        padding:75px 18px;
+    }
+
+    .facilities-grid,
+    .packages-grid,
+    .rooms-grid,
+    .contact-grid,
+    .footer-top{
+        grid-template-columns:1fr;
+    }
+
+    .room7-wrap{
+        grid-template-columns:1fr;
+    }
+
+    .room7-wrap .room-card,
+    .complimentary-card{
+        grid-column:1;
+    }
+
+    .complimentary-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .amenities-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .gallery-grid img{
+        height:180px;
+    }
+
+    .room-image{
+        height:250px;
+    }
+
+    .room-content{
+        padding:20px;
+    }
+
+    .room-content h3{
+        font-size:23px;
+    }
+
+    .package-image{
+        height:230px;
+    }
+
+    .footer-top{
+        gap:35px;
+    }
+
+    .resort-gallery-section{
+        padding:70px 4%;
+    }
+
+    .resort-gallery-header h2{
+        font-size:32px;
+    }
+}
+
+
+@media(max-width:600px){
+
+    .resort-gallery-section{
+        padding:60px 18px;
+    }
+
+    .resort-gallery-header{
+        margin-bottom:30px;
+    }
+
+    .resort-gallery-label{
+        font-size:11px;
+        letter-spacing:2px;
+    }
+
+    .resort-gallery-header h2{
+        font-size:28px;
+    }
+
+    .resort-gallery-header p{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    .resort-gallery-grid{
+        grid-template-columns:1fr;
+
+        grid-auto-rows:230px;
+
+        gap:13px;
+    }
+
+    .resort-gallery-large,
+    .resort-gallery-wide{
+        grid-column:span 1;
+        grid-row:span 1;
+    }
+
+    .resort-gallery-overlay{
+        left:18px;
+        bottom:16px;
+        font-size:17px;
+    }
+}
+
+
+@media(max-width:480px){
+
+    .logo img{
+        width:125px;
+    }
+
+    .hero-content h1{
+        font-size:39px;
+    }
+
+    .hero-content p:first-of-type{
+        font-size:19px;
+    }
+
+    .hero-content p:last-of-type{
+        font-size:13px;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .section-head h2{
+        font-size:37px;
+    }
+
+    .complimentary-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid img{
+        height:230px;
+    }
+
+    .room-actions,
+    .package-actions{
+        flex-direction:column;
+    }
+
+    .whatsapp-float{
+        right:17px;
+        bottom:17px;
+
+        width:52px;
+        height:52px;
+    }
+
+    .gallery-title{
+        font-size:23px;
+    }
+
+    .gallery-subtitle{
+        font-size:13px;
+        padding:0 10px;
+    }
+
+}
+/* =======================================================
+   SINGLE IMAGE POPUP
+======================================================= */
+
+#singleImageModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#singleImageModal.active {
+    display: flex;
+}
+
+#singleImageModal #singleImage {
+    max-width: 95%;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+#singleImageModal .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    z-index: 10001;
+    font-size: 35px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+#packageImageModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.90);
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+#packageImageModal.active {
+    display: flex;
+}
+
+.package-image-popup {
+    position: relative;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 900px;
+    width: 95%;
+    text-align: center;
+}
+
+.package-image-popup h2 {
+    margin: 0 0 15px;
+    font-size: 24px;
+}
+
+#packageImage {
+    max-width: 100%;
+    max-height: 75vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.package-image-popup .modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 32px;
+    cursor: pointer;
+
+    z-index: 2;
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header>
+
+<div class="navbar">
+
+<a href="index.html" class="logo">
+
+<img src="images/logo.png"
+     alt="Rangauti Resort Logo">
+
+</a>
+
+
+<nav class="nav-links">
+
+<a href="#home">HOME</a>
+
+<a href="#facilities">FACILITIES</a>
+
+<a href="#explore">EXPLORE RANGAUTI</a>
+
+<a href="#packages">PACKAGES</a>
+
+<a href="#rooms">ROOMS & SUITES</a>
+
+<a href="#complimentary">COMPLIMENTARY</a>
+
+<a href="#booking" class="nav-book">BOOK NOW</a>
+
+<a href="#contact">CONTACT</a>
+
+<a href="#terms">TERMS</a>
+
+<a href="#about">ABOUT</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="eyebrow">
+MOULVIBAZAR • SYLHET
+</div>
+
+<h1>
+Welcome to<br>
+Rangauti Resort
+</h1>
+
+<p>
+Where Nature Meets Comfort
+</p>
+
+<p>
+Discover a peaceful retreat surrounded by natural beauty,
+comfortable accommodation, delightful dining and memorable experiences.
+</p>
+
+<a href="tel:+8801780203350" class="btn">BOOK YOUR STAY</a>
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     FACILITIES
+======================================================= -->
+
+<section class="section facilities-section" id="facilities">
+
+<div class="section-head">
+
+<div class="eyebrow">
+THE EXPERIENCE
+</div>
+
+<h2>
+Everything You Need<br>
+for a Memorable Stay
+</h2>
+
+<p>
+Relax, explore and enjoy the natural surroundings of Rangauti Resort
+with thoughtfully arranged facilities and experiences.
+</p>
+
+</div>
+
+
+<div class="facilities-grid">
+
+
+<!-- SWIMMING POOL -->
+
+<div class="facility-card"
+style="background-image:url('images/facilities/swimming-pool.png');">
+
+<div class="facility-overlay">
+
+<h3>
+🏊 Swimming Pool
+</h3>
+
+<p>
+Enjoy refreshing moments in our swimming pool
+surrounded by a peaceful resort environment.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- RESTAURANT -->
+
+<div class="facility-card"
+style="background-image:url('images/facilities/restaurant.jpeg');">
+
+<div class="facility-overlay">
+
+<h3>
+🍽️ Restaurant
+</h3>
+
+<p>
+Delicious meals and refreshing beverages prepared
+for a comfortable dining experience.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- BOAT RIDE -->
+
+<div class="facility-card"
+style="background-image:url('images/facilities/boat-ride.png');">
+
+<div class="facility-overlay">
+
+<h3>
+🚤 Boat Ride
+</h3>
+
+<p>
+Experience a relaxing Celo Engine Boat Ride and
+discover the surrounding natural beauty.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- NATURAL ENVIRONMENT -->
+
+<div class="facility-card"
+style="background-image:url('images/facilities/natural-environment.jpeg');">
+
+<div class="facility-overlay">
+
+<h3>
+🌿 Natural Environment
+</h3>
+
+<p>
+A peaceful atmosphere where you can slow down
+and enjoy nature.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- FAMILY FRIENDLY -->
+
+<div class="facility-card"
+style="background-image:url('images/facilities/family-friendly.jpeg');">
+
+<div class="facility-overlay">
+
+<h3>
+👨‍👩‍👧 Family Friendly
+</h3>
+
+<p>
+Comfortable spaces and experiences suitable
+for families and groups.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- COMFORTABLE STAY -->
+
+<div class="facility-card"
+style="background-image:url('images/facilities/comfortable-stay.jpeg');">
+
+<div class="facility-overlay">
+
+<h3>
+🛏️ Comfortable Stay
+</h3>
+
+<p>
+Well-appointed rooms and suites designed
+for a relaxing resort stay.
+</p>
+
+</div>
+
+
+<!-- =======================================================
+     EXPLORE RANGAUTI
+======================================================= -->
+<section class="section" id="explore"></section>
+
+</section>
+
+
+
+<!-- =======================================================
+     RESORT GALLERY
+======================================================= -->
+
+<section class="resort-gallery-section" id="resort-gallery">
+
+
+<div class="resort-gallery-header">
+
+<span class="resort-gallery-label">
+EXPLORE RANGAUTI
+</span>
+
+<h2>
+Discover Rangauti Resort
+</h2>
+
+<p>
+Explore the natural beauty, peaceful surroundings,
+refreshing pool, scenic views and memorable experiences
+at Rangauti Resort.
+</p>
+
+</div>
+
+
+<div class="resort-gallery-grid">
+
+
+<!-- ===================================================
+     RESORT VIEW
+=================================================== -->
+
+<div class="resort-gallery-item resort-gallery-large"
+     onclick="openGallery('resortViewGallery')">
+
+<img src="images/resort-gallery/resort-view/cover.jpeg"
+     alt="Rangauti Resort View">
+
+<div class="resort-gallery-overlay">
+Resort View
+</div>
+
+</div>
+
+
+<!-- ===================================================
+     LAKE VIEW
+=================================================== -->
+
+<div class="resort-gallery-item"
+     onclick="openGallery('lakeViewGallery')">
+
+    <img src="images/resort-gallery/lake-view/cover.png"
+         alt="Rangauti Resort Lake View">
+
+    <div class="resort-gallery-overlay">
+        Lake View
+    </div>
+
+</div>
+<!-- ===================================================
+     SWIMMING POOL VIEW
+=================================================== -->
+
+<div class="resort-gallery-item"
+     onclick="openGallery('swimmingPoolViewGallery')">
+
+    <img src="images/resort-gallery/swimming-pool-view/cover.jpeg"
+         alt="Rangauti Resort Swimming Pool View">
+
+    <div class="resort-gallery-overlay">
+        <span>Swimming Pool View</span>
+    </div>
+
+</div>
+
+<!-- ===================================================
+     NATURAL ENVIRONMENT
+=================================================== -->
+
+<div class="resort-gallery-item"
+     onclick="openGallery('naturalEnvironmentGallery')">
+
+    <img src="images/resort-gallery/natural-environment/cover.jpeg"
+         alt="Rangauti Resort Natural Environment">
+
+    <div class="resort-gallery-overlay">
+        <span>Natural Environment</span>
+    </div>
+
+</div>
+<!-- ===================================================
+     BOAT RIDE
+=================================================== -->
+
+<div class="resort-gallery-item"
+     onclick="openGallery('boatRideGallery')">
+
+    <img src="images/resort-gallery/boat-ride/cover.jpeg"
+         alt="Rangauti Resort Boat Ride">
+
+    <div class="resort-gallery-overlay">
+        <span>Boat Ride</span>
+    </div>
+
+</div>
+
+<!-- ===================================================
+     PEACEFUL MOMENTS
+=================================================== -->
+<div class="resort-gallery-item"
+     onclick="openGallery('peacefulMomentsGallery')">
+
+    <img src="images/resort-gallery/peaceful-moments/cover.jpeg"
+         alt="Rangauti Resort Peaceful Moments">
+
+    <div class="resort-gallery-overlay">
+        <span>Peaceful Moments</span>
+    </div>
+
+
+
+</section>
+
+
+<!-- =======================================================
+     RESORT IMAGE LIGHTBOX
+     FOR POOL / NATURE / BOAT / SUNSET
+======================================================= -->
+
+<div class="modal"
+     id="resortImageModal">
+
+<button class="modal-close"
+        onclick="closeResortImage()">
+×
+</button>
+
+<img id="resortFullImage"
+     src=""
+     alt="Rangauti Resort">
+
+</div>
+
+
+<!-- =======================================================
+     PACKAGES
+======================================================= -->
+
+<section class="section packages-section"
+         id="packages">
+
+
+<div class="section-head">
+
+<div class="eyebrow">
+VISITOR EXPERIENCES
+</div>
+
+<h2>
+Resort Packages
+</h2>
+
+<p>
+Choose an experience that suits your day — from a complete day-long
+escape to a refreshing swimming or beverage package.
+</p>
+
+</div>
+
+
+<div class="packages-grid">
+
+
+<!-- DAY LONG -->
+
+<div class="package-card">
+
+<div class="package-image">
+
+<img src="images/packages/day-long.jpeg"
+     alt="Day Long Package">
+
+</div>
+
+<div class="package-content">
+
+<h3>
+Day Long
+</h3>
+
+<div class="package-price">
+BDT 1,800 / Person
+</div>
+
+<ul>
+
+<li>Resort Entry</li>
+<li>1 Single Room (12 PM–6 PM)</li>
+<li>Set Lunch</li>
+<li>Swimming Pool</li>
+<li>Celo Engine Boat Ride</li>
+<li>Evening Tea / Coffee</li>
+
+</ul>
+
+<div class="package-note">
+Advance payment is required to confirm booking.
+</div>
+
+<div class="package-actions">
+
+<button class="small-btn"
+onclick="openPackageImage('images/packages/day-long.jpeg','Day Long Package')">
+VIEW
+</button>
+
+<a class="small-btn whatsapp"
+href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Day%20Long%20Package."
+target="_blank">
+BOOK NOW
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LUNCH -->
+
+<div class="package-card">
+
+<div class="package-image">
+
+<img src="images/packages/lunch.png"
+     alt="Lunch Package">
+
+</div>
+
+<div class="package-content">
+
+<h3>
+Lunch
+</h3>
+
+<div class="package-price">
+BDT 1,100 / Person
+</div>
+
+<ul>
+
+<li>Resort Entry</li>
+<li>Set Lunch</li>
+<li>12 PM–6 PM Visit</li>
+<li>Resort Environment</li>
+
+</ul>
+
+<div class="package-note">
+Advance payment is required to confirm booking.
+</div>
+
+<div class="package-actions">
+
+<button class="small-btn"
+onclick="openPackageImage('images/packages/lunch.png','Lunch Package')">
+VIEW
+</button>
+
+<a class="small-btn whatsapp"
+href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Lunch%20Package."
+target="_blank">
+BOOK NOW
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SNACKS -->
+
+<div class="package-card">
+
+<div class="package-image">
+
+<img src="images/packages/snacks.jpeg"
+     alt="Snacks Package">
+
+</div>
+
+<div class="package-content">
+
+<h3>
+Snacks
+</h3>
+
+<div class="package-price">
+BDT 700 / Person
+</div>
+
+<ul>
+
+<li>Resort Entry</li>
+<li>Snacks</li>
+<li>2 Hours Visit</li>
+<li>3 PM–6 PM</li>
+
+</ul>
+
+<div class="package-note">
+Payment can be made at the resort.
+</div>
+
+<div class="package-actions">
+
+<button class="small-btn"
+onclick="openPackageImage('images/packages/snacks.jpeg','Snacks Package')">
+VIEW
+</button>
+
+<a class="small-btn whatsapp"
+href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20know%20about%20the%20Snacks%20Package."
+target="_blank">
+BOOK NOW
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SWIMMING -->
+
+<div class="package-card">
+
+<div class="package-image">
+
+<img src="images/packages/swimming.jpeg"
+     alt="Swimming Package">
+
+</div>
+
+<div class="package-content">
+
+<h3>
+Swimming
+</h3>
+
+<div class="package-price">
+BDT 800 / Person
+</div>
+
+<ul>
+
+<li>Resort Entry</li>
+<li>Swimming Pool</li>
+<li>1 Hour Swimming</li>
+<li>Beverage</li>
+<li>12 PM–6 PM Visit</li>
+
+</ul>
+
+<div class="package-note">
+No advance payment required. Pay at resort.
+</div>
+
+<div class="package-actions">
+
+<button class="small-btn"
+onclick="openPackageImage('images/packages/swimming.jpeg','Swimming Package')">
+VIEW
+</button>
+
+<a class="small-btn whatsapp"
+href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20know%20about%20the%20Swimming%20Package."
+target="_blank">
+BOOK NOW
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- BEVERAGE -->
+
+<div class="package-card">
+
+<div class="package-image">
+
+<img src="images/packages/beverage.png"
+     alt="Beverage Package">
+
+</div>
+
+<div class="package-content">
+
+<h3>
+Beverage
+</h3>
+
+<div class="package-price">
+BDT 500 / Person
+</div>
+
+<ul>
+
+<li>Resort Entry</li>
+<li>Selected Beverages</li>
+<li>2 Hours Visit</li>
+<li>12 PM–6 PM</li>
+
+</ul>
+
+<div class="package-note">
+No advance payment required. Pay at resort.
+</div>
+
+<div class="package-actions">
+
+<button class="small-btn"
+onclick="openPackageImage('images/packages/beverage.png','Beverage Package')">
+VIEW
+</button>
+
+<a class="small-btn whatsapp"
+href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20know%20about%20the%20Beverage%20Package."
+target="_blank">
+BOOK NOW
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+<!-- =======================================================
+     PACKAGE IMAGE POPUP
+======================================================= -->
+
+<div class="modal" id="packageImageModal">
+
+    <div class="package-image-popup">
+
+        <button class="modal-close"
+                onclick="closePackageImage()">
+            ×
+        </button>
+
+        <h2 id="packageImageTitle">
+            Package
+        </h2>
+
+        <img id="packageImage"
+             src=""
+             alt="Package Image">
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     ROOMS
+======================================================= -->
+
+<section class="section rooms-section"
+         id="rooms">
+
+
+<div class="section-head">
+
+<div class="eyebrow">
+STAY WITH US
+</div>
+
+<h2>
+Rooms & Suites
+</h2>
+
+<p>
+Choose from comfortable rooms and suites designed to make your
+stay peaceful, private and memorable.
+</p>
+
+</div>
+
+
+<div class="rooms-grid">
+
+
+<!-- ROOM 1 -->
+
+<div class="room-card">
+
+<div class="room-image">
+
+<img src="rooms/super-family-lake.png"
+     alt="Super Family Deluxe Lake View">
+
+</div>
+
+<div class="room-content">
+
+<h3>
+Super Family Deluxe
+</h3>
+
+<div class="room-view">
+Lake View
+</div>
+
+<div class="room-info">
+
+<div class="room-price">
+BDT 8,400 / Night
+</div>
+
+<div class="room-capacity">
+Up to 4 Persons
+</div>
+
+</div>
+
+<div class="room-actions">
+
+<button class="small-btn"
+onclick="openGallery('superFamilyGallery')">
+VIEW
+</button>
+
+<button class="small-btn whatsapp"
+onclick="selectRoom('Super Family Deluxe')">
+BOOK NOW
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ROOM 2 -->
+
+<div class="room-card">
+
+<div class="room-image">
+
+<img src="rooms/family-lake.png"
+     alt="Family Deluxe Lake View">
+
+</div>
+
+<div class="room-content">
+
+<h3>
+Family Deluxe
+</h3>
+
+<div class="room-view">
+Lake View
+</div>
+
+<div class="room-info">
+
+<div class="room-price">
+BDT 7,200 / Night
+</div>
+
+<div class="room-capacity">
+Up to 3 Persons
+</div>
+
+</div>
+
+<div class="room-actions">
+
+<button class="small-btn"
+onclick="openGallery('familyDeluxeGallery')">
+VIEW
+</button>
+
+<button class="small-btn whatsapp"
+onclick="selectRoom('Family Deluxe')">
+BOOK NOW
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ROOM 3 -->
+
+<div class="room-card">
+
+<div class="room-image">
+
+<img src="rooms/super-deluxe-cottage.png"
+     alt="Super Deluxe Cottage">
+
+</div>
+
+<div class="room-content">
+
+<h3>
+Super Deluxe
+</h3>
+
+<div class="room-view">
+Cottage
+</div>
+
+<div class="room-info">
+
+<div class="room-price">
+BDT 7,200 / Night
+</div>
+
+<div class="room-capacity">
+Up to 2 Persons
+</div>
+
+</div>
+
+<div class="room-actions">
+
+<button class="small-btn"
+onclick="openGallery('cottageGallery')">
+VIEW
+</button>
+
+<button class="small-btn whatsapp"
+onclick="selectRoom('Super Deluxe - Cottage')">
+BOOK NOW
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ROOM 4 -->
+
+<div class="room-card">
+
+<div class="room-image">
+
+<img src="rooms/super-deluxe-pool.png"
+     alt="Super Deluxe Swimming Pool View">
+
+</div>
+
+<div class="room-content">
+
+<h3>
+Super Deluxe
+</h3>
+
+<div class="room-view">
+Swimming Pool View
+</div>
+
+<div class="room-info">
+
+<div class="room-price">
+BDT 7,200 / Night
+</div>
+
+<div class="room-capacity">
+Up to 2 Persons
+</div>
+
+</div>
+
+<div class="room-actions">
+
+<button class="small-btn"
+onclick="openGallery('swimmingPoolGallery')">
+VIEW
+</button>
+
+<button class="small-btn whatsapp"
+onclick="selectRoom('Super Deluxe - Swimming Pool View')">
+BOOK NOW
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ROOM 5 -->
+
+<div class="room-card">
+
+<div class="room-image">
+
+<img src="rooms/jolojuchona.png"
+     alt="Suite Jolojuchona">
+
+</div>
+
+<div class="room-content">
+
+<h3>
+Suite Jolojuchona
+</h3>
+
+<div class="room-view">
+Floating Honeymoon Suite
+</div>
+
+<div class="room-info">
+
+<div class="room-price">
+BDT 12,000 / Night
+</div>
+
+<div class="room-capacity">
+Up to 2 Persons
+</div>
+
+</div>
+
+<div class="room-actions">
+
+<button class="small-btn"
+onclick="openGallery('jolojuchonaGallery')">
+VIEW
+</button>
+
+<button class="small-btn whatsapp"
+onclick="selectRoom('Suite Jolojuchona')">
+BOOK NOW
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ROOM 6 -->
+
+<div class="room-card">
+
+<div class="room-image">
+
+<img src="rooms/special-family-pool.png"
+     alt="Special Family Deluxe Swimming Pool View">
+
+</div>
+
+<div class="room-content">
+
+<h3>
+Special Family Deluxe
+</h3>
+
+<div class="room-view">
+Swimming Pool View
+</div>
+
+<div class="room-info">
+
+<div class="room-price">
+BDT 8,400 / Night
+</div>
+
+<div class="room-capacity">
+Up to 3 Persons
+</div>
+
+</div>
+
+<div class="room-actions">
+
+<button class="small-btn"
+onclick="openGallery('specialFamilyGallery')">
+VIEW
+</button>
+
+<button class="small-btn whatsapp"
+onclick="selectRoom('Special Family Deluxe')">
+BOOK NOW
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- =======================================================
+     ROOM 7
+======================================================= -->
+
+<div class="room7-wrap">
+
+
+<div class="room-card">
+
+<div class="room-image">
+
+<img src="rooms/family-lake.png"
+     alt="Special Super Deluxe Lake View">
+
+</div>
+
+<div class="room-content">
+
+<h3>
+Special Super Deluxe
+</h3>
+
+<div class="room-view">
+Lake View
+</div>
+
+<div class="room-info">
+
+<div class="room-price">
+BDT 8,400 / Night
+</div>
+
+<div class="room-capacity">
+Up to 2 Persons
+</div>
+
+</div>
+
+<div class="room-actions">
+
+<button class="small-btn"
+onclick="openGallery('specialSuperGallery')">
+VIEW
+</button>
+
+<button class="small-btn whatsapp"
+onclick="selectRoom('Special Super Deluxe')">
+BOOK NOW
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =======================================================
+     AMENITIES
+======================================================= -->
+
+<section class="section amenities-section"
+         id="complimentary">
+
+
+<div class="section-head">
+
+<div class="eyebrow">
+COMFORT & EXPERIENCE
+</div>
+
+<h2>
+Complimentary Facilities & Room Amenities
+</h2>
+
+<p>
+Enjoy thoughtfully selected complimentary facilities
+and essential room amenities for a comfortable stay.
+</p>
+
+</div>
+
+
+<div class="amenities-grid">
+
+
+<!-- COLUMN 1 -->
+
+<div class="amenities-column">
+
+<h3>
+🎁 Complimentary Facilities
+</h3>
+
+<div class="amenity-item">
+Welcome Drinks
+</div>
+
+<div class="amenity-item">
+Breakfast Included
+</div>
+
+<div class="amenity-item">
+Swimming Pool Access
+</div>
+
+<div class="amenity-item">
+24/7 Room Service
+</div>
+
+<div class="amenity-item">
+Cycling & Pool Billiard
+</div>
+
+<div class="amenity-item">
+Kayaking Boat
+</div>
+
+<div class="amenity-item">
+Kids Playground
+</div>
+
+<div class="amenity-item">
+WiFi (In-house Guests)
+</div>
+
+</div>
+
+
+<!-- COLUMN 2 -->
+
+<div class="amenities-column">
+
+<h3>
+🛏️ Room Amenities
+</h3>
+
+<div class="amenity-item">
+Comfortable Bed
+</div>
+
+<div class="amenity-item">
+Wardrobe
+</div>
+
+<div class="amenity-item">
+Dressing Mirror
+</div>
+
+<div class="amenity-item">
+Mini Refrigerator
+</div>
+
+<div class="amenity-item">
+Electric Kettle
+</div>
+
+<div class="amenity-item">
+Complimentary Coffee Mini Pack
+</div>
+
+<div class="amenity-item">
+Power Backup
+</div>
+
+<div class="amenity-item">
+Daily Housekeeping
+</div>
+
+<div class="amenity-item">
+Common Veranda / Lake View
+</div>
+
+</div>
+
+
+<!-- COLUMN 3 -->
+
+<div class="amenities-column">
+
+<h3>
+🛏️ Room Amenities
+</h3>
+
+<div class="amenity-item">
+Towels
+</div>
+
+<div class="amenity-item">
+Air Conditioning
+</div>
+
+<div class="amenity-item">
+LED TV
+</div>
+
+<div class="amenity-item">
+Attached Bathroom
+</div>
+
+<div class="amenity-item">
+Hot & Cold Water
+</div>
+
+<div class="amenity-item">
+Shampoo
+</div>
+
+<div class="amenity-item">
+Soap
+</div>
+
+<div class="amenity-item">
+Toothbrush & Toothpaste
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     BOOKING
+======================================================= -->
+
+<section class="section booking-section"
+         id="booking">
+
+
+<div class="section-head">
+
+<div class="eyebrow">
+RESERVATIONS
+</div>
+
+<h2>
+Ready for Your Stay?
+</h2>
+
+<p>
+Send your booking request directly to Rangauti Resort through WhatsApp.
+Our team will check availability and contact you for confirmation.
+</p>
+
+</div>
+
+
+<form class="booking-form"
+      onsubmit="sendBookingToWhatsApp(event)">
+
+
+<div class="form-grid">
+
+
+<!-- GUEST NAME -->
+
+<div class="form-group">
+
+<label>
+Guest Name
+</label>
+
+<input
+type="text"
+id="guestName"
+placeholder="Enter your full name"
+required>
+
+</div>
+
+
+<!-- PHONE -->
+
+<div class="form-group">
+
+<label>
+Phone Number
+</label>
+
+<input
+type="tel"
+id="guestPhone"
+placeholder="Enter phone number"
+required>
+
+</div>
+
+
+<!-- ARRIVAL -->
+
+<div class="form-group">
+
+<label>
+Arrival Date
+</label>
+
+<input
+type="date"
+id="arrivalDate"
+required>
+
+</div>
+
+
+<!-- DEPARTURE -->
+
+<div class="form-group">
+
+<label>
+Departure Date
+</label>
+
+<input
+type="date"
+id="departureDate"
+required>
+
+</div>
+
+
+<!-- NUMBER OF ROOMS -->
+
+<div class="form-group">
+
+<label>
+Number of Rooms
+</label>
+
+<select
+id="numberOfRooms"
+onchange="createRoomDetails()">
+
+<option value="1">
+1 Room
+</option>
+
+<option value="2">
+2 Rooms
+</option>
+
+<option value="3">
+3 Rooms
+</option>
+
+<option value="4">
+4 Rooms
+</option>
+
+<option value="5">
+5 Rooms
+</option>
+
+<option value="6">
+6 Rooms
+</option>
+
+<option value="7">
+7 Rooms
+</option>
+
+<option value="8">
+8 Rooms
+</option>
+
+<option value="9">
+9 Rooms
+</option>
+
+<option value="10">
+10 Rooms
+</option>
+
+</select>
+
+</div>
+
+
+<!-- SPECIAL REQUEST -->
+
+<div class="form-group">
+
+<label>
+Special Request
+</label>
+
+<input
+type="text"
+id="specialRequest"
+placeholder="Any special request?">
+
+</div>
+
+
+<!-- ROOM DETAILS -->
+
+<div class="form-group full">
+
+<div id="roomDetails"
+     class="room-details">
+</div>
+
+</div>
+
+
+<!-- MESSAGE -->
+
+<div class="form-group full">
+
+<label>
+Message
+</label>
+
+<textarea
+id="bookingMessage"
+placeholder="Write any additional information here..."></textarea>
+
+</div>
+
+
+<!-- SUBMIT -->
+
+<div class="form-group full">
+
+<button
+type="submit"
+class="booking-submit">
+
+SEND BOOKING REQUEST VIA WHATSAPP
+
+</button>
+
+</div>
+
+
+</div>
+
+</form>
+
+</section>
+
+
+<!-- =======================================================
+     CONTACT
+======================================================= -->
+
+<section class="section contact-section"
+         id="contact">
+
+
+<div class="section-head">
+
+<div class="eyebrow">
+GET IN TOUCH
+</div>
+
+<h2>
+Contact Rangauti Resort
+</h2>
+
+<p>
+For room availability, packages and booking assistance,
+please contact our team.
+</p>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+<!-- PHONE 1 -->
+
+<div class="contact-card">
+
+<span>
+PHONE
+</span>
+
+<h3>
+01780-203350
+</h3>
+
+<p>
+
+<a href="tel:01780203350">
+Call Rangauti Resort
+</a>
+
+</p>
+
+</div>
+
+
+<!-- PHONE 2 -->
+
+<div class="contact-card">
+
+<span>
+PHONE
+</span>
+
+<h3>
+01334-921419
+</h3>
+
+<p>
+
+<a href="tel:01334921419">
+Call Rangauti Resort
+</a>
+
+</p>
+
+</div>
+
+
+<!-- EMAIL -->
+
+<div class="contact-card">
+
+<span>
+EMAIL
+</span>
+
+<h3>
+Email Us
+</h3>
+
+<p>
+
+<a href="mailto:info.rangautiresort@gmail.com">
+info.rangautiresort@gmail.com
+</a>
+
+</p>
+
+</div>
+
+
+<!-- LOCATION -->
+
+<div class="contact-card">
+
+<span>
+LOCATION
+</span>
+
+<h3>
+Visit Us
+</h3>
+
+<p>
+Near Monu Barrage,<br>
+Taltola, Kulaura Road,<br>
+Moulvibazar-3200, Sylhet
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     TERMS
+======================================================= -->
+
+<section class="section terms-section"
+         id="terms">
+
+
+<div class="section-head">
+
+<div class="eyebrow">
+IMPORTANT INFORMATION
+</div>
+
+<h2>
+Terms & Conditions
+</h2>
+
+</div>
+
+
+<div class="terms-box">
+
+<ol>
+
+<li>
+<strong>Resort Visiting Time:</strong>
+11:00 AM – 6:00 PM.
+</li>
+
+<li>
+<strong>Check-in:</strong>
+1:15 PM.
+<strong>Check-out:</strong>
+11:45 AM.
+</li>
+
+<li>
+<strong>Breakfast:</strong>
+8:30 AM – 10:30 AM.
+</li>
+
+<li>
+<strong>Lunch:</strong>
+1:30 PM – 3:30 PM.
+</li>
+
+<li>
+<strong>Dinner:</strong>
+8:30 PM – 10:30 PM.
+</li>
+
+<li>
+<strong>Outside Food:</strong>
+Outside food is not allowed inside the resort.
+</li>
+
+<li>
+<strong>Cancellation:</strong>
+Free cancellation is available up to 72 hours before the check-in time.
+</li>
+
+<li>
+<strong>Extra Person:</strong>
+BDT 1,500 per person.
+</li>
+
+<li>
+<strong>Child Policy:</strong>
+Children above 6 years are charged as adults.
+</li>
+
+<li>
+<strong>Couple Policy:</strong>
+Only married couples are allowed. Valid ID and marriage proof may be required.
+</li>
+
+<li>
+<strong>Room Booking:</strong>
+50% advance payment is required to confirm a room booking.
+</li>
+
+<li>
+<strong>Lunch Package:</strong>
+For 5 or more persons, 50% advance payment is required.
+For fewer than 5 persons, full payment is required.
+</li>
+
+<li>
+<strong>Day Long Package:</strong>
+Advance payment is required to confirm the booking.
+</li>
+
+<li>
+<strong>Beverage, Entry & Swimming Packages:</strong>
+No advance payment is required. Payment can be made at the resort.
+</li>
+
+<li>
+All bookings are subject to availability and prior confirmation.
+</li>
+
+</ol>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     ABOUT
+======================================================= -->
+
+<section class="section about-section"
+         id="about">
+
+
+<div class="about-content">
+
+<div class="eyebrow">
+ABOUT RANGAUTI
+</div>
+
+<h2>
+A Peaceful Escape<br>
+in Moulvibazar
+</h2>
+
+<p>
+Nestled near Manu Bridge, Taltola, Kulaura Road, Moulvibazar,
+Rangauti Resort offers a peaceful escape with comfortable rooms,
+a refreshing swimming pool, dining facilities, and enjoyable activities.
+</p>
+
+<p>
+Whether you’re visiting with family, friends, or loved ones,
+we’re here to make your stay comfortable, relaxing, and memorable.
+</p>
+
+<p>
+Experience Nature. Enjoy Comfort. Create Memories. 🌿
+</p>
+
+<p>
+Our resort features comfortable rooms and suites, swimming pool,
+restaurant and dining facilities, natural surroundings and enjoyable
+activities including Boat Ride.
+</p>
+
+<p>
+We also offer Day Long, Lunch and other visitor packages for families,
+groups and special occasions.
+</p>
+
+<p>
+Whether you are planning a relaxing stay, a family outing or a special
+celebration, Rangauti Resort welcomes you to enjoy nature, comfort
+and memorable moments.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+
+<div class="footer-top">
+
+
+<div class="footer-brand">
+
+<img src="images/logo.png"
+     alt="Rangauti Resort">
+
+<p>
+Experience nature, comfort and memorable moments at
+Rangauti Resort, Moulvibazar, Sylhet.
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Explore
+</h4>
+
+<a href="#home">
+Home
+</a>
+
+<a href="#facilities">
+Facilities
+</a>
+
+<a href="#packages">
+Packages
+</a>
+
+<a href="#rooms">
+Rooms & Suites
+</a>
+
+<a href="#booking">
+Booking
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Contact
+</h4>
+
+<a href="tel:01780203350">
+01780-203350
+</a>
+
+<a href="tel:01334921419">
+01334-921419
+</a>
+
+<a href="mailto:info.rangautiresort@gmail.com">
+Email
+</a>
+
+<a href="https://www.facebook.com/rangautiresort"
+target="_blank">
+Facebook
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 Rangauti Resort. All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<!-- =======================================================
+     WHATSAPP FLOAT
+======================================================= -->
+
+<a
+href="https://wa.me/8801780203350"
+target="_blank"
+class="whatsapp-float"
+aria-label="WhatsApp">
+
+☏
+
+</a>
+
+
+<!-- =======================================================
+     ROOM GALLERY MODALS
+======================================================= -->
+
+
+<!-- =======================================================
+     SUPER FAMILY GALLERY
+======================================================= -->
+
+<div class="modal"
+     id="superFamilyGallery">
+
+<div class="modal-content">
+
+<button class="modal-close"
+onclick="closeGallery('superFamilyGallery')">
+×
+</button>
+
+<h2 class="gallery-title">
+Super Family Deluxe — Gallery
+</h2>
+
+<div class="gallery-grid">
+
+<img
+src="rooms/gallery/super-family-deluxe/room1.jpeg"
+alt="Super Family Deluxe Room 1"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/gallery/super-family-deluxe/room2.jpeg"
+alt="Super Family Deluxe Room 2"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/gallery/super-family-deluxe/room3.jpeg"
+alt="Super Family Deluxe Room 3"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/gallery/super-family-deluxe/room4.jpeg"
+alt="Super Family Deluxe Room 4"
+onclick="openSingleImage(this.src)">
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     FAMILY DELUXE GALLERY
+======================================================= -->
+
+<div class="modal"
+     id="familyDeluxeGallery">
+
+<div class="modal-content">
+
+<button class="modal-close"
+onclick="closeGallery('familyDeluxeGallery')">
+×
+</button>
+
+<h2 class="gallery-title">
+Family Deluxe — Gallery
+</h2>
+
+<div class="gallery-grid">
+
+<img
+src="rooms/family-deluxe/room1.jpeg"
+alt="Family Deluxe Room 1"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/family-deluxe/room2.jpeg"
+alt="Family Deluxe Room 2"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/family-deluxe/room3.jpeg"
+alt="Family Deluxe Room 3"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/family-deluxe/room4.jpeg"
+alt="Family Deluxe Room 4"
+onclick="openSingleImage(this.src)">
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     COTTAGE GALLERY
+======================================================= -->
+
+<div class="modal"
+     id="cottageGallery">
+
+<div class="modal-content">
+
+<button class="modal-close"
+onclick="closeGallery('cottageGallery')">
+×
+</button>
+
+<h2 class="gallery-title">
+Super Deluxe Cottage — Gallery
+</h2>
+
+<div class="gallery-grid">
+
+<img
+src="rooms/super-deluxe-cottage-1.jpeg"
+alt="Super Deluxe Cottage 1"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/super-deluxe-cottage-2.jpeg"
+alt="Super Deluxe Cottage 2"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/super-deluxe-cottage-3.jpeg"
+alt="Super Deluxe Cottage 3"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/super-deluxe-cottage-4.jpeg"
+alt="Super Deluxe Cottage 4"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/super-deluxe-cottage-5.png"
+alt="Super Deluxe Cottage 5"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/super-deluxe-cottage-6.png"
+alt="Super Deluxe Cottage 6"
+onclick="openSingleImage(this.src)">
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     SWIMMING POOL ROOM GALLERY
+======================================================= -->
+
+<div class="modal"
+     id="swimmingPoolGallery">
+
+<div class="modal-content">
+
+<button class="modal-close"
+onclick="closeGallery('swimmingPoolGallery')">
+×
+</button>
+
+<h2 class="gallery-title">
+Super Deluxe Swimming Pool View — Gallery
+</h2>
+
+<div class="gallery-grid">
+
+<img
+src="rooms/gallery/swimming-pool/room1.jpeg"
+alt="Swimming Pool View Room 1"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/gallery/swimming-pool/room2.jpeg"
+alt="Swimming Pool View Room 2"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/gallery/swimming-pool/room3.jpeg"
+alt="Swimming Pool View Room 3"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/gallery/swimming-pool/room4.jpeg"
+alt="Swimming Pool View Room 4"
+onclick="openSingleImage(this.src)">
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     SPECIAL FAMILY DELUXE
+======================================================= -->
+
+<div class="modal"
+     id="specialFamilyGallery">
+
+<div class="modal-content">
+
+<button class="modal-close"
+onclick="closeGallery('specialFamilyGallery')">
+×
+</button>
+
+<h2 class="gallery-title">
+Special Family Deluxe — Gallery
+</h2>
+
+<div class="gallery-grid">
+
+<img
+src="rooms/special-family-deluxe/room1.jpeg"
+alt="Special Family Deluxe Room 1"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/special-family-deluxe/room2.jpeg"
+alt="Special Family Deluxe Room 2"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/special-family-deluxe/room3.jpeg"
+alt="Special Family Deluxe Room 3"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/special-family-deluxe/room4.jpeg"
+alt="Special Family Deluxe Room 4"
+onclick="openSingleImage(this.src)">
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     SPECIAL SUPER DELUXE
+======================================================= -->
+
+<div class="modal"
+     id="specialSuperGallery">
+
+<div class="modal-content">
+
+<button class="modal-close"
+onclick="closeGallery('specialSuperGallery')">
+×
+</button>
+
+<h2 class="gallery-title">
+Special Super Deluxe — Gallery
+</h2>
+
+<div class="gallery-grid">
+
+<img
+src="rooms/special-super-deluxe-1.jpeg"
+alt="Special Super Deluxe 1"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/special-super-deluxe-2.jpeg"
+alt="Special Super Deluxe 2"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/special-super-deluxe-3.jpeg"
+alt="Special Super Deluxe 3"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/special-super-deluxe-4.jpeg"
+alt="Special Super Deluxe 4"
+onclick="openSingleImage(this.src)">
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     JOLOJUCHONA
+======================================================= -->
+
+<div class="modal"
+     id="jolojuchonaGallery">
+
+<div class="modal-content">
+
+<button class="modal-close"
+onclick="closeGallery('jolojuchonaGallery')">
+×
+</button>
+
+<h2 class="gallery-title">
+Suite Jolojuchona — Floating Honeymoon Gallery
+</h2>
+
+<div class="gallery-grid">
+
+<img
+src="rooms/gallery/suite-jolojuchona/room1.jpeg"
+alt="Suite Jolojuchona Room 1"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/gallery/suite-jolojuchona/room2.jpeg"
+alt="Suite Jolojuchona Room 2"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/gallery/suite-jolojuchona/room3.jpeg"
+alt="Suite Jolojuchona Room 3"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/gallery/suite-jolojuchona/room4.jpeg"
+alt="Suite Jolojuchona Room 4"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/gallery/suite-jolojuchona/room5.jpeg"
+alt="Suite Jolojuchona Room 5"
+onclick="openSingleImage(this.src)">
+
+<img
+src="rooms/gallery/suite-jolojuchona/Room6.png"
+alt="Suite Jolojuchona Room 6"
+onclick="openSingleImage(this.src)">
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     RESORT VIEW GALLERY
+======================================================= -->
+
+<div class="modal"
+     id="resortViewGallery">
+
+<div class="modal-content">
+
+<button class="modal-close"
+onclick="closeGallery('resortViewGallery')">
+×
+</button>
+
+<h2 class="gallery-title">
+Rangauti Resort View
+</h2>
+
+<p class="gallery-subtitle">
+Explore the beauty and peaceful surroundings of Rangauti Resort
+</p>
+
+<div class="gallery-grid">
+
+<img
+src="images/resort-gallery/resort-view/01.jpeg"
+alt="Rangauti Resort View 01"
+onclick="openSingleImage(this.src)">
+
+<img
+src="images/resort-gallery/resort-view/02.jpeg"
+alt="Rangauti Resort View 02"
+onclick="openSingleImage(this.src)">
+
+<img
+src="images/resort-gallery/resort-view/03.png"
+alt="Rangauti Resort View 03"
+onclick="openSingleImage(this.src)">
+
+<img
+src="images/resort-gallery/resort-view/04.jpeg"
+alt="Rangauti Resort View 04"
+onclick="openSingleImage(this.src)">
+
+<img
+src="images/resort-gallery/resort-view/05.png"
+alt="Rangauti Resort View 05"
+onclick="openSingleImage(this.src)">
+
+<img
+src="images/resort-gallery/resort-view/06.png"
+alt="Rangauti Resort View 06"
+onclick="openSingleImage(this.src)">
+
+<img
+src="images/resort-gallery/resort-view/07.png"
+alt="Rangauti Resort View 07"
+onclick="openSingleImage(this.src)">
+
+<img
+src="images/resort-gallery/resort-view/08.png"
+alt="Rangauti Resort View 08"
+onclick="openSingleImage(this.src)">
+
+<img
+src="images/resort-gallery/resort-view/09.png"
+alt="Rangauti Resort View 09"
+onclick="openSingleImage(this.src)">
+
+<img
+src="images/resort-gallery/resort-view/10.png"
+alt="Rangauti Resort View 10"
+onclick="openSingleImage(this.src)">
+
+<img
+src="images/resort-gallery/resort-view/11.png"
+alt="Rangauti Resort View 11"
+onclick="openSingleImage(this.src)">
+
+<img
+src="images/resort-gallery/resort-view/12.png"
+alt="Rangauti Resort View 12"
+onclick="openSingleImage(this.src)">
+
+<img
+src="images/resort-gallery/resort-view/13.jpeg"
+alt="Rangauti Resort View 13"
+onclick="openSingleImage(this.src)">
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ===================================================
+     LAKE VIEW GALLERY
+=================================================== -->
+
+<div class="modal" id="lakeViewGallery">
+
+    <div class="modal-content">
+
+        <button class="modal-close"
+                onclick="closeGallery('lakeViewGallery')">
+            ×
+        </button>
+
+        <h2 class="gallery-title">
+            Rangauti Resort Lake View
+        </h2>
+
+        <p class="gallery-subtitle">
+            Enjoy the beautiful lake view and peaceful surroundings of Rangauti Resort
+        </p>
+
+        <div class="gallery-grid">
+
+            <img src="images/resort-gallery/lake-view/01.jpeg"
+                 alt="Lake View 01"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/lake-view/02.jpeg"
+                 alt="Lake View 02"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/lake-view/03.png"
+                 alt="Lake View 03"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/lake-view/04.png"
+                 alt="Lake View 04"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/lake-view/05.jpeg"
+                 alt="Lake View 05"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/lake-view/06.jpeg"
+                 alt="Lake View 06"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/lake-view/07.jpeg"
+                 alt="Lake View 07"
+                 onclick="openSingleImage(this.src)">
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ===================================================
+     SWIMMING POOL VIEW GALLERY
+=================================================== -->
+
+<div class="modal" id="swimmingPoolViewGallery">
+
+    <div class="modal-content">
+
+        <button class="modal-close"
+                onclick="closeGallery('swimmingPoolViewGallery')">
+            ×
+        </button>
+
+        <h2 class="gallery-title">
+            Rangauti Resort Swimming Pool View
+        </h2>
+
+        <p class="gallery-subtitle">
+            Enjoy the refreshing swimming pool and beautiful surroundings of Rangauti Resort
+        </p>
+
+        <div class="gallery-grid">
+
+            <img src="images/resort-gallery/swimming-pool-view/swimming1.jpeg"
+                 alt="Swimming Pool View 01"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/swimming-pool-view/swimming2.jpeg"
+                 alt="Swimming Pool View 02"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/swimming-pool-view/swimming3.jpeg"
+                 alt="Swimming Pool View 03"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/swimming-pool-view/swimming4.jpeg"
+                 alt="Swimming Pool View 04"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/swimming-pool-view/swimming5.jpeg"
+                 alt="Swimming Pool View 05"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/swimming-pool-view/swimming6.jpeg"
+                 alt="Swimming Pool View 06"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/swimming-pool-view/swimming7.jpeg"
+                 alt="Swimming Pool View 07"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/swimming-pool-view/swimming8.jpeg"
+                 alt="Swimming Pool View 08"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/swimming-pool-view/swimming9.jpeg"
+                 alt="Swimming Pool View 09"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/swimming-pool-view/swimming10.jpeg"
+                 alt="Swimming Pool View 10"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/swimming-pool-view/swimming11.jpeg"
+                 alt="Swimming Pool View 11"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/swimming-pool-view/swimming12.jpeg"
+                 alt="Swimming Pool View 12"
+                 onclick="openSingleImage(this.src)">
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ===================================================
+     PEACEFUL MOMENTS GALLERY
+=================================================== -->
+
+<div class="modal" id="peacefulMomentsGallery">
+
+    <div class="modal-content">
+
+        <button class="modal-close"
+                onclick="closeGallery('peacefulMomentsGallery')">
+            ×
+        </button>
+
+        <h2 class="gallery-title">
+            Rangauti Resort – Peaceful Moments
+        </h2>
+
+        <p class="gallery-subtitle">
+            Relax, reconnect and enjoy peaceful moments surrounded by nature
+        </p>
+
+        <div class="gallery-grid">
+
+            <img src="images/resort-gallery/peaceful-moments/moment1.jpeg"
+                 alt="Peaceful Moments 01"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment2.jpeg"
+                 alt="Peaceful Moments 02"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment3.jpeg"
+                 alt="Peaceful Moments 03"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment4.jpeg"
+                 alt="Peaceful Moments 04"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment5.jpeg"
+                 alt="Peaceful Moments 05"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment6.jpeg"
+                 alt="Peaceful Moments 06"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment7.jpeg"
+                 alt="Peaceful Moments 07"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment8.jpeg"
+                 alt="Peaceful Moments 08"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment9.jpeg"
+                 alt="Peaceful Moments 09"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment10.jpeg"
+                 alt="Peaceful Moments 10"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment11.jpeg"
+                 alt="Peaceful Moments 11"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment12.jpeg"
+                 alt="Peaceful Moments 12"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment13.jpeg"
+                 alt="Peaceful Moments 13"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment14.jpeg"
+                 alt="Peaceful Moments 14"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment15.jpeg"
+                 alt="Peaceful Moments 15"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/peaceful-moments/moment16.jpeg"
+                 alt="Peaceful Moments 16"
+                 onclick="openSingleImage(this.src)">
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ===================================================
+     BOAT RIDE GALLERY
+=================================================== -->
+<div class="modal" id="boatRideGallery">
+
+    <div class="modal-content">
+
+        <button class="modal-close"
+                onclick="closeGallery('boatRideGallery')">
+            ×
+        </button>
+
+        <h2 class="gallery-title">
+            Rangauti Resort – Boat Ride
+        </h2>
+
+        <p class="gallery-subtitle">
+            Enjoy a relaxing boat ride and beautiful natural surroundings at Rangauti Resort
+        </p>
+
+        <div class="gallery-grid">
+
+            <img src="images/resort-gallery/boat-ride/boat1.jpeg"
+                 alt="Rangauti Resort Boat Ride 01"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/boat-ride/boat2.jpeg"
+                 alt="Rangauti Resort Boat Ride 02"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/boat-ride/boat3.jpeg"
+                 alt="Rangauti Resort Boat Ride 03"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/boat-ride/boat4.jpeg"
+                 alt="Rangauti Resort Boat Ride 04"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/boat-ride/boat5.jpeg"
+                 alt="Rangauti Resort Boat Ride 05"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/boat-ride/boat6.jpeg"
+                 alt="Rangauti Resort Boat Ride 06"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/boat-ride/boat7.jpeg"
+                 alt="Rangauti Resort Boat Ride 07"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/boat-ride/boat8.jpeg"
+                 alt="Rangauti Resort Boat Ride 08"
+                 onclick="openSingleImage(this.src)">
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ===================================================
+     NATURAL ENVIRONMENT GALLERY
+=================================================== -->
+<div class="modal" id="naturalEnvironmentGallery">
+
+    <div class="modal-content">
+
+        <button class="modal-close"
+                onclick="closeGallery('naturalEnvironmentGallery')">
+            ×
+        </button>
+
+        <h2 class="gallery-title">
+            Rangauti Resort – Natural Environment
+        </h2>
+
+        <p class="gallery-subtitle">
+            Experience the peaceful natural beauty and refreshing surroundings of Rangauti Resort
+        </p>
+
+        <div class="gallery-grid">
+
+            <img src="images/resort-gallery/natural-environment/nature1.jpeg"
+                 alt="Rangauti Resort Natural Environment 01"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/natural-environment/nature2.jpeg"
+                 alt="Rangauti Resort Natural Environment 02"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/natural-environment/nature3.jpeg"
+                 alt="Rangauti Resort Natural Environment 03"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/natural-environment/nature4.jpeg"
+                 alt="Rangauti Resort Natural Environment 04"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/natural-environment/nature5.jpeg"
+                 alt="Rangauti Resort Natural Environment 05"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/natural-environment/nature6.jpeg"
+                 alt="Rangauti Resort Natural Environment 06"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/natural-environment/nature7.jpeg"
+                 alt="Rangauti Resort Natural Environment 07"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/natural-environment/nature8.jpeg"
+                 alt="Rangauti Resort Natural Environment 08"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/natural-environment/nature9.jpeg"
+                 alt="Rangauti Resort Natural Environment 09"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/natural-environment/nature10.jpeg"
+                 alt="Rangauti Resort Natural Environment 10"
+                 onclick="openSingleImage(this.src)">
+
+            <img src="images/resort-gallery/natural-environment/nature11.jpeg"
+                 alt="Rangauti Resort Natural Environment 11"
+                 onclick="openSingleImage(this.src)">
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =======================================================
+     SINGLE IMAGE POPUP
+======================================================= -->
+
+<div class="modal" id="singleImageModal">
+
+    <button class="modal-close"
+            onclick="closeSingleImage()">
+        ×
+    </button>
+
+    <img id="singleImage"
+         src=""
+         alt="Full Size Image">
+
+</div>
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
+
+<script>
+
+
+/* =========================================================
+   ROOM CAPACITY
+========================================================= */
+
+const roomCapacity = {
+
+    "Super Family Deluxe": 4,
+
+    "Family Deluxe": 3,
+
+    "Super Deluxe - Cottage": 2,
+
+    "Super Deluxe - Swimming Pool View": 2,
+
+    "Suite Jolojuchona": 2,
+
+    "Special Family Deluxe": 3,
+
+    "Special Super Deluxe": 2
+
+};
+
+
+/* =========================================================
+   CREATE ROOM DETAILS
+========================================================= */
+
+function createRoomDetails(){
+
+    const numberOfRooms =
+        parseInt(
+            document.getElementById("numberOfRooms").value
+        );
+
+    const container =
+        document.getElementById("roomDetails");
+
+    container.innerHTML = "";
+
+
+    for(let i = 1; i <= numberOfRooms; i++){
+
+        const box =
+            document.createElement("div");
+
+        box.className =
+            "room-detail-box";
+
+
+        box.innerHTML = `
+
+            <h4>
+                Room ${i}
+            </h4>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Room Type
+                    </label>
+
+                    <select
+                        class="room-type"
+                        data-room="${i}"
+                        onchange="updateAdultOptions(this)">
+
+                        <option value="">
+                            Select Room
+                        </option>
+
+                        <option value="Super Family Deluxe">
+                            Super Family Deluxe
+                        </option>
+
+                        <option value="Family Deluxe">
+                            Family Deluxe
+                        </option>
+
+                        <option value="Super Deluxe - Cottage">
+                            Super Deluxe - Cottage
+                        </option>
+
+                        <option value="Super Deluxe - Swimming Pool View">
+                            Super Deluxe - Swimming Pool View
+                        </option>
+
+                        <option value="Suite Jolojuchona">
+                            Suite Jolojuchona
+                        </option>
+
+                        <option value="Special Family Deluxe">
+                            Special Family Deluxe
+                        </option>
+
+                        <option value="Special Super Deluxe">
+                            Special Super Deluxe
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Adults
+                    </label>
+
+                    <select
+                        class="adult-count"
+                        data-room="${i}"
+                        onchange="updateChildLimit(this)">
+
+                        <option value="1">
+                            1 Adult
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Children
+                    </label>
+
+                    <select
+                        class="child-count"
+                        data-room="${i}"
+                        onchange="createChildAgeFields(this)">
+
+                        <option value="0">
+                            0 Child
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div
+                    class="form-group full child-age-container"
+                    data-room="${i}">
+                </div>
+
+            </div>
+
+        `;
+
+        container.appendChild(box);
+
+    }
+
+}
+
+
+/* =========================================================
+   SELECT ROOM FROM ROOM CARD
+========================================================= */
+
+function selectRoom(roomName){
+
+    const bookingSection =
+        document.getElementById("booking");
+
+    bookingSection.scrollIntoView({
+        behavior:"smooth"
+    });
+
+
+    const numberOfRooms =
+        document.getElementById("numberOfRooms");
+
+    numberOfRooms.value =
+        "1";
+
+    createRoomDetails();
+
+
+    setTimeout(() => {
+
+        const roomSelect =
+            document.querySelector(".room-type");
+
+        if(roomSelect){
+
+            roomSelect.value =
+                roomName;
+
+            updateAdultOptions(roomSelect);
+
+        }
+
+    },400);
+
+}
+
+
+/* =========================================================
+   UPDATE ADULT OPTIONS
+========================================================= */
+
+function updateAdultOptions(select){
+
+    const roomName =
+        select.value;
+
+    const roomNumber =
+        select.getAttribute("data-room");
+
+
+    const adultSelect =
+        document.querySelector(
+            `.adult-count[data-room="${roomNumber}"]`
+        );
+
+
+    const childSelect =
+        document.querySelector(
+            `.child-count[data-room="${roomNumber}"]`
+        );
+
+
+    adultSelect.innerHTML =
+        "";
+
+
+    childSelect.innerHTML = `
+        <option value="0">
+            0 Child
+        </option>
+
+        <option value="1">
+            1 Child
+        </option>
+
+        <option value="2">
+            2 Children
+        </option>
+    `;
+
+
+    if(!roomName){
+
+        adultSelect.innerHTML =
+        `<option value="1">1 Adult</option>`;
+
+        return;
+
+    }
+
+
+    const capacity =
+        roomCapacity[roomName] || 2;
+
+
+    for(let i = 1; i <= capacity; i++){
+
+        const option =
+            document.createElement("option");
+
+        option.value =
+            i;
+
+        option.textContent =
+            i + (i === 1 ? " Adult" : " Adults");
+
+        adultSelect.appendChild(option);
+
+    }
+
+}
+
+
+/* =========================================================
+   UPDATE CHILD LIMIT
+========================================================= */
+
+function updateChildLimit(select){
+
+    const roomNumber =
+        select.getAttribute("data-room");
+
+
+    const roomTypeSelect =
+        document.querySelector(
+            `.room-type[data-room="${roomNumber}"]`
+        );
+
+
+    const roomType =
+        roomTypeSelect
+        ? roomTypeSelect.value
+        : "";
+
+
+    const adultCount =
+        parseInt(select.value);
+
+
+    const childSelect =
+        document.querySelector(
+            `.child-count[data-room="${roomNumber}"]`
+        );
+
+
+    const capacity =
+        roomCapacity[roomType] || 2;
+
+
+    const remaining =
+        Math.max(0, capacity - adultCount);
+
+
+    childSelect.innerHTML =
+        `<option value="0">0 Child</option>`;
+
+
+    for(
+        let i = 1;
+        i <= Math.min(remaining,3);
+        i++
+    ){
+
+        const option =
+            document.createElement("option");
+
+        option.value =
+            i;
+
+        option.textContent =
+            i + (i === 1 ? " Child" : " Children");
+
+        childSelect.appendChild(option);
+
+    }
+
+
+    createChildAgeFields(childSelect);
+
+}
+
+
+/* =========================================================
+   CHILD AGE FIELDS
+========================================================= */
+
+function createChildAgeFields(select){
+
+    const roomNumber =
+        select.getAttribute("data-room");
+
+
+    const count =
+        parseInt(select.value);
+
+
+    const container =
+        document.querySelector(
+            `.child-age-container[data-room="${roomNumber}"]`
+        );
+
+
+    if(!container){
+        return;
+    }
+
+
+    container.innerHTML =
+        "";
+
+
+    if(count === 0){
+        return;
+    }
+
+
+    for(let i = 1; i <= count; i++){
+
+        const input =
+            document.createElement("input");
+
+        input.type =
+            "number";
+
+        input.min =
+            "1";
+
+        input.max =
+            "17";
+
+        input.placeholder =
+            `Child ${i} Age`;
+
+        input.className =
+            "child-age-input";
+
+
+        input.style.marginTop =
+            "8px";
+
+        input.style.width =
+            "100%";
+
+        input.style.padding =
+            "14px";
+
+        input.style.background =
+            "rgba(255,255,255,.06)";
+
+        input.style.color =
+            "white";
+
+        input.style.border =
+            "1px solid rgba(255,255,255,.18)";
+
+
+        container.appendChild(input);
+
+    }
+
+}
+
+
+/* =========================================================
+   WHATSAPP BOOKING
+========================================================= */
+
+function sendBookingToWhatsApp(event){
+
+    event.preventDefault();
+
+
+    const guestName =
+        document
+        .getElementById("guestName")
+        .value
+        .trim();
+
+
+    const guestPhone =
+        document
+        .getElementById("guestPhone")
+        .value
+        .trim();
+
+
+    const arrivalDate =
+        document
+        .getElementById("arrivalDate")
+        .value;
+
+
+    const departureDate =
+        document
+        .getElementById("departureDate")
+        .value;
+
+
+    const numberOfRooms =
+        document
+        .getElementById("numberOfRooms")
+        .value;
+
+
+    const specialRequest =
+        document
+        .getElementById("specialRequest")
+        .value
+        .trim();
+
+
+    const bookingMessage =
+        document
+        .getElementById("bookingMessage")
+        .value
+        .trim();
+
+
+    let message =
+`Hello Rangauti Resort,
+
+I would like to make a booking request.
+
+Guest Name: ${guestName}
+Phone: ${guestPhone}
+
+Arrival Date: ${arrivalDate}
+Departure Date: ${departureDate}
+
+Number of Rooms: ${numberOfRooms}
+`;
+
+
+    const roomSelects =
+        document.querySelectorAll(".room-type");
+
+
+    roomSelects.forEach((select,index)=>{
+
+        const roomNumber =
+            index + 1;
+
+
+        const roomType =
+            select.value ||
+            "Not Selected";
+
+
+        const adultSelect =
+            document.querySelector(
+                `.adult-count[data-room="${roomNumber}"]`
+            );
+
+
+        const childSelect =
+            document.querySelector(
+                `.child-count[data-room="${roomNumber}"]`
+            );
+
+
+        const adults =
+            adultSelect
+            ? adultSelect.value
+            : "1";
+
+
+        const children =
+            childSelect
+            ? childSelect.value
+            : "0";
+
+
+        message += `
+
+Room ${roomNumber}:
+Room Type: ${roomType}
+Adults: ${adults}
+Children: ${children}
+`;
+
+    });
+
+
+    if(specialRequest){
+
+        message += `
+
+Special Request:
+${specialRequest}
+`;
+
+    }
+
+
+    if(bookingMessage){
+
+        message += `
+
+Message:
+${bookingMessage}
+`;
+
+    }
+
+
+    message += `
+
+Please check availability and let me know the booking confirmation details.
+
+Thank you.
+Rangauti Resort`;
+
+
+    const whatsappURL =
+        "https://wa.me/8801780203350?text="
+        + encodeURIComponent(message);
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   MAIN GALLERY
+========================================================= */
+
+function openGallery(id){
+
+    const modal =
+        document.getElementById(id);
+
+
+    if(modal){
+
+        modal.classList.add("active");
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+}
+
+
+function closeGallery(id){
+
+    const modal =
+        document.getElementById(id);
+
+
+    if(modal){
+
+        modal.classList.remove("active");
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+}
+
+
+/* =========================================================
+   SINGLE IMAGE
+========================================================= */
+
+function openSingleImage(src){
+
+    const modal =
+        document.getElementById(
+            "singleImageModal"
+        );
+
+
+    const image =
+        document.getElementById(
+            "singleImage"
+        );
+
+
+    if(modal && image){
+
+        image.src =
+            src;
+
+        modal.classList.add(
+            "active"
+        );
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+}
+
+
+function closeSingleImage(){
+
+    const modal =
+        document.getElementById(
+            "singleImageModal"
+        );
+
+
+    if(modal){
+
+        modal.classList.remove(
+            "active"
+        );
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+}
+
+
+/* =========================================================
+   RESORT IMAGE LIGHTBOX
+   Pool / Nature / Boat / Sunset
+========================================================= */
+
+function openResortImage(src){
+
+    const modal =
+        document.getElementById(
+            "resortImageModal"
+        );
+
+
+    const image =
+        document.getElementById(
+            "resortFullImage"
+        );
+
+
+    if(modal && image){
+
+        image.src =
+            src;
+
+        modal.classList.add(
+            "active"
+        );
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+}
+
+
+function closeResortImage(){
+
+    const modal =
+        document.getElementById(
+            "resortImageModal"
+        );
+
+
+    if(modal){
+
+        modal.classList.remove(
+            "active"
+        );
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+}
+
+
+/* =========================================================
+   PACKAGE IMAGE
+========================================================= */
+
+function openPackageImage(src,title){
+
+    const image =
+        document.getElementById(
+            "packageImage"
+        );
+
+
+    const titleElement =
+        document.getElementById(
+            "packageImageTitle"
+        );
+
+
+    const modal =
+        document.getElementById(
+            "packageImageModal"
+        );
+
+
+    if(image){
+        image.src = src;
+    }
+
+
+    if(titleElement){
+        titleElement.textContent = title;
+    }
+
+
+    if(modal){
+
+        modal.classList.add(
+            "active"
+        );
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+}
+
+
+function closePackageImage(){
+
+    const modal =
+        document.getElementById(
+            "packageImageModal"
+        );
+
+
+    if(modal){
+
+        modal.classList.remove(
+            "active"
+        );
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL BY CLICKING OUTSIDE
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target.classList.contains(
+                "modal"
+            )
+        ){
+
+            event.target.classList.remove(
+                "active"
+            );
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            document
+                .querySelectorAll(
+                    ".modal.active"
+                )
+                .forEach(function(modal){
+
+                    modal.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIAL BOOKING ROOM
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        createRoomDetails();
+
+    }
+);
+
+
+function openGallery(id) {
+
+    const modal = document.getElementById(id);
+
+    if (!modal) {
+        console.log("Gallery not found:", id);
+        return;
+    }
+
+    modal.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeGallery(id) {
+
+    const modal = document.getElementById(id);
+
+    if (!modal) return;
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow = "";
+}
+
+
+function openSingleImage(src) {
+
+    const modal = document.getElementById("singleImageModal");
+    const image = document.getElementById("singleImage");
+
+    if (!modal || !image) return;
+
+    image.src = src;
+
+    modal.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeSingleImage() {
+
+    const modal = document.getElementById("singleImageModal");
+
+    if (modal) {
+        modal.classList.remove("active");
+    }
+
+    if (document.querySelector(".modal.active")) {
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "";
+    }
+}
+
+</script>
+
+
+
+</body>
+
+</html>

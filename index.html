@@ -1932,6 +1932,7 @@ footer{
 }
 
 
+
 /* NAV MENU HIDDEN BY DEFAULT */
 
 .nav-links {
@@ -2007,6 +2008,224 @@ footer{
         right: 10px;
         left: 10px;
         width: auto;
+    }
+
+}
+/* =========================================================
+   PAYMENT METHODS
+========================================================= */
+
+.payment-section {
+    padding: 80px 20px;
+    background: #f8faf9;
+    text-align: center;
+}
+
+.payment-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   PAYMENT HEADING
+========================= */
+
+.payment-heading {
+    margin-bottom: 45px;
+}
+
+.payment-icon {
+    display: inline-block;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.payment-heading h2 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #1f3d2b;
+}
+
+.payment-heading p {
+    margin-top: 12px;
+    font-size: 17px;
+    color: #666;
+}
+
+
+/* =========================
+   PAYMENT GRID
+========================= */
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+
+/* =========================
+   PAYMENT CARD
+========================= */
+
+.payment-card {
+    min-height: 155px;
+    padding: 25px 15px;
+
+    background: #ffffff;
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.payment-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.13);
+}
+
+
+/* =========================
+   PAYMENT LOGO
+========================= */
+
+.payment-logo {
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+}
+
+.payment-logo img {
+    max-width: 125px;
+    max-height: 58px;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* Bank Transfer logo */
+.bank-logo img {
+    max-width: 75px;
+}
+
+
+/* =========================
+   PAYMENT NAME
+========================= */
+
+.payment-card h3 {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #333;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .payment-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .payment-section {
+        padding: 60px 15px;
+    }
+
+    .payment-heading {
+        margin-bottom: 30px;
+    }
+
+    .payment-heading h2 {
+        font-size: 25px;
+    }
+
+    .payment-heading p {
+        font-size: 15px;
+    }
+
+    .payment-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .payment-card {
+        min-height: 135px;
+        padding: 18px 10px;
+        border-radius: 12px;
+    }
+
+    .payment-logo {
+        height: 55px;
+        margin-bottom: 10px;
+    }
+
+    .payment-logo img {
+        max-width: 100px;
+        max-height: 48px;
+    }
+
+    .payment-card h3 {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .payment-grid {
+        gap: 10px;
+    }
+
+    .payment-card {
+        min-height: 125px;
+    }
+
+    .payment-logo img {
+        max-width: 85px;
+    }
+
+    .payment-card h3 {
+        font-size: 13px;
     }
 
 }
@@ -3512,7 +3731,97 @@ SEND BOOKING REQUEST VIA WHATSAPP
 </form>
 
 </section>
+<!-- =========================================================
+     PAYMENT METHODS
+========================================================= -->
 
+<section class="payment-section" id="payment-methods">
+
+    <div class="payment-container">
+
+        <div class="payment-heading">
+            <span class="payment-icon">💳</span>
+            <h2>PAYMENT METHODS</h2>
+            <p>We Accept Payments Via:</p>
+        </div>
+
+
+        <div class="payment-grid">
+
+            <!-- bKash -->
+            <div class="payment-card">
+                <div class="payment-logo">
+                    <img src="images/payment/bkash.png"
+                         alt="bKash">
+                </div>
+                <h3>bKash</h3>
+            </div>
+
+
+            <!-- Nagad -->
+            <div class="payment-card">
+                <div class="payment-logo">
+                    <img src="images/payment/nagad.png"
+                         alt="Nagad">
+                </div>
+                <h3>Nagad</h3>
+            </div>
+
+
+            <!-- Bank Transfer -->
+            <div class="payment-card">
+                <div class="payment-logo bank-logo">
+                    <img src="images/payment/bank-transfer.png"
+                         alt="Bank Transfer">
+                </div>
+                <h3>Bank Transfer</h3>
+            </div>
+
+
+            <!-- Cash Payment -->
+            <div class="payment-card">
+                <div class="payment-logo">
+                    <img src="images/payment/cash.png"
+                         alt="Cash Payment">
+                </div>
+                <h3>Cash Payment</h3>
+            </div>
+
+
+            <!-- Visa -->
+            <div class="payment-card">
+                <div class="payment-logo">
+                    <img src="images/payment/visa.png"
+                         alt="Visa">
+                </div>
+                <h3>Visa</h3>
+            </div>
+
+
+            <!-- Mastercard -->
+            <div class="payment-card">
+                <div class="payment-logo">
+                    <img src="images/payment/mastercard.png"
+                         alt="Mastercard">
+                </div>
+                <h3>Mastercard</h3>
+            </div>
+
+
+            <!-- American Express -->
+            <div class="payment-card">
+                <div class="payment-logo">
+                    <img src="images/payment/american-express.png"
+                         alt="American Express">
+                </div>
+                <h3>American Express</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 <!-- =======================================================
      CONTACT

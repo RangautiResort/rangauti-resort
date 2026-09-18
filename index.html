@@ -1916,6 +1916,100 @@ footer{
 
     z-index: 2;
 }
+/* =======================================================
+   3 DOT MENU - DESKTOP + TABLET + MOBILE
+======================================================= */
+
+.menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--dark);
+    padding: 5px 10px;
+    line-height: 1;
+}
+
+
+/* NAV MENU HIDDEN BY DEFAULT */
+
+.nav-links {
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    width: 280px;
+
+    background: white;
+    padding: 12px;
+
+    flex-direction: column !important;
+    gap: 0 !important;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+
+    border-radius: 8px;
+    z-index: 9999;
+}
+
+
+/* WHEN 3 DOT CLICKED */
+
+.nav-links.active {
+    display: flex !important;
+}
+
+
+/* MENU ITEMS */
+
+.nav-links a {
+    width: 100%;
+    padding: 13px 12px;
+    text-align: left;
+    font-size: 13px;
+
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+
+.nav-links a:last-child {
+    border-bottom: none;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    position: relative;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        min-height: 65px;
+        padding: 10px 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo img {
+        width: 120px;
+    }
+
+    .nav-links {
+        top: 100%;
+        right: 10px;
+        left: 10px;
+        width: auto;
+    }
+
+}
 </style>
 
 </head>
@@ -1929,46 +2023,35 @@ footer{
 ======================================================= -->
 
 <header>
+    <div class="navbar">
 
-<div class="navbar">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Rangauti Resort Logo">
+        </a>
 
-<a href="index.html" class="logo">
+        <button class="menu-toggle"
+                onclick="toggleMenu()"
+                aria-label="Open Menu">
+            ☰
+        </button>
 
-<img src="images/logo.png"
-     alt="Rangauti Resort Logo">
+        <nav class="nav-links" id="navLinks">
 
-</a>
+            <a href="#home">HOME</a>
+            <a href="#facilities">FACILITIES</a>
+            <a href="#explore">EXPLORE RANGAUTI</a>
+            <a href="#packages">PACKAGES</a>
+            <a href="#rooms">ROOMS & SUITES</a>
+            <a href="#complimentary">COMPLIMENTARY</a>
+            <a href="#booking" class="nav-book">BOOK NOW</a>
+            <a href="#contact">CONTACT</a>
+            <a href="#terms">TERMS</a>
+            <a href="#about">ABOUT</a>
 
+        </nav>
 
-<nav class="nav-links">
-
-<a href="#home">HOME</a>
-
-<a href="#facilities">FACILITIES</a>
-
-<a href="#explore">EXPLORE RANGAUTI</a>
-
-<a href="#packages">PACKAGES</a>
-
-<a href="#rooms">ROOMS & SUITES</a>
-
-<a href="#complimentary">COMPLIMENTARY</a>
-
-<a href="#booking" class="nav-book">BOOK NOW</a>
-
-<a href="#contact">CONTACT</a>
-
-<a href="#terms">TERMS</a>
-
-<a href="#about">ABOUT</a>
-
-</nav>
-
-</div>
-
+    </div>
 </header>
-
-
 <!-- =======================================================
      HERO
 ======================================================= -->
@@ -5604,9 +5687,15 @@ function closeSingleImage() {
     }
 }
 
+
 </script>
 
-
+<script>
+function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("active");
+}
+</script>
 
 </body>
 

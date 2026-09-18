@@ -1438,241 +1438,390 @@ footer{
 
 
 /* =========================================================
-   MOBILE
+   MOBILE RESPONSIVE
 ========================================================= */
 
-@media(max-width:768px){
+@media (max-width: 768px) {
 
-    .navbar{
-        min-height:auto;
-
-        padding:15px 18px;
-
-        flex-direction:column;
-
-        gap:15px;
+    /* NAVBAR */
+    .navbar {
+        min-height: auto;
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 10px;
     }
 
-    .nav-links{
-        width:100%;
-
-        overflow-x:auto;
-
-        justify-content:flex-start;
-
-        flex-wrap:nowrap;
-
-        padding-bottom:4px;
+    .logo img {
+        width: 135px;
     }
 
-    .nav-links a{
-        white-space:nowrap;
-
-        font-size:10px;
+    .nav-links {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 18px;
+        padding: 4px 2px 8px;
+        scrollbar-width: none;
     }
 
-    .hero{
-        min-height:calc(100vh - 120px);
+    .nav-links::-webkit-scrollbar {
+        display: none;
     }
 
-    .hero-content{
-        padding:35px 20px;
+    .nav-links a {
+        white-space: nowrap;
+        font-size: 10px;
+        flex-shrink: 0;
     }
 
-    .hero-content h1{
-        font-size:48px;
-        letter-spacing:-1px;
+
+/* HERO */
+.hero {
+    min-height: 70vh;
+    height: 70vh;
+    padding: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    width: 100%;
+    padding: 30px 20px;
+    margin-left: 0;
+}
+    .hero-content h1 {
+        font-size: 42px;
+        line-height: 1.05;
+        letter-spacing: -1px;
     }
 
-    .hero-content p:first-of-type{
-        font-size:22px;
+    .hero-content p:first-of-type {
+        font-size: 20px;
+        line-height: 1.3;
     }
 
-    .hero-content p:last-of-type{
-        font-size:14px;
+    .hero-content p:last-of-type {
+        font-size: 13px;
+        line-height: 1.6;
     }
 
-    .section{
-        padding:75px 18px;
+
+    /* BUTTONS */
+    .btn {
+        min-height: 48px;
+        padding: 13px 20px;
+        font-size: 13px;
     }
 
-    .facilities-grid,
-    .packages-grid,
-    .rooms-grid,
-    .contact-grid,
-    .footer-top{
-        grid-template-columns:1fr;
+
+    /* SECTIONS */
+    .section {
+        padding: 60px 18px;
     }
 
-    .room7-wrap{
-        grid-template-columns:1fr;
+    .section-head h2 {
+        font-size: 34px;
+        line-height: 1.15;
+    }
+
+
+    /* FACILITIES */
+    .facilities-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+
+    /* PACKAGES */
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .package-image {
+        height: 220px;
+    }
+
+    .package-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+    /* ROOMS */
+    .rooms-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .room7-wrap {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .room7-wrap .room-card,
-    .complimentary-card{
-        grid-column:1;
+    .complimentary-card {
+        grid-column: 1;
     }
 
-    .complimentary-grid{
-        grid-template-columns:1fr 1fr;
+    .room-card {
+        width: 100%;
     }
 
-    .amenities-grid{
-        grid-template-columns:1fr;
+    .room-image {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
     }
 
-    .form-grid{
-        grid-template-columns:1fr;
+    .room-content {
+        padding: 18px;
     }
 
-    .form-group.full{
-        grid-column:auto;
+    .room-content h3 {
+        font-size: 21px;
+        line-height: 1.3;
     }
 
-    .gallery-grid{
-        grid-template-columns:1fr 1fr;
+    .room-actions {
+        flex-direction: column;
+        gap: 10px;
     }
 
-    .gallery-grid img{
-        height:180px;
+
+    /* COMPLIMENTARY */
+    .complimentary-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
     }
 
-    .room-image{
-        height:250px;
+
+    /* AMENITIES */
+    .amenities-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 
-    .room-content{
-        padding:20px;
+
+    /* BOOKING FORM */
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 
-    .room-content h3{
-        font-size:23px;
+    .form-group.full {
+        grid-column: auto;
     }
 
-    .package-image{
-        height:230px;
+
+    /* CONTACT */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    .footer-top{
-        gap:35px;
+
+    /* RESORT GALLERY */
+    .resort-gallery-section {
+        padding: 60px 18px;
     }
 
-    .resort-gallery-section{
-        padding:70px 4%;
+    .resort-gallery-header {
+        margin-bottom: 30px;
     }
 
-    .resort-gallery-header h2{
-        font-size:32px;
-    }
-}
-
-
-@media(max-width:600px){
-
-    .resort-gallery-section{
-        padding:60px 18px;
+    .resort-gallery-label {
+        font-size: 11px;
+        letter-spacing: 2px;
     }
 
-    .resort-gallery-header{
-        margin-bottom:30px;
+    .resort-gallery-header h2 {
+        font-size: 30px;
+        line-height: 1.2;
     }
 
-    .resort-gallery-label{
-        font-size:11px;
-        letter-spacing:2px;
+    .resort-gallery-header p {
+        font-size: 14px;
+        line-height: 1.7;
     }
 
-    .resort-gallery-header h2{
-        font-size:28px;
-    }
-
-    .resort-gallery-header p{
-        font-size:14px;
-        line-height:1.7;
-    }
-
-    .resort-gallery-grid{
-        grid-template-columns:1fr;
-
-        grid-auto-rows:230px;
-
-        gap:13px;
+    .resort-gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 220px;
+        gap: 14px;
     }
 
     .resort-gallery-large,
-    .resort-gallery-wide{
-        grid-column:span 1;
-        grid-row:span 1;
+    .resort-gallery-wide {
+        grid-column: span 1;
+        grid-row: span 1;
     }
 
-    .resort-gallery-overlay{
-        left:18px;
-        bottom:16px;
-        font-size:17px;
+    .resort-gallery-overlay {
+        left: 16px;
+        right: 16px;
+        bottom: 15px;
+        font-size: 16px;
+    }
+
+
+    /* GALLERY MODAL */
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .gallery-grid img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+    }
+
+    .gallery-title {
+        font-size: 24px;
+    }
+
+    .gallery-subtitle {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+
+    /* FOOTER */
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 }
 
 
-@media(max-width:480px){
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
-    .logo img{
-        width:125px;
+@media (max-width: 480px) {
+
+    .navbar {
+        padding: 10px 12px;
     }
 
-    .hero-content h1{
-        font-size:39px;
+    .logo img {
+        width: 120px;
     }
 
-    .hero-content p:first-of-type{
-        font-size:19px;
+    .nav-links {
+        gap: 15px;
     }
 
-    .hero-content p:last-of-type{
-        font-size:13px;
+    .nav-links a {
+        font-size: 9px;
     }
 
-    .btn{
-        width:100%;
+
+    /* HERO */
+    .hero-content {
+        padding: 25px 18px;
     }
 
-    .section-head h2{
-        font-size:37px;
+    .hero-content h1 {
+        font-size: 36px;
     }
 
-    .complimentary-grid{
-        grid-template-columns:1fr;
+    .hero-content p:first-of-type {
+        font-size: 18px;
     }
 
-    .gallery-grid{
-        grid-template-columns:1fr;
+    .hero-content p:last-of-type {
+        font-size: 12px;
     }
 
-    .gallery-grid img{
-        height:230px;
+
+    /* SECTIONS */
+    .section {
+        padding: 55px 15px;
+    }
+
+    .section-head h2 {
+        font-size: 30px;
+    }
+
+
+    /* ROOMS */
+    .room-image {
+        height: 210px;
+    }
+
+    .room-content {
+        padding: 16px;
+    }
+
+    .room-content h3 {
+        font-size: 20px;
+    }
+
+
+    /* COMPLIMENTARY */
+    .complimentary-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* GALLERY */
+    .resort-gallery-section {
+        padding: 55px 15px;
+    }
+
+    .resort-gallery-header h2 {
+        font-size: 27px;
+    }
+
+    .resort-gallery-grid {
+        grid-auto-rows: 210px;
+        gap: 12px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid img {
+        height: 220px;
+    }
+
+
+    /* BUTTONS */
+    .btn {
+        width: 100%;
     }
 
     .room-actions,
-    .package-actions{
-        flex-direction:column;
+    .package-actions {
+        flex-direction: column;
+        width: 100%;
     }
 
-    .whatsapp-float{
-        right:17px;
-        bottom:17px;
 
-        width:52px;
-        height:52px;
+    /* WHATSAPP */
+    .whatsapp-float {
+        right: 15px;
+        bottom: 15px;
+        width: 50px;
+        height: 50px;
     }
 
-    .gallery-title{
-        font-size:23px;
+
+    /* MODAL */
+    .gallery-title {
+        font-size: 21px;
     }
 
-    .gallery-subtitle{
-        font-size:13px;
-        padding:0 10px;
+    .gallery-subtitle {
+        font-size: 12px;
+        padding: 0 8px;
     }
-
 }
 /* =======================================================
    SINGLE IMAGE POPUP

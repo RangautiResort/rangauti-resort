@@ -2238,12 +2238,6 @@ for a relaxing resort stay.
 
 </div>
 
-
-<!-- =======================================================
-     EXPLORE RANGAUTI
-======================================================= -->
-<section class="section" id="explore"></section>
-
 </section>
 
 
@@ -2252,7 +2246,7 @@ for a relaxing resort stay.
      RESORT GALLERY
 ======================================================= -->
 
-<section class="resort-gallery-section" id="resort-gallery">
+<section class="resort-gallery-section" id="explore">
 
 
 <div class="resort-gallery-header">
@@ -5693,8 +5687,20 @@ function closeSingleImage() {
 <script>
 function toggleMenu() {
     const nav = document.getElementById("navLinks");
-    nav.classList.toggle("active");
+
+    if (nav.classList.contains("active")) {
+        nav.classList.remove("active");
+    } else {
+        nav.classList.add("active");
+    }
 }
+
+document.querySelectorAll("#navLinks a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        const nav = document.getElementById("navLinks");
+        nav.classList.remove("active");
+    });
+});
 </script>
 
 </body>

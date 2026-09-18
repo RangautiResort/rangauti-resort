@@ -2039,7 +2039,7 @@ footer{
 
             <a href="#home">HOME</a>
             <a href="#facilities">FACILITIES</a>
-            <a href="#explore">EXPLORE RANGAUTI</a>
+            <a href="#resort-gallery">EXPLORE RANGAUTI</a>
             <a href="#packages">PACKAGES</a>
             <a href="#rooms">ROOMS & SUITES</a>
             <a href="#complimentary">COMPLIMENTARY</a>
@@ -2360,13 +2360,14 @@ Resort View
          alt="Rangauti Resort Peaceful Moments">
 
     <div class="resort-gallery-overlay">
-        <span>Peaceful Moments</span>
-    </div>
+    <span>Peaceful Moments</span>
+</div>
 
+</div>
 
+</div>
 
 </section>
-
 
 <!-- =======================================================
      RESORT IMAGE LIGHTBOX
@@ -4730,50 +4731,142 @@ onclick="openSingleImage(this)">
      JAVASCRIPT
 ======================================================= -->
 
+
 <script>
+/* =========================================================
+   RANGAUTI RESORT
+   FINAL PRODUCTION-READY JAVASCRIPT
+========================================================= */
 
 
 /* =========================================================
    ROOM CAPACITY
 ========================================================= */
-
-const roomCapacity = {
-
+const
+ roomCapacity = {
     "Super Family Deluxe": 4,
-
     "Family Deluxe": 3,
-
     "Super Deluxe - Cottage": 2,
-
     "Super Deluxe - Swimming Pool View": 2,
-
     "Suite Jolojuchona": 2,
-
     "Special Family Deluxe": 3,
-
     "Special Super Deluxe": 2
 
 };
 
 
 /* =========================================================
-   CREATE ROOM DETAILS
+   GALLERY STATE
 ========================================================= */
 
-function createRoomDetails(){
+let currentGalleryImages = [];
+let currentImageIndex = 0;
 
-    const numberOfRooms =
-        parseInt(
-            document.getElementById("numberOfRooms").value
-        );
+let zoomLevel = 1;
+
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 2;
+
+/* =========================================================
+   MODAL HISTORY STATE
+========================================================= */
+
+const MODAL_HISTORY_KEY = "rangautiModal";
+
+let modalHistoryDepth = 0;
+
+
+/* =========================================================
+   COMMON HELPERS
+========================================================= */
+
+function updateBodyScroll() {
+
+    if (document.querySelector(".modal.active")) {
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "";
+    }
+
+}
+
+
+function getModal(id) {
+
+    return document.getElementById(id);
+
+}
+
+
+/* =========================================================
+   MODAL HISTORY
+========================================================= */
+
+function pushModalHistory(modalId) {
+
+    history.pushState(
+        {
+            [MODAL_HISTORY_KEY]: modalId
+        },
+        "",
+        window.location.href
+    );
+
+    modalHistoryDepth++;
+
+}
+
+
+function isCurrentModalHistory(modalId) {
+
+    return (
+        history.state &&
+        history.state[MODAL_HISTORY_KEY] === modalId
+    );
+
+}
+
+
+function removeModalFromHistory(modalId) {
+
+    if (
+        modalHistoryDepth > 0 &&
+        isCurrentModalHistory(modalId)
+    ) {
+
+        history.back();
+
+        return true;
+
+    }
+
+    return false;
+
+}
+
+
+/* =========================================================
+   ROOM BOOKING
+========================================================= */
+
+function createRoomDetails() {
+
+    const numberOfRoomsElement =
+        document.getElementById("numberOfRooms");
 
     const container =
         document.getElementById("roomDetails");
 
+    if (!numberOfRoomsElement || !container) {
+        return;
+    }
+
+    const numberOfRooms =
+        parseInt(numberOfRoomsElement.value, 10) || 1;
+
     container.innerHTML = "";
 
-
-    for(let i = 1; i <= numberOfRooms; i++){
+    for (let i = 1; i <= numberOfRooms; i++) {
 
         const box =
             document.createElement("div");
@@ -4781,25 +4874,21 @@ function createRoomDetails(){
         box.className =
             "room-detail-box";
 
-
         box.innerHTML = `
 
-            <h4>
-                Room ${i}
-            </h4>
+            <h4>Room ${i}</h4>
 
             <div class="form-grid">
 
                 <div class="form-group">
 
-                    <label>
-                        Room Type
-                    </label>
+                    <label>Room Type</label>
 
                     <select
                         class="room-type"
                         data-room="${i}"
-                        onchange="updateAdultOptions(this)">
+                        onchange="updateAdultOptions(this)"
+                    >
 
                         <option value="">
                             Select Room
@@ -4840,14 +4929,13 @@ function createRoomDetails(){
 
                 <div class="form-group">
 
-                    <label>
-                        Adults
-                    </label>
+                    <label>Adults</label>
 
                     <select
                         class="adult-count"
                         data-room="${i}"
-                        onchange="updateChildLimit(this)">
+                        onchange="updateChildLimit(this)"
+                    >
 
                         <option value="1">
                             1 Adult
@@ -4860,14 +4948,13 @@ function createRoomDetails(){
 
                 <div class="form-group">
 
-                    <label>
-                        Children
-                    </label>
+                    <label>Children</label>
 
                     <select
                         class="child-count"
                         data-room="${i}"
-                        onchange="createChildAgeFields(this)">
+                        onchange="createChildAgeFields(this)"
+                    >
 
                         <option value="0">
                             0 Child
@@ -4880,8 +4967,8 @@ function createRoomDetails(){
 
                 <div
                     class="form-group full child-age-container"
-                    data-room="${i}">
-                </div>
+                    data-room="${i}"
+                ></div>
 
             </div>
 
@@ -4898,40 +4985,51 @@ function createRoomDetails(){
    SELECT ROOM FROM ROOM CARD
 ========================================================= */
 
-function selectRoom(roomName){
+function selectRoom(roomName) {
 
     const bookingSection =
         document.getElementById("booking");
 
-    bookingSection.scrollIntoView({
-        behavior:"smooth"
-    });
+    if (bookingSection) {
+
+        bookingSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
 
 
     const numberOfRooms =
         document.getElementById("numberOfRooms");
 
-    numberOfRooms.value =
-        "1";
+    if (!numberOfRooms) {
+        return;
+    }
+
+
+    numberOfRooms.value = "1";
 
     createRoomDetails();
 
 
-    setTimeout(() => {
+    setTimeout(function() {
 
         const roomSelect =
             document.querySelector(".room-type");
 
-        if(roomSelect){
+        if (roomSelect) {
 
             roomSelect.value =
                 roomName;
 
-            updateAdultOptions(roomSelect);
+            updateAdultOptions(
+                roomSelect
+            );
 
         }
 
-    },400);
+    }, 300);
 
 }
 
@@ -4940,7 +5038,12 @@ function selectRoom(roomName){
    UPDATE ADULT OPTIONS
 ========================================================= */
 
-function updateAdultOptions(select){
+function updateAdultOptions(select) {
+
+    if (!select) {
+        return;
+    }
+
 
     const roomName =
         select.value;
@@ -4961,53 +5064,52 @@ function updateAdultOptions(select){
         );
 
 
-    adultSelect.innerHTML =
-        "";
-
-
-    childSelect.innerHTML = `
-        <option value="0">
-            0 Child
-        </option>
-
-        <option value="1">
-            1 Child
-        </option>
-
-        <option value="2">
-            2 Children
-        </option>
-    `;
-
-
-    if(!roomName){
-
-        adultSelect.innerHTML =
-        `<option value="1">1 Adult</option>`;
-
+    if (!adultSelect || !childSelect) {
         return;
-
     }
 
 
+    adultSelect.innerHTML = "";
+
+
+    if (!roomName) {
+
+        adultSelect.innerHTML = `
+            <option value="1">
+                1 Adult
+            </option>
+        `;
+
+        childSelect.innerHTML = `
+            <option value="0">
+                0 Child
+            </option>
+        `;
+
+        return;
+    }
     const capacity =
         roomCapacity[roomName] || 2;
 
 
-    for(let i = 1; i <= capacity; i++){
+    for (let i = 1; i <= capacity; i++) {
 
         const option =
             document.createElement("option");
 
-        option.value =
-            i;
+        option.value = i;
 
         option.textContent =
-            i + (i === 1 ? " Adult" : " Adults");
+            i === 1
+                ? "1 Adult"
+                : `${i} Adults`;
 
         adultSelect.appendChild(option);
 
     }
+
+
+    updateChildLimit(adultSelect);
 
 }
 
@@ -5016,7 +5118,12 @@ function updateAdultOptions(select){
    UPDATE CHILD LIMIT
 ========================================================= */
 
-function updateChildLimit(select){
+function updateChildLimit(select) {
+
+    if (!select) {
+        return;
+    }
+
 
     const roomNumber =
         select.getAttribute("data-room");
@@ -5030,12 +5137,12 @@ function updateChildLimit(select){
 
     const roomType =
         roomTypeSelect
-        ? roomTypeSelect.value
-        : "";
+            ? roomTypeSelect.value
+            : "";
 
 
     const adultCount =
-        parseInt(select.value);
+        parseInt(select.value, 10) || 1;
 
 
     const childSelect =
@@ -5044,39 +5151,53 @@ function updateChildLimit(select){
         );
 
 
+    if (!childSelect) {
+        return;
+    }
+
+
     const capacity =
         roomCapacity[roomType] || 2;
 
 
     const remaining =
-        Math.max(0, capacity - adultCount);
+        Math.max(
+            0,
+            capacity - adultCount
+        );
 
 
-    childSelect.innerHTML =
-        `<option value="0">0 Child</option>`;
+    childSelect.innerHTML = `
+        <option value="0">
+            0 Child
+        </option>
+    `;
 
 
-    for(
+    for (
         let i = 1;
-        i <= Math.min(remaining,3);
+        i <= Math.min(remaining, 3);
         i++
-    ){
+    ) {
 
         const option =
             document.createElement("option");
 
-        option.value =
-            i;
+        option.value = i;
 
         option.textContent =
-            i + (i === 1 ? " Child" : " Children");
+            i === 1
+                ? "1 Child"
+                : `${i} Children`;
 
         childSelect.appendChild(option);
 
     }
 
 
-    createChildAgeFields(childSelect);
+    createChildAgeFields(
+        childSelect
+    );
 
 }
 
@@ -5085,14 +5206,19 @@ function updateChildLimit(select){
    CHILD AGE FIELDS
 ========================================================= */
 
-function createChildAgeFields(select){
+function createChildAgeFields(select) {
+
+    if (!select) {
+        return;
+    }
+
 
     const roomNumber =
         select.getAttribute("data-room");
 
 
     const count =
-        parseInt(select.value);
+        parseInt(select.value, 10) || 0;
 
 
     const container =
@@ -5101,21 +5227,20 @@ function createChildAgeFields(select){
         );
 
 
-    if(!container){
+    if (!container) {
         return;
     }
 
 
-    container.innerHTML =
-        "";
+    container.innerHTML = "";
 
 
-    if(count === 0){
+    if (count <= 0) {
         return;
     }
 
 
-    for(let i = 1; i <= count; i++){
+    for (let i = 1; i <= count; i++) {
 
         const input =
             document.createElement("input");
@@ -5155,7 +5280,9 @@ function createChildAgeFields(select){
             "1px solid rgba(255,255,255,.18)";
 
 
-        container.appendChild(input);
+        container.appendChild(
+            input
+        );
 
     }
 
@@ -5166,55 +5293,46 @@ function createChildAgeFields(select){
    WHATSAPP BOOKING
 ========================================================= */
 
-function sendBookingToWhatsApp(event){
+function sendBookingToWhatsApp(event) {
 
-    event.preventDefault();
+    if (event) {
+        event.preventDefault();
+    }
 
 
     const guestName =
-        document
-        .getElementById("guestName")
-        .value
-        .trim();
+        document.getElementById("guestName")
+        ?.value.trim() || "";
 
 
     const guestPhone =
-        document
-        .getElementById("guestPhone")
-        .value
-        .trim();
+        document.getElementById("guestPhone")
+        ?.value.trim() || "";
 
 
     const arrivalDate =
-        document
-        .getElementById("arrivalDate")
-        .value;
+        document.getElementById("arrivalDate")
+        ?.value || "";
 
 
     const departureDate =
-        document
-        .getElementById("departureDate")
-        .value;
+        document.getElementById("departureDate")
+        ?.value || "";
 
 
     const numberOfRooms =
-        document
-        .getElementById("numberOfRooms")
-        .value;
+        document.getElementById("numberOfRooms")
+        ?.value || "";
 
 
     const specialRequest =
-        document
-        .getElementById("specialRequest")
-        .value
-        .trim();
+        document.getElementById("specialRequest")
+        ?.value.trim() || "";
 
 
     const bookingMessage =
-        document
-        .getElementById("bookingMessage")
-        .value
-        .trim();
+        document.getElementById("bookingMessage")
+        ?.value.trim() || "";
 
 
     let message =
@@ -5233,45 +5351,48 @@ Number of Rooms: ${numberOfRooms}
 
 
     const roomSelects =
-        document.querySelectorAll(".room-type");
+        document.querySelectorAll(
+            ".room-type"
+        );
 
 
-    roomSelects.forEach((select,index)=>{
+    roomSelects.forEach(
+        function(select, index) {
 
-        const roomNumber =
-            index + 1;
-
-
-        const roomType =
-            select.value ||
-            "Not Selected";
+            const roomNumber =
+                index + 1;
 
 
-        const adultSelect =
-            document.querySelector(
-                `.adult-count[data-room="${roomNumber}"]`
-            );
+            const roomType =
+                select.value ||
+                "Not Selected";
 
 
-        const childSelect =
-            document.querySelector(
-                `.child-count[data-room="${roomNumber}"]`
-            );
+            const adultSelect =
+                document.querySelector(
+                    `.adult-count[data-room="${roomNumber}"]`
+                );
 
 
-        const adults =
-            adultSelect
-            ? adultSelect.value
-            : "1";
+            const childSelect =
+                document.querySelector(
+                    `.child-count[data-room="${roomNumber}"]`
+                );
 
 
-        const children =
-            childSelect
-            ? childSelect.value
-            : "0";
+            const adults =
+                adultSelect
+                    ? adultSelect.value
+                    : "1";
 
 
-        message += `
+            const children =
+                childSelect
+                    ? childSelect.value
+                    : "0";
+
+
+            message += `
 
 Room ${roomNumber}:
 Room Type: ${roomType}
@@ -5279,10 +5400,11 @@ Adults: ${adults}
 Children: ${children}
 `;
 
-    });
+        }
+    );
 
 
-    if(specialRequest){
+    if (specialRequest) {
 
         message += `
 
@@ -5293,7 +5415,7 @@ ${specialRequest}
     }
 
 
-    if(bookingMessage){
+    if (bookingMessage) {
 
         message += `
 
@@ -5313,13 +5435,14 @@ Rangauti Resort`;
 
 
     const whatsappURL =
-        "https://wa.me/8801780203350?text="
-        + encodeURIComponent(message);
+        "https://wa.me/8801780203350?text=" +
+        encodeURIComponent(message);
 
 
     window.open(
         whatsappURL,
-        "_blank"
+        "_blank",
+        "noopener"
     );
 
 }
@@ -5329,50 +5452,77 @@ Rangauti Resort`;
    MAIN GALLERY
 ========================================================= */
 
-function openGallery(id){
+function openGallery(id) {
 
     const modal =
-        document.getElementById(id);
+        getModal(id);
 
-
-    if(modal){
-
-        modal.classList.add("active");
-
-        document.body.style.overflow =
-            "hidden";
-
+    if (!modal) {
+        return;
     }
+
+
+    if (
+        modal.classList.contains(
+            "active"
+        )
+    ) {
+        return;
+    }
+
+
+    modal.classList.add(
+        "active"
+    );
+
+
+    updateBodyScroll();
+
+
+    pushModalHistory(id);
 
 }
 
 
-function closeGallery(id){
+function closeGallery(
+    id,
+    useHistory = true
+) {
 
     const modal =
-        document.getElementById(id);
+        getModal(id);
 
-
-    if(modal){
-
-        modal.classList.remove("active");
-
-        document.body.style.overflow =
-            "";
-
+    if (!modal) {
+        return;
     }
+
+
+    if (
+        useHistory &&
+        removeModalFromHistory(id)
+    ) {
+        return;
+    }
+
+
+    modal.classList.remove(
+        "active"
+    );
+
+
+    updateBodyScroll();
 
 }
 
 
 /* =========================================================
-   SINGLE IMAGE
+   SINGLE IMAGE LIGHTBOX
 ========================================================= */
 
-function openSingleImage(src){
+function openSingleImage(img) {
 
     const modal =
-        document.getElementById(
+        getModal(
             "singleImageModal"
         );
 
@@ -5383,39 +5533,78 @@ function openSingleImage(src){
         );
 
 
-    if(modal && image){
+    if (
+        !modal ||
+        !image ||
+        !img
+    ) {
+        return;
+    }
 
-        image.src =
-            src;
 
-        modal.classList.add(
-            "active"
-        );
+    const gallery =
+        img.closest(".modal");
 
-        document.body.style.overflow =
-            "hidden";
+
+    if (gallery) {
+
+        currentGalleryImages =
+            Array.from(
+                gallery.querySelectorAll(
+                    ".gallery-grid img"
+                )
+            );
+
+
+        currentImageIndex =
+            currentGalleryImages.indexOf(
+                img
+            );
+
+
+        if (
+            currentImageIndex < 0
+        ) {
+            currentImageIndex = 0;
+        }
+
+    } else {
+
+        currentGalleryImages =
+            [img];
+
+        currentImageIndex = 0;
 
     }
 
-}
+
+    image.src =
+        img.currentSrc ||
+        img.src;
 
 
-function closeSingleImage(){
-
-    const modal =
-        document.getElementById(
-            "singleImageModal"
-        );
+    resetZoom();
 
 
-    if(modal){
-
-        modal.classList.remove(
+    const alreadyOpen =
+        modal.classList.contains(
             "active"
         );
 
-        document.body.style.overflow =
-            "";
+
+    modal.classList.add(
+        "active"
+    );
+
+
+    updateBodyScroll();
+
+
+    if (!alreadyOpen) {
+
+        pushModalHistory(
+            "singleImageModal"
+        );
 
     }
 
@@ -5423,14 +5612,757 @@ function closeSingleImage(){
 
 
 /* =========================================================
-   RESORT IMAGE LIGHTBOX
-   Pool / Nature / Boat / Sunset
+   CLOSE SINGLE IMAGE
 ========================================================= */
 
-function openResortImage(src){
+function closeSingleImage(
+    useHistory = true
+) {
 
     const modal =
+        getModal(
+            "singleImageModal"
+        );
+
+
+    if (!modal) {
+        return;
+    }
+
+
+    if (
+        useHistory &&
+        removeModalFromHistory(
+            "singleImageModal"
+        )
+    ) {
+        return;
+    }
+
+
+    modal.classList.remove(
+        "active"
+    );
+
+
+    resetZoom();
+
+
+    updateBodyScroll();
+
+}
+
+
+/* =========================================================
+   NEXT IMAGE
+========================================================= */
+
+function nextImage() {
+
+    if (
+        currentGalleryImages.length === 0
+    ) {
+        return;
+    }
+
+
+    currentImageIndex =
+        (
+            currentImageIndex + 1
+        ) %
+        currentGalleryImages.length;
+
+
+    showCurrentImage();
+
+}
+
+
+/* =========================================================
+   PREVIOUS IMAGE
+========================================================= */
+
+function previousImage() {
+
+    if (
+        currentGalleryImages.length === 0
+    ) {
+        return;
+    }
+
+
+    currentImageIndex--;
+
+    if (
+        currentImageIndex < 0
+    ) {
+
+        currentImageIndex =
+            currentGalleryImages.length - 1;
+
+    }
+
+
+    showCurrentImage();
+
+}
+
+
+/* =========================================================
+   SHOW CURRENT IMAGE
+========================================================= */
+
+function showCurrentImage() {
+
+    const image =
         document.getElementById(
+            "singleImage"
+        );
+
+
+    if (!image) {
+        return;
+    }
+
+
+    const current =
+        currentGalleryImages[
+            currentImageIndex
+        ];
+
+
+    if (!current) {
+        return;
+    }
+
+
+    image.src =
+        current.currentSrc ||
+        current.src;
+
+
+    resetZoom();
+
+}
+
+/* =========================================================
+   ZOOM + PAN + DOUBLE CLICK + DOUBLE TAP + SWIPE
+========================================================= */
+
+let imageTranslateX = 0;
+let imageTranslateY = 0;
+
+let isDraggingImage = false;
+
+let dragStartX = 0;
+let dragStartY = 0;
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchStartTime = 0;
+
+let lastTapTime = 0;
+let lastTapX = 0;
+let lastTapY = 0;
+
+
+/* =========================================================
+   APPLY ZOOM + PAN
+========================================================= */
+
+function applyZoom() {
+
+    const image =
+        document.getElementById("singleImage");
+
+    if (!image) {
+        return;
+    }
+
+
+    image.style.transform =
+        `translate(${imageTranslateX}px, ${imageTranslateY}px) scale(${zoomLevel})`;
+
+    image.style.transformOrigin =
+        "center center";
+
+
+    if (zoomLevel > MIN_ZOOM) {
+
+        image.style.cursor =
+            isDraggingImage
+                ? "grabbing"
+                : "grab";
+
+    } else {
+
+        image.style.cursor =
+            "zoom-in";
+
+    }
+
+}
+
+
+/* =========================================================
+   ZOOM IN / OUT
+========================================================= */
+
+function zoomInOut() {
+
+    if (zoomLevel <= MIN_ZOOM) {
+
+        zoomLevel =
+            MAX_ZOOM;
+
+    } else {
+
+        zoomLevel =
+            MIN_ZOOM;
+
+        imageTranslateX = 0;
+        imageTranslateY = 0;
+
+    }
+
+
+    applyZoom();
+
+}
+
+
+/* =========================================================
+   RESET ZOOM + POSITION
+========================================================= */
+
+function resetZoom() {
+
+    zoomLevel =
+        MIN_ZOOM;
+
+    imageTranslateX =
+        0;
+
+    imageTranslateY =
+        0;
+
+    isDraggingImage =
+        false;
+
+
+    const image =
+        document.getElementById("singleImage");
+
+
+    if (!image) {
+        return;
+    }
+
+
+    image.style.transform =
+        "translate(0px, 0px) scale(1)";
+
+    image.style.transformOrigin =
+        "center center";
+
+    image.style.cursor =
+        "zoom-in";
+
+    image.style.transition =
+        "transform 0.15s ease";
+
+}
+
+
+/* =========================================================
+   COMPUTER DOUBLE CLICK
+========================================================= */
+
+document.addEventListener(
+    "dblclick",
+    function(event) {
+
+        const image =
+            document.getElementById("singleImage");
+
+
+        if (
+            !image ||
+            event.target !== image
+        ) {
+            return;
+        }
+
+
+        event.preventDefault();
+
+        zoomInOut();
+
+    }
+);
+
+
+/* =========================================================
+   COMPUTER MOUSE DOWN
+========================================================= */
+
+document.addEventListener(
+    "mousedown",
+    function(event) {
+
+        const image =
+            document.getElementById("singleImage");
+
+
+        if (
+            !image ||
+            event.target !== image ||
+            zoomLevel <= MIN_ZOOM
+        ) {
+            return;
+        }
+
+
+        isDraggingImage =
+            true;
+
+
+        dragStartX =
+            event.clientX -
+            imageTranslateX;
+
+        dragStartY =
+            event.clientY -
+            imageTranslateY;
+
+
+        image.style.transition =
+            "none";
+
+        image.style.cursor =
+            "grabbing";
+
+
+        event.preventDefault();
+
+    }
+);
+
+
+/* =========================================================
+   COMPUTER MOUSE MOVE
+========================================================= */
+
+document.addEventListener(
+    "mousemove",
+    function(event) {
+
+        if (!isDraggingImage) {
+            return;
+        }
+
+
+        imageTranslateX =
+            event.clientX -
+            dragStartX;
+
+        imageTranslateY =
+            event.clientY -
+            dragStartY;
+
+
+        applyZoom();
+
+    }
+);
+
+
+/* =========================================================
+   COMPUTER MOUSE UP
+========================================================= */
+
+document.addEventListener(
+    "mouseup",
+    function() {
+
+        if (!isDraggingImage) {
+            return;
+        }
+
+
+        isDraggingImage =
+            false;
+
+
+        const image =
+            document.getElementById("singleImage");
+
+
+        if (image) {
+
+            image.style.transition =
+                "transform 0.15s ease";
+
+            image.style.cursor =
+                "grab";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PHONE TOUCH START
+========================================================= */
+
+document.addEventListener(
+    "touchstart",
+    function(event) {
+
+        const image =
+            document.getElementById("singleImage");
+
+
+        if (
+            !image ||
+            event.target !== image
+        ) {
+            return;
+        }
+
+
+        const touch =
+            event.changedTouches[0];
+
+
+        if (!touch) {
+            return;
+        }
+
+
+        touchStartX =
+            touch.clientX;
+
+        touchStartY =
+            touch.clientY;
+
+        touchStartTime =
+            Date.now();
+
+
+        /*
+           When zoomed, remember where the
+           finger started so the image can move.
+        */
+
+        if (zoomLevel > MIN_ZOOM) {
+
+            dragStartX =
+                touch.clientX -
+                imageTranslateX;
+
+            dragStartY =
+                touch.clientY -
+                imageTranslateY;
+
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =========================================================
+   PHONE TOUCH MOVE
+========================================================= */
+
+document.addEventListener(
+    "touchmove",
+    function(event) {
+
+        const image =
+            document.getElementById("singleImage");
+
+
+        if (
+            !image ||
+            event.target !== image
+        ) {
+            return;
+        }
+
+
+        /*
+           PAN ONLY WHEN ZOOMED
+        */
+
+        if (zoomLevel <= MIN_ZOOM) {
+            return;
+        }
+
+
+        const touch =
+            event.changedTouches[0];
+
+
+        if (!touch) {
+            return;
+        }
+
+
+        imageTranslateX =
+            touch.clientX -
+            dragStartX;
+
+        imageTranslateY =
+            touch.clientY -
+            dragStartY;
+
+
+        image.style.transition =
+            "none";
+
+
+        applyZoom();
+
+
+        /*
+           Prevent browser page movement
+           while moving the zoomed image.
+        */
+
+        event.preventDefault();
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+/* =========================================================
+   PHONE TOUCH END
+========================================================= */
+
+document.addEventListener(
+    "touchend",
+    function(event) {
+
+        const image =
+            document.getElementById("singleImage");
+
+
+        if (
+            !image ||
+            event.target !== image
+        ) {
+            return;
+        }
+
+
+        const touch =
+            event.changedTouches[0];
+
+
+        if (!touch) {
+            return;
+        }
+
+
+        const endX =
+            touch.clientX;
+
+        const endY =
+            touch.clientY;
+
+
+        const currentTime =
+            Date.now();
+
+
+        const deltaX =
+            endX -
+            touchStartX;
+
+        const deltaY =
+            endY -
+            touchStartY;
+
+
+        const absX =
+            Math.abs(deltaX);
+
+        const absY =
+            Math.abs(deltaY);
+
+
+        const distance =
+            Math.sqrt(
+                deltaX * deltaX +
+                deltaY * deltaY
+            );
+
+
+        const duration =
+            currentTime -
+            touchStartTime;
+
+
+        /*
+           ==========================================
+           ZOOMED IMAGE
+           Do NOT change image.
+           Touch is used only for moving the image.
+           ==========================================
+        */
+
+        if (zoomLevel > MIN_ZOOM) {
+
+            image.style.transition =
+                "transform 0.15s ease";
+
+            return;
+        }
+
+
+        /*
+           ==========================================
+           LEFT / RIGHT SWIPE
+           ==========================================
+        */
+
+        if (
+            distance >= 60 &&
+            absX > absY &&
+            duration < 800
+        ) {
+
+            lastTapTime =
+                0;
+
+
+            /*
+               RIGHT → PREVIOUS
+            */
+
+            if (deltaX > 0) {
+
+                previousImage();
+
+            }
+
+
+            /*
+               LEFT → NEXT
+            */
+
+            else if (deltaX < 0) {
+
+                nextImage();
+
+            }
+
+
+            return;
+        }
+
+
+        /*
+           ==========================================
+           DOUBLE TAP
+           ==========================================
+        */
+
+        if (
+            distance < 25 &&
+            duration < 350
+        ) {
+
+            const timeSinceLastTap =
+                currentTime -
+                lastTapTime;
+
+
+            const tapDistance =
+                Math.sqrt(
+                    Math.pow(
+                        endX -
+                        lastTapX,
+                        2
+                    ) +
+                    Math.pow(
+                        endY -
+                        lastTapY,
+                        2
+                    )
+                );
+
+
+            if (
+                timeSinceLastTap < 400 &&
+                tapDistance < 60
+            ) {
+
+                event.preventDefault();
+
+
+                zoomInOut();
+
+
+                lastTapTime =
+                    0;
+
+
+                return;
+            }
+
+
+            lastTapTime =
+                currentTime;
+
+            lastTapX =
+                endX;
+
+            lastTapY =
+                endY;
+
+        }
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+/* =========================================================
+   TOUCH CANCEL
+========================================================= */
+
+document.addEventListener(
+    "touchcancel",
+    function() {
+
+        touchStartX = 0;
+        touchStartY = 0;
+        touchStartTime = 0;
+
+    },
+    {
+        passive: true
+    }
+);
+/* =========================================================
+   RESORT IMAGE LIGHTBOX
+========================================================= */
+
+function openResortImage(src) {
+
+    const modal =
+        getModal(
             "resortImageModal"
         );
 
@@ -5441,89 +6373,65 @@ function openResortImage(src){
         );
 
 
-    if(modal && image){
-
-        image.src =
-            src;
-
-        modal.classList.add(
-            "active"
-        );
-
-        document.body.style.overflow =
-            "hidden";
-
+    if (
+        !modal ||
+        !image
+    ) {
+        return;
     }
+
+
+    image.src =
+        src;
+
+
+    modal.classList.add(
+        "active"
+    );
+
+
+    updateBodyScroll();
+
+
+    pushModalHistory(
+        "resortImageModal"
+    );
 
 }
 
 
-function closeResortImage(){
+function closeResortImage(
+    useHistory = true
+) {
 
     const modal =
-        document.getElementById(
+        getModal(
             "resortImageModal"
         );
 
 
-    if(modal){
-
-        modal.classList.remove(
-            "active"
-        );
-
-        document.body.style.overflow =
-            "";
-
+    if (!modal) {
+        return;
     }
 
-}
 
-/* =========================================================
-   GALLERY NEXT / PREVIOUS
-========================================================= */
-
-
-function setGalleryImages(images, startIndex = 0) {
-
-    currentGalleryImages = images;
-    currentImageIndex = startIndex;
-
-    const image = document.getElementById("singleImage");
-
-    if (image && currentGalleryImages.length > 0) {
-        image.src = currentGalleryImages[currentImageIndex].src;
-    }
-}
-
-
-function nextImage() {
-
-    if (currentGalleryImages.length === 0) return;
-
-    currentImageIndex++;
-
-    if (currentImageIndex >= currentGalleryImages.length) {
-        currentImageIndex = 0;
+    if (
+        useHistory &&
+        removeModalFromHistory(
+            "resortImageModal"
+        )
+    ) {
+        return;
     }
 
-    document.getElementById("singleImage").src =
-        currentGalleryImages[currentImageIndex].src;
-}
+
+    modal.classList.remove(
+        "active"
+    );
 
 
-function previousImage() {
+    updateBodyScroll();
 
-    if (currentGalleryImages.length === 0) return;
-
-    currentImageIndex--;
-
-    if (currentImageIndex < 0) {
-        currentImageIndex = currentGalleryImages.length - 1;
-    }
-
-    document.getElementById("singleImage").src =
-        currentGalleryImages[currentImageIndex].src;
 }
 
 
@@ -5531,7 +6439,16 @@ function previousImage() {
    PACKAGE IMAGE
 ========================================================= */
 
-function openPackageImage(src,title){
+function openPackageImage(
+    src,
+    title
+) {
+
+    const modal =
+        getModal(
+            "packageImageModal"
+        );
+
 
     const image =
         document.getElementById(
@@ -5545,80 +6462,208 @@ function openPackageImage(src,title){
         );
 
 
-    const modal =
-        document.getElementById(
-            "packageImageModal"
-        );
-
-
-    if(image){
-        image.src = src;
+    if (!modal) {
+        return;
     }
 
 
-    if(titleElement){
-        titleElement.textContent = title;
+    if (image) {
+
+        image.src =
+            src;
+
+    }
+
+
+    if (titleElement) {
+
+        titleElement.textContent =
+            title || "";
+
     }
 
 
-    if(modal){
+    modal.classList.add(
+        "active"
+    );
 
-        modal.classList.add(
-            "active"
-        );
 
-        document.body.style.overflow =
-            "hidden";
+    updateBodyScroll();
 
-    }
+
+    pushModalHistory(
+        "packageImageModal"
+    );
 
 }
 
 
-function closePackageImage(){
+function closePackageImage(
+    useHistory = true
+) {
 
     const modal =
-        document.getElementById(
+        getModal(
             "packageImageModal"
         );
 
 
-    if(modal){
-
-        modal.classList.remove(
-            "active"
-        );
-
-        document.body.style.overflow =
-            "";
-
+    if (!modal) {
+        return;
     }
+
+
+    if (
+        useHistory &&
+        removeModalFromHistory(
+            "packageImageModal"
+        )
+    ) {
+        return;
+    }
+
+
+    modal.classList.remove(
+        "active"
+    );
+
+
+    updateBodyScroll();
 
 }
 
 
 /* =========================================================
-   CLOSE MODAL BY CLICKING OUTSIDE
+   BROWSER / PHONE BACK BUTTON
+   ONE MODAL AT A TIME
 ========================================================= */
 
-document.addEventListener(
-    "click",
-    function(event){
+window.addEventListener(
+    "popstate",
+    function() {
 
-        if(
-            event.target.classList.contains(
-                "modal"
-            )
-        ){
+        /*
+         * The browser has moved back one history step.
+         * Close only the currently top-most modal.
+         */
 
-            event.target.classList.remove(
-                "active"
+
+        if (
+            modalHistoryDepth > 0
+        ) {
+
+            modalHistoryDepth--;
+
+        }
+
+
+        const activeModals =
+            Array.from(
+                document.querySelectorAll(
+                    ".modal.active"
+                )
             );
+
+
+        if (
+            activeModals.length === 0
+        ) {
 
             document.body.style.overflow =
                 "";
 
+            return;
+
         }
+
+
+        const topModal =
+            activeModals[
+                activeModals.length - 1
+            ];
+
+
+        topModal.classList.remove(
+            "active"
+        );
+
+
+        if (
+            topModal.id ===
+            "singleImageModal"
+        ) {
+
+            resetZoom();
+
+        }
+
+
+        updateBodyScroll();
+
+    }
+);
+
+
+/* =========================================================
+   CLICK OUTSIDE MODAL
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            !event.target.classList.contains(
+                "modal"
+            )
+        ) {
+            return;
+        }
+
+
+        const modal =
+            event.target;
+
+
+        if (
+            modal.id ===
+            "singleImageModal"
+        ) {
+
+            closeSingleImage();
+
+            return;
+
+        }
+
+
+        if (
+            modal.id ===
+            "resortImageModal"
+        ) {
+
+            closeResortImage();
+
+            return;
+
+        }
+
+
+        if (
+            modal.id ===
+            "packageImageModal"
+        ) {
+
+            closePackageImage();
+
+            return;
+
+        }
+
+
+        closeGallery(
+            modal.id
+        );
 
     }
 );
@@ -5630,25 +6675,117 @@ document.addEventListener(
 
 document.addEventListener(
     "keydown",
-    function(event){
+    function(event) {
 
-        if(event.key === "Escape"){
+        const singleImageModal =
+            getModal(
+                "singleImageModal"
+            );
 
-            document
-                .querySelectorAll(
-                    ".modal.active"
+
+        /* ESC */
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            if (
+                singleImageModal &&
+                singleImageModal.classList.contains(
+                    "active"
                 )
-                .forEach(function(modal){
+            ) {
 
-                    modal.classList.remove(
-                        "active"
-                    );
+                closeSingleImage();
 
-                });
+                return;
+
+            }
 
 
-            document.body.style.overflow =
-                "";
+            const activeModals =
+                Array.from(
+                    document.querySelectorAll(
+                        ".modal.active"
+                    )
+                );
+
+
+            if (
+                activeModals.length === 0
+            ) {
+                return;
+            }
+
+
+            const topModal =
+                activeModals[
+                    activeModals.length - 1
+                ];
+
+
+            if (
+                topModal.id ===
+                "resortImageModal"
+            ) {
+
+                closeResortImage();
+
+            } else if (
+                topModal.id ===
+                "packageImageModal"
+            ) {
+
+                closePackageImage();
+
+            } else {
+
+                closeGallery(
+                    topModal.id
+                );
+
+            }
+
+
+            return;
+
+        }
+
+
+        /* -----------------------------------------
+           KEYBOARD NEXT / PREVIOUS
+        ----------------------------------------- */
+
+        if (
+            !singleImageModal ||
+            !singleImageModal.classList.contains(
+                "active"
+            )
+        ) {
+            return;
+        }
+
+
+        if (
+            event.key ===
+            "ArrowRight"
+        ) {
+
+            event.preventDefault();
+
+            nextImage();
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowLeft"
+        ) {
+
+            event.preventDefault();
+
+            previousImage();
 
         }
 
@@ -5657,196 +6794,67 @@ document.addEventListener(
 
 
 /* =========================================================
-   INITIAL BOOKING ROOM
+   INITIALIZE
 ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
-    function(){
+    function() {
 
         createRoomDetails();
 
+
+        const image =
+            document.getElementById(
+                "singleImage"
+            );
+
+
+        if (image) {
+
+            image.style.cursor =
+                "zoom-in";
+
+            image.style.userSelect =
+                "none";
+
+            image.style.webkitUserSelect =
+                "none";
+
+            image.style.touchAction =
+                "none";
+
+        }
+
     }
 );
+function toggleMenu() {
+    const nav = document.getElementById("navLinks");
 
+    if (!nav) return;
 
-function openGallery(id) {
-
-    const modal = document.getElementById(id);
-
-    if (!modal) {
-        console.log("Gallery not found:", id);
-        return;
-    }
-
-    modal.classList.add("active");
-
-    document.body.style.overflow = "hidden";
+    nav.classList.toggle("active");
 }
 
 
-function closeGallery(id) {
+/* CLOSE MOBILE MENU AFTER CLICKING A MENU LINK */
 
-    const modal = document.getElementById(id);
+document.querySelectorAll("#navLinks a").forEach(function(link) {
 
-    if (!modal) return;
+    link.addEventListener("click", function() {
 
-    modal.classList.remove("active");
+        const nav = document.getElementById("navLinks");
 
-    document.body.style.overflow = "";
-}
+        if (nav) {
+            nav.classList.remove("active");
+        }
 
+    });
 
-function openSingleImage(src) {
+});
 
-    const modal = document.getElementById("singleImageModal");
-    const image = document.getElementById("singleImage");
-
-    if (!modal || !image) return;
-
-    image.src = src;
-
-    modal.classList.add("active");
-
-    document.body.style.overflow = "hidden";
-}
-
-
-function closeSingleImage() {
-
-    const modal = document.getElementById("singleImageModal");
-
-    if (modal) {
-        modal.classList.remove("active");
-    }
-
-    if (document.querySelector(".modal.active")) {
-        document.body.style.overflow = "hidden";
-    } else {
-        document.body.style.overflow = "";
-    }
-}
-
-/* =========================================================
-   GALLERY NEXT / PREVIOUS
-========================================================= */
-
-let currentGalleryImages = [];
-let currentImageIndex = 0;
-
-function openSingleImage(img) {
-
-    const modal = document.getElementById("singleImageModal");
-    const image = document.getElementById("singleImage");
-
-    if (!modal || !image || !img) return;
-
-    // Get the gallery where the image was clicked
-    const gallery = img.closest(".modal");
-
-    if (!gallery) return;
-
-    // Get only images from that gallery
-    currentGalleryImages = Array.from(
-        gallery.querySelectorAll(".gallery-grid img")
-    );
-
-    // Find the current image position
-    currentImageIndex = currentGalleryImages.indexOf(img);
-
-    if (currentImageIndex < 0) {
-        currentImageIndex = 0;
-    }
-
-    image.src = img.src;
-
-    modal.classList.add("active");
-
-    document.body.style.overflow = "hidden";
-}
-
-
-function nextImage() {
-
-    if (currentGalleryImages.length === 0) return;
-
-    currentImageIndex++;
-
-    if (currentImageIndex >= currentGalleryImages.length) {
-        currentImageIndex = 0;
-    }
-
-    document.getElementById("singleImage").src =
-        currentGalleryImages[currentImageIndex].src;
-}
-
-
-function previousImage() {
-
-    if (currentGalleryImages.length === 0) return;
-
-    currentImageIndex--;
-
-    if (currentImageIndex < 0) {
-        currentImageIndex = currentGalleryImages.length - 1;
-    }
-
-    document.getElementById("singleImage").src =
-        currentGalleryImages[currentImageIndex].src;
-}
-
-
-function closeSingleImage() {
-
-    const modal = document.getElementById("singleImageModal");
-
-    if (modal) {
-        modal.classList.remove("active");
-    }
-
-    if (document.querySelector(".modal.active")) {
-        document.body.style.overflow = "hidden";
-    } else {
-        document.body.style.overflow = "";
-    }
-}
-
-/* =======================================================
-   MOBILE + TABLET SWIPE
-======================================================= */
-
-let touchStartX = 0;
-let touchEndX = 0;
-
-const singleImageModal = document.getElementById("singleImageModal");
-
-if (singleImageModal) {
-
-    singleImageModal.addEventListener("touchstart", function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    singleImageModal.addEventListener("touchend", function(e) {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    }, { passive: true });
-}
-
-function handleSwipe() {
-
-    const swipeDistance = touchEndX - touchStartX;
-
-    /* Swipe Right → Previous */
-    if (swipeDistance > 50) {
-        previousImage();
-    }
-
-    /* Swipe Left → Next */
-    if (swipeDistance < -50) {
-        nextImage();
-    }
-}
 </script>
+```
 
 </body>
 

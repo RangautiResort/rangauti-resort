@@ -2305,7 +2305,112 @@ footer{
     }
 
 }
+/* =======================================================
+   EXPLORE RANGAUTI - 3 + 3 LAYOUT
+======================================================= */
 
+.resort-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+
+/* =======================================================
+   EXPLORE RANGAUTI HEADING
+   শুধু BOLD
+======================================================= */
+
+.resort-gallery-label {
+    font-weight: 700;
+}
+
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media (max-width: 768px) {
+
+    .resort-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =======================================================
+   EXPLORE RANGAUTI CARD TITLE
+   SAME AS FACILITIES
+======================================================= */
+
+.resort-gallery-overlay h3 {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: 400;
+    margin: 0 0 12px;
+}
+.resort-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+/* =======================================================
+   EXPLORE RANGAUTI - 3 + 3 LAYOUT
+======================================================= */
+
+.resort-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+
+/* =======================================================
+   EXPLORE RANGAUTI CARD TITLE
+   SAME AS FACILITIES FRONT
+======================================================= */
+
+.resort-gallery-overlay {
+    position: absolute;
+
+    left: 24px;
+    bottom: 20px;
+
+    z-index: 2;
+
+    color: #fff;
+
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 0;
+
+    text-shadow: 0 2px 8px rgba(0,0,0,.5);
+
+    transition: .3s;
+}
+
+
+/* =======================================================
+   EXPLORE RANGAUTI HEADING
+   ONLY BOLD
+======================================================= */
+
+.resort-gallery-label {
+    font-weight: 700;
+}
+
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media (max-width: 768px) {
+
+    .resort-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
 </style>
 
 </head>

@@ -13,9 +13,7 @@
 content="Rangauti Resort, Moulvibazar, Sylhet — peaceful accommodation, swimming pool, restaurant, boat ride, nature and memorable resort experiences.">
 
 
-<style>
-
-/* =========================================================
+<style>/* =========================================================
    RANGAUTI RESORT
    PREMIUM RESORT DESIGN
 ========================================================= */
@@ -197,7 +195,6 @@ header{
     padding:50px 25px;
     margin-right:50%;
 }
-
 
 .hero-content h1{
     font-family:Georgia,"Times New Roman",serif;
@@ -1004,6 +1001,7 @@ footer{
 
 /* =========================================================
    RESORT GALLERY
+   EXACTLY SAME CARD STYLE AS FACILITIES
 ========================================================= */
 
 .resort-gallery-section{
@@ -1019,166 +1017,144 @@ footer{
 
 .resort-gallery-label{
     display:inline-block;
-
     margin-bottom:12px;
-
     font-size:13px;
-
-    font-weight:800;
-
+    font-weight:700;
     letter-spacing:2.5px;
-
     color:#8a6a32;
 }
 
 .resort-gallery-header h2{
     margin:0 0 15px;
-
     font-family:Georgia,serif;
-
     font-size:38px;
-
     line-height:1.2;
-
     font-weight:400;
-
     color:#222;
 }
 
 .resort-gallery-header p{
     margin:0 auto;
-
     max-width:680px;
-
     font-size:16px;
-
     line-height:1.8;
-
     color:#666;
 }
 
+/* =========================================================
+   GALLERY GRID
+   DESKTOP = 3 COLUMNS / 3 + 3
+========================================================= */
+
 .resort-gallery-grid{
     max-width:1350px;
-    margin:auto;
-
+    margin:0 auto;
     display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    grid-auto-rows:250px;
-
-    gap:18px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:24px;
 }
 
-.resort-gallery-item{
+/* =========================================================
+   GALLERY CARD
+   SAME SIZE / STYLE AS .facility-card
+========================================================= */
+
+.resort-gallery-grid > .resort-gallery-item{
     position:relative;
-
-    overflow:hidden;
-
-    border-radius:12px;
-
-    cursor:pointer;
+    width:100%;
+    min-width:0;
+    min-height:300px;
+    height:300px;
 
     background:#eee;
+    overflow:hidden;
+
+    display:flex;
+    align-items:flex-end;
+
+    border-radius:4px;
+    box-shadow:0 15px 40px rgba(20,30,24,.12);
+
+    cursor:pointer;
+    transition:transform .35s ease;
+
+    grid-column:auto !important;
+    grid-row:auto !important;
 }
 
-.resort-gallery-large{
-    grid-column:span 2;
-    grid-row:span 2;
-}
+/* OLD SPECIAL CLASSES ARE FORCED TO NORMAL CARDS */
 
+.resort-gallery-large,
 .resort-gallery-wide{
-    grid-column:span 2;
+    grid-column:auto !important;
+    grid-row:auto !important;
 }
+
+/* =========================================================
+   GALLERY IMAGE
+========================================================= */
 
 .resort-gallery-item img{
+    position:absolute;
+    inset:0;
     width:100%;
     height:100%;
-
     display:block;
-
+    max-width:none;
     object-fit:cover;
-
-    transition:
-        transform .6s ease,
-        filter .4s ease;
+    object-position:center;
+    transition:transform .6s ease;
 }
+
+/* =========================================================
+   GALLERY GRADIENT
+   SAME LOOK AS FACILITIES
+========================================================= */
 
 .resort-gallery-item::after{
     content:"";
-
     position:absolute;
-
     inset:0;
-
     background:linear-gradient(
         to top,
-        rgba(0,0,0,.65),
-        rgba(0,0,0,.05) 65%
+        rgba(0,0,0,.78),
+        rgba(0,0,0,.25),
+        transparent
     );
-
-    opacity:.8;
-
-    transition:.4s;
+    z-index:1;
+    pointer-events:none;
 }
 
+/* =========================================================
+   GALLERY TITLE
+   SAME AS FACILITIES TITLE
+========================================================= */
+
 .resort-gallery-overlay{
-    position:absolute;
-
-    left:24px;
-    bottom:20px;
-
+    position:relative;
     z-index:2;
-
-    color:#fff;
-
-    font-size:19px;
-
-    font-weight:800;
-
-    letter-spacing:.3px;
-
+    width:100%;
+    padding:32px 28px;
+    color:white;
+    font-family:Georgia,serif;
+    font-size:25px;
+    font-weight:400;
+    margin:0;
+    letter-spacing:0;
     text-shadow:0 2px 8px rgba(0,0,0,.5);
+}
 
-    transition:.3s;
+/* =========================================================
+   GALLERY HOVER
+   SAME AS FACILITIES + IMAGE ZOOM
+========================================================= */
+
+.resort-gallery-item:hover{
+    transform:translateY(-5px);
 }
 
 .resort-gallery-item:hover img{
     transform:scale(1.07);
-    filter:brightness(.9);
-}
-
-.resort-gallery-item:hover::after{
-    opacity:1;
-}
-
-.resort-gallery-item:hover .resort-gallery-overlay{
-    transform:translateY(-3px);
-}
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.85);
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.modal.active {
-    display: flex;
-}
-
-.modal-content {
-    background: #fff;
-    width: 95%;
-    max-width: 1100px;
-    max-height: 90vh;
-    overflow-y: auto;
-    border-radius: 15px;
-    padding: 30px;
-    position: relative;
 }
 
 
@@ -1298,6 +1274,7 @@ footer{
 
 .gallery-grid img:hover{
     transform:scale(1.03);
+
     opacity:.9;
 }
 
@@ -1421,19 +1398,25 @@ footer{
         grid-template-columns:1fr 1fr;
     }
 
+
+    /* =====================================================
+       GALLERY TABLET
+       SAME RESPONSIVE SIZE AS FACILITIES
+    ===================================================== */
+
     .resort-gallery-grid{
-        grid-template-columns:repeat(2,1fr);
-        grid-auto-rows:220px;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:24px;
     }
 
-    .resort-gallery-large{
-        grid-column:span 2;
-        grid-row:span 2;
+    .resort-gallery-grid > .resort-gallery-item{
+        grid-column:auto !important;
+        grid-row:auto !important;
+        width:100%;
+        min-height:300px;
+        height:300px;
     }
 
-    .resort-gallery-wide{
-        grid-column:span 2;
-    }
 }
 
 
@@ -1441,766 +1424,317 @@ footer{
    MOBILE RESPONSIVE
 ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width:768px){
 
     /* NAVBAR */
-    .navbar {
-        min-height: auto;
-        padding: 12px 15px;
-        flex-direction: column;
-        gap: 10px;
+
+    .navbar{
+        min-height:65px;
+        padding:10px 15px;
+
+        flex-direction:row;
+
+        justify-content:space-between;
+        align-items:center;
     }
 
-    .logo img {
-        width: 135px;
+    .logo img{
+        width:120px;
     }
 
-    .nav-links {
-        width: 100%;
-        display: flex;
-        overflow-x: auto;
-        justify-content: flex-start;
-        flex-wrap: nowrap;
-        gap: 18px;
-        padding: 4px 2px 8px;
-        scrollbar-width: none;
+    .nav-links{
+        width:auto;
+
+        display:flex;
+
+        overflow-x:visible;
+
+        justify-content:flex-start;
+
+        flex-wrap:nowrap;
+
+        gap:18px;
+
+        padding:4px 2px 8px;
     }
 
-    .nav-links::-webkit-scrollbar {
-        display: none;
-    }
+    .nav-links a{
+        white-space:nowrap;
 
-    .nav-links a {
-        white-space: nowrap;
-        font-size: 10px;
-        flex-shrink: 0;
-    }
+        font-size:10px;
 
-
-/* HERO */
-.hero {
-    min-height: 70vh;
-    height: 70vh;
-    padding: 0;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-.hero-content {
-    width: 100%;
-    padding: 30px 20px;
-    margin-left: 0;
-}
-    .hero-content h1 {
-        font-size: 42px;
-        line-height: 1.05;
-        letter-spacing: -1px;
-    }
-
-    .hero-content p:first-of-type {
-        font-size: 20px;
-        line-height: 1.3;
-    }
-
-    .hero-content p:last-of-type {
-        font-size: 13px;
-        line-height: 1.6;
-    }
-
-
-    /* BUTTONS */
-    .btn {
-        min-height: 48px;
-        padding: 13px 20px;
-        font-size: 13px;
-    }
-
-
-    /* SECTIONS */
-    .section {
-        padding: 60px 18px;
-    }
-
-    .section-head h2 {
-        font-size: 34px;
-        line-height: 1.15;
-    }
-
-
-    /* FACILITIES */
-    .facilities-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
-
-
-    /* PACKAGES */
-    .packages-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .package-image {
-        height: 220px;
-    }
-
-    .package-actions {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-
-    /* ROOMS */
-    .rooms-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .room7-wrap {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .room7-wrap .room-card,
-    .complimentary-card {
-        grid-column: 1;
-    }
-
-    .room-card {
-        width: 100%;
-    }
-
-    .room-image {
-        width: 100%;
-        height: 230px;
-        object-fit: cover;
-    }
-
-    .room-content {
-        padding: 18px;
-    }
-
-    .room-content h3 {
-        font-size: 21px;
-        line-height: 1.3;
-    }
-
-    .room-actions {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-
-    /* COMPLIMENTARY */
-    .complimentary-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-    }
-
-
-    /* AMENITIES */
-    .amenities-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-
-    /* BOOKING FORM */
-    .form-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .form-group.full {
-        grid-column: auto;
-    }
-
-
-    /* CONTACT */
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-
-    /* RESORT GALLERY */
-    .resort-gallery-section {
-        padding: 60px 18px;
-    }
-
-    .resort-gallery-header {
-        margin-bottom: 30px;
-    }
-
-    .resort-gallery-label {
-        font-size: 11px;
-        letter-spacing: 2px;
-    }
-
-    .resort-gallery-header h2 {
-        font-size: 30px;
-        line-height: 1.2;
-    }
-
-    .resort-gallery-header p {
-        font-size: 14px;
-        line-height: 1.7;
-    }
-
-    .resort-gallery-grid {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 220px;
-        gap: 14px;
-    }
-
-    .resort-gallery-large,
-    .resort-gallery-wide {
-        grid-column: span 1;
-        grid-row: span 1;
-    }
-
-    .resort-gallery-overlay {
-        left: 16px;
-        right: 16px;
-        bottom: 15px;
-        font-size: 16px;
-    }
-
-
-    /* GALLERY MODAL */
-    .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
-
-    .gallery-grid img {
-        width: 100%;
-        height: 170px;
-        object-fit: cover;
-    }
-
-    .gallery-title {
-        font-size: 24px;
-    }
-
-    .gallery-subtitle {
-        font-size: 13px;
-        line-height: 1.6;
-    }
-
-
-    /* FOOTER */
-    .footer-top {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 480px) {
-
-    .navbar {
-        padding: 10px 12px;
-    }
-
-    .logo img {
-        width: 120px;
-    }
-
-    .nav-links {
-        gap: 15px;
-    }
-
-    .nav-links a {
-        font-size: 9px;
+        flex-shrink:0;
     }
 
 
     /* HERO */
-    .hero-content {
-        padding: 25px 18px;
+
+    .hero{
+        min-height:70vh;
+        height:70vh;
+
+        padding:0;
+
+        background-size:cover;
+
+        background-position:center center;
+
+        background-repeat:no-repeat;
     }
 
-    .hero-content h1 {
-        font-size: 36px;
+    .hero-content{
+        width:100%;
+
+        padding:30px 20px;
+
+        margin-left:0;
     }
 
-    .hero-content p:first-of-type {
-        font-size: 18px;
+    .hero-content h1{
+        font-size:42px;
+
+        line-height:1.05;
+
+        letter-spacing:-1px;
     }
 
-    .hero-content p:last-of-type {
-        font-size: 12px;
+    .hero-content p:first-of-type{
+        font-size:20px;
+
+        line-height:1.3;
     }
 
+    .hero-content p:last-of-type{
+        font-size:13px;
 
-    /* SECTIONS */
-    .section {
-        padding: 55px 15px;
-    }
-
-    .section-head h2 {
-        font-size: 30px;
-    }
-
-
-    /* ROOMS */
-    .room-image {
-        height: 210px;
-    }
-
-    .room-content {
-        padding: 16px;
-    }
-
-    .room-content h3 {
-        font-size: 20px;
-    }
-
-
-    /* COMPLIMENTARY */
-    .complimentary-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-    /* GALLERY */
-    .resort-gallery-section {
-        padding: 55px 15px;
-    }
-
-    .resort-gallery-header h2 {
-        font-size: 27px;
-    }
-
-    .resort-gallery-grid {
-        grid-auto-rows: 210px;
-        gap: 12px;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-grid img {
-        height: 220px;
+        line-height:1.6;
     }
 
 
     /* BUTTONS */
-    .btn {
-        width: 100%;
-    }
 
-    .room-actions,
-    .package-actions {
-        flex-direction: column;
-        width: 100%;
-    }
+    .btn{
+        min-height:48px;
 
+        padding:13px 20px;
 
-    /* WHATSAPP */
-    .whatsapp-float {
-        right: 15px;
-        bottom: 15px;
-        width: 50px;
-        height: 50px;
+        font-size:13px;
     }
 
 
-    /* MODAL */
-    .gallery-title {
-        font-size: 21px;
+    /* SECTIONS */
+
+    .section{
+        padding:60px 18px;
     }
 
-    .gallery-subtitle {
-        font-size: 12px;
-        padding: 0 8px;
-    }
-}
-/* =======================================================
-   SINGLE IMAGE POPUP
-======================================================= */
+    .section-head h2{
+        font-size:34px;
 
-#singleImageModal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    background: rgba(0, 0, 0, 0.95);
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-#singleImageModal.active {
-    display: flex;
-}
-
-#singleImageModal #singleImage {
-    max-width: 95%;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 10px;
-}
-
-#singleImageModal .modal-close {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    z-index: 10001;
-    font-size: 35px;
-    color: white;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-#packageImageModal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    background: rgba(0, 0, 0, 0.90);
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-}
-
-#packageImageModal.active {
-    display: flex;
-}
-
-.package-image-popup {
-    position: relative;
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    max-width: 900px;
-    width: 95%;
-    text-align: center;
-}
-
-.package-image-popup h2 {
-    margin: 0 0 15px;
-    font-size: 24px;
-}
-
-#packageImage {
-    max-width: 100%;
-    max-height: 75vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 10px;
-}
-
-.package-image-popup .modal-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-
-    border: none;
-    background: transparent;
-
-    font-size: 32px;
-    cursor: pointer;
-
-    z-index: 2;
-}
-/* =======================================================
-   3 DOT MENU - DESKTOP + TABLET + MOBILE
-======================================================= */
-
-.menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: var(--dark);
-    padding: 5px 10px;
-    line-height: 1;
-}
-
-
-
-/* NAV MENU HIDDEN BY DEFAULT */
-
-.nav-links {
-    display: none !important;
-    position: absolute;
-    top: 100%;
-    right: 20px;
-    width: 280px;
-
-    background: white;
-    padding: 12px;
-
-    flex-direction: column !important;
-    gap: 0 !important;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,.15);
-
-    border-radius: 8px;
-    z-index: 9999;
-}
-
-
-/* WHEN 3 DOT CLICKED */
-
-.nav-links.active {
-    display: flex !important;
-}
-
-
-/* MENU ITEMS */
-
-.nav-links a {
-    width: 100%;
-    padding: 13px 12px;
-    text-align: left;
-    font-size: 13px;
-
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
-}
-
-
-.nav-links a:last-child {
-    border-bottom: none;
-}
-
-
-/* NAVBAR */
-
-.navbar {
-    position: relative;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 768px) {
-
-    .navbar {
-        min-height: 65px;
-        padding: 10px 15px;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        line-height:1.15;
     }
 
-    .logo img {
-        width: 120px;
+
+    /* FACILITIES */
+
+    .facilities-grid{
+        grid-template-columns:1fr;
+
+        gap:18px;
     }
 
-    .nav-links {
-        top: 100%;
-        right: 10px;
-        left: 10px;
-        width: auto;
+
+    /* PACKAGES */
+
+    .packages-grid{
+        grid-template-columns:1fr;
+
+        gap:20px;
     }
 
-}
-/* =========================================================
-   PAYMENT METHODS
-========================================================= */
-
-.payment-section {
-    padding: 80px 20px;
-    background: #f8faf9;
-    text-align: center;
-}
-
-.payment-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-
-/* =========================
-   PAYMENT HEADING
-========================= */
-
-.payment-heading {
-    margin-bottom: 45px;
-}
-
-.payment-icon {
-    display: inline-block;
-    font-size: 34px;
-    margin-bottom: 10px;
-}
-
-.payment-heading h2 {
-    margin: 0;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #1f3d2b;
-}
-
-.payment-heading p {
-    margin-top: 12px;
-    font-size: 17px;
-    color: #666;
-}
-
-
-/* =========================
-   PAYMENT GRID
-========================= */
-
-.payment-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-}
-
-
-/* =========================
-   PAYMENT CARD
-========================= */
-
-.payment-card {
-    min-height: 155px;
-    padding: 25px 15px;
-
-    background: #ffffff;
-    border-radius: 14px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.payment-card:hover {
-    transform: translateY(-6px);
-
-    box-shadow:
-        0 10px 28px rgba(0, 0, 0, 0.13);
-}
-
-
-/* =========================
-   PAYMENT LOGO
-========================= */
-
-.payment-logo {
-    height: 65px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 15px;
-}
-
-.payment-logo img {
-    max-width: 125px;
-    max-height: 58px;
-
-    width: auto;
-    height: auto;
-
-    object-fit: contain;
-}
-
-
-/* Bank Transfer logo */
-.bank-logo img {
-    max-width: 75px;
-}
-
-
-/* =========================
-   PAYMENT NAME
-========================= */
-
-.payment-card h3 {
-    margin: 0;
-
-    font-size: 16px;
-    font-weight: 600;
-
-    color: #333;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 900px) {
-
-    .payment-grid {
-        grid-template-columns: repeat(3, 1fr);
+    .package-image{
+        height:220px;
     }
 
-}
+    .package-actions{
+        flex-direction:column;
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .payment-section {
-        padding: 60px 15px;
+        gap:10px;
     }
 
-    .payment-heading {
-        margin-bottom: 30px;
+
+    /* ROOMS */
+
+    .rooms-grid{
+        grid-template-columns:1fr;
+
+        gap:20px;
     }
 
-    .payment-heading h2 {
-        font-size: 25px;
+    .room7-wrap{
+        grid-template-columns:1fr;
+
+        gap:20px;
     }
 
-    .payment-heading p {
-        font-size: 15px;
+    .room7-wrap .room-card,
+    .complimentary-card{
+        grid-column:1;
     }
 
-    .payment-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
+    .room-card{
+        width:100%;
     }
 
-    .payment-card {
-        min-height: 135px;
-        padding: 18px 10px;
-        border-radius: 12px;
+    .room-image{
+        width:100%;
+
+        height:230px;
+
+        object-fit:cover;
     }
 
-    .payment-logo {
-        height: 55px;
-        margin-bottom: 10px;
+    .room-content{
+        padding:18px;
     }
 
-    .payment-logo img {
-        max-width: 100px;
-        max-height: 48px;
+    .room-content h3{
+        font-size:21px;
+
+        line-height:1.3;
     }
 
-    .payment-card h3 {
-        font-size: 14px;
+    .room-actions{
+        flex-direction:column;
+
+        gap:10px;
+    }
+
+
+    /* COMPLIMENTARY */
+
+    .complimentary-grid{
+        grid-template-columns:1fr 1fr;
+
+        gap:12px;
+    }
+
+
+    /* AMENITIES */
+
+    .amenities-grid{
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+
+    /* BOOKING FORM */
+
+    .form-grid{
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+
+    /* CONTACT */
+
+    .contact-grid{
+        grid-template-columns:1fr;
+
+        gap:20px;
+    }
+
+
+    /* =====================================================
+       RESORT GALLERY MOBILE
+       SAME SIZE / STYLE AS FACILITIES
+    ===================================================== */
+
+    .resort-gallery-section{
+        padding:60px 18px;
+    }
+
+    .resort-gallery-header{
+        margin-bottom:30px;
+    }
+
+    .resort-gallery-label{
+        font-size:11px;
+
+        letter-spacing:2px;
+    }
+
+    .resort-gallery-header h2{
+        font-size:30px;
+
+        line-height:1.2;
+    }
+
+    .resort-gallery-header p{
+        font-size:14px;
+
+        line-height:1.7;
+    }
+
+    .resort-gallery-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .resort-gallery-grid > .resort-gallery-item{
+        grid-column:1 !important;
+        grid-row:auto !important;
+        width:100%;
+        min-height:300px;
+        height:300px;
+    }
+
+    .resort-gallery-overlay{
+        padding:32px 28px;
+
+        font-size:25px;
+    }
+
+
+    /* GALLERY MODAL */
+
+    .gallery-grid{
+        grid-template-columns:1fr 1fr;
+
+        gap:10px;
+    }
+
+    .gallery-grid img{
+        width:100%;
+
+        height:170px;
+
+        object-fit:cover;
+    }
+
+    .gallery-title{
+        font-size:24px;
+    }
+
+    .gallery-subtitle{
+        font-size:13px;
+
+        line-height:1.6;
+    }
+
+
+    /* FOOTER */
+
+    .footer-top{
+        grid-template-columns:1fr;
+
+        gap:30px;
     }
 
 }
@@ -2210,207 +1744,643 @@ footer{
    SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 380px) {
+@media(max-width:480px){
 
-    .payment-grid {
-        gap: 10px;
+    .navbar{
+        padding:10px 12px;
     }
 
-    .payment-card {
-        min-height: 125px;
+    .logo img{
+        width:120px;
     }
 
-    .payment-logo img {
-        max-width: 85px;
+    .nav-links{
+        gap:15px;
     }
 
-    .payment-card h3 {
-        font-size: 13px;
+    .nav-links a{
+        font-size:9px;
     }
 
-}/* =======================================================
-   EXPLORE RANGAUTI - PREMIUM CARD ANIMATION
-======================================================= */
 
-.resort-gallery-item {
-    animation: exploreCardFloat 5s ease-in-out infinite;
-    will-change: transform;
-}
+    /* HERO */
 
-
-/* প্রতিটি card আলাদা সময়ে উঠবে */
-
-.resort-gallery-item:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.resort-gallery-item:nth-child(2) {
-    animation-delay: 0.8s;
-}
-
-.resort-gallery-item:nth-child(3) {
-    animation-delay: 1.6s;
-}
-
-.resort-gallery-item:nth-child(4) {
-    animation-delay: 2.4s;
-}
-
-.resort-gallery-item:nth-child(5) {
-    animation-delay: 3.2s;
-}
-
-.resort-gallery-item:nth-child(6) {
-    animation-delay: 4s;
-}
-
-
-/* FLOAT ANIMATION */
-
-@keyframes exploreCardFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
+    .hero-content{
+        padding:25px 18px;
     }
 
-    50% {
-        transform: translateY(-8px);
+    .hero-content h1{
+        font-size:36px;
     }
-}
+
+    .hero-content p:first-of-type{
+        font-size:18px;
+    }
+
+    .hero-content p:last-of-type{
+        font-size:12px;
+    }
 
 
-/* IMAGE */
+    /* SECTIONS */
 
-.resort-gallery-item img {
-    transition: opacity 0.8s ease;
-}
+    .section{
+        padding:55px 15px;
+    }
+
+    .section-head h2{
+        font-size:30px;
+    }
 
 
-/* HOVER — animation-এর সাথে conflict করবে না */
+    /* ROOMS */
 
-.resort-gallery-item:hover {
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+    .room-image{
+        height:210px;
+    }
+
+    .room-content{
+        padding:16px;
+    }
+
+    .room-content h3{
+        font-size:20px;
+    }
+
+
+    /* COMPLIMENTARY */
+
+    .complimentary-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    /* =====================================================
+       GALLERY SMALL MOBILE
+       KEEP SAME 300px CARD HEIGHT
+    ===================================================== */
+
+    .resort-gallery-section{
+        padding:55px 15px;
+    }
+
+    .resort-gallery-header h2{
+        font-size:27px;
+    }
+
+    .resort-gallery-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .resort-gallery-grid > .resort-gallery-item{
+        min-height:300px;
+        height:300px;
+        width:100%;
+        grid-column:1 !important;
+        grid-row:auto !important;
+    }
+
+    .resort-gallery-overlay{
+        padding:32px 28px;
+
+        font-size:25px;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-grid img{
+        height:220px;
+    }
+
+
+    /* BUTTONS */
+
+    .btn{
+        width:100%;
+    }
+
+    .room-actions,
+    .package-actions{
+        flex-direction:column;
+
+        width:100%;
+    }
+
+
+    /* WHATSAPP */
+
+    .whatsapp-float{
+        right:15px;
+
+        bottom:15px;
+
+        width:50px;
+
+        height:50px;
+    }
+
+
+    /* MODAL */
+
+    .gallery-title{
+        font-size:21px;
+    }
+
+    .gallery-subtitle{
+        font-size:12px;
+
+        padding:0 8px;
+    }
+
 }
 
 
 /* =======================================================
-   MOBILE
+   SINGLE IMAGE POPUP
 ======================================================= */
 
-@media (max-width: 768px) {
+#singleImageModal{
+    display:none;
 
-    .resort-gallery-item {
-        animation-duration: 5.5s;
+    position:fixed;
+
+    inset:0;
+
+    z-index:10000;
+
+    background:rgba(0,0,0,.95);
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+}
+
+#singleImageModal.active{
+    display:flex;
+}
+
+#singleImageModal #singleImage{
+    max-width:95%;
+
+    max-height:90vh;
+
+    width:auto;
+
+    height:auto;
+
+    object-fit:contain;
+
+    border-radius:10px;
+}
+
+#singleImageModal .modal-close{
+    position:absolute;
+
+    top:20px;
+
+    right:25px;
+
+    z-index:10001;
+
+    font-size:35px;
+
+    color:white;
+
+    background:transparent;
+
+    border:none;
+
+    cursor:pointer;
+}
+
+
+/* =======================================================
+   PACKAGE IMAGE POPUP
+======================================================= */
+
+#packageImageModal{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:10000;
+
+    background:rgba(0,0,0,.90);
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+}
+
+#packageImageModal.active{
+    display:flex;
+}
+
+.package-image-popup{
+    position:relative;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    max-width:900px;
+
+    width:95%;
+
+    text-align:center;
+}
+
+.package-image-popup h2{
+    margin:0 0 15px;
+
+    font-size:24px;
+}
+
+#packageImage{
+    max-width:100%;
+
+    max-height:75vh;
+
+    width:auto;
+
+    height:auto;
+
+    object-fit:contain;
+
+    border-radius:10px;
+}
+
+.package-image-popup .modal-close{
+    position:absolute;
+
+    top:8px;
+
+    right:12px;
+
+    border:none;
+
+    background:transparent;
+
+    font-size:32px;
+
+    cursor:pointer;
+
+    z-index:2;
+}
+
+
+/* =======================================================
+   3 DOT MENU
+======================================================= */
+
+.menu-toggle{
+    display:block;
+
+    background:none;
+
+    border:none;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    color:var(--dark);
+
+    padding:5px 10px;
+
+    line-height:1;
+}
+
+
+/* NAV MENU */
+
+.nav-links{
+    display:none !important;
+
+    position:absolute;
+
+    top:100%;
+
+    right:20px;
+
+    width:280px;
+
+    background:white;
+
+    padding:12px;
+
+    flex-direction:column !important;
+
+    gap:0 !important;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+    border-radius:8px;
+
+    z-index:9999;
+}
+
+.nav-links.active{
+    display:flex !important;
+}
+
+.nav-links a{
+    width:100%;
+
+    padding:13px 12px;
+
+    text-align:left;
+
+    font-size:13px;
+
+    border-bottom:1px solid var(--border);
+
+    white-space:nowrap;
+}
+
+.nav-links a:last-child{
+    border-bottom:none;
+}
+
+.navbar{
+    position:relative;
+}
+
+
+/* MOBILE MENU */
+
+@media(max-width:768px){
+
+    .navbar{
+        min-height:65px;
+
+        padding:10px 15px;
+
+        flex-direction:row;
+
+        justify-content:space-between;
+
+        align-items:center;
+    }
+
+    .logo img{
+        width:120px;
+    }
+
+    .nav-links{
+        top:100%;
+
+        right:10px;
+
+        left:10px;
+
+        width:auto;
     }
 
 }
-/* =======================================================
-   EXPLORE RANGAUTI - 3 + 3 LAYOUT
-======================================================= */
 
-.resort-gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+
+/* =========================================================
+   PAYMENT METHODS
+========================================================= */
+
+.payment-section{
+    padding:80px 20px;
+
+    background:#f8faf9;
+
+    text-align:center;
+}
+
+.payment-container{
+    max-width:1200px;
+
+    margin:0 auto;
 }
 
 
-/* =======================================================
-   EXPLORE RANGAUTI HEADING
-   শুধু BOLD
-======================================================= */
+/* PAYMENT HEADING */
 
-.resort-gallery-label {
-    font-weight: 700;
+.payment-heading{
+    margin-bottom:45px;
+}
+
+.payment-icon{
+    display:inline-block;
+
+    font-size:34px;
+
+    margin-bottom:10px;
+}
+
+.payment-heading h2{
+    margin:0;
+
+    font-size:32px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    color:#1f3d2b;
+}
+
+.payment-heading p{
+    margin-top:12px;
+
+    font-size:17px;
+
+    color:#666;
 }
 
 
-/* =======================================================
-   MOBILE
-======================================================= */
+/* PAYMENT GRID */
 
-@media (max-width: 768px) {
+.payment-grid{
+    display:grid;
 
-    .resort-gallery-grid {
-        grid-template-columns: 1fr;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+}
+
+
+/* PAYMENT CARD */
+
+.payment-card{
+    min-height:155px;
+
+    padding:25px 15px;
+
+    background:#ffffff;
+
+    border-radius:14px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.payment-card:hover{
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.13);
+}
+
+
+/* PAYMENT LOGO */
+
+.payment-logo{
+    height:65px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:15px;
+}
+
+.payment-logo img{
+    max-width:125px;
+
+    max-height:58px;
+
+    width:auto;
+
+    height:auto;
+
+    object-fit:contain;
+}
+
+.bank-logo img{
+    max-width:75px;
+}
+
+
+/* PAYMENT NAME */
+
+.payment-card h3{
+    margin:0;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#333;
+}
+
+
+/* PAYMENT TABLET */
+
+@media(max-width:900px){
+
+    .payment-grid{
+        grid-template-columns:repeat(3,1fr);
     }
 
 }
-/* =======================================================
-   EXPLORE RANGAUTI CARD TITLE
-   SAME AS FACILITIES
-======================================================= */
-
-.resort-gallery-overlay h3 {
-    font-family: Georgia, serif;
-    font-size: 25px;
-    font-weight: 400;
-    margin: 0 0 12px;
-}
-.resort-gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-/* =======================================================
-   EXPLORE RANGAUTI - 3 + 3 LAYOUT
-======================================================= */
-
-.resort-gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
 
 
-/* =======================================================
-   EXPLORE RANGAUTI CARD TITLE
-   SAME AS FACILITIES FRONT
-======================================================= */
+/* PAYMENT MOBILE */
 
-.resort-gallery-overlay {
-    position: absolute;
+@media(max-width:600px){
 
-    left: 24px;
-    bottom: 20px;
+    .payment-section{
+        padding:60px 15px;
+    }
 
-    z-index: 2;
+    .payment-heading{
+        margin-bottom:30px;
+    }
 
-    color: #fff;
+    .payment-heading h2{
+        font-size:25px;
+    }
 
-    font-family: Georgia, serif;
-    font-size: 25px;
-    font-weight: 400;
-    letter-spacing: 0;
+    .payment-heading p{
+        font-size:15px;
+    }
 
-    text-shadow: 0 2px 8px rgba(0,0,0,.5);
+    .payment-grid{
+        grid-template-columns:repeat(2,1fr);
 
-    transition: .3s;
-}
+        gap:14px;
+    }
 
+    .payment-card{
+        min-height:135px;
 
-/* =======================================================
-   EXPLORE RANGAUTI HEADING
-   ONLY BOLD
-======================================================= */
+        padding:18px 10px;
 
-.resort-gallery-label {
-    font-weight: 700;
-}
+        border-radius:12px;
+    }
 
+    .payment-logo{
+        height:55px;
 
-/* =======================================================
-   MOBILE
-======================================================= */
+        margin-bottom:10px;
+    }
 
-@media (max-width: 768px) {
+    .payment-logo img{
+        max-width:100px;
 
-    .resort-gallery-grid {
-        grid-template-columns: 1fr;
+        max-height:48px;
+    }
+
+    .payment-card h3{
+        font-size:14px;
     }
 
 }
+
+
+/* PAYMENT SMALL MOBILE */
+
+@media(max-width:380px){
+
+    .payment-grid{
+        gap:10px;
+    }
+
+    .payment-card{
+        min-height:125px;
+    }
+
+    .payment-logo img{
+        max-width:85px;
+    }
+
+    .payment-card h3{
+        font-size:13px;
+    }
+
+}
+
+
 </style>
 
 </head>

@@ -2228,7 +2228,84 @@ footer{
         font-size: 13px;
     }
 
+}/* =======================================================
+   EXPLORE RANGAUTI - PREMIUM CARD ANIMATION
+======================================================= */
+
+.resort-gallery-item {
+    animation: exploreCardFloat 5s ease-in-out infinite;
+    will-change: transform;
 }
+
+
+/* প্রতিটি card আলাদা সময়ে উঠবে */
+
+.resort-gallery-item:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.resort-gallery-item:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.resort-gallery-item:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+.resort-gallery-item:nth-child(4) {
+    animation-delay: 2.4s;
+}
+
+.resort-gallery-item:nth-child(5) {
+    animation-delay: 3.2s;
+}
+
+.resort-gallery-item:nth-child(6) {
+    animation-delay: 4s;
+}
+
+
+/* FLOAT ANIMATION */
+
+@keyframes exploreCardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* IMAGE */
+
+.resort-gallery-item img {
+    transition: opacity 0.8s ease;
+}
+
+
+/* HOVER — animation-এর সাথে conflict করবে না */
+
+.resort-gallery-item:hover {
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media (max-width: 768px) {
+
+    .resort-gallery-item {
+        animation-duration: 5.5s;
+    }
+
+}
+
 </style>
 
 </head>
@@ -7161,6 +7238,166 @@ document.querySelectorAll("#navLinks a").forEach(function(link) {
     });
 
 });
+
+
+/* =========================================================
+   EXPLORE RANGAUTI
+   SMOOTH SLIDE SHOW
+========================================================= */
+
+const resortCardSlideshows = {
+
+    "Resort View": [
+        "images/resort-gallery/resort-view/cover.jpeg",
+        "images/resort-gallery/resort-view/01.jpeg",
+        "images/resort-gallery/resort-view/02.jpeg",
+        "images/resort-gallery/resort-view/03.png",
+        "images/resort-gallery/resort-view/04.jpeg",
+        "images/resort-gallery/resort-view/05.png",
+        "images/resort-gallery/resort-view/06.png",
+        "images/resort-gallery/resort-view/07.png",
+        "images/resort-gallery/resort-view/08.png",
+        "images/resort-gallery/resort-view/09.png",
+        "images/resort-gallery/resort-view/10.png",
+        "images/resort-gallery/resort-view/11.png",
+        "images/resort-gallery/resort-view/12.png",
+        "images/resort-gallery/resort-view/13.jpeg"
+    ],
+
+    "Lake View": [
+        "images/resort-gallery/lake-view/cover.png",
+        "images/resort-gallery/lake-view/01.jpeg",
+        "images/resort-gallery/lake-view/02.jpeg",
+        "images/resort-gallery/lake-view/03.png",
+        "images/resort-gallery/lake-view/04.png",
+        "images/resort-gallery/lake-view/05.jpeg",
+        "images/resort-gallery/lake-view/06.jpeg",
+        "images/resort-gallery/lake-view/07.jpeg"
+    ],
+
+    "Swimming Pool View": [
+        "images/resort-gallery/swimming-pool-view/cover.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming1.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming2.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming3.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming4.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming5.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming6.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming7.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming8.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming9.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming10.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming11.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming12.jfif"
+    ],
+
+    "Natural Environment": [
+        "images/resort-gallery/natural-environment/cover.jpeg",
+        "images/resort-gallery/natural-environment/nature1.jpeg",
+        "images/resort-gallery/natural-environment/nature2.jpeg",
+        "images/resort-gallery/natural-environment/nature3.jpeg",
+        "images/resort-gallery/natural-environment/nature4.jpeg",
+        "images/resort-gallery/natural-environment/nature5.jpeg",
+        "images/resort-gallery/natural-environment/nature6.jpeg",
+        "images/resort-gallery/natural-environment/nature7.jpeg",
+        "images/resort-gallery/natural-environment/nature8.jpeg",
+        "images/resort-gallery/natural-environment/nature9.jpeg",
+        "images/resort-gallery/natural-environment/nature10.jpeg",
+        "images/resort-gallery/natural-environment/nature11.jpeg"
+    ],
+
+    "Boat Ride": [
+        "images/resort-gallery/boat-ride/cover.jpeg",
+        "images/resort-gallery/boat-ride/boat1.jpeg",
+        "images/resort-gallery/boat-ride/boat2.jpeg",
+        "images/resort-gallery/boat-ride/boat3.jpeg",
+        "images/resort-gallery/boat-ride/boat4.jpeg",
+        "images/resort-gallery/boat-ride/boat5.jpeg",
+        "images/resort-gallery/boat-ride/boat6.jpeg",
+        "images/resort-gallery/boat-ride/boat7.jpeg",
+        "images/resort-gallery/boat-ride/boat8.jpeg"
+    ],
+
+    "Peaceful Moments": [
+        "images/resort-gallery/peaceful-moments/Cover.jpeg",
+        "images/resort-gallery/peaceful-moments/moment1.jpeg",
+        "images/resort-gallery/peaceful-moments/moment2.jpeg",
+        "images/resort-gallery/peaceful-moments/moment3.jpeg",
+        "images/resort-gallery/peaceful-moments/moment4.jpeg",
+        "images/resort-gallery/peaceful-moments/moment5.jpeg",
+        "images/resort-gallery/peaceful-moments/moment6.jpeg",
+        "images/resort-gallery/peaceful-moments/moment7.jpeg",
+        "images/resort-gallery/peaceful-moments/moment8.jpeg",
+        "images/resort-gallery/peaceful-moments/moment9.jpeg",
+        "images/resort-gallery/peaceful-moments/moment10.jpeg",
+        "images/resort-gallery/peaceful-moments/moment11.jpeg",
+        "images/resort-gallery/peaceful-moments/moment12.jpeg",
+        "images/resort-gallery/peaceful-moments/moment13.jpeg",
+        "images/resort-gallery/peaceful-moments/moment14.jpeg",
+        "images/resort-gallery/peaceful-moments/moment15.jpeg",
+        "images/resort-gallery/peaceful-moments/moment16.jpeg"
+    ]
+
+};
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const cards = document.querySelectorAll(".resort-gallery-item");
+
+    cards.forEach(function (card) {
+
+        const overlay = card.querySelector(".resort-gallery-overlay");
+        const image = card.querySelector("img");
+
+        if (!overlay || !image) return;
+
+        const title = overlay.textContent.trim();
+        const images = resortCardSlideshows[title];
+
+        if (!images || images.length < 2) return;
+
+        let currentIndex = 0;
+
+        image.classList.add("smooth-slide-image");
+
+
+        setInterval(function () {
+
+            /* Slide current image out */
+
+            image.classList.add("slide-out");
+
+
+            setTimeout(function () {
+
+                currentIndex++;
+
+                if (currentIndex >= images.length) {
+                    currentIndex = 0;
+                }
+
+                image.src = images[currentIndex];
+
+                /* Prepare new image */
+
+                image.classList.remove("slide-out");
+                image.classList.add("slide-in");
+
+
+                setTimeout(function () {
+                    image.classList.remove("slide-in");
+                }, 700);
+
+            }, 700);
+
+        }, 4000);
+
+    });
+
+});
+
+</script>
 
 </script>
 ```

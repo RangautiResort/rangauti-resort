@@ -161,9 +161,8 @@ header{
     min-height:calc(100vh - 82px);
     position:relative;
 
-    background:
-        linear-gradient(rgba(10,18,13,.34),rgba(10,18,13,.48)),
-        url("rooms/home.jpeg") center/cover no-repeat;
+    background:#0a120d;
+
 
     display:flex;
     align-items:center;
@@ -253,7 +252,52 @@ header{
     color:white;
 }
 
+/* =========================================================
+   HERO IMAGE SLIDESHOW
+========================================================= */
 
+.hero-slideshow{
+    position:absolute;
+    inset:0;
+    z-index:0;
+}
+
+.hero-slide{
+    position:absolute;
+    inset:0;
+
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+
+    opacity:0;
+
+    transition:opacity 2s ease-in-out;
+}
+
+.hero-slide.active{
+    opacity:1;
+}
+
+.hero-slideshow::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(10,18,13,.34),
+            rgba(10,18,13,.48)
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.15),
+            rgba(0,0,0,.45)
+        );
+
+    z-index:2;
+}
 /* =========================================================
    GENERAL SECTION
 ========================================================= */
@@ -2427,6 +2471,36 @@ footer{
 ======================================================= -->
 
 <section class="hero" id="home">
+    <div class="hero-slideshow">
+
+    <div class="hero-slide active"
+         style="background-image:url('rooms/home.jpeg');"></div>
+
+    <div class="hero-slide"
+         style="background-image:url('rooms/home-1.jpeg');"></div>
+
+    <div class="hero-slide"
+         style="background-image:url('rooms/home-2.jpeg');"></div>
+
+    <div class="hero-slide"
+         style="background-image:url('rooms/home-3.jpeg');"></div>
+
+    <div class="hero-slide"
+         style="background-image:url('rooms/home-4.png');"></div>
+
+    <div class="hero-slide"
+         style="background-image:url('rooms/home-5.jpeg');"></div>
+
+    <div class="hero-slide"
+         style="background-image:url('rooms/home-6.png');"></div>
+
+    <div class="hero-slide"
+         style="background-image:url('rooms/home-7.png');"></div>
+
+    <div class="hero-slide"
+         style="background-image:url('rooms/home-8.png');"></div>
+
+</div>
 
 <div class="hero-content">
 
@@ -7470,6 +7544,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+/* =========================================================
+   HERO IMAGE SLIDESHOW
+========================================================= */
+
+const heroSlides = document.querySelectorAll(".hero-slide");
+
+let heroCurrentSlide = 0;
+
+const heroSlideDuration = 6000;
+
+setInterval(() => {
+
+    heroSlides[heroCurrentSlide].classList.remove("active");
+
+    heroCurrentSlide++;
+
+    if (heroCurrentSlide >= heroSlides.length) {
+        heroCurrentSlide = 0;
+    }
+
+    heroSlides[heroCurrentSlide].classList.add("active");
+
+}, heroSlideDuration);
+
+</script>
 
 </script>
 

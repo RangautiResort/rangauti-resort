@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Complimentary Facilities & Room Amenities | Rangauti Resort
+</title>
+
+<meta
+name="description"
+content="Explore complimentary facilities and room amenities at Rangauti Resort, Moulvibazar, Sylhet.">
+
+
+<style>
+
+/* =======================================================
+   ROOT
+======================================================= */
+
+:root{
+    --dark:#101812;
+    --cream:#f5f1e8;
+    --gold:#c9a45c;
+    --white:#ffffff;
+    --text:#30362f;
+}
+
+
+/* =======================================================
+   RESET
+======================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--cream);
+    color:var(--text);
+}
+
+
+/* =======================================================
+   HEADER
+======================================================= */
+
+header{
+    height:82px;
+
+    background:var(--dark);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 5%;
+
+    position:relative;
+    z-index:1000;
+}
+
+
+/* =======================================================
+   LOGO
+======================================================= */
+
+.logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.logo img{
+    width:58px;
+    height:58px;
+    object-fit:contain;
+}
+
+
+/* =======================================================
+   3 DOT MENU
+======================================================= */
+
+.menu-wrap{
+    position:relative;
+}
+
+.menu-button{
+    width:46px;
+    height:46px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    background:transparent;
+
+    color:white;
+
+    font-size:27px;
+
+    line-height:1;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.menu-button:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+}
+
+
+/* =======================================================
+   DROPDOWN MENU
+======================================================= */
+
+.menu-dropdown{
+    position:absolute;
+
+    top:58px;
+    right:0;
+
+    width:230px;
+
+    background:var(--dark);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.3);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(-10px);
+
+    transition:.3s ease;
+}
+
+.menu-dropdown.show{
+    opacity:1;
+    visibility:visible;
+
+    transform:translateY(0);
+}
+
+.menu-dropdown a{
+    display:block;
+
+    padding:15px 20px;
+
+    color:#ffffff !important;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+}
+
+.menu-dropdown a:last-child{
+    border-bottom:none;
+}
+
+.menu-dropdown a:hover{
+    background:
+        rgba(201,164,92,.12);
+
+    color:var(--gold) !important;
+}
+
+
+/* =======================================================
+   AMENITIES SECTION
+======================================================= */
+
+.amenities-section{
+
+    min-height:
+        calc(100vh - 82px);
+
+    padding:
+        90px 5% 100px;
+
+    background:var(--cream);
+}
+
+
+/* =======================================================
+   SECTION HEAD
+======================================================= */
+
+.section-head{
+
+    max-width:850px;
+
+    margin:0 auto 60px;
+
+    text-align:center;
+}
+
+.eyebrow{
+
+    color:var(--gold);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    margin-bottom:18px;
+
+    text-transform:uppercase;
+}
+
+.section-head h1{
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(40px,6vw,70px);
+
+    font-weight:400;
+
+    line-height:1.08;
+
+    color:var(--dark);
+
+    margin-bottom:22px;
+}
+
+.section-head p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    color:#626861;
+}
+
+
+/* =======================================================
+   AMENITIES GRID
+======================================================= */
+
+.amenities-grid{
+
+    max-width:1250px;
+
+    margin:0 auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:24px;
+}
+
+
+/* =======================================================
+   AMENITIES COLUMN
+======================================================= */
+
+.amenities-column{
+
+    background:white;
+
+    padding:35px 30px;
+
+    border:1px solid
+        rgba(16,24,18,.08);
+
+    box-shadow:
+        0 15px 40px rgba(16,24,18,.06);
+}
+
+.amenities-column h3{
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:25px;
+
+    font-weight:400;
+
+    color:var(--dark);
+
+    margin-bottom:25px;
+
+    padding-bottom:18px;
+
+    border-bottom:
+        1px solid rgba(201,164,92,.45);
+}
+
+
+/* =======================================================
+   AMENITY ITEM
+======================================================= */
+
+.amenity-item{
+
+    padding:14px 0;
+
+    border-bottom:
+        1px solid rgba(16,24,18,.08);
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    color:#505750;
+}
+
+.amenity-item:last-child{
+    border-bottom:none;
+}
+
+
+/* =======================================================
+   FOOTER
+======================================================= */
+
+footer{
+
+    background:var(--dark);
+
+    color:
+        rgba(255,255,255,.65);
+
+    text-align:center;
+
+    padding:25px 15px;
+
+    font-size:12px;
+}
+
+
+/* =======================================================
+   TABLET
+======================================================= */
+
+@media(max-width:900px){
+
+    .amenities-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media(max-width:600px){
+
+    header{
+        height:72px;
+        padding:0 20px;
+    }
+
+    .logo img{
+        width:52px;
+        height:52px;
+    }
+
+    .menu-button{
+        width:43px;
+        height:43px;
+    }
+
+    .menu-dropdown{
+        top:55px;
+        width:210px;
+    }
+
+    .amenities-section{
+
+        padding:
+            65px 18px 75px;
+    }
+
+    .section-head{
+
+        margin-bottom:40px;
+    }
+
+    .section-head h1{
+
+        font-size:40px;
+    }
+
+    .section-head p{
+
+        font-size:14px;
+    }
+
+    .amenities-grid{
+
+        grid-template-columns:1fr;
+
+        gap:18px;
+    }
+
+    .amenities-column{
+
+        padding:28px 22px;
+    }
+
+    .amenities-column h3{
+
+        font-size:23px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header>
+
+
+<a
+href="index.html"
+class="logo">
+
+<img
+src="images/logo.png"
+alt="Rangauti Resort Logo">
+
+</a>
+
+
+
+<div class="menu-wrap">
+
+
+<button
+class="menu-button"
+id="menuButton"
+aria-label="Open Menu">
+
+⋮
+
+</button>
+
+
+
+<div
+class="menu-dropdown"
+id="menuDropdown">
+
+
+<a href="index.html#home">
+<strong>HOME</strong>
+</a>
+
+
+<a href="facilities.html">
+<strong>FACILITIES</strong>
+</a>
+
+
+<a href="index.html#resort-gallery">
+<strong>EXPLORE RANGAUTI</strong>
+</a>
+
+
+<a href="index.html#packages">
+<strong>PACKAGES</strong>
+</a>
+
+
+<a href="index.html#rooms">
+<strong>ROOMS &amp; SUITES</strong>
+</a>
+
+
+<a href="complimentary.html">
+<strong>COMPLIMENTARY</strong>
+</a>
+
+
+<a href="offers.html">
+<strong>SPECIAL OFFER</strong>
+</a>
+
+
+<a href="index.html#booking">
+<strong>BOOK NOW</strong>
+</a>
+
+
+<a href="index.html#contact">
+<strong>CONTACT</strong>
+</a>
+
+
+<a href="index.html#terms">
+<strong>TERMS</strong>
+</a>
+
+
+<a href="index.html#about">
+<strong>ABOUT</strong>
+</a>
+
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- =======================================================
+     AMENITIES
+======================================================= -->
+
+<section
+class="amenities-section"
+id="complimentary">
+
+
+<div class="section-head">
+
+
+<div class="eyebrow">
+COMFORT & EXPERIENCE
+</div>
+
+
+<h1>
+Complimentary Facilities<br>
+&amp; Room Amenities
+</h1>
+
+
+<p>
+Enjoy thoughtfully selected complimentary facilities
+and essential room amenities for a comfortable stay.
+</p>
+
+
+</div>
+
+
+
+<div class="amenities-grid">
+
+
+<!-- ===================================================
+     COLUMN 1
+=================================================== -->
+
+<div class="amenities-column">
+
+
+<h3>
+🎁 Complimentary Facilities
+</h3>
+
+
+<div class="amenity-item">
+Welcome Drinks
+</div>
+
+
+<div class="amenity-item">
+Breakfast Included
+</div>
+
+
+<div class="amenity-item">
+Swimming Pool Access
+</div>
+
+
+<div class="amenity-item">
+24/7 Room Service
+</div>
+
+
+<div class="amenity-item">
+Cycling &amp; Pool Billiard
+</div>
+
+
+<div class="amenity-item">
+Kayaking Boat
+</div>
+
+
+<div class="amenity-item">
+Kids Playground
+</div>
+
+
+<div class="amenity-item">
+WiFi (In-house Guests)
+</div>
+
+
+</div>
+
+
+
+<!-- ===================================================
+     COLUMN 2
+=================================================== -->
+
+<div class="amenities-column">
+
+
+<h3>
+🛏️ Room Amenities
+</h3>
+
+
+<div class="amenity-item">
+Comfortable Bed
+</div>
+
+
+<div class="amenity-item">
+Wardrobe
+</div>
+
+
+<div class="amenity-item">
+Dressing Mirror
+</div>
+
+
+<div class="amenity-item">
+Mini Refrigerator
+</div>
+
+
+<div class="amenity-item">
+Electric Kettle
+</div>
+
+
+<div class="amenity-item">
+Complimentary Coffee Mini Pack
+</div>
+
+
+<div class="amenity-item">
+Power Backup
+</div>
+
+
+<div class="amenity-item">
+Daily Housekeeping
+</div>
+
+
+<div class="amenity-item">
+Common Veranda / Lake View
+</div>
+
+
+</div>
+
+
+
+<!-- ===================================================
+     COLUMN 3
+=================================================== -->
+
+<div class="amenities-column">
+
+
+<h3>
+🛏️ Room Amenities
+</h3>
+
+
+<div class="amenity-item">
+Towels
+</div>
+
+
+<div class="amenity-item">
+Air Conditioning
+</div>
+
+
+<div class="amenity-item">
+LED TV
+</div>
+
+
+<div class="amenity-item">
+Attached Bathroom
+</div>
+
+
+<div class="amenity-item">
+Hot &amp; Cold Water
+</div>
+
+
+<div class="amenity-item">
+Shampoo
+</div>
+
+
+<div class="amenity-item">
+Soap
+</div>
+
+
+<div class="amenity-item">
+Toothbrush &amp; Toothpaste
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+© 2026 Rangauti Resort.
+All Rights Reserved.
+
+</footer>
+
+
+
+<!-- =======================================================
+     MENU JAVASCRIPT
+======================================================= -->
+
+<script>
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const menuDropdown =
+    document.getElementById("menuDropdown");
+
+
+menuButton.addEventListener(
+    "click",
+    function(){
+
+        menuDropdown.classList.toggle("show");
+
+    }
+);
+
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            !event.target.closest(".menu-wrap")
+        ){
+
+            menuDropdown.classList.remove("show");
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

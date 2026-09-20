@@ -2555,11 +2555,84 @@ document.getElementById(
 
 
 /* =======================================================
+   AUTOMATIC ROOM SELECTION FROM ROOM CARD
+======================================================= */
+
+function selectRoomFromURL(){
+
+    const params = new URLSearchParams(window.location.search);
+    const roomName = params.get("room");
+
+    if(!roomName){
+        return;
+    }
+
+    const roomMap = {
+
+        "Super Family Deluxe":
+            "Super Family Deluxe — Lake View",
+
+        "Family Deluxe":
+            "Family Deluxe — Lake View",
+
+        "Super Deluxe Cottage":
+            "Super Deluxe — Cottage",
+
+        "Super Deluxe - Cottage":
+            "Super Deluxe — Cottage",
+
+        "Super Deluxe Swimming Pool View":
+            "Super Deluxe — Swimming Pool View",
+
+        "Super Deluxe - Swimming Pool View":
+            "Super Deluxe — Swimming Pool View",
+
+        "Suite Jolojuchona":
+            "Suite Jolojuchona — Floating Honeymoon",
+
+        "Special Family Deluxe":
+            "Special Family Deluxe — Swimming Pool View",
+
+        "Special Super Deluxe":
+            "Special Super Deluxe — Lake View"
+    };
+
+    const requested =
+        roomMap[roomName.trim()] || roomName.trim();
+
+    const roomSelect =
+        document.querySelector(".room-type");
+
+    if(!roomSelect){
+        return;
+    }
+
+    const option =
+        Array.from(roomSelect.options).find(function(option){
+
+            return option.textContent.trim() === requested;
+
+        });
+
+    if(!option){
+        return;
+    }
+
+    roomSelect.value = option.value;
+
+    updateGuestRules(roomSelect);
+}
+
+
+/* =======================================================
    INITIALIZE
 ======================================================= */
 
 createRoomDetails();
 
+selectRoomFromURL();
+
+</script>
 </script>
 
 

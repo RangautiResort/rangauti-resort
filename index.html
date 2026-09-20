@@ -2796,7 +2796,9 @@ footer{
     <strong>COMPLIMENTARY</strong>
 </a>
             <a href="offers.html"><strong>SPECIAL OFFER</strong></a>
-            <a href="#booking" class="nav-book">BOOK NOW</a>
+            <a href="booking.html">
+    <strong>BOOK NOW</strong>
+</a>
             <a href="#contact">CONTACT</a>
             <a href="terms.html">
     <strong>TERMS</strong>
@@ -3433,9 +3435,10 @@ Up to 4 Persons
 onclick="openGallery('superFamilyGallery')">
 VIEW </button>
 
-<button class="small-btn whatsapp"
-onclick="selectRoom('Super Family Deluxe')">
-BOOK NOW </button>
+<a href="booking.html?room=Super%20Family%20Deluxe"
+   class="small-btn whatsapp">
+BOOK NOW
+</a>
 
 </div>
 
@@ -3501,10 +3504,11 @@ onclick="openGallery('familyDeluxeGallery')">
 VIEW
 </button>
 
-<button class="small-btn whatsapp"
-onclick="selectRoom('Family Deluxe')">
-BOOK NOW
-</button>
+<a href="booking.html?room=Family%20Deluxe"
+   class="small-btn whatsapp">
+    BOOK NOW
+</a>
+
 
 </div>
 
@@ -3578,10 +3582,10 @@ onclick="openGallery('cottageGallery')">
 VIEW
 </button>
 
-<button class="small-btn whatsapp"
-onclick="selectRoom('Super Deluxe - Cottage')">
-BOOK NOW
-</button>
+<a href="booking.html?room=Super%20Deluxe%20-%20Cottage"
+   class="small-btn whatsapp">
+    BOOK NOW
+</a>
 
 </div>
 
@@ -3646,10 +3650,10 @@ onclick="openGallery('swimmingPoolGallery')">
 VIEW
 </button>
 
-<button class="small-btn whatsapp"
-onclick="selectRoom('Super Deluxe - Swimming Pool View')">
-BOOK NOW
-</button>
+<a href="booking.html?room=Super%20Deluxe%20-%20Swimming%20Pool%20View"
+   class="small-btn whatsapp">
+    BOOK NOW
+</a>
 
 </div>
 
@@ -3723,10 +3727,10 @@ onclick="openGallery('jolojuchonaGallery')">
 VIEW
 </button>
 
-<button class="small-btn whatsapp"
-onclick="selectRoom('Suite Jolojuchona')">
-BOOK NOW
-</button>
+<a href="booking.html?room=Suite%20Jolojuchona"
+   class="small-btn whatsapp">
+    BOOK NOW
+</a>
 
 </div>
 
@@ -3792,10 +3796,10 @@ onclick="openGallery('specialFamilyGallery')">
 VIEW
 </button>
 
-<button class="small-btn whatsapp"
-onclick="selectRoom('Special Family Deluxe')">
-BOOK NOW
-</button>
+<a href="booking.html?room=Special%20Family%20Deluxe"
+   class="small-btn whatsapp">
+    BOOK NOW
+</a>
 
 </div>
 
@@ -3868,240 +3872,14 @@ onclick="openGallery('specialSuperGallery')">
 VIEW
 </button>
 
-<button class="small-btn whatsapp"
-onclick="selectRoom('Special Super Deluxe')">
-BOOK NOW
-</button>
+<a href="booking.html?room=Special%20Super%20Deluxe"
+   class="small-btn whatsapp">
+    BOOK NOW
+</a>
 
 </div>
 
 </div>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-<!-- =======================================================
-     BOOKING
-======================================================= -->
-
-<section class="section booking-section"
-         id="booking">
-
-
-<div class="section-head">
-
-<div class="eyebrow">
-RESERVATIONS
-</div>
-
-<h2>
-Ready for Your Stay?
-</h2>
-
-<p>
-Send your booking request directly to Rangauti Resort through WhatsApp.
-Our team will check availability and contact you for confirmation.
-</p>
-
-</div>
-
-
-<form class="booking-form"
-      onsubmit="sendBookingToWhatsApp(event)">
-
-
-<div class="form-grid">
-
-
-<!-- GUEST NAME -->
-
-<div class="form-group">
-
-<label>
-Guest Name
-</label>
-
-<input
-type="text"
-id="guestName"
-placeholder="Enter your full name"
-required>
-
-</div>
-
-
-<!-- PHONE -->
-
-<div class="form-group">
-
-<label>
-Phone Number
-</label>
-
-<input
-type="tel"
-id="guestPhone"
-placeholder="Enter phone number"
-required>
-
-</div>
-
-
-<!-- ARRIVAL -->
-
-<div class="form-group">
-
-<label>
-Arrival Date
-</label>
-
-<input
-type="date"
-id="arrivalDate"
-required>
-
-</div>
-
-
-<!-- DEPARTURE -->
-
-<div class="form-group">
-
-<label>
-Departure Date
-</label>
-
-<input
-type="date"
-id="departureDate"
-required>
-
-</div>
-
-
-<!-- NUMBER OF ROOMS -->
-
-<div class="form-group">
-
-<label>
-Number of Rooms
-</label>
-
-<select
-id="numberOfRooms"
-onchange="createRoomDetails()">
-
-<option value="1">
-1 Room
-</option>
-
-<option value="2">
-2 Rooms
-</option>
-
-<option value="3">
-3 Rooms
-</option>
-
-<option value="4">
-4 Rooms
-</option>
-
-<option value="5">
-5 Rooms
-</option>
-
-<option value="6">
-6 Rooms
-</option>
-
-<option value="7">
-7 Rooms
-</option>
-
-<option value="8">
-8 Rooms
-</option>
-
-<option value="9">
-9 Rooms
-</option>
-
-<option value="10">
-10 Rooms
-</option>
-
-</select>
-
-</div>
-
-
-<!-- SPECIAL REQUEST -->
-
-<div class="form-group">
-
-<label>
-Special Request
-</label>
-
-<input
-type="text"
-id="specialRequest"
-placeholder="Any special request?">
-
-</div>
-
-
-<!-- ROOM DETAILS -->
-
-<div class="form-group full">
-
-<div id="roomDetails"
-     class="room-details">
-</div>
-
-</div>
-
-
-<!-- MESSAGE -->
-
-<div class="form-group full">
-
-<label>
-Message
-</label>
-
-<textarea
-id="bookingMessage"
-placeholder="Write any additional information here..."></textarea>
-
-</div>
-
-
-<!-- SUBMIT -->
-
-<div class="form-group full">
-
-<button
-type="submit"
-class="booking-submit">
-
-SEND BOOKING REQUEST VIA WHATSAPP
-
-</button>
-
-</div>
-
-
-</div>
-
-</form>
 
 </section>
 <!-- =========================================================
@@ -7637,37 +7415,102 @@ document.querySelectorAll(".room-card-slideshow").forEach(
         }, 4000);
 
     }
-);
-
-</script>
-
+)
 /* =========================================================
-   ALL ROOM CARD SLIDESHOW
+   AUTOMATIC ROOM SELECTION FROM ROOM CARD
 ========================================================= */
 
-document.querySelectorAll(".room-card-slideshow").forEach(
-    (slideshow) => {
+function selectRoomFromURL() {
 
-        const slides =
-            slideshow.querySelectorAll(".room-slide");
+    const params = new URLSearchParams(
+        window.location.search
+    );
 
-        if (slides.length <= 1) return;
+    const roomName = params.get("room");
 
-        let current = 0;
+    if (!roomName) {
+        return;
+    }
 
-        setInterval(() => {
+    const roomSelect = document.querySelector(
+        ".room-type[data-room='1']"
+    );
 
-            slides[current].classList.remove("active");
+    if (!roomSelect) {
+        return;
+    }
 
-            current++;
+    const targetRoom = roomName
+        .trim()
+        .toLowerCase();
 
-            if (current >= slides.length) {
-                current = 0;
-            }
+    const option = Array.from(
+        roomSelect.options
+    ).find(function(option) {
 
-            slides[current].classList.add("active");
+        return option.value
+            .trim()
+            .toLowerCase() === targetRoom;
 
-        }, 4000);
+    });
+
+    if (!option) {
+        return;
+    }
+
+    /* Select Room */
+    roomSelect.value = option.value;
+
+    /* Update Adults & Children */
+    updateAdultOptions(roomSelect);
+
+    const adultSelect = document.querySelector(
+        ".adult-count[data-room='1']"
+    );
+
+    if (adultSelect) {
+
+        adultSelect.value = "1";
+
+        updateChildLimit(adultSelect);
+
+    }
+
+}
+
+
+/* =========================================================
+   INITIALIZE ROOM BOOKING
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        /* Create Room 1 */
+        createRoomDetails();
+
+        /* Select room from URL */
+        setTimeout(function() {
+            selectRoomFromURL();
+        }, 100);
+
+
+        /* Image Zoom Setup */
+        const image =
+            document.getElementById("singleImage");
+
+        if (image) {
+
+            image.style.cursor = "zoom-in";
+
+            image.style.userSelect = "none";
+
+            image.style.webkitUserSelect = "none";
+
+            image.style.touchAction = "none";
+
+        }
 
     }
 );

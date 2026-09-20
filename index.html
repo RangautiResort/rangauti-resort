@@ -2422,7 +2422,53 @@ footer{
     }
 
 }
+/* =========================================================
+   ROOM CARD IMAGE SLIDESHOW
+========================================================= */
 
+.room-card-slideshow{
+    position:relative;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+.room-card-slideshow .room-slide{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:0;
+    transition:opacity 1.2s ease-in-out;
+}
+
+.room-card-slideshow .room-slide.active{
+    opacity:1;
+}
+.room-card-slideshow{
+    position:relative;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+.room-card-slideshow .room-slide{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity 1.2s ease-in-out;
+}
+
+.room-card-slideshow .room-slide.active{
+    opacity:1;
+}
 
 </style>
 
@@ -3192,15 +3238,31 @@ stay peaceful, private and memorable.
 
 <div class="rooms-grid">
 
-
 <!-- ROOM 1 -->
 
 <div class="room-card">
 
 <div class="room-image">
 
-<img src="rooms/super-family-lake.png"
-     alt="Super Family Deluxe Lake View">
+<div class="room-card-slideshow">
+
+<img src="rooms/gallery/super-family-deluxe/room1.jpeg"
+  alt="Super Family Deluxe Lake View"
+  class="room-slide active">
+
+<img src="rooms/gallery/super-family-deluxe/room2.jpeg"
+  alt="Super Family Deluxe Lake View"
+  class="room-slide">
+
+<img src="rooms/gallery/super-family-deluxe/room3.jpeg"
+  alt="Super Family Deluxe Lake View"
+  class="room-slide">
+
+<img src="rooms/gallery/super-family-deluxe/room4.jpeg"
+  alt="Super Family Deluxe Lake View"
+  class="room-slide">
+
+</div>
 
 </div>
 
@@ -3230,13 +3292,11 @@ Up to 4 Persons
 
 <button class="small-btn"
 onclick="openGallery('superFamilyGallery')">
-VIEW
-</button>
+VIEW </button>
 
 <button class="small-btn whatsapp"
 onclick="selectRoom('Super Family Deluxe')">
-BOOK NOW
-</button>
+BOOK NOW </button>
 
 </div>
 
@@ -3251,8 +3311,25 @@ BOOK NOW
 
 <div class="room-image">
 
-<img src="rooms/family-lake.png"
-     alt="Family Deluxe Lake View">
+<div class="room-card-slideshow">
+
+<img src="rooms/family-deluxe/room1.jpeg"
+     alt="Family Deluxe Lake View"
+     class="room-slide active">
+
+<img src="rooms/family-deluxe/room2.jpeg"
+     alt="Family Deluxe Lake View"
+     class="room-slide">
+
+<img src="rooms/family-deluxe/room3.jpeg"
+     alt="Family Deluxe Lake View"
+     class="room-slide">
+
+<img src="rooms/family-deluxe/room4.jpeg"
+     alt="Family Deluxe Lake View"
+     class="room-slide">
+
+</div>
 
 </div>
 
@@ -3303,8 +3380,33 @@ BOOK NOW
 
 <div class="room-image">
 
-<img src="rooms/super-deluxe-cottage.png"
-     alt="Super Deluxe Cottage">
+<div class="room-card-slideshow">
+
+<img src="rooms/super-deluxe-cottage-1.jpeg"
+     alt="Super Deluxe Cottage"
+     class="room-slide active">
+
+<img src="rooms/super-deluxe-cottage-2.jpeg"
+     alt="Super Deluxe Cottage"
+     class="room-slide">
+
+<img src="rooms/super-deluxe-cottage-3.jpeg"
+     alt="Super Deluxe Cottage"
+     class="room-slide">
+
+<img src="rooms/super-deluxe-cottage-4.jpeg"
+     alt="Super Deluxe Cottage"
+     class="room-slide">
+
+<img src="rooms/super-deluxe-cottage-5.png"
+     alt="Super Deluxe Cottage"
+     class="room-slide">
+
+<img src="rooms/super-deluxe-cottage-6.png"
+     alt="Super Deluxe Cottage"
+     class="room-slide">
+
+</div>
 
 </div>
 
@@ -3355,11 +3457,27 @@ BOOK NOW
 
 <div class="room-image">
 
-<img src="rooms/super-deluxe-pool.png"
-     alt="Super Deluxe Swimming Pool View">
+<div class="room-card-slideshow">
+
+<img src="rooms/gallery/swimming-pool/room1.jpeg"
+     alt="Super Deluxe Swimming Pool View"
+     class="room-slide active">
+
+<img src="rooms/gallery/swimming-pool/room2.jpeg"
+     alt="Super Deluxe Swimming Pool View"
+     class="room-slide">
+
+<img src="rooms/gallery/swimming-pool/room3.jpeg"
+     alt="Super Deluxe Swimming Pool View"
+     class="room-slide">
+
+<img src="rooms/gallery/swimming-pool/room4.jpeg"
+     alt="Super Deluxe Swimming Pool View"
+     class="room-slide">
 
 </div>
 
+</div>
 <div class="room-content">
 
 <h3>
@@ -3407,8 +3525,33 @@ BOOK NOW
 
 <div class="room-image">
 
-<img src="rooms/jolojuchona.png"
-     alt="Suite Jolojuchona">
+<div class="room-card-slideshow">
+
+<img src="rooms/gallery/suite-jolojuchona/room1.jpeg"
+     alt="Suite Jolojuchona"
+     class="room-slide active">
+
+<img src="rooms/gallery/suite-jolojuchona/room2.jpeg"
+     alt="Suite Jolojuchona"
+     class="room-slide">
+
+<img src="rooms/gallery/suite-jolojuchona/room3.jpeg"
+     alt="Suite Jolojuchona"
+     class="room-slide">
+
+<img src="rooms/gallery/suite-jolojuchona/room4.jpeg"
+     alt="Suite Jolojuchona"
+     class="room-slide">
+
+<img src="rooms/gallery/suite-jolojuchona/room5.jpeg"
+     alt="Suite Jolojuchona"
+     class="room-slide">
+
+<img src="rooms/gallery/suite-jolojuchona/Room6.png"
+     alt="Suite Jolojuchona"
+     class="room-slide">
+
+</div>
 
 </div>
 
@@ -3459,8 +3602,25 @@ BOOK NOW
 
 <div class="room-image">
 
-<img src="rooms/special-family-pool.png"
-     alt="Special Family Deluxe Swimming Pool View">
+<div class="room-card-slideshow">
+
+<img src="rooms/special-family-deluxe/room1.jpeg"
+     alt="Special Family Deluxe"
+     class="room-slide active">
+
+<img src="rooms/special-family-deluxe/room2.jpeg"
+     alt="Special Family Deluxe"
+     class="room-slide">
+
+<img src="rooms/special-family-deluxe/room3.jpeg"
+     alt="Special Family Deluxe"
+     class="room-slide">
+
+<img src="rooms/special-family-deluxe/room4.jpeg"
+     alt="Special Family Deluxe"
+     class="room-slide">
+
+</div>
 
 </div>
 
@@ -3519,11 +3679,27 @@ BOOK NOW
 
 <div class="room-image">
 
-<img src="rooms/family-lake.png"
-     alt="Special Super Deluxe Lake View">
+<div class="room-card-slideshow">
+
+<img src="rooms/special-super-deluxe-1.jpeg"
+     alt="Special Super Deluxe"
+     class="room-slide active">
+
+<img src="rooms/special-super-deluxe-2.jpeg"
+     alt="Special Super Deluxe"
+     class="room-slide">
+
+<img src="rooms/special-super-deluxe-3.jpeg"
+     alt="Special Super Deluxe"
+     class="room-slide">
+
+<img src="rooms/special-super-deluxe-4.jpeg"
+     alt="Special Super Deluxe"
+     class="room-slide">
 
 </div>
 
+</div>
 <div class="room-content">
 
 <h3>
@@ -7569,9 +7745,70 @@ setInterval(() => {
 
 }, heroSlideDuration);
 
-</script>
+
+/* =========================================================
+   ALL ROOM CARD SLIDESHOW
+========================================================= */
+
+document.querySelectorAll(".room-card-slideshow").forEach(
+    (slideshow) => {
+
+        const slides =
+            slideshow.querySelectorAll(".room-slide");
+
+        if (slides.length <= 1) return;
+
+        let current = 0;
+
+        setInterval(() => {
+
+            slides[current].classList.remove("active");
+
+            current++;
+
+            if (current >= slides.length) {
+                current = 0;
+            }
+
+            slides[current].classList.add("active");
+
+        }, 4000);
+
+    }
+);
 
 </script>
+
+/* =========================================================
+   ALL ROOM CARD SLIDESHOW
+========================================================= */
+
+document.querySelectorAll(".room-card-slideshow").forEach(
+    (slideshow) => {
+
+        const slides =
+            slideshow.querySelectorAll(".room-slide");
+
+        if (slides.length <= 1) return;
+
+        let current = 0;
+
+        setInterval(() => {
+
+            slides[current].classList.remove("active");
+
+            current++;
+
+            if (current >= slides.length) {
+                current = 0;
+            }
+
+            slides[current].classList.add("active");
+
+        }, 4000);
+
+    }
+);
 
 </script>
 ```

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Terms & Conditions | Rangauti Resort</title>
+
+<style>
+
+/* =======================================================
+   RESET
+======================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia, "Times New Roman", serif;
+    background:#11110f;
+    color:#f5f1e8;
+    line-height:1.7;
+}
+
+
+/* =======================================================
+   HEADER
+======================================================= */
+
+.site-header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:78px;
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 6%;
+
+    background:rgba(17,17,15,.92);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(212,175,55,.18);
+}
+
+
+/* LOGO */
+
+.site-logo img{
+    width:145px;
+    height:auto;
+    display:block;
+}
+
+
+/* =======================================================
+   MENU BUTTON
+======================================================= */
+
+.menu-toggle{
+    width:46px;
+    height:46px;
+
+    border:1px solid rgba(212,175,55,.45);
+    border-radius:50%;
+
+    background:transparent;
+    color:#d4af37;
+
+    font-size:25px;
+    line-height:1;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+}
+
+.menu-toggle:hover{
+    background:#d4af37;
+    color:#11110f;
+}
+
+
+/* =======================================================
+   MENU DROPDOWN
+======================================================= */
+
+.menu-dropdown{
+    position:absolute;
+    top:88px;
+    right:6%;
+
+    width:260px;
+
+    background:#171714;
+
+    border:1px solid rgba(212,175,55,.3);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+
+    padding:14px;
+
+    display:none;
+}
+
+.menu-dropdown.show{
+    display:block;
+}
+
+.menu-dropdown a{
+    display:block;
+
+    padding:11px 14px;
+
+    color:#ffffff !important;
+
+    text-decoration:none;
+
+    font-size:13px;
+    letter-spacing:1.2px;
+
+    transition:.25s ease;
+}
+
+.menu-dropdown a:hover{
+    color:#d4af37 !important;
+    background:rgba(212,175,55,.06);
+}
+
+
+/* =======================================================
+   TERMS SECTION
+======================================================= */
+
+.terms-section{
+    min-height:100vh;
+
+    padding:
+        150px 7%
+        90px;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(212,175,55,.08),
+            transparent 35%
+        ),
+        #11110f;
+}
+
+
+/* =======================================================
+   SECTION HEAD
+======================================================= */
+
+.section-head{
+    max-width:850px;
+    margin:0 auto 55px;
+    text-align:center;
+}
+
+.eyebrow{
+    color:#d4af37;
+
+    font-size:12px;
+    letter-spacing:3px;
+
+    margin-bottom:16px;
+
+    text-transform:uppercase;
+}
+
+.section-head h1{
+    font-size:clamp(38px,5vw,64px);
+
+    font-weight:400;
+
+    line-height:1.15;
+
+    margin-bottom:20px;
+}
+
+.section-head p{
+    color:#c9c5bb;
+
+    font-family:Arial, sans-serif;
+
+    font-size:15px;
+}
+
+
+/* =======================================================
+   TERMS BOX
+======================================================= */
+
+.terms-box{
+
+    max-width:1000px;
+
+    margin:0 auto;
+
+    padding:45px 50px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
+
+    border:1px solid rgba(212,175,55,.2);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.28);
+}
+
+
+/* =======================================================
+   TERMS LIST
+======================================================= */
+
+.terms-box ol{
+
+    margin:0;
+
+    padding-left:28px;
+
+    font-family:Arial, sans-serif;
+
+    color:#d9d5cc;
+
+}
+
+.terms-box li{
+
+    padding:15px 10px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    font-size:15px;
+}
+
+.terms-box li:last-child{
+    border-bottom:none;
+}
+
+.terms-box strong{
+    color:#f5f1e8;
+}
+
+
+/* =======================================================
+   FOOTER
+======================================================= */
+
+.footer{
+    padding:30px 6%;
+
+    text-align:center;
+
+    border-top:1px solid rgba(212,175,55,.15);
+
+    color:#9e9b92;
+
+    font-family:Arial, sans-serif;
+
+    font-size:13px;
+}
+
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media(max-width:700px){
+
+    .site-header{
+        height:70px;
+        padding:0 5%;
+    }
+
+    .site-logo img{
+        width:120px;
+    }
+
+    .menu-toggle{
+        width:42px;
+        height:42px;
+        font-size:22px;
+    }
+
+    .menu-dropdown{
+        top:78px;
+        right:5%;
+        width:230px;
+    }
+
+    .terms-section{
+        padding:
+            120px 5%
+            60px;
+    }
+
+    .section-head{
+        margin-bottom:35px;
+    }
+
+    .section-head h1{
+        font-size:38px;
+    }
+
+    .terms-box{
+        padding:25px 18px;
+    }
+
+    .terms-box ol{
+        padding-left:22px;
+    }
+
+    .terms-box li{
+        padding:13px 5px;
+        font-size:14px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header class="site-header">
+
+
+<a href="index.html"
+   class="site-logo">
+
+<img src="images/logo.png"
+     alt="Rangauti Resort">
+
+</a>
+
+
+<button class="menu-toggle"
+        onclick="toggleMenu()">
+
+☰
+
+</button>
+
+
+<div class="menu-dropdown"
+     id="menuDropdown">
+
+
+<a href="index.html#home">
+<strong>HOME</strong>
+</a>
+
+<a href="facilities.html">
+<strong>FACILITIES</strong>
+</a>
+
+<a href="index.html#resort-gallery">
+<strong>EXPLORE RANGAUTI</strong>
+</a>
+
+<a href="index.html#packages">
+<strong>PACKAGES</strong>
+</a>
+
+<a href="index.html#rooms">
+<strong>ROOMS & SUITES</strong>
+</a>
+
+<a href="complimentary.html">
+<strong>COMPLIMENTARY</strong>
+</a>
+
+<a href="offers.html">
+<strong>SPECIAL OFFER</strong>
+</a>
+
+<a href="index.html#booking">
+<strong>BOOK NOW</strong>
+</a>
+
+<a href="index.html#contact">
+<strong>CONTACT</strong>
+</a>
+
+<a href="terms.html">
+<strong>TERMS</strong>
+</a>
+
+<a href="index.html#about">
+<strong>ABOUT</strong>
+</a>
+
+
+</div>
+
+</header>
+
+
+
+<!-- =======================================================
+     TERMS
+======================================================= -->
+
+<section class="terms-section"
+         id="terms">
+
+
+<div class="section-head">
+
+<div class="eyebrow">
+IMPORTANT INFORMATION
+</div>
+
+<h1>
+Terms & Conditions
+</h1>
+
+<p>
+Please review the following resort policies and booking
+conditions before confirming your reservation.
+</p>
+
+</div>
+
+
+<div class="terms-box">
+
+<ol>
+
+<li>
+<strong>Resort Visiting Time:</strong>
+11:00 AM – 6:00 PM.
+</li>
+
+<li>
+<strong>Check-in:</strong>
+1:15 PM.
+<strong>Check-out:</strong>
+11:45 AM.
+</li>
+
+<li>
+<strong>Breakfast:</strong>
+8:30 AM – 10:30 AM.
+</li>
+
+<li>
+<strong>Lunch:</strong>
+1:30 PM – 3:30 PM.
+</li>
+
+<li>
+<strong>Dinner:</strong>
+8:30 PM – 10:30 PM.
+</li>
+
+<li>
+<strong>Outside Food:</strong>
+Outside food is not allowed inside the resort.
+</li>
+
+<li>
+<strong>Cancellation:</strong>
+Free cancellation is available up to 72 hours before the
+check-in time.
+</li>
+
+<li>
+<strong>Extra Person:</strong>
+BDT 1,500 per person.
+</li>
+
+<li>
+<strong>Child Policy:</strong>
+Children above 6 years are charged as adults.
+</li>
+
+<li>
+<strong>Couple Policy:</strong>
+Only married couples are allowed. Valid ID and marriage
+proof may be required.
+</li>
+
+<li>
+<strong>Room Booking:</strong>
+50% advance payment is required to confirm a room booking.
+</li>
+
+<li>
+<strong>Lunch Package:</strong>
+For 5 or more persons, 50% advance payment is required.
+For fewer than 5 persons, full payment is required.
+</li>
+
+<li>
+<strong>Day Long Package:</strong>
+Advance payment is required to confirm the booking.
+</li>
+
+<li>
+<strong>Beverage, Entry & Swimming Packages:</strong>
+No advance payment is required. Payment can be made at
+the resort.
+</li>
+
+<li>
+All bookings are subject to availability and prior
+confirmation.
+</li>
+
+</ol>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer class="footer">
+
+© Rangauti Resort. All Rights Reserved.
+
+</footer>
+
+
+
+<!-- =======================================================
+     MENU SCRIPT
+======================================================= -->
+
+<script>
+
+function toggleMenu(){
+
+    const menu =
+        document.getElementById("menuDropdown");
+
+    menu.classList.toggle("show");
+
+}
+
+
+/* Close menu when clicking outside */
+
+document.addEventListener("click", function(event){
+
+    const menu =
+        document.getElementById("menuDropdown");
+
+    const button =
+        document.querySelector(".menu-toggle");
+
+    if(
+        !menu.contains(event.target) &&
+        !button.contains(event.target)
+    ){
+
+        menu.classList.remove("show");
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>

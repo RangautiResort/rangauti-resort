@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Special Offers | Rangauti Resort
+</title>
+
+<meta
+name="description"
+content="Discover special offers and discounted stays at Rangauti Resort, Moulvibazar, Sylhet.">
+
+<style>
+
+/* =======================================================
+   ROOT
+======================================================= */
+
+:root{
+    --dark:#101812;
+    --dark-soft:#18231b;
+    --cream:#f5f1e8;
+    --gold:#c9a45c;
+    --white:#ffffff;
+    --text:#30362f;
+}
+
+
+/* =======================================================
+   RESET
+======================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--cream);
+    color:var(--text);
+}
+
+
+/* =======================================================
+   HEADER
+======================================================= */
+
+header{
+    position:relative;
+    z-index:1000;
+    height:82px;
+    background:var(--dark);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 5%;
+}
+
+
+/* =======================================================
+   LOGO
+======================================================= */
+
+.logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.logo img{
+    width:58px;
+    height:58px;
+    object-fit:contain;
+}
+
+
+/* =======================================================
+   3 DOT MENU
+======================================================= */
+
+.menu-wrap{
+    position:relative;
+}
+
+.menu-button{
+    width:46px;
+    height:46px;
+    border:1px solid rgba(255,255,255,.35);
+    background:transparent;
+    color:white;
+    font-size:27px;
+    line-height:1;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.menu-button:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+}
+
+
+/* =======================================================
+   DROPDOWN MENU
+======================================================= */
+
+.menu-dropdown{
+    position:absolute;
+    top:58px;
+    right:0;
+    width:230px;
+    background:var(--dark);
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-10px);
+
+    transition:.3s ease;
+}
+
+.menu-dropdown.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.menu-dropdown a{
+    display:block;
+    padding:15px 20px;
+    color:white;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.menu-dropdown a:last-child{
+    border-bottom:none;
+}
+
+.menu-dropdown a:hover{
+    background:rgba(201,164,92,.12);
+    color:var(--gold);
+}
+
+
+/* =======================================================
+   OFFER HERO
+======================================================= */
+
+.offer-hero{
+    min-height:calc(100vh - 82px);
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        url("rooms/home-1.jpeg")
+        center/cover no-repeat;
+
+    color:white;
+
+    overflow:hidden;
+}
+
+
+/* =======================================================
+   OVERLAY
+======================================================= */
+
+.offer-hero::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(8,14,10,.45),
+            rgba(8,14,10,.70)
+        );
+
+    z-index:1;
+}
+
+
+/* =======================================================
+   OFFER CONTENT
+======================================================= */
+
+.offer-content{
+    position:relative;
+    z-index:2;
+
+    width:min(900px,90%);
+
+    padding:80px 20px;
+}
+
+
+/* =======================================================
+   EYEBROW
+======================================================= */
+
+.eyebrow{
+    color:var(--gold);
+
+    font-size:11px;
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    margin-bottom:25px;
+
+    text-transform:uppercase;
+}
+
+
+/* =======================================================
+   TITLE
+======================================================= */
+
+.offer-content h1{
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(48px,7vw,88px);
+
+    font-weight:400;
+
+    line-height:1.05;
+
+    margin-bottom:25px;
+
+    color:white;
+}
+
+
+/* =======================================================
+   DESCRIPTION
+======================================================= */
+
+.offer-content p{
+    max-width:650px;
+
+    margin:0 auto 35px;
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    color:rgba(255,255,255,.9);
+}
+
+
+/* =======================================================
+   OFFER AREA
+======================================================= */
+
+.offer-box{
+    max-width:700px;
+
+    margin:40px auto;
+
+    padding:35px 30px;
+
+    border-top:1px solid
+        rgba(255,255,255,.35);
+
+    border-bottom:1px solid
+        rgba(255,255,255,.35);
+}
+
+
+/* =======================================================
+   OFFER TEXT
+======================================================= */
+
+.offer-box h2{
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(35px,5vw,60px);
+
+    font-weight:400;
+
+    color:white;
+
+    margin-bottom:15px;
+}
+
+.offer-box p{
+    margin-bottom:0;
+}
+
+
+/* =======================================================
+   BUTTON
+======================================================= */
+
+.offer-btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-width:210px;
+
+    padding:16px 28px;
+
+    background:white;
+
+    color:var(--dark);
+
+    border:1px solid white;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    transition:.35s;
+}
+
+.offer-btn:hover{
+    background:transparent;
+    color:white;
+}
+
+
+/* =======================================================
+   FOOTER
+======================================================= */
+
+footer{
+    background:var(--dark);
+
+    color:rgba(255,255,255,.65);
+
+    text-align:center;
+
+    padding:25px 15px;
+
+    font-size:12px;
+
+    letter-spacing:.5px;
+}
+
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media(max-width:768px){
+
+    header{
+        height:72px;
+        padding:0 20px;
+    }
+
+    .logo img{
+        width:52px;
+        height:52px;
+    }
+
+    .menu-button{
+        width:43px;
+        height:43px;
+    }
+
+    .menu-dropdown{
+        top:55px;
+        right:0;
+        width:210px;
+    }
+
+    .offer-hero{
+        min-height:
+            calc(100vh - 72px);
+    }
+
+    .offer-content{
+        width:92%;
+        padding:60px 15px;
+    }
+
+    .offer-content h1{
+        font-size:52px;
+    }
+
+    .offer-content p{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    .offer-box{
+        padding:30px 20px;
+        margin:30px auto;
+    }
+
+    .offer-box h2{
+        font-size:38px;
+    }
+
+    .offer-btn{
+        width:100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header>
+
+<a
+href="index.html"
+class="logo">
+
+<img
+src="images/logo.png"
+alt="Rangauti Resort Logo">
+
+</a>
+
+
+<div class="menu-wrap">
+
+<button
+class="menu-button"
+id="menuButton"
+aria-label="Open Menu">
+
+⋮
+
+</button>
+
+
+<div
+class="menu-dropdown"
+id="menuDropdown">
+
+
+<a href="index.html#home">
+HOME
+</a>
+
+
+<a href="index.html#about">
+ABOUT
+</a>
+
+
+<a href="index.html#rooms">
+ROOMS
+</a>
+
+
+<a href="index.html#facilities">
+FACILITIES
+</a>
+
+
+<a href="index.html#gallery">
+RESORT GALLERY
+</a>
+
+
+<a href="offers.html">
+SPECIAL OFFER
+</a>
+
+
+<a
+    href="tel:+8801780203350"
+    class="offer-btn">
+    CALL: 01780-203350
+</a>
+
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- =======================================================
+     SPECIAL OFFER
+======================================================= -->
+
+<section class="offer-hero">
+
+<div class="offer-content">
+
+<div class="eyebrow">
+SPECIAL OFFER
+</div>
+
+
+<h1>
+Exclusive Stay Offers
+</h1>
+
+
+<p>
+Enjoy more comfort and memorable experiences
+at Rangauti Resort with our special offers.
+</p>
+
+
+<!-- ===================================================
+     WHEN DISCOUNT COMES, EDIT THIS AREA
+=================================================== -->
+
+<div class="offer-box">
+
+<h2>
+Your Special Offer
+</h2>
+
+<p>
+Special discounts will be announced here.
+Please contact Rangauti Resort for the
+latest available offer.
+</p>
+
+</div>
+
+
+<a
+href="tel:+8801780203350"
+class="offer-btn">
+
+CONTACT US
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+© 2026 Rangauti Resort.
+All Rights Reserved.
+
+</footer>
+
+
+
+<!-- =======================================================
+     MENU JAVASCRIPT
+======================================================= -->
+
+<script>
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const menuDropdown =
+    document.getElementById("menuDropdown");
+
+
+menuButton.addEventListener("click", function(){
+
+    menuDropdown.classList.toggle("show");
+
+});
+
+
+document.addEventListener("click", function(event){
+
+    if(
+        !event.target.closest(".menu-wrap")
+    ){
+
+        menuDropdown.classList.remove("show");
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>

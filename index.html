@@ -4128,8 +4128,8 @@ Up to 3 Persons
 <div class="room-actions">
 
 <button class="small-btn"
-onclick="openGallery('familyDeluxeGallery')">
-VIEW
+        onclick="openRoomDetails('familyDeluxeDetails')">
+    VIEW
 </button>
 
 <a href="booking.html?room=Family%20Deluxe"
@@ -5124,16 +5124,11 @@ aria-label="WhatsApp">
 ☏
 
 </a>
-
-
 <!-- =======================================================
      ROOM GALLERY MODALS
 ======================================================= -->
 
 
-<!-- =======================================================
-     SUPER FAMILY GALLERY
-======================================================= -->
 <!-- =======================================================
      SUPER FAMILY DELUXE — ROOM DETAILS
 ======================================================= -->
@@ -5143,7 +5138,7 @@ aria-label="WhatsApp">
 
     <div class="modal-content room-details-content">
 
-        <!-- CLOSE BUTTON -->
+        <!-- CLOSE -->
         <button class="modal-close"
                 onclick="closeRoomDetails('superFamilyDetails')">
             ×
@@ -5153,13 +5148,10 @@ aria-label="WhatsApp">
         <div class="room-details-layout">
 
 
-            <!-- =================================================
-                 LEFT — ROOM PHOTOS
-            ================================================== -->
+            <!-- LEFT — PHOTO GALLERY -->
 
             <div class="room-details-gallery">
 
-                <!-- BIG IMAGE -->
                 <div class="room-main-image">
 
                     <img
@@ -5167,13 +5159,11 @@ aria-label="WhatsApp">
                         src="rooms/gallery/super-family-deluxe/room1.jpeg"
                         alt="Super Family Deluxe">
 
-                    <!-- PREVIOUS -->
                     <button class="room-photo-nav room-photo-prev"
                             onclick="changeSuperFamilyImage(-1)">
                         ‹
                     </button>
 
-                    <!-- NEXT -->
                     <button class="room-photo-nav room-photo-next"
                             onclick="changeSuperFamilyImage(1)">
                         ›
@@ -5182,7 +5172,6 @@ aria-label="WhatsApp">
                 </div>
 
 
-                <!-- THUMBNAILS -->
                 <div class="room-photo-thumbnails">
 
                     <img
@@ -5214,9 +5203,7 @@ aria-label="WhatsApp">
             </div>
 
 
-            <!-- =================================================
-                 RIGHT — ROOM DETAILS
-            ================================================== -->
+            <!-- RIGHT — DETAILS -->
 
             <div class="room-details-information">
 
@@ -5232,8 +5219,6 @@ aria-label="WhatsApp">
                     Lake View
                 </div>
 
-
-                <!-- PRICE -->
                 <div class="room-details-price">
                     BDT 8,400
                     <span>/ Night</span>
@@ -5241,6 +5226,7 @@ aria-label="WhatsApp">
 
 
                 <!-- BASIC INFORMATION -->
+
                 <div class="room-details-basic">
 
                     <div class="room-detail-item">
@@ -5269,41 +5255,33 @@ aria-label="WhatsApp">
                     </div>
 
                 </div>
-<!-- =================================================
-     COMPLIMENTARY FACILITIES
-================================================= -->
 
-<div class="room-details-section">
 
-    <h3>
-        Complimentary Facilities
-    </h3>
+                <!-- COMPLIMENTARY FACILITIES -->
 
-    <div class="room-details-list">
+                <div class="room-details-section">
 
-        <span>Welcome Drinks</span>
+                    <h3>
+                        Complimentary Facilities
+                    </h3>
 
-        <span>Breakfast Included</span>
+                    <div class="room-details-list">
 
-        <span>Swimming Pool Access</span>
+                        <span>Welcome Drinks</span>
+                        <span>Breakfast Included</span>
+                        <span>Swimming Pool Access</span>
+                        <span>24/7 Room Service</span>
+                        <span>Cycling &amp; Pool Billiard</span>
+                        <span>Kayaking Boat</span>
+                        <span>Kids Playground</span>
+                        <span>WiFi (In-house Guests)</span>
 
-        <span>24/7 Room Service</span>
+                    </div>
 
-        <span>Cycling &amp; Pool Billiard</span>
+                </div>
 
-        <span>Kayaking Boat</span>
 
-        <span>Kids Playground</span>
-
-        <span>WiFi (In-house Guests)</span>
-
-    </div>
-
-</div>
-
-                <!-- =================================================
-                     BATHROOM
-                ================================================== -->
+                <!-- BATHROOM -->
 
                 <div class="room-details-section">
 
@@ -5325,14 +5303,12 @@ aria-label="WhatsApp">
                 </div>
 
 
-                <!-- =================================================
-                     ROOM FACILITIES
-                ================================================== -->
+                <!-- ROOM FACILITIES -->
 
                 <div class="room-details-section">
 
                     <h3>
-                        Room Facilities & Amenities
+                        Room Facilities &amp; Amenities
                     </h3>
 
                     <div class="room-details-list">
@@ -5353,9 +5329,7 @@ aria-label="WhatsApp">
                 </div>
 
 
-                <!-- =================================================
-                     SMOKING
-                ================================================== -->
+                <!-- SMOKING -->
 
                 <div class="room-details-section room-smoking">
 
@@ -5370,9 +5344,7 @@ aria-label="WhatsApp">
                 </div>
 
 
-                <!-- =================================================
-                     BOOK NOW
-                ================================================== -->
+                <!-- BOOK NOW -->
 
                 <div class="room-details-booking">
 
@@ -5391,53 +5363,240 @@ aria-label="WhatsApp">
 
 </div>
 
+
 <!-- =======================================================
-     FAMILY DELUXE GALLERY
+     FAMILY DELUXE — ROOM DETAILS
 ======================================================= -->
 
-<div class="modal"
-     id="familyDeluxeGallery">
+<div class="modal room-details-modal"
+     id="familyDeluxeDetails">
 
-<div class="modal-content">
+    <div class="modal-content room-details-content">
 
-<button class="modal-close"
-onclick="closeGallery('familyDeluxeGallery')">
-×
-</button>
+        <!-- CLOSE -->
+        <button class="modal-close"
+                onclick="closeRoomDetails('familyDeluxeDetails')">
+            ×
+        </button>
 
-<h2 class="gallery-title">
-Family Deluxe — Gallery
-</h2>
 
-<div class="gallery-grid">
+        <div class="room-details-layout">
 
-<img
-src="rooms/family-deluxe/room1.jpeg"
-alt="Family Deluxe Room 1"
-onclick="openSingleImage(this)">
 
-<img
-src="rooms/family-deluxe/room2.jpeg"
-alt="Family Deluxe Room 2"
-onclick="openSingleImage(this)">
+            <!-- LEFT — PHOTO GALLERY -->
 
-<img
-src="rooms/family-deluxe/room3.jpeg"
-alt="Family Deluxe Room 3"
-onclick="openSingleImage(this)">
+            <div class="room-details-gallery">
 
-<img
-src="rooms/family-deluxe/room4.jpeg"
-alt="Family Deluxe Room 4"
-onclick="openSingleImage(this)">
+                <div class="room-main-image">
+
+                    <img
+                        id="familyDeluxeMainImage"
+                        src="rooms/family-deluxe/room1.jpeg"
+                        alt="Family Deluxe">
+
+                    <button class="room-photo-nav room-photo-prev"
+                            onclick="changeFamilyDeluxeImage(-1)">
+                        ‹
+                    </button>
+
+                    <button class="room-photo-nav room-photo-next"
+                            onclick="changeFamilyDeluxeImage(1)">
+                        ›
+                    </button>
+
+                </div>
+
+
+                <div class="room-photo-thumbnails">
+
+                    <img
+                        src="rooms/family-deluxe/room1.jpeg"
+                        alt="Family Deluxe Room 1"
+                        class="family-deluxe-thumb active"
+                        onclick="selectFamilyDeluxeImage(0)">
+
+                    <img
+                        src="rooms/family-deluxe/room2.jpeg"
+                        alt="Family Deluxe Room 2"
+                        class="family-deluxe-thumb"
+                        onclick="selectFamilyDeluxeImage(1)">
+
+                    <img
+                        src="rooms/family-deluxe/room3.jpeg"
+                        alt="Family Deluxe Room 3"
+                        class="family-deluxe-thumb"
+                        onclick="selectFamilyDeluxeImage(2)">
+
+                    <img
+                        src="rooms/family-deluxe/room4.jpeg"
+                        alt="Family Deluxe Room 4"
+                        class="family-deluxe-thumb"
+                        onclick="selectFamilyDeluxeImage(3)">
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT — DETAILS -->
+
+            <div class="room-details-information">
+
+                <div class="room-details-eyebrow">
+                    FAMILY DELUXE
+                </div>
+
+                <h2>
+                    Family Deluxe
+                </h2>
+
+                <div class="room-details-view">
+                    Lake View
+                </div>
+
+                <div class="room-details-price">
+                    BDT 7,200
+                    <span>/ Night</span>
+                </div>
+
+
+                <!-- BASIC INFORMATION -->
+
+                <div class="room-details-basic">
+
+                    <div class="room-detail-item">
+
+                        <strong>
+                            Maximum Guests
+                        </strong>
+
+                        <span>
+                            Up to 3 Persons
+                        </span>
+
+                    </div>
+
+
+                    <div class="room-detail-item">
+
+                        <strong>
+                            Beds
+                        </strong>
+
+                        <span>
+                            1 King Size Bed + 1 Single Bed
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COMPLIMENTARY FACILITIES -->
+
+                <div class="room-details-section">
+
+                    <h3>
+                        Complimentary Facilities
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span>Welcome Drinks</span>
+                        <span>Breakfast Included</span>
+                        <span>Swimming Pool Access</span>
+                        <span>24/7 Room Service</span>
+                        <span>Cycling &amp; Pool Billiard</span>
+                        <span>Kayaking Boat</span>
+                        <span>Kids Playground</span>
+                        <span>WiFi (In-house Guests)</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BATHROOM -->
+
+                <div class="room-details-section">
+
+                    <h3>
+                        Bathroom Facilities
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span>Free toiletries</span>
+                        <span>Shower</span>
+                        <span>Toilet</span>
+                        <span>Slippers</span>
+                        <span>Hairdryer</span>
+                        <span>Toilet paper</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ROOM FACILITIES -->
+
+                <div class="room-details-section">
+
+                    <h3>
+                        Room Facilities &amp; Amenities
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span>Desk</span>
+                        <span>Tile/marble floor</span>
+                        <span>Flat-screen TV</span>
+                        <span>Electric kettle</span>
+                        <span>Fan</span>
+                        <span>Towels</span>
+                        <span>Ironing facilities</span>
+                        <span>Air conditioning</span>
+                        <span>Tea/Coffee maker</span>
+                        <span>Clothes rack</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SMOKING -->
+
+                <div class="room-details-section room-smoking">
+
+                    <h3>
+                        Smoking Policy
+                    </h3>
+
+                    <p>
+                        Smoking is not allowed.
+                    </p>
+
+                </div>
+
+
+                <!-- BOOK NOW -->
+
+                <div class="room-details-booking">
+
+                    <a href="booking.html?room=Family%20Deluxe"
+                       class="small-btn whatsapp">
+                        BOOK NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
-
-</div>
-
-</div>
-
-
 <!-- =======================================================
      COTTAGE GALLERY
 ======================================================= -->
@@ -8646,13 +8805,21 @@ const superFamilyImages = [
 
 let superFamilyCurrentImage = 0;
 
-
 /* =========================================================
-   OPEN ROOM DETAILS
+   ROOM DETAILS — OPEN
 ========================================================= */
 
 function openRoomDetails(id) {
 
+    /* Close every room-details modal first */
+    document.querySelectorAll(".room-details-modal").forEach(function(modal) {
+
+        modal.classList.remove("active");
+
+    });
+
+
+    /* Open only the selected room */
     const modal = document.getElementById(id);
 
     if (!modal) return;
@@ -8661,15 +8828,31 @@ function openRoomDetails(id) {
 
     document.body.classList.add("modal-open");
 
-    superFamilyCurrentImage = 0;
 
-    updateSuperFamilyImage();
+    /* Reset selected room's gallery */
+
+    if (id === "superFamilyDetails") {
+
+        superFamilyCurrentImage = 0;
+
+        updateSuperFamilyImage();
+
+    }
+
+
+    if (id === "familyDeluxeDetails") {
+
+        familyDeluxeCurrentImage = 0;
+
+        selectFamilyDeluxeImage(0);
+
+    }
 
 }
 
 
 /* =========================================================
-   CLOSE ROOM DETAILS
+   ROOM DETAILS — CLOSE
 ========================================================= */
 
 function closeRoomDetails(id) {
@@ -8686,7 +8869,7 @@ function closeRoomDetails(id) {
 
 
 /* =========================================================
-   UPDATE BIG IMAGE
+   SUPER FAMILY DELUXE
 ========================================================= */
 
 function updateSuperFamilyImage() {
@@ -8715,12 +8898,6 @@ function updateSuperFamilyImage() {
     });
 
 }
-
-
-/* =========================================================
-   SELECT THUMBNAIL
-========================================================= */
-
 function selectSuperFamilyImage(index) {
 
     superFamilyCurrentImage = index;
@@ -8728,12 +8905,6 @@ function selectSuperFamilyImage(index) {
     updateSuperFamilyImage();
 
 }
-
-
-/* =========================================================
-   NEXT / PREVIOUS
-========================================================= */
-
 function changeSuperFamilyImage(direction) {
 
     superFamilyCurrentImage += direction;
@@ -8763,33 +8934,107 @@ function changeSuperFamilyImage(direction) {
 
 
 /* =========================================================
-   ESC KEY — CLOSE ROOM DETAILS
+   FAMILY DELUXE
+========================================================= */
+
+const familyDeluxeImages = [
+
+    "rooms/family-deluxe/room1.jpeg",
+    "rooms/family-deluxe/room2.jpeg",
+    "rooms/family-deluxe/room3.jpeg",
+    "rooms/family-deluxe/room4.jpeg"
+
+];
+
+
+let familyDeluxeCurrentImage = 0;
+
+
+function selectFamilyDeluxeImage(index) {
+
+    familyDeluxeCurrentImage = index;
+
+
+    const mainImage =
+        document.getElementById("familyDeluxeMainImage");
+
+    const thumbnails =
+        document.querySelectorAll(".family-deluxe-thumb");
+
+
+    if (!mainImage) return;
+
+
+    mainImage.src =
+        familyDeluxeImages[index];
+
+
+    thumbnails.forEach(function(thumb, i) {
+
+        thumb.classList.toggle(
+            "active",
+            i === index
+        );
+
+    });
+
+}
+
+
+function changeFamilyDeluxeImage(direction) {
+
+    familyDeluxeCurrentImage += direction;
+
+
+    if (
+        familyDeluxeCurrentImage >=
+        familyDeluxeImages.length
+    ) {
+
+        familyDeluxeCurrentImage = 0;
+
+    }
+
+
+    if (familyDeluxeCurrentImage < 0) {
+
+        familyDeluxeCurrentImage =
+            familyDeluxeImages.length - 1;
+
+    }
+
+
+    selectFamilyDeluxeImage(
+        familyDeluxeCurrentImage
+    );
+
+}
+
+
+/* =========================================================
+   ESC KEY — CLOSE ACTIVE ROOM DETAILS
 ========================================================= */
 
 document.addEventListener("keydown", function(event) {
 
-    const modal =
-        document.getElementById("superFamilyDetails");
+    if (event.key !== "Escape") return;
 
 
-    if (!modal) return;
+    const activeModal =
+        document.querySelector(
+            ".room-details-modal.active"
+        );
 
 
-    if (
-        event.key === "Escape" &&
-        modal.classList.contains("active")
-    ) {
+    if (!activeModal) return;
 
-        closeRoomDetails("superFamilyDetails");
 
-    }
+    closeRoomDetails(activeModal.id);
 
 });
 
+</script>
 
-</script>
-</script>
-```
 
 </body>
 

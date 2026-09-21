@@ -2758,6 +2758,249 @@ footer{
     }
 
 }
+
+/* =======================================================
+   FAQ SECTION
+======================================================= */
+
+.faq-section{
+    background:var(--cream);
+    padding:100px 5% 110px;
+}
+
+.faq-head{
+    max-width:800px;
+    margin:0 auto 55px;
+    text-align:center;
+}
+
+.faq-eyebrow{
+    color:var(--gold);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.faq-head h2{
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:clamp(42px, 6vw, 68px);
+    font-weight:400;
+    line-height:1.05;
+    color:var(--dark);
+    margin-bottom:22px;
+}
+
+.faq-head p{
+    max-width:650px;
+    margin:auto;
+
+    font-size:15px;
+    line-height:1.8;
+    color:#626861;
+}
+
+
+/* =======================================================
+   FAQ LIST
+======================================================= */
+
+.faq-list{
+    max-width:950px;
+    margin:0 auto;
+
+    border-top:1px solid rgba(16,24,18,.16);
+}
+
+
+/* =======================================================
+   FAQ ITEM
+======================================================= */
+
+.faq-item{
+    border-bottom:1px solid rgba(16,24,18,.16);
+}
+
+
+/* =======================================================
+   FAQ QUESTION
+======================================================= */
+
+.faq-question{
+    width:100%;
+
+    padding:24px 8px;
+
+    border:0;
+    background:transparent;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+
+    text-align:left;
+
+    color:var(--dark);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:19px;
+    font-weight:400;
+
+    cursor:pointer;
+
+    transition:
+        color .3s ease,
+        padding .3s ease;
+}
+
+.faq-question:hover{
+    color:var(--gold);
+}
+
+.faq-icon{
+    flex-shrink:0;
+
+    width:30px;
+    height:30px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid rgba(16,24,18,.25);
+
+    color:var(--gold);
+
+    font-family:Arial, sans-serif;
+    font-size:20px;
+    font-weight:300;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease;
+}
+
+
+/* =======================================================
+   FAQ ANSWER
+======================================================= */
+
+.faq-answer{
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:
+        max-height .4s ease,
+        padding .4s ease;
+}
+
+.faq-answer p{
+    max-width:850px;
+
+    padding:0 45px 0 8px;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    font-size:14px;
+    line-height:1.85;
+
+    color:#626861;
+}
+
+
+/* =======================================================
+   ACTIVE FAQ
+======================================================= */
+
+.faq-item.active .faq-question{
+    color:var(--gold);
+}
+
+.faq-item.active .faq-answer{
+    max-height:500px;
+}
+
+.faq-item.active .faq-answer p{
+    padding-bottom:25px;
+}
+
+.faq-item.active .faq-icon{
+    transform:rotate(45deg);
+
+    background:var(--gold);
+    color:var(--white);
+}
+
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media(max-width:600px){
+
+    .faq-section{
+        padding:70px 18px 80px;
+    }
+
+    .faq-head{
+        margin-bottom:40px;
+    }
+
+    .faq-eyebrow{
+        font-size:10px;
+        letter-spacing:3px;
+    }
+
+    .faq-head h2{
+        font-size:40px;
+    }
+
+    .faq-head p{
+        font-size:14px;
+        line-height:1.75;
+    }
+
+    .faq-question{
+        padding:20px 4px;
+
+        font-size:17px;
+
+        gap:15px;
+    }
+
+    .faq-icon{
+        width:28px;
+        height:28px;
+
+        font-size:18px;
+    }
+
+    .faq-answer p{
+        padding-left:4px;
+        padding-right:30px;
+
+        font-size:13.5px;
+        line-height:1.75;
+    }
+
+    .faq-item.active .faq-answer p{
+        padding-bottom:22px;
+    }
+
+}
+
 </style>
 
 </head>
@@ -4094,6 +4337,246 @@ Moulvibazar-3200, Sylhet
 
 
 </div>
+
+</section>
+```html
+<!-- =======================================================
+     FAQ SECTION
+======================================================= -->
+
+<section class="faq-section" id="faq">
+
+    <div class="faq-head">
+
+        <div class="faq-eyebrow">
+            NEED TO KNOW
+        </div>
+
+        <h2>
+            Frequently Asked<br>
+            Questions
+        </h2>
+
+        <p>
+            Find answers to some of the most common questions
+            about staying at Rangauti Resort.
+        </p>
+
+    </div>
+
+
+    <div class="faq-list">
+
+
+        <!-- FAQ 1 -->
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+
+                <span>
+                    How can I book a room?
+                </span>
+
+                <span class="faq-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    You can book your stay through our online booking
+                    form or contact Rangauti Resort directly for booking
+                    assistance and availability.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 2 -->
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+
+                <span>
+                    How can I contact the resort?
+                </span>
+
+                <span class="faq-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    You can contact us by phone at
+                    <strong>01780-203350</strong>, via WhatsApp,
+                    or by email at
+                    <strong>info.rangautiresort@gmail.com</strong>.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 3 -->
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+
+                <span>
+                    Where is Rangauti Resort located?
+                </span>
+
+                <span class="faq-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    Rangauti Resort is located near
+                    <strong>Manu Bridge, Taltola, Kulaura Road,
+                    Moulvibazar, Sylhet</strong>.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 4 -->
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+
+                <span>
+                    Is parking available?
+                </span>
+
+                <span class="faq-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    Yes. Parking is available for our guests.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 5 -->
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+
+                <span>
+                    Is Wi-Fi available?
+                </span>
+
+                <span class="faq-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    Yes. Wi-Fi is available for in-house guests.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 6 -->
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+
+                <span>
+                    Is the swimming pool available for guests?
+                </span>
+
+                <span class="faq-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    Yes. Swimming pool access is available for
+                    in-house guests, subject to the resort's
+                    operating schedule.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 7 -->
+
+        <div class="faq-item">
+
+            <button class="faq-question" type="button">
+
+                <span>
+                    What facilities are included with the room?
+                </span>
+
+                <span class="faq-icon">
+                    +
+                </span>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    Room guests can enjoy complimentary facilities
+                    such as <strong>Welcome Drinks, Breakfast Included,
+                    Swimming Pool Access, 24/7 Room Service, Cycling &
+                    Pool Billiard, Kayaking Boat, Kids Playground,
+                    and Wi-Fi</strong>, along with room amenities
+                    including Comfortable Bed, Wardrobe, Dressing Mirror,
+                    Mini Refrigerator, Electric Kettle, Complimentary
+                    Coffee Mini Pack, Power Backup, Daily Housekeeping,
+                    Common Veranda / Lake View, Towels, Air Conditioning,
+                    LED TV, Attached Bathroom, Hot & Cold Water, Shampoo,
+                    Soap, Toothbrush & Toothpaste.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 </section>
 
@@ -7514,6 +7997,43 @@ document.addEventListener(
 
     }
 );
+
+/* =======================================================
+   FAQ ACCORDION
+======================================================= */
+
+const faqQuestions =
+    document.querySelectorAll(".faq-question");
+
+
+faqQuestions.forEach(function(question){
+
+    question.addEventListener("click", function(){
+
+        const currentItem =
+            question.closest(".faq-item");
+
+
+        /* Close other FAQ items */
+
+        document.querySelectorAll(".faq-item").forEach(function(item){
+
+            if(item !== currentItem){
+
+                item.classList.remove("active");
+
+            }
+
+        });
+
+
+        /* Toggle current FAQ */
+
+        currentItem.classList.toggle("active");
+
+    });
+
+});
 
 </script>
 ```

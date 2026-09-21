@@ -3005,15 +3005,19 @@ footer{
 ========================================================= */
 
 .room-details-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
     padding: 30px;
+    background: rgba(0, 0, 0, 0.75);
+    overflow-y: auto;
 }
 
-.room-details-content {
-    width: min(1200px, 94vw);
-    max-height: 92vh;
-    overflow-y: auto;
-    padding: 35px;
-    position: relative;
+.room-details-modal {
+    padding: 30px;
 }
 
 
@@ -4145,6 +4149,7 @@ Up to 3 Persons
 </div>
 
 
+
 <!-- ROOM 3 -->
 
 <div class="room-card">
@@ -4188,7 +4193,7 @@ Super Deluxe
 </h3>
 
 <div class="room-view">
-Cottage
+Garden / Cottage
 </div>
 
 <div class="room-info">
@@ -4205,14 +4210,15 @@ Up to 2 Persons
 
 <div class="room-actions">
 
-<button class="small-btn"
-onclick="openGallery('cottageGallery')">
-VIEW
+<button type="button"
+        class="small-btn"
+        onclick="openRoomDetails('cottageDetails')">
+    VIEW
 </button>
 
 <a href="booking.html?room=Super%20Deluxe%20-%20Cottage"
    class="small-btn whatsapp">
-    BOOK NOW
+BOOK NOW
 </a>
 
 </div>
@@ -4220,6 +4226,7 @@ VIEW
 </div>
 
 </div>
+
 
 
 <!-- ROOM 4 -->
@@ -4274,8 +4281,8 @@ Up to 2 Persons
 <div class="room-actions">
 
 <button class="small-btn"
-onclick="openGallery('swimmingPoolGallery')">
-VIEW
+onclick="openRoomDetails('superDeluxePoolDetails')">
+    VIEW
 </button>
 
 <a href="booking.html?room=Super%20Deluxe%20-%20Swimming%20Pool%20View"
@@ -5598,107 +5605,492 @@ aria-label="WhatsApp">
 
 </div>
 <!-- =======================================================
-     COTTAGE GALLERY
+     SUPER DELUXE COTTAGE — ROOM DETAILS
 ======================================================= -->
 
-<div class="modal"
-     id="cottageGallery">
+<div class="modal room-details-modal"
+     id="cottageDetails">
 
-<div class="modal-content">
+```
+<div class="modal-content room-details-content">
 
-<button class="modal-close"
-onclick="closeGallery('cottageGallery')">
-×
-</button>
+    <!-- CLOSE -->
+    <button class="modal-close"
+            onclick="closeRoomDetails('cottageDetails')">
+        ×
+    </button>
 
-<h2 class="gallery-title">
-Super Deluxe Cottage — Gallery
-</h2>
 
-<div class="gallery-grid">
+    <div class="room-details-layout">
 
-<img
-src="rooms/super-deluxe-cottage-1.jpeg"
-alt="Super Deluxe Cottage 1"
-onclick="openSingleImage(this)">
 
-<img
-src="rooms/super-deluxe-cottage-2.jpeg"
-alt="Super Deluxe Cottage 2"
-onclick="openSingleImage(this)">
+        <!-- LEFT — PHOTO GALLERY -->
 
-<img
-src="rooms/super-deluxe-cottage-3.jpeg"
-alt="Super Deluxe Cottage 3"
-onclick="openSingleImage(this)">
+        <div class="room-details-gallery">
 
-<img
-src="rooms/super-deluxe-cottage-4.jpeg"
-alt="Super Deluxe Cottage 4"
-onclick="openSingleImage(this)">
+            <div class="room-main-image">
 
-<img
-src="rooms/super-deluxe-cottage-5.png"
-alt="Super Deluxe Cottage 5"
-onclick="openSingleImage(this)">
+                <img
+                    id="cottageMainImage"
+                    src="rooms/super-deluxe-cottage-1.jpeg"
+                    alt="Super Deluxe Cottage">
 
-<img
-src="rooms/super-deluxe-cottage-6.png"
-alt="Super Deluxe Cottage 6"
-onclick="openSingleImage(this)">
+                <button class="room-photo-nav room-photo-prev"
+                        onclick="changeCottageImage(-1)">
+                    ‹
+                </button>
+
+                <button class="room-photo-nav room-photo-next"
+                        onclick="changeCottageImage(1)">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="room-photo-thumbnails">
+
+                <img
+                    src="rooms/super-deluxe-cottage-1.jpeg"
+                    alt="Super Deluxe Cottage Room 1"
+                    class="cottage-thumb active"
+                    onclick="selectCottageImage(0)">
+
+                <img
+                    src="rooms/super-deluxe-cottage-2.jpeg"
+                    alt="Super Deluxe Cottage Room 2"
+                    class="cottage-thumb"
+                    onclick="selectCottageImage(1)">
+
+                <img
+                    src="rooms/super-deluxe-cottage-3.jpeg"
+                    alt="Super Deluxe Cottage Room 3"
+                    class="cottage-thumb"
+                    onclick="selectCottageImage(2)">
+
+                <img
+                    src="rooms/super-deluxe-cottage-4.jpeg"
+                    alt="Super Deluxe Cottage Room 4"
+                    class="cottage-thumb"
+                    onclick="selectCottageImage(3)">
+
+                <img
+                    src="rooms/super-deluxe-cottage-5.png"
+                    alt="Super Deluxe Cottage Room 5"
+                    class="cottage-thumb"
+                    onclick="selectCottageImage(4)">
+
+                <img
+                    src="rooms/super-deluxe-cottage-6.png"
+                    alt="Super Deluxe Cottage Room 6"
+                    class="cottage-thumb"
+                    onclick="selectCottageImage(5)">
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT — DETAILS -->
+
+        <div class="room-details-information">
+
+            <div class="room-details-eyebrow">
+                SUPER DELUXE
+            </div>
+
+            <h2>
+                Super Deluxe Cottage
+            </h2>
+
+            <div class="room-details-view">
+                Garden / Cottage
+            </div>
+
+            <div class="room-details-price">
+                BDT 7,200
+                <span>/ Night</span>
+            </div>
+
+
+            <!-- BASIC INFORMATION -->
+
+            <div class="room-details-basic">
+
+                <div class="room-detail-item">
+
+                    <strong>
+                        Maximum Guests
+                    </strong>
+
+                    <span>
+                        Up to 2 Persons
+                    </span>
+
+                </div>
+
+
+                <div class="room-detail-item">
+
+                    <strong>
+                        Beds
+                    </strong>
+
+                    <span>
+                        1 Queen Size Bed
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMPLIMENTARY FACILITIES -->
+
+            <div class="room-details-section">
+
+                <h3>
+                    Complimentary Facilities
+                </h3>
+
+                <div class="room-details-list">
+
+                    <span>Welcome Drinks</span>
+                    <span>Breakfast Included</span>
+                    <span>Swimming Pool Access</span>
+                    <span>24/7 Room Service</span>
+                    <span>Cycling &amp; Pool Billiard</span>
+                    <span>Kayaking Boat</span>
+                    <span>Kids Playground</span>
+                    <span>WiFi (In-house Guests)</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- BATHROOM -->
+
+            <div class="room-details-section">
+
+                <h3>
+                    Bathroom Facilities
+                </h3>
+
+                <div class="room-details-list">
+
+                    <span>Free toiletries</span>
+                    <span>Shower</span>
+                    <span>Toilet</span>
+                    <span>Slippers</span>
+                    <span>Hairdryer</span>
+                    <span>Toilet paper</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ROOM FACILITIES -->
+
+            <div class="room-details-section">
+
+                <h3>
+                    Room Facilities &amp; Amenities
+                </h3>
+
+                <div class="room-details-list">
+
+                    <span>Desk</span>
+                    <span>Tile/marble floor</span>
+                    <span>Flat-screen TV</span>
+                    <span>Power Backup</span>
+                    <span>Daily Housekeeping</span>
+                    <span>Electric kettle</span>
+                    <span>Mini Refrigerator</span>
+                    <span>Fan</span>
+                    <span>Towels</span>
+                    <span>Ironing facilities</span>
+                    <span>Air conditioning</span>
+                    <span>Complimentary Coffee Mini Pack</span>
+                    <span>Clothes rack</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- SMOKING -->
+
+            <div class="room-details-section room-smoking">
+
+                <h3>
+                    Smoking Policy
+                </h3>
+
+                <p>
+                    Smoking is not allowed.
+                </p>
+
+            </div>
+
+
+            <!-- BOOK NOW -->
+
+            <div class="room-details-booking">
+
+                <a href="booking.html?room=Super%20Deluxe%20-%20Cottage"
+                   class="small-btn whatsapp">
+                    BOOK NOW
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
+```
 
 </div>
-
-</div>
-
 
 <!-- =======================================================
-     SWIMMING POOL ROOM GALLERY
+     SUPER DELUXE — SWIMMING POOL VIEW — ROOM DETAILS
 ======================================================= -->
 
-<div class="modal"
-     id="swimmingPoolGallery">
+<div class="modal room-details-modal"
+     id="superDeluxePoolDetails">
 
-<div class="modal-content">
+```
+<div class="modal-content room-details-content">
 
-<button class="modal-close"
-onclick="closeGallery('swimmingPoolGallery')">
-×
-</button>
+    <!-- CLOSE -->
+    <button class="modal-close"
+            onclick="closeRoomDetails('superDeluxePoolDetails')">
+        ×
+    </button>
 
-<h2 class="gallery-title">
-Super Deluxe Swimming Pool View — Gallery
-</h2>
 
-<div class="gallery-grid">
+    <div class="room-details-layout">
 
-<img
-src="rooms/gallery/swimming-pool/room1.jpeg"
-alt="Swimming Pool View Room 1"
-onclick="openSingleImage(this)">
 
-<img
-src="rooms/gallery/swimming-pool/room2.jpeg"
-alt="Swimming Pool View Room 2"
-onclick="openSingleImage(this)">
+        <!-- LEFT — PHOTO GALLERY -->
 
-<img
-src="rooms/gallery/swimming-pool/room3.jpeg"
-alt="Swimming Pool View Room 3"
-onclick="openSingleImage(this)">
+        <div class="room-details-gallery">
 
-<img
-src="rooms/gallery/swimming-pool/room4.jpeg"
-alt="Swimming Pool View Room 4"
-onclick="openSingleImage(this)">
+            <div class="room-main-image">
+
+                <img
+                    id="superDeluxePoolMainImage"
+                    src="rooms/gallery/swimming-pool/room1.jpeg"
+                    alt="Super Deluxe Swimming Pool View">
+
+                <button class="room-photo-nav room-photo-prev"
+                        onclick="changeSuperDeluxePoolImage(-1)">
+                    ‹
+                </button>
+
+                <button class="room-photo-nav room-photo-next"
+                        onclick="changeSuperDeluxePoolImage(1)">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="room-photo-thumbnails">
+
+                <img
+                    src="rooms/gallery/swimming-pool/room1.jpeg"
+                    alt="Super Deluxe Swimming Pool View Room 1"
+                    class="super-deluxe-pool-thumb active"
+                    onclick="selectSuperDeluxePoolImage(0)">
+
+                <img
+                    src="rooms/gallery/swimming-pool/room2.jpeg"
+                    alt="Super Deluxe Swimming Pool View Room 2"
+                    class="super-deluxe-pool-thumb"
+                    onclick="selectSuperDeluxePoolImage(1)">
+
+                <img
+                    src="rooms/gallery/swimming-pool/room3.jpeg"
+                    alt="Super Deluxe Swimming Pool View Room 3"
+                    class="super-deluxe-pool-thumb"
+                    onclick="selectSuperDeluxePoolImage(2)">
+
+                <img
+                    src="rooms/gallery/swimming-pool/room4.jpeg"
+                    alt="Super Deluxe Swimming Pool View Room 4"
+                    class="super-deluxe-pool-thumb"
+                    onclick="selectSuperDeluxePoolImage(3)">
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT — DETAILS -->
+
+        <div class="room-details-information">
+
+            <div class="room-details-eyebrow">
+                SUPER DELUXE
+            </div>
+
+            <h2>
+                Super Deluxe
+            </h2>
+
+            <div class="room-details-view">
+                Swimming Pool View
+            </div>
+
+            <div class="room-details-price">
+                BDT 7,200
+                <span>/ Night</span>
+            </div>
+
+
+            <!-- BASIC INFORMATION -->
+
+            <div class="room-details-basic">
+
+                <div class="room-detail-item">
+
+                    <strong>
+                        Maximum Guests
+                    </strong>
+
+                    <span>
+                        Up to 2 Persons
+                    </span>
+
+                </div>
+
+
+                <div class="room-detail-item">
+
+                    <strong>
+                        Beds
+                    </strong>
+
+                    <span>
+                        1 Queen Size Bed
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMPLIMENTARY FACILITIES -->
+
+            <div class="room-details-section">
+
+                <h3>
+                    Complimentary Facilities
+                </h3>
+
+                <div class="room-details-list">
+
+                    <span>Welcome Drinks</span>
+                    <span>Breakfast Included</span>
+                    <span>Swimming Pool Access</span>
+                    <span>24/7 Room Service</span>
+                    <span>Cycling &amp; Pool Billiard</span>
+                    <span>Kayaking Boat</span>
+                    <span>Kids Playground</span>
+                    <span>WiFi (In-house Guests)</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- BATHROOM -->
+
+            <div class="room-details-section">
+
+                <h3>
+                    Bathroom Facilities
+                </h3>
+
+                <div class="room-details-list">
+
+                    <span>Free toiletries</span>
+                    <span>Shower</span>
+                    <span>Toilet</span>
+                    <span>Slippers</span>
+                    <span>Hairdryer</span>
+                    <span>Toilet paper</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ROOM FACILITIES -->
+
+            <div class="room-details-section">
+
+                <h3>
+                    Room Facilities &amp; Amenities
+                </h3>
+
+                <div class="room-details-list">
+
+                    <span>Desk</span>
+                    <span>Tile/marble floor</span>
+                    <span>Flat-screen TV</span>
+                    <span>Electric kettle</span>
+                    <span>Fan</span>
+                    <span>Towels</span>
+                    <span>Ironing facilities</span>
+                    <span>Air conditioning</span>
+                    <span>Tea/Coffee maker</span>
+                    <span>Clothes rack</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- SMOKING -->
+
+            <div class="room-details-section room-smoking">
+
+                <h3>
+                    Smoking Policy
+                </h3>
+
+                <p>
+                    Smoking is not allowed.
+                </p>
+
+            </div>
+
+
+            <!-- BOOK NOW -->
+
+            <div class="room-details-booking">
+
+                <a href="booking.html?room=Super%20Deluxe%20-%20Swimming%20Pool%20View"
+                   class="small-btn whatsapp">
+                    BOOK NOW
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+```
 
 </div>
 
-</div>
-
-</div>
 
 
 <!-- =======================================================
@@ -8793,7 +9185,7 @@ faqQuestions.forEach(function(question){
 });
 
 /* =========================================================
-   SUPER FAMILY DELUXE — ROOM DETAILS
+   SUPER FAMILY DELUXE — IMAGE GALLERY
 ========================================================= */
 
 const superFamilyImages = [
@@ -8805,72 +9197,7 @@ const superFamilyImages = [
 
 let superFamilyCurrentImage = 0;
 
-/* =========================================================
-   ROOM DETAILS — OPEN
-========================================================= */
 
-function openRoomDetails(id) {
-
-    /* Close every room-details modal first */
-    document.querySelectorAll(".room-details-modal").forEach(function(modal) {
-
-        modal.classList.remove("active");
-
-    });
-
-
-    /* Open only the selected room */
-    const modal = document.getElementById(id);
-
-    if (!modal) return;
-
-    modal.classList.add("active");
-
-    document.body.classList.add("modal-open");
-
-
-    /* Reset selected room's gallery */
-
-    if (id === "superFamilyDetails") {
-
-        superFamilyCurrentImage = 0;
-
-        updateSuperFamilyImage();
-
-    }
-
-
-    if (id === "familyDeluxeDetails") {
-
-        familyDeluxeCurrentImage = 0;
-
-        selectFamilyDeluxeImage(0);
-
-    }
-
-}
-
-
-/* =========================================================
-   ROOM DETAILS — CLOSE
-========================================================= */
-
-function closeRoomDetails(id) {
-
-    const modal = document.getElementById(id);
-
-    if (!modal) return;
-
-    modal.classList.remove("active");
-
-    document.body.classList.remove("modal-open");
-
-}
-
-
-/* =========================================================
-   SUPER FAMILY DELUXE
-========================================================= */
 
 function updateSuperFamilyImage() {
 
@@ -8898,6 +9225,8 @@ function updateSuperFamilyImage() {
     });
 
 }
+
+
 function selectSuperFamilyImage(index) {
 
     superFamilyCurrentImage = index;
@@ -8905,6 +9234,8 @@ function selectSuperFamilyImage(index) {
     updateSuperFamilyImage();
 
 }
+
+
 function changeSuperFamilyImage(direction) {
 
     superFamilyCurrentImage += direction;
@@ -8934,7 +9265,7 @@ function changeSuperFamilyImage(direction) {
 
 
 /* =========================================================
-   FAMILY DELUXE
+   FAMILY DELUXE — IMAGE GALLERY
 ========================================================= */
 
 const familyDeluxeImages = [
@@ -9012,6 +9343,172 @@ function changeFamilyDeluxeImage(direction) {
 
 
 /* =========================================================
+   SUPER DELUXE COTTAGE — IMAGE GALLERY
+========================================================= */
+
+const cottageImages = [
+
+    "rooms/super-deluxe-cottage-1.jpeg",
+    "rooms/super-deluxe-cottage-2.jpeg",
+    "rooms/super-deluxe-cottage-3.jpeg",
+    "rooms/super-deluxe-cottage-4.jpeg",
+    "rooms/super-deluxe-cottage-5.png",
+    "rooms/super-deluxe-cottage-6.png"
+
+];
+
+let cottageCurrentImage = 0;
+
+
+function updateCottageImage() {
+
+    const mainImage =
+        document.getElementById("cottageMainImage");
+
+    const thumbnails =
+        document.querySelectorAll(".cottage-thumb");
+
+    if (!mainImage) return;
+
+    mainImage.src =
+        cottageImages[cottageCurrentImage];
+
+    thumbnails.forEach(function(thumb, index) {
+
+        thumb.classList.toggle(
+            "active",
+            index === cottageCurrentImage
+        );
+
+    });
+
+}
+
+
+function selectCottageImage(index) {
+
+    cottageCurrentImage = index;
+
+    updateCottageImage();
+
+}
+
+
+function changeCottageImage(direction) {
+
+    cottageCurrentImage += direction;
+
+    if (cottageCurrentImage < 0) {
+
+        cottageCurrentImage =
+            cottageImages.length - 1;
+
+    }
+
+    if (
+        cottageCurrentImage >=
+        cottageImages.length
+    ) {
+
+        cottageCurrentImage = 0;
+
+    }
+
+    updateCottageImage();
+
+}
+
+
+/* =========================================================
+   ROOM DETAILS — OPEN
+========================================================= */
+
+function openRoomDetails(id) {
+
+    const modal =
+        document.getElementById(id);
+
+    if (!modal) {
+
+        alert("Modal not found: " + id);
+
+        return;
+
+    }
+
+
+    document
+        .querySelectorAll(".room-details-modal")
+        .forEach(function(item) {
+
+            item.classList.remove("active");
+
+        });
+
+
+    modal.classList.add("active");
+
+    document.body.classList.add("modal-open");
+
+
+    /* Reset selected room gallery */
+
+    if (id === "superFamilyDetails") {
+
+        superFamilyCurrentImage = 0;
+
+        updateSuperFamilyImage();
+
+    }
+
+
+    if (id === "familyDeluxeDetails") {
+
+        familyDeluxeCurrentImage = 0;
+
+        selectFamilyDeluxeImage(0);
+
+    }
+
+
+        if (id === "cottageDetails") {
+
+        cottageCurrentImage = 0;
+
+        updateCottageImage();
+
+    }
+
+
+    if (id === "superDeluxePoolDetails") {
+
+        superDeluxePoolCurrentImage = 0;
+
+        updateSuperDeluxePoolImage();
+
+    }
+
+}
+
+/* =========================================================
+   ROOM DETAILS — CLOSE
+========================================================= */
+
+function closeRoomDetails(id) {
+
+    const modal =
+        document.getElementById(id);
+
+    if (!modal) return;
+
+    modal.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+
+}
+
+
+/* =========================================================
    ESC KEY — CLOSE ACTIVE ROOM DETAILS
 ========================================================= */
 
@@ -9032,6 +9529,83 @@ document.addEventListener("keydown", function(event) {
     closeRoomDetails(activeModal.id);
 
 });
+/* =========================================================
+SUPER DELUXE — SWIMMING POOL VIEW GALLERY
+========================================================= */
+
+const superDeluxePoolImages = [
+"rooms/gallery/swimming-pool/room1.jpeg",
+"rooms/gallery/swimming-pool/room2.jpeg",
+"rooms/gallery/swimming-pool/room3.jpeg",
+"rooms/gallery/swimming-pool/room4.jpeg"
+];
+
+let superDeluxePoolCurrentImage = 0;
+
+function updateSuperDeluxePoolImage() {
+
+
+const mainImage =
+    document.getElementById("superDeluxePoolMainImage");
+
+if (!mainImage) return;
+
+mainImage.src =
+    superDeluxePoolImages[superDeluxePoolCurrentImage];
+
+
+document
+    .querySelectorAll(".super-deluxe-pool-thumb")
+    .forEach(function(thumb, index) {
+
+        thumb.classList.toggle(
+            "active",
+            index === superDeluxePoolCurrentImage
+        );
+
+    });
+
+
+}
+
+function selectSuperDeluxePoolImage(index) {
+
+
+superDeluxePoolCurrentImage = index;
+
+updateSuperDeluxePoolImage();
+
+
+}
+
+function changeSuperDeluxePoolImage(direction) {
+
+
+superDeluxePoolCurrentImage += direction;
+
+
+if (
+    superDeluxePoolCurrentImage >=
+    superDeluxePoolImages.length
+) {
+
+    superDeluxePoolCurrentImage = 0;
+
+}
+
+
+if (superDeluxePoolCurrentImage < 0) {
+
+    superDeluxePoolCurrentImage =
+        superDeluxePoolImages.length - 1;
+
+}
+
+
+updateSuperDeluxePoolImage();
+
+
+}
 
 </script>
 

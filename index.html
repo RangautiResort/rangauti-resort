@@ -4358,8 +4358,8 @@ Up to 2 Persons
 <div class="room-actions">
 
 <button class="small-btn"
-onclick="openGallery('jolojuchonaGallery')">
-VIEW
+onclick="openRoomDetails('jolojuchonaDetails')">
+    VIEW
 </button>
 
 <a href="booking.html?room=Suite%20Jolojuchona"
@@ -4427,8 +4427,8 @@ Up to 3 Persons
 <div class="room-actions">
 
 <button class="small-btn"
-onclick="openGallery('specialFamilyGallery')">
-VIEW
+        onclick="openRoomDetails('specialFamilyDetails')">
+    VIEW
 </button>
 
 <a href="booking.html?room=Special%20Family%20Deluxe"
@@ -4503,8 +4503,8 @@ Up to 2 Persons
 <div class="room-actions">
 
 <button class="small-btn"
-onclick="openGallery('specialSuperGallery')">
-VIEW
+        onclick="openRoomDetails('specialSuperDetails')">
+    VIEW
 </button>
 
 <a href="booking.html?room=Special%20Super%20Deluxe"
@@ -6094,155 +6094,719 @@ aria-label="WhatsApp">
 
 
 <!-- =======================================================
-     SPECIAL FAMILY DELUXE
+     SPECIAL FAMILY DELUXE — ROOM DETAILS
 ======================================================= -->
 
-<div class="modal"
-     id="specialFamilyGallery">
+<div class="modal room-details-modal"
+     id="specialFamilyDetails">
 
-<div class="modal-content">
+    <div class="modal-content room-details-content">
 
-<button class="modal-close"
-onclick="closeGallery('specialFamilyGallery')">
-×
-</button>
+        <!-- CLOSE -->
+        <button class="modal-close"
+                onclick="closeRoomDetails('specialFamilyDetails')">
+            ×
+        </button>
 
-<h2 class="gallery-title">
-Special Family Deluxe — Gallery
-</h2>
 
-<div class="gallery-grid">
+        <div class="room-details-layout">
 
-<img
-src="rooms/special-family-deluxe/room1.jpeg"
-alt="Special Family Deluxe Room 1"
-onclick="openSingleImage(this)">
 
-<img
-src="rooms/special-family-deluxe/room2.jpeg"
-alt="Special Family Deluxe Room 2"
-onclick="openSingleImage(this)">
+            <!-- LEFT — PHOTO GALLERY -->
 
-<img
-src="rooms/special-family-deluxe/room3.jpeg"
-alt="Special Family Deluxe Room 3"
-onclick="openSingleImage(this)">
+            <div class="room-details-gallery">
 
-<img
-src="rooms/special-family-deluxe/room4.jpeg"
-alt="Special Family Deluxe Room 4"
-onclick="openSingleImage(this)">
+                <div class="room-main-image">
 
-</div>
+                    <img
+                        id="specialFamilyMainImage"
+                        src="rooms/special-family-deluxe/room1.jpeg"
+                        alt="Special Family Deluxe">
 
-</div>
+                    <button class="room-photo-nav room-photo-prev"
+                            onclick="changeSpecialFamilyImage(-1)">
+                        ‹
+                    </button>
+
+                    <button class="room-photo-nav room-photo-next"
+                            onclick="changeSpecialFamilyImage(1)">
+                        ›
+                    </button>
+
+                </div>
+
+
+                <div class="room-photo-thumbnails">
+
+                    <img
+                        src="rooms/special-family-deluxe/room1.jpeg"
+                        alt="Special Family Deluxe Room 1"
+                        class="special-family-thumb active"
+                        onclick="selectSpecialFamilyImage(0)">
+
+                    <img
+                        src="rooms/special-family-deluxe/room2.jpeg"
+                        alt="Special Family Deluxe Room 2"
+                        class="special-family-thumb"
+                        onclick="selectSpecialFamilyImage(1)">
+
+                    <img
+                        src="rooms/special-family-deluxe/room3.jpeg"
+                        alt="Special Family Deluxe Room 3"
+                        class="special-family-thumb"
+                        onclick="selectSpecialFamilyImage(2)">
+
+                    <img
+                        src="rooms/special-family-deluxe/room4.jpeg"
+                        alt="Special Family Deluxe Room 4"
+                        class="special-family-thumb"
+                        onclick="selectSpecialFamilyImage(3)">
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT — DETAILS -->
+
+            <div class="room-details-information">
+
+                <div class="room-details-eyebrow">
+                    SPECIAL FAMILY DELUXE
+                </div>
+
+                <h2>
+                    Special Family Deluxe
+                </h2>
+
+                <div class="room-details-view">
+                    Swimming Pool View
+                </div>
+
+                <div class="room-details-price">
+                    BDT 8,400
+                    <span>/ Night</span>
+                </div>
+
+
+                <!-- BASIC INFORMATION -->
+
+                <div class="room-details-basic">
+
+                    <div class="room-detail-item">
+
+                        <strong>
+                            Maximum Guests
+                        </strong>
+
+                        <span>
+                            Up to 3 Persons
+                        </span>
+
+                    </div>
+
+
+                    <div class="room-detail-item">
+
+                        <strong>
+                            Beds
+                        </strong>
+
+                        <span>
+                            1 Twin Bed + 1 King Size Bed
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COMPLIMENTARY FACILITIES -->
+
+                <div class="room-details-section">
+
+                    <h3>
+                        Complimentary Facilities
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span>Welcome Drinks</span>
+                        <span>Breakfast Included</span>
+                        <span>Swimming Pool Access</span>
+                        <span>24/7 Room Service</span>
+                        <span>Cycling &amp; Pool Billiard</span>
+                        <span>Kayaking Boat</span>
+                        <span>Kids Playground</span>
+                        <span>WiFi (In-house Guests)</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BATHROOM -->
+
+                <div class="room-details-section">
+
+                    <h3>
+                        Bathroom Facilities
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span>Free toiletries</span>
+                        <span>Shower</span>
+                        <span>Toilet</span>
+                        <span>Slippers</span>
+                        <span>Hairdryer</span>
+                        <span>Toilet paper</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ROOM FACILITIES -->
+
+                <div class="room-details-section">
+
+                    <h3>
+                        Room Facilities &amp; Amenities
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span>Desk</span>
+                        <span>Tile/marble floor</span>
+                        <span>Flat-screen TV</span>
+                        <span>Electric kettle</span>
+                        <span>Fan</span>
+                        <span>Towels</span>
+                        <span>Ironing facilities</span>
+                        <span>Air conditioning</span>
+                        <span>Tea/Coffee maker</span>
+                        <span>Clothes rack</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SMOKING -->
+
+                <div class="room-details-section room-smoking">
+
+                    <h3>
+                        Smoking Policy
+                    </h3>
+
+                    <p>
+                        Smoking is not allowed.
+                    </p>
+
+                </div>
+
+
+                <!-- BOOK NOW -->
+
+                <div class="room-details-booking">
+
+                    <a href="booking.html?room=Special%20Family%20Deluxe"
+                       class="small-btn whatsapp">
+                        BOOK NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
 
 <!-- =======================================================
-     SPECIAL SUPER DELUXE
+     SPECIAL SUPER DELUXE — ROOM DETAILS
 ======================================================= -->
 
-<div class="modal"
-     id="specialSuperGallery">
+<div class="modal room-details-modal"
+     id="specialSuperDetails">
 
-<div class="modal-content">
+    <div class="modal-content room-details-content">
 
-<button class="modal-close"
-onclick="closeGallery('specialSuperGallery')">
-×
-</button>
+        <button class="modal-close"
+                onclick="closeRoomDetails('specialSuperDetails')">
+            ×
+        </button>
 
-<h2 class="gallery-title">
-Special Super Deluxe — Gallery
-</h2>
 
-<div class="gallery-grid">
+        <div class="room-details-layout">
 
-<img
-src="rooms/special-super-deluxe-1.jpeg"
-alt="Special Super Deluxe 1"
-onclick="openSingleImage(this)">
 
-<img
-src="rooms/special-super-deluxe-2.jpeg"
-alt="Special Super Deluxe 2"
-onclick="openSingleImage(this)">
+            <!-- LEFT — PHOTO GALLERY -->
 
-<img
-src="rooms/special-super-deluxe-3.jpeg"
-alt="Special Super Deluxe 3"
-onclick="openSingleImage(this)">
+            <div class="room-details-gallery">
 
-<img
-src="rooms/special-super-deluxe-4.jpeg"
-alt="Special Super Deluxe 4"
-onclick="openSingleImage(this)">
+                <div class="room-main-image">
 
-</div>
+                    <img
+                        id="specialSuperMainImage"
+                        src="rooms/special-super-deluxe-1.jpeg"
+                        alt="Special Super Deluxe">
 
-</div>
+                    <button class="room-photo-nav room-photo-prev"
+                            onclick="changeSpecialSuperImage(-1)">
+                        ‹
+                    </button>
+
+                    <button class="room-photo-nav room-photo-next"
+                            onclick="changeSpecialSuperImage(1)">
+                        ›
+                    </button>
+
+                </div>
+
+
+                <div class="room-photo-thumbnails">
+
+                    <img
+                        src="rooms/special-super-deluxe-1.jpeg"
+                        alt="Special Super Deluxe Room 1"
+                        class="special-super-thumb active"
+                        onclick="selectSpecialSuperImage(0)">
+
+                    <img
+                        src="rooms/special-super-deluxe-2.jpeg"
+                        alt="Special Super Deluxe Room 2"
+                        class="special-super-thumb"
+                        onclick="selectSpecialSuperImage(1)">
+
+                    <img
+                        src="rooms/special-super-deluxe-3.jpeg"
+                        alt="Special Super Deluxe Room 3"
+                        class="special-super-thumb"
+                        onclick="selectSpecialSuperImage(2)">
+
+                    <img
+                        src="rooms/special-super-deluxe-4.jpeg"
+                        alt="Special Super Deluxe Room 4"
+                        class="special-super-thumb"
+                        onclick="selectSpecialSuperImage(3)">
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT — DETAILS -->
+
+            <div class="room-details-information">
+
+                <div class="room-details-eyebrow">
+                    SPECIAL SUPER DELUXE
+                </div>
+
+                <h2>
+                    Special Super Deluxe
+                </h2>
+
+                <div class="room-details-view">
+                    Lake View
+                </div>
+
+                <div class="room-details-price">
+                    BDT 8,400
+                    <span>/ Night</span>
+                </div>
+
+
+                <!-- BASIC INFORMATION -->
+
+                <div class="room-details-basic">
+
+                    <div class="room-detail-item">
+
+                        <strong>
+                            Maximum Guests
+                        </strong>
+
+                        <span>
+                            Up to 2 Persons
+                        </span>
+
+                    </div>
+
+
+                    <div class="room-detail-item">
+
+                        <strong>
+                            Beds
+                        </strong>
+
+                        <span>
+                            1 Queen Size Bed
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COMPLIMENTARY FACILITIES -->
+
+                <div class="room-details-section">
+
+                    <h3>
+                        Complimentary Facilities
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span>Welcome Drinks</span>
+                        <span>Breakfast Included</span>
+                        <span>Swimming Pool Access</span>
+                        <span>24/7 Room Service</span>
+                        <span>Cycling &amp; Pool Billiard</span>
+                        <span>Kayaking Boat</span>
+                        <span>Kids Playground</span>
+                        <span>WiFi (In-house Guests)</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BATHROOM -->
+
+                <div class="room-details-section">
+
+                    <h3>
+                        Bathroom Facilities
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span>Free toiletries</span>
+                        <span>Shower</span>
+                        <span>Toilet</span>
+                        <span>Slippers</span>
+                        <span>Hairdryer</span>
+                        <span>Toilet paper</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ROOM FACILITIES -->
+
+                <div class="room-details-section">
+
+                    <h3>
+                        Room Facilities &amp; Amenities
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span>Desk</span>
+                        <span>Tile/marble floor</span>
+                        <span>Flat-screen TV</span>
+                        <span>Electric kettle</span>
+                        <span>Fan</span>
+                        <span>Towels</span>
+                        <span>Ironing facilities</span>
+                        <span>Air conditioning</span>
+                        <span>Tea/Coffee maker</span>
+                        <span>Clothes rack</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SMOKING -->
+
+                <div class="room-details-section room-smoking">
+
+                    <h3>
+                        Smoking Policy
+                    </h3>
+
+                    <p>
+                        Smoking is not allowed.
+                    </p>
+
+                </div>
+
+
+                <!-- BOOK NOW -->
+
+                <div class="room-details-booking">
+
+                    <a href="booking.html?room=Special%20Super%20Deluxe"
+                       class="small-btn whatsapp">
+                        BOOK NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
 
 <!-- =======================================================
-     JOLOJUCHONA
+     SUITE JOLOJUCHONA — ROOM DETAILS
 ======================================================= -->
 
-<div class="modal"
-     id="jolojuchonaGallery">
+<div class="modal room-details-modal"
+     id="jolojuchonaDetails">
 
-<div class="modal-content">
+    <div class="modal-content room-details-content">
 
-<button class="modal-close"
-onclick="closeGallery('jolojuchonaGallery')">
-×
-</button>
+        <!-- CLOSE -->
+        <button class="modal-close"
+                onclick="closeRoomDetails('jolojuchonaDetails')">
+            ×
+        </button>
 
-<h2 class="gallery-title">
-Suite Jolojuchona — Floating Honeymoon Gallery
-</h2>
 
-<div class="gallery-grid">
+        <div class="room-details-layout">
 
-<img
-src="rooms/gallery/suite-jolojuchona/room1.jpeg"
-alt="Suite Jolojuchona Room 1"
-onclick="openSingleImage(this)">
 
-<img
-src="rooms/gallery/suite-jolojuchona/room2.jpeg"
-alt="Suite Jolojuchona Room 2"
-onclick="openSingleImage(this)">
+            <!-- LEFT — PHOTO GALLERY -->
 
-<img
-src="rooms/gallery/suite-jolojuchona/room3.jpeg"
-alt="Suite Jolojuchona Room 3"
-onclick="openSingleImage(this)">
+            <div class="room-details-gallery">
 
-<img
-src="rooms/gallery/suite-jolojuchona/room4.jpeg"
-alt="Suite Jolojuchona Room 4"
-onclick="openSingleImage(this)">
+                <div class="room-main-image">
 
-<img
-src="rooms/gallery/suite-jolojuchona/room5.jpeg"
-alt="Suite Jolojuchona Room 5"
-onclick="openSingleImage(this)">
+                    <img
+                        id="jolojuchonaMainImage"
+                        src="rooms/gallery/suite-jolojuchona/room1.jpeg"
+                        alt="Suite Jolojuchona">
 
-<img
-src="rooms/gallery/suite-jolojuchona/Room6.png"
-alt="Suite Jolojuchona Room 6"
-onclick="openSingleImage(this)">
+                    <button class="room-photo-nav room-photo-prev"
+                            onclick="changeJolojuchonaImage(-1)">
+                        ‹
+                    </button>
+
+                    <button class="room-photo-nav room-photo-next"
+                            onclick="changeJolojuchonaImage(1)">
+                        ›
+                    </button>
+
+                </div>
+
+
+                <div class="room-photo-thumbnails">
+
+                    <img
+                        src="rooms/gallery/suite-jolojuchona/room1.jpeg"
+                        alt="Suite Jolojuchona Room 1"
+                        class="jolojuchona-thumb active"
+                        onclick="selectJolojuchonaImage(0)">
+
+                    <img
+                        src="rooms/gallery/suite-jolojuchona/room2.jpeg"
+                        alt="Suite Jolojuchona Room 2"
+                        class="jolojuchona-thumb"
+                        onclick="selectJolojuchonaImage(1)">
+
+                    <img
+                        src="rooms/gallery/suite-jolojuchona/room3.jpeg"
+                        alt="Suite Jolojuchona Room 3"
+                        class="jolojuchona-thumb"
+                        onclick="selectJolojuchonaImage(2)">
+
+                    <img
+                        src="rooms/gallery/suite-jolojuchona/room4.jpeg"
+                        alt="Suite Jolojuchona Room 4"
+                        class="jolojuchona-thumb"
+                        onclick="selectJolojuchonaImage(3)">
+
+                    <img
+                        src="rooms/gallery/suite-jolojuchona/room5.jpeg"
+                        alt="Suite Jolojuchona Room 5"
+                        class="jolojuchona-thumb"
+                        onclick="selectJolojuchonaImage(4)">
+
+                    <img
+                        src="rooms/gallery/suite-jolojuchona/Room6.png"
+                        alt="Suite Jolojuchona Room 6"
+                        class="jolojuchona-thumb"
+                        onclick="selectJolojuchonaImage(5)">
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT — DETAILS -->
+
+            <div class="room-details-information">
+
+                <div class="room-details-eyebrow">
+                    SUITE JOLOJUCHONA
+                </div>
+
+                <h2>
+                    Suite Jolojuchona
+                </h2>
+
+                <div class="room-details-view">
+                    Floating Honeymoon Suite
+                </div>
+
+                <div class="room-details-price">
+                    BDT 12,000
+                    <span>/ Night</span>
+                </div>
+
+
+                <!-- BASIC INFORMATION -->
+
+                <div class="room-details-basic">
+
+                    <div class="room-detail-item">
+
+                        <strong>
+                            Maximum Guests
+                        </strong>
+
+                        <span>
+                            Up to 2 Persons
+                        </span>
+
+                    </div>
+
+
+                    <div class="room-detail-item">
+
+                        <strong>
+                            Beds
+                        </strong>
+
+                        <span>
+                            1 Queen Size Bed
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COMPLIMENTARY FACILITIES -->
+
+                <div class="room-details-section">
+
+                    <h3>
+                        Complimentary Facilities
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span>Welcome Drinks</span>
+                        <span>Breakfast Included</span>
+                        <span>Swimming Pool Access</span>
+                        <span>24/7 Room Service</span>
+                        <span>Cycling &amp; Pool Billiard</span>
+                        <span>Kayaking Boat</span>
+                        <span>Kids Playground</span>
+                        <span>WiFi (In-house Guests)</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BATHROOM -->
+
+                <div class="room-details-section">
+
+                    <h3>
+                        Bathroom Facilities
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span>Free toiletries</span>
+                        <span>Shower</span>
+                        <span>Toilet</span>
+                        <span>Slippers</span>
+                        <span>Hairdryer</span>
+                        <span>Toilet paper</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ROOM FACILITIES -->
+
+                <div class="room-details-section">
+
+                    <h3>
+                        Room Facilities &amp; Amenities
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span>Desk</span>
+                        <span>Tile/marble floor</span>
+                        <span>Flat-screen TV</span>
+                        <span>Electric kettle</span>
+                        <span>Fan</span>
+                        <span>Towels</span>
+                        <span>Ironing facilities</span>
+                        <span>Air conditioning</span>
+                        <span>Tea/Coffee maker</span>
+                        <span>Clothes rack</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SMOKING -->
+
+                <div class="room-details-section room-smoking">
+
+                    <h3>
+                        Smoking Policy
+                    </h3>
+
+                    <p>
+                        Smoking is not allowed.
+                    </p>
+
+                </div>
+
+
+                <!-- BOOK NOW -->
+
+                <div class="room-details-booking">
+
+                    <a href="booking.html?room=Suite%20Jolojuchona"
+                       class="small-btn whatsapp">
+                        BOOK NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
-
-</div>
-
-</div>
-
 
 <!-- =======================================================
      RESORT VIEW GALLERY
@@ -9471,7 +10035,7 @@ function openRoomDetails(id) {
     }
 
 
-        if (id === "cottageDetails") {
+    if (id === "cottageDetails") {
 
         cottageCurrentImage = 0;
 
@@ -9488,8 +10052,34 @@ function openRoomDetails(id) {
 
     }
 
+
+   if (id === "jolojuchonaDetails") {
+
+    jolojuchonaCurrentImage = 0;
+
+    updateJolojuchonaImage();
+
 }
 
+
+if (id === "specialFamilyDetails") {
+
+    specialFamilyCurrentImage = 0;
+
+    updateSpecialFamilyImage();
+
+}
+
+
+if (id === "specialSuperDetails") {
+
+    specialSuperCurrentImage = 0;
+
+    updateSpecialSuperImage();
+
+}
+
+}
 /* =========================================================
    ROOM DETAILS — CLOSE
 ========================================================= */
@@ -9607,6 +10197,230 @@ updateSuperDeluxePoolImage();
 
 }
 
+/* =========================================================
+   SUITE JOLOJUCHONA — FLOATING HONEYMOON GALLERY
+========================================================= */
+
+const jolojuchonaImages = [
+    "rooms/gallery/suite-jolojuchona/room1.jpeg",
+    "rooms/gallery/suite-jolojuchona/room2.jpeg",
+    "rooms/gallery/suite-jolojuchona/room3.jpeg",
+    "rooms/gallery/suite-jolojuchona/room4.jpeg",
+    "rooms/gallery/suite-jolojuchona/room5.jpeg",
+    "rooms/gallery/suite-jolojuchona/Room6.png"
+];
+
+let jolojuchonaCurrentImage = 0;
+
+
+function updateJolojuchonaImage() {
+
+    const mainImage =
+        document.getElementById("jolojuchonaMainImage");
+
+    if (!mainImage) return;
+
+    mainImage.src =
+        jolojuchonaImages[jolojuchonaCurrentImage];
+
+
+    document
+        .querySelectorAll(".jolojuchona-thumb")
+        .forEach(function(thumb, index) {
+
+            thumb.classList.toggle(
+                "active",
+                index === jolojuchonaCurrentImage
+            );
+
+        });
+
+}
+
+
+function selectJolojuchonaImage(index) {
+
+    jolojuchonaCurrentImage = index;
+
+    updateJolojuchonaImage();
+
+}
+
+
+function changeJolojuchonaImage(direction) {
+
+    jolojuchonaCurrentImage += direction;
+
+
+    if (
+        jolojuchonaCurrentImage >=
+        jolojuchonaImages.length
+    ) {
+
+        jolojuchonaCurrentImage = 0;
+
+    }
+
+
+    if (jolojuchonaCurrentImage < 0) {
+
+        jolojuchonaCurrentImage =
+            jolojuchonaImages.length - 1;
+
+    }
+
+
+    updateJolojuchonaImage();
+
+}
+/* =========================================================
+   SPECIAL FAMILY DELUXE — SWIMMING POOL VIEW GALLERY
+========================================================= */
+
+const specialFamilyImages = [
+    "rooms/special-family-deluxe/room1.jpeg",
+    "rooms/special-family-deluxe/room2.jpeg",
+    "rooms/special-family-deluxe/room3.jpeg",
+    "rooms/special-family-deluxe/room4.jpeg"
+];
+
+let specialFamilyCurrentImage = 0;
+
+
+function updateSpecialFamilyImage() {
+
+    const mainImage =
+        document.getElementById("specialFamilyMainImage");
+
+    if (!mainImage) return;
+
+    mainImage.src =
+        specialFamilyImages[specialFamilyCurrentImage];
+
+
+    document
+        .querySelectorAll(".special-family-thumb")
+        .forEach(function(thumb, index) {
+
+            thumb.classList.toggle(
+                "active",
+                index === specialFamilyCurrentImage
+            );
+
+        });
+
+}
+
+
+function selectSpecialFamilyImage(index) {
+
+    specialFamilyCurrentImage = index;
+
+    updateSpecialFamilyImage();
+
+}
+
+
+function changeSpecialFamilyImage(direction) {
+
+    specialFamilyCurrentImage += direction;
+
+
+    if (
+        specialFamilyCurrentImage >=
+        specialFamilyImages.length
+    ) {
+
+        specialFamilyCurrentImage = 0;
+
+    }
+
+
+    if (specialFamilyCurrentImage < 0) {
+
+        specialFamilyCurrentImage =
+            specialFamilyImages.length - 1;
+
+    }
+
+
+    updateSpecialFamilyImage();
+
+}
+/* =========================================================
+   SPECIAL SUPER DELUXE — LAKE VIEW GALLERY
+========================================================= */
+
+const specialSuperImages = [
+    "rooms/special-super-deluxe-1.jpeg",
+    "rooms/special-super-deluxe-2.jpeg",
+    "rooms/special-super-deluxe-3.jpeg",
+    "rooms/special-super-deluxe-4.jpeg"
+];
+
+let specialSuperCurrentImage = 0;
+
+
+function updateSpecialSuperImage() {
+
+    const mainImage =
+        document.getElementById("specialSuperMainImage");
+
+    if (!mainImage) return;
+
+    mainImage.src =
+        specialSuperImages[specialSuperCurrentImage];
+
+
+    document
+        .querySelectorAll(".special-super-thumb")
+        .forEach(function(thumb, index) {
+
+            thumb.classList.toggle(
+                "active",
+                index === specialSuperCurrentImage
+            );
+
+        });
+
+}
+
+
+function selectSpecialSuperImage(index) {
+
+    specialSuperCurrentImage = index;
+
+    updateSpecialSuperImage();
+
+}
+
+
+function changeSpecialSuperImage(direction) {
+
+    specialSuperCurrentImage += direction;
+
+
+    if (
+        specialSuperCurrentImage >=
+        specialSuperImages.length
+    ) {
+
+        specialSuperCurrentImage = 0;
+
+    }
+
+
+    if (specialSuperCurrentImage < 0) {
+
+        specialSuperCurrentImage =
+            specialSuperImages.length - 1;
+
+    }
+
+
+    updateSpecialSuperImage();
+
+}
 </script>
 
 

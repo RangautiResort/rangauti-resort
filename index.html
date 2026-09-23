@@ -941,30 +941,129 @@ section{
 
 
 /* =========================================================
-   ABOUT
+   ABOUT — ROOM SECTION STYLE OUTSIDE
 ========================================================= */
 
-.about-section{
-    background:white;
+.about-section {
+    background: #f3f3f2;
+    padding: 100px 7%;
 }
 
-.about-content{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.about-content h2{
-    font-family:Georgia,serif;
-    font-size:48px;
-    font-weight:400;
-    margin-bottom:25px;
+/* About heading outside the box */
+
+.about-header {
+    margin-bottom: 45px;
 }
 
-.about-content p{
-    color:var(--muted);
-    margin-bottom:18px;
+.about-eyebrow {
+    color: #0a0a0a;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
 }
+
+.about-header h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 5vw, 58px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--dark);
+    max-width: 800px;
+    margin: 0;
+}
+
+/* =========================================================
+   INNER TEMPLATE BOX — KEEP THIS STYLE
+========================================================= */
+
+.about-content {
+    max-width: 100%;
+    margin: 0;
+    padding: 55px 60px;
+
+    text-align: left;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
+
+    border: 1px solid rgba(201,164,92,.35);
+    border-radius: 4px;
+
+    box-shadow: 0 25px 70px rgba(0,0,0,.35);
+
+    position: relative;
+}
+
+.about-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90px;
+    height: 3px;
+   background: var(--gold);
+}
+
+.about-content h2 {
+    font-family: Georgia, serif;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #050505;
+    margin-bottom: 30px;
+}
+
+.about-content p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.about-content h3 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--gold);
+    margin: 35px 0 25px;
+}
+
+.about-content strong {
+    color: var(--dark);
+}
+
+@media (max-width: 700px) {
+
+    .about-section {
+        padding: 75px 5%;
+    }
+
+    .about-header {
+        margin-bottom: 30px;
+    }
+
+    .about-content {
+        padding: 35px 25px;
+    }
+
+    .about-content h2 {
+        font-size: 34px;
+    }
+}
+
+
 
 
 /* =========================================================
@@ -3455,6 +3554,7 @@ footer{
             <a href="facilities.html">
     <strong>FACILITIES</strong>
 </a>
+<a href="#about">ABOUT</a>
             <a href="#resort-gallery">EXPLORE RANGAUTI</a>
             <a href="#packages">PACKAGES</a>
             <a href="#rooms">ROOMS & SUITES</a>
@@ -3468,8 +3568,7 @@ footer{
             <a href="#contact">CONTACT</a>
             <a href="terms.html">
     <strong>TERMS</strong>
-</a>
-            <a href="#about">ABOUT</a>
+</a>       
 
         </nav>
 
@@ -3538,7 +3637,42 @@ comfortable accommodation, delightful dining and memorable experiences.
 </div>
 
 </section>
+<!-- =======================================================
+     ABOUT
+======================================================= -->
 
+<section class="section about-section"
+         id="about">
+
+
+<div class="about-content">
+
+<div class="eyebrow">
+ABOUT RANGAUTI
+</div>
+
+<h2>
+A Peaceful Retreat in the Heart <br>
+of Moulvibazar
+</h2>
+
+<p>
+Nestled near Manu Bridge on Taltola, Kulaura Road, Moulvibazar, Rangauti Resort is a tranquil retreat where the beauty of nature meets modern comfort.
+</p>
+
+<p>
+Surrounded by peaceful natural landscapes, the resort offers comfortable rooms and suites, a refreshing swimming pool, dining facilities, and a variety of enjoyable experiences designed to make every visit relaxing and memorable.
+</p>
+<h3> Experience Nature • Embrace Comfort • Create Memories </h3>
+<p> Our facilities include comfortable accommodation, a swimming pool, restaurant and dining services, natural surroundings, and enjoyable activities such as <strong>Boat Ride</strong>. </p>
+
+<p> For families, groups, and special occasions, we also offer <strong>Day Long, Lunch, and other Visitor Packages</strong>, making it easy to plan a memorable day surrounded by nature. </p>
+
+<p> Whether you are looking for a relaxing getaway, a family outing, or a beautiful setting for a special celebration, <strong>Rangauti Resort welcomes you to discover nature, enjoy comfort, and create memories worth keeping. 🌿</strong> </p>
+
+</div>
+
+</section>
 <!-- =======================================================
      RESORT GALLERY
 ======================================================= -->
@@ -5005,60 +5139,7 @@ Moulvibazar-3200, Sylhet
 
     </div>
 
-</section>
 
-<!-- =======================================================
-     ABOUT
-======================================================= -->
-
-<section class="section about-section"
-         id="about">
-
-
-<div class="about-content">
-
-<div class="eyebrow">
-ABOUT RANGAUTI
-</div>
-
-<h2>
-A Peaceful Escape<br>
-in Moulvibazar
-</h2>
-
-<p>
-Nestled near Manu Bridge, Taltola, Kulaura Road, Moulvibazar,
-Rangauti Resort offers a peaceful escape with comfortable rooms,
-a refreshing swimming pool, dining facilities, and enjoyable activities.
-</p>
-
-<p>
-Whether you’re visiting with family, friends, or loved ones,
-we’re here to make your stay comfortable, relaxing, and memorable.
-</p>
-
-<p>
-Experience Nature. Enjoy Comfort. Create Memories. 🌿
-</p>
-
-<p>
-Our resort features comfortable rooms and suites, swimming pool,
-restaurant and dining facilities, natural surroundings and enjoyable
-activities including Boat Ride.
-</p>
-
-<p>
-We also offer Day Long, Lunch and other visitor packages for families,
-groups and special occasions.
-</p>
-
-<p>
-Whether you are planning a relaxing stay, a family outing or a special
-celebration, Rangauti Resort welcomes you to enjoy nature, comfort
-and memorable moments.
-</p>
-
-</div>
 
 </section>
 

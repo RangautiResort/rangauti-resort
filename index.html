@@ -3390,7 +3390,40 @@ footer{
     }
 
 }
+.lightbox-prev,
+.lightbox-next {
+    width: 58px;
+    height: 58px;
+    font-size: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 58px;
+    height: 58px;
+    border: 1px solid rgba(201,164,92,.6);
+    border-radius: 50%;
+    background: rgba(17,17,15,.85);
+    color: #f5f1e8;
+    font-size: 38px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+.lightbox-close:hover {
+    background: #c9a45c;
+    color: #11110f;
+}
 </style>
 
 </head>

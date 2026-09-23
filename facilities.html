@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,28 +6,16 @@
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Facilities | Rangauti Resort</title>
 
-<meta
-name="description"
-content="Explore the facilities and experiences at Rangauti Resort, Moulvibazar, Sylhet.">
+
 
 <style>
 
-/* =======================================================
-   ROOT
-======================================================= */
 
-:root{
-    --dark:#101812;
-    --cream:#f5f1e8;
-    --gold:#c9a45c;
-    --white:#ffffff;
-}
 
 
 /* =======================================================
@@ -44,9 +33,10 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:var(--cream);
-    color:#30362f;
+    font-family:Georgia, "Times New Roman", serif;
+    background:#11110f;
+    color:#f5f1e8;
+    line-height:1.7;
 }
 
 
@@ -54,68 +44,59 @@ body{
    HEADER
 ======================================================= */
 
-header{
-    height:82px;
-    background:var(--dark);
+.site-header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:78px;
+    z-index:1000;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    padding:0 5%;
+    padding:0 6%;
 
-    position:relative;
-    z-index:1000;
+    background:rgba(17,17,15,.92);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(212,175,55,.18);
+}
+
+
+.site-logo img{
+    width:145px;
+    height:auto;
+    display:block;
 }
 
 
 /* =======================================================
-   LOGO
+   MENU BUTTON
 ======================================================= */
 
-.logo{
-    display:flex;
-    align-items:center;
-    text-decoration:none;
-}
-
-.logo img{
-    width:58px;
-    height:58px;
-    object-fit:contain;
-}
-
-
-/* =======================================================
-   3 DOT MENU
-======================================================= */
-
-.menu-wrap{
-    position:relative;
-}
-
-.menu-button{
+.menu-toggle{
     width:46px;
     height:46px;
 
-    border:1px solid rgba(255,255,255,.35);
+    border:1px solid rgba(212,175,55,.45);
+    border-radius:50%;
+
     background:transparent;
+    color:#d4af37;
 
-    color:white;
-
-    font-size:27px;
+    font-size:25px;
     line-height:1;
 
     cursor:pointer;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    transition:.3s ease;
 }
 
-.menu-button:hover{
-    border-color:var(--gold);
-    color:var(--gold);
+.menu-toggle:hover{
+    background:#d4af37;
+    color:#11110f;
 }
 
 
@@ -125,60 +106,45 @@ header{
 
 .menu-dropdown{
     position:absolute;
+    top:88px;
+    right:6%;
 
-    top:58px;
-    right:0;
+    width:260px;
 
-    width:230px;
+    background:#171714;
 
-    background:var(--dark);
+    border:1px solid rgba(212,175,55,.3);
 
-    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
 
-    box-shadow:0 20px 50px rgba(0,0,0,.3);
+    padding:14px;
 
-    opacity:0;
-    visibility:hidden;
-
-    transform:translateY(-10px);
-
-    transition:.3s ease;
+    display:none;
 }
 
 .menu-dropdown.show{
-    opacity:1;
-    visibility:visible;
-
-    transform:translateY(0);
+    display:block;
 }
 
 .menu-dropdown a{
     display:block;
 
-    padding:15px 20px;
+    padding:11px 14px;
 
     color:#ffffff !important;
 
     text-decoration:none;
 
-    font-size:11px;
-    font-weight:700;
+    font-size:13px;
+    letter-spacing:1.2px;
 
-    letter-spacing:1.5px;
-
-    border-bottom:1px solid
-        rgba(255,255,255,.08);
-
-    transition:.3s;
-}
-
-.menu-dropdown a:last-child{
-    border-bottom:none;
+    transition:.25s ease;
 }
 
 .menu-dropdown a:hover{
-    background:rgba(201,164,92,.12);
-    color:var(--gold) !important;
+    color:#d4af37 !important;
+
+    background:rgba(212,175,55,.06);
 }
 
 
@@ -188,12 +154,19 @@ header{
 
 .facilities-section{
 
-    min-height:
-        calc(100vh - 82px);
+    min-height:100vh;
 
-    padding:90px 5% 100px;
+    padding:
+        150px 7%
+        90px;
 
-    background:var(--cream);
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(212,175,55,.08),
+            transparent 35%
+        ),
+        #11110f;
 }
 
 
@@ -203,58 +176,48 @@ header{
 
 .section-head{
 
-    max-width:800px;
+    max-width:850px;
 
     margin:0 auto 55px;
 
     text-align:center;
 }
 
+
 .eyebrow{
 
-    color:var(--gold);
+    color:#d4af37;
 
-    font-size:11px;
+    font-size:12px;
 
-    font-weight:700;
+    letter-spacing:3px;
 
-    letter-spacing:4px;
-
-    margin-bottom:18px;
+    margin-bottom:16px;
 
     text-transform:uppercase;
 }
 
+
 .section-head h1{
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(42px,6vw,72px);
+    font-size:clamp(38px,5vw,64px);
 
     font-weight:400;
 
-    line-height:1.05;
+    line-height:1.15;
 
-    color:var(--dark);
-
-    margin-bottom:22px;
+    margin-bottom:20px;
 }
+
 
 .section-head p{
 
-    max-width:680px;
+    color:#c9c5bb;
 
-    margin:auto;
+    font-family:Arial, sans-serif;
 
-    font-size:15px;
-
-    line-height:1.8;
-
-    color:#626861;
+ 
+   font-size:15px;
 }
 
 
@@ -264,16 +227,16 @@ header{
 
 .facilities-grid{
 
-    max-width:1400px;
+    max-width:1200px;
 
     margin:0 auto;
 
     display:grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(3, 1fr);
 
-    gap:22px;
+    gap:24px;
 }
 
 
@@ -283,98 +246,135 @@ header{
 
 .facility-card{
 
-    min-height:390px;
+
 
     position:relative;
 
-    background-position:center;
-
-    background-size:cover;
-
-    background-repeat:no-repeat;
+    min-height:390px;
 
     overflow:hidden;
 
-    cursor:pointer;
+    background:#171714;
+
+    border:1px solid rgba(212,175,55,.18);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
 }
 
 
-/* =======================================================
-   CARD OVERLAY
-======================================================= */
+/* DARK IMAGE OVERLAY */
 
-.facility-overlay{
+.facility-card::after{
+
+    content:"";
 
     position:absolute;
 
     inset:0;
 
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:flex-end;
-
-    padding:32px;
-
-    color:white;
+    z-index:1;
 
     background:
         linear-gradient(
             to top,
-            rgba(5,10,7,.82),
-            rgba(5,10,7,.25),
-            rgba(5,10,7,0)
-        );
-
-    transition:.4s ease;
-}
-
-.facility-card:hover
-.facility-overlay{
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(5,10,7,.92),
-            rgba(5,10,7,.40),
-            rgba(5,10,7,.10)
+            rgba(0,0,0,.90),
+            rgba(0,0,0,.30) 55%,
+            rgba(0,0,0,.05)
         );
 }
 
 
 /* =======================================================
-   CARD TITLE
+   CARD IMAGE = BACKGROUND
 ======================================================= */
 
-.facility-overlay h3{
+.facility-card img{
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    position:absolute;
 
-    font-size:28px;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:
+        transform .6s ease;
+}
+
+
+/* =======================================================
+   CARD HOVER
+======================================================= */
+
+.facility-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:
+        rgba(212,175,55,.55);
+
+    box-shadow:
+        0 28px 65px rgba(0,0,0,.4);
+}
+
+
+.facility-card:hover img{
+
+    transform:scale(1.06);
+}
+
+
+/* =======================================================
+   CARD CONTENT
+======================================================= */
+
+.facility-content{
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    padding:30px 28px;
+
+    z-index:2;
+}
+
+
+.facility-content h2{
+
+    color:#f5f1e8;
+
+    font-size:26px;
 
     font-weight:400;
 
-    margin-bottom:12px;
+    line-height:1.2;
+
+    margin-bottom:8px;
 }
 
 
-/* =======================================================
-   CARD DESCRIPTION
-======================================================= */
+.facility-content p{
 
-.facility-overlay p{
+    color:#d0ccc2;
 
-    max-width:500px;
+    font-family:Arial, sans-serif;
 
     font-size:14px;
 
-    line-height:1.7;
-
-    color:rgba(255,255,255,.88);
+    line-height:1.6;
 }
 
 
@@ -382,17 +382,20 @@ header{
    FOOTER
 ======================================================= */
 
-footer{
+.footer{
 
-    background:var(--dark);
-
-    color:rgba(255,255,255,.65);
+    padding:30px 6%;
 
     text-align:center;
 
-    padding:25px 15px;
+    border-top:
+        1px solid rgba(212,175,55,.15);
 
-    font-size:12px;
+    color:#9e9b92;
+
+    font-family:Arial, sans-serif;
+
+    font-size:13px;
 }
 
 
@@ -405,53 +408,64 @@ footer{
     .facilities-grid{
 
         grid-template-columns:
-            repeat(2,1fr);
+            repeat(2, 1fr);
     }
 
 }
 
 
-@media(max-width:600px){
+@media(max-width:700px){
 
-    header{
-        height:72px;
-        padding:0 20px;
+    .site-header{
+
+        height:70px;
+
+        padding:0 5%;
     }
 
-    .logo img{
-        width:52px;
-        height:52px;
+
+    .site-logo img{
+
+        width:120px;
     }
 
-    .menu-button{
-        width:43px;
-        height:43px;
+
+    .menu-toggle{
+
+        width:42px;
+        height:42px;
+
+        font-size:22px;
     }
+
 
     .menu-dropdown{
-        top:55px;
-        width:210px;
+
+        top:78px;
+
+        right:5%;
+
+        width:230px;
     }
+
 
     .facilities-section{
 
         padding:
-            65px 18px 75px;
+            120px 5%
+            60px;
     }
+
 
     .section-head{
 
-        margin-bottom:40px;
+        margin-bottom:35px;
     }
+
 
     .section-head h1{
 
-        font-size:42px;
-    }
-
-    .section-head p{
-
-        font-size:14px;
+        font-size:38px;
     }
 
     .facilities-grid{
@@ -461,19 +475,22 @@ footer{
         gap:18px;
     }
 
+
     .facility-card{
 
-        min-height:340px;
+        min-height:350px;
     }
 
-    .facility-overlay{
 
-        padding:25px;
+    .facility-content{
+
+        padding:25px 22px;
     }
 
-    .facility-overlay h3{
 
-        font-size:25px;
+    .facility-content h2{
+
+        font-size:24px;
     }
 
 }
@@ -490,34 +507,28 @@ footer{
      HEADER
 ======================================================= -->
 
-<header>
+<header class="site-header">
 
-<a
-href="index.html"
-class="logo">
 
-<img
-src="images/logo.png"
-alt="Rangauti Resort Logo">
+<a href="index.html"
+   class="site-logo">
+
+<img src="images/logo.png"
+     alt="Rangauti Resort">
 
 </a>
 
 
-<div class="menu-wrap">
+<button class="menu-toggle"
+        onclick="toggleMenu()">
 
-<button
-class="menu-button"
-id="menuButton"
-aria-label="Open Menu">
-
-⋮
+☰
 
 </button>
 
 
-<div
-class="menu-dropdown"
-id="menuDropdown">
+<div class="menu-dropdown"
+     id="menuDropdown">
 
 
 <a href="index.html#home">
@@ -541,11 +552,11 @@ id="menuDropdown">
 
 
 <a href="index.html#rooms">
-<strong>ROOMS &amp; SUITES</strong>
+<strong>ROOMS & SUITES</strong>
 </a>
 
 
-<a href="index.html#complimentary">
+<a href="complimentary.html">
 <strong>COMPLIMENTARY</strong>
 </a>
 
@@ -555,7 +566,7 @@ id="menuDropdown">
 </a>
 
 
-<a href="index.html#booking">
+<a href="booking.html">
 <strong>BOOK NOW</strong>
 </a>
 
@@ -565,7 +576,7 @@ id="menuDropdown">
 </a>
 
 
-<a href="index.html#terms">
+<a href="terms.html">
 <strong>TERMS</strong>
 </a>
 
@@ -575,7 +586,7 @@ id="menuDropdown">
 </a>
 
 
-</div>
+
 
 </div>
 
@@ -587,9 +598,8 @@ id="menuDropdown">
      FACILITIES
 ======================================================= -->
 
-<section
-class="facilities-section"
-id="facilities">
+<section class="facilities-section"
+         id="facilities">
 
 
 <div class="section-head">
@@ -606,9 +616,9 @@ for a Memorable Stay
 
 
 <p>
-Relax, explore and enjoy the natural surroundings
-of Rangauti Resort with thoughtfully arranged
-facilities and experiences.
+Relax, explore and enjoy the natural surroundings of
+Rangauti Resort with thoughtfully arranged facilities
+and experiences.
 </p>
 
 </div>
@@ -618,21 +628,24 @@ facilities and experiences.
 <div class="facilities-grid">
 
 
-<!-- SWIMMING POOL -->
+<!-- ===================================================
+     1. SWIMMING POOL
+=================================================== -->
 
-<div
-class="facility-card"
-style="background-image:url('images/facilities/swimming-pool.png');">
+<div class="facility-card">
 
-<div class="facility-overlay">
+<img
+src="images/facilities/swimming-pool.png"
+alt="Swimming Pool">
 
-<h3>
-🏊 Swimming Pool
-</h3>
+<div class="facility-content">
+
+<h2>
+Swimming Pool
+</h2>
 
 <p>
-Enjoy refreshing moments in our swimming pool
-surrounded by a peaceful resort environment.
+Relax and enjoy refreshing moments by the pool.
 </p>
 
 </div>
@@ -641,21 +654,24 @@ surrounded by a peaceful resort environment.
 
 
 
-<!-- RESTAURANT -->
+<!-- ===================================================
+     2. RESTAURANT
+=================================================== -->
 
-<div
-class="facility-card"
-style="background-image:url('images/facilities/restaurant.jpeg');">
+<div class="facility-card">
 
-<div class="facility-overlay">
+<img
+src="images/facilities/restaurant.jpeg"
+alt="Restaurant">
 
-<h3>
-🍽️ Restaurant
-</h3>
+<div class="facility-content">
+
+<h2>
+Restaurant
+</h2>
 
 <p>
-Delicious meals and refreshing beverages prepared
-for a comfortable dining experience.
+Enjoy delicious meals in a comfortable resort setting.
 </p>
 
 </div>
@@ -664,21 +680,24 @@ for a comfortable dining experience.
 
 
 
-<!-- BOAT RIDE -->
+<!-- ===================================================
+     3. BOAT RIDE
+=================================================== -->
 
-<div
-class="facility-card"
-style="background-image:url('images/facilities/boat-ride.png');">
+<div class="facility-card">
 
-<div class="facility-overlay">
+<img
+src="images/facilities/boat-ride.png"
+alt="Boat Ride">
 
-<h3>
-🚤 Boat Ride
-</h3>
+<div class="facility-content">
+
+<h2>
+Boat Ride
+</h2>
 
 <p>
-Experience a relaxing Boat Ride and
-discover the surrounding natural beauty.
+Experience peaceful moments on the water surrounded by nature.
 </p>
 
 </div>
@@ -687,21 +706,24 @@ discover the surrounding natural beauty.
 
 
 
-<!-- NATURAL ENVIRONMENT -->
+<!-- ===================================================
+     4. NATURAL ENVIRONMENT
+=================================================== -->
 
-<div
-class="facility-card"
-style="background-image:url('images/facilities/natural-environment.jpeg');">
+<div class="facility-card">
 
-<div class="facility-overlay">
+<img
+src="images/facilities/natural-environment.jpeg"
+alt="Natural Environment">
 
-<h3>
-🌿 Natural Environment
-</h3>
+<div class="facility-content">
+
+<h2>
+Natural Environment
+</h2>
 
 <p>
-A peaceful atmosphere where you can slow down
-and enjoy nature.
+Reconnect with nature in the peaceful surroundings of Rangauti.
 </p>
 
 </div>
@@ -710,21 +732,24 @@ and enjoy nature.
 
 
 
-<!-- FAMILY FRIENDLY -->
+<!-- ===================================================
+     5. FAMILY FRIENDLY
+=================================================== -->
 
-<div
-class="facility-card"
-style="background-image:url('images/facilities/family-friendly.jpeg');">
+<div class="facility-card">
 
-<div class="facility-overlay">
+<img
+src="images/facilities/family-friendly.jpeg"
+alt="Family Friendly">
 
-<h3>
-👨‍👩‍👧 Family Friendly
-</h3>
+<div class="facility-content">
+
+<h2>
+Family Friendly
+</h2>
 
 <p>
-Comfortable spaces and experiences suitable
-for families and groups.
+A comfortable environment designed for families and guests of all ages.
 </p>
 
 </div>
@@ -733,21 +758,24 @@ for families and groups.
 
 
 
-<!-- COMFORTABLE STAY -->
+<!-- ===================================================
+     6. COMFORTABLE STAY
+=================================================== -->
 
-<div
-class="facility-card"
-style="background-image:url('images/facilities/comfortable-stay.jpeg');">
+<div class="facility-card">
 
-<div class="facility-overlay">
+<img
+src="images/facilities/comfortable-stay.jpeg"
+alt="Comfortable Stay">
 
-<h3>
-🛏️ Comfortable Stay
-</h3>
+<div class="facility-content">
+
+<h2>
+Comfortable Stay
+</h2>
 
 <p>
-Well-appointed rooms and suites designed
-for a relaxing resort stay.
+Thoughtfully arranged spaces and facilities for a relaxing stay.
 </p>
 
 </div>
@@ -765,52 +793,49 @@ for a relaxing resort stay.
      FOOTER
 ======================================================= -->
 
-<footer>
+<footer class="footer">
 
-© 2026 Rangauti Resort.
-All Rights Reserved.
+© Rangauti Resort. All Rights Reserved.
 
 </footer>
 
 
 
 <!-- =======================================================
-     MENU JAVASCRIPT
+     MENU SCRIPT
 ======================================================= -->
 
 <script>
 
-const menuButton =
-    document.getElementById("menuButton");
+function toggleMenu(){
 
-const menuDropdown =
-    document.getElementById("menuDropdown");
+    const menu =
+        document.getElementById("menuDropdown");
 
+    menu.classList.toggle("show");
 
-menuButton.addEventListener(
-    "click",
-    function(){
-
-        menuDropdown.classList.toggle("show");
-
-    }
-);
+}
 
 
-document.addEventListener(
-    "click",
-    function(event){
+document.addEventListener("click", function(event){
 
-        if(
-            !event.target.closest(".menu-wrap")
-        ){
+    const menu =
+        document.getElementById("menuDropdown");
 
-            menuDropdown.classList.remove("show");
+    const button =
+        document.querySelector(".menu-toggle");
 
-        }
+
+    if(
+        !menu.contains(event.target) &&
+        !button.contains(event.target)
+    ){
+
+        menu.classList.remove("show");
 
     }
-);
+
+});
 
 </script>
 
@@ -818,3 +843,4 @@ document.addEventListener(
 </body>
 
 </html>
+```

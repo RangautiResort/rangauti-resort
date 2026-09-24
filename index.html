@@ -5750,9 +5750,11 @@ aria-label="WhatsApp">
             <div class="room-main-image">
 
                 <img
-                    id="lunchMainImage"
-                    src="images/packages/lunch.png"
-                    alt="Lunch Package">
+                    
+    id="lunchMainImage"
+    src="images/packages/lunch.png"
+    alt="Lunch Package"
+    onclick="openPackageImage(this.src, this.alt)">
 
             </div>
 
@@ -5863,10 +5865,15 @@ aria-label="WhatsApp">
 
             <div class="room-main-image">
 
-                <img
-                    id="snacksMainImage"
-                    src="images/packages/snacks.jpeg"
-                    alt="Snacks Package">
+                <div class="room-main-image">
+
+    <img
+        id="snacksMainImage"
+        src="images/packages/snacks.jpeg"
+        alt="Snacks Package"
+        onclick="openPackageImage(this.src, this.alt)">
+
+</div>
 
             </div>
 
@@ -5977,12 +5984,13 @@ aria-label="WhatsApp">
 
             <div class="room-main-image">
 
-                <img
-                    id="swimmingMainImage"
-                    src="images/packages/swimming.jpeg"
-                    alt="Swimming Package">
+    <img
+        id="swimmingMainImage"
+        src="images/packages/swimming.jpeg"
+        alt="Swimming Package"
+        onclick="openPackageImage(this.src, this.alt)">
 
-            </div>
+</div>
 
 
             <div class="room-thumbnails">
@@ -6093,12 +6101,13 @@ aria-label="WhatsApp">
 
             <div class="room-main-image">
 
-                <img
-                    id="beverageMainImage"
-                    src="images/packages/beverage.png"
-                    alt="Beverage Package">
-                    
-            </div>
+    <img
+        id="beverageMainImage"
+        src="images/packages/beverage.png"
+        alt="Beverage Package"
+        onclick="openPackageImage(this.src, this.alt)">
+
+</div>
 
 
             <div class="room-thumbnails">
@@ -11725,6 +11734,49 @@ function closeDayLongImage() {
     viewer.classList.remove("active");
 }
 
+function openPackageImage(imageSrc, imageAlt) {
+
+    const viewer =
+        document.getElementById("dayLongImageViewer");
+
+    const fullImage =
+        document.getElementById("dayLongFullImage");
+
+    if (!viewer || !fullImage) {
+        alert("Full screen image viewer not found");
+        return;
+    }
+
+    fullImage.src = imageSrc;
+    fullImage.alt = imageAlt;
+
+    viewer.classList.add("active");
+}
+
+function selectSnacksImage(index) {
+
+    const images = [
+        "images/packages/snacks.png"
+    ];
+
+    const mainImage =
+        document.getElementById("snacksMainImage");
+
+    if (!mainImage || !images[index]) return;
+
+    mainImage.src = images[index];
+
+    document
+        .querySelectorAll(".snacks-thumb")
+        .forEach(function(thumb, i) {
+
+            thumb.classList.toggle(
+                "active",
+                i === index
+            );
+
+        });
+}
 
 /* =======================================================
    ESC = CLOSE FULL SCREEN IMAGE
@@ -11737,8 +11789,65 @@ document.addEventListener("keydown", function(event) {
     closeDayLongImage();
 
 });
+function closeDayLongImage() {
 
+    const viewer =
+        document.getElementById("dayLongImageViewer");
 
+    if (!viewer) return;
+
+    viewer.classList.remove("active");
+}
+
+function selectSwimmingImage(index) {
+
+    const images = [
+        "images/packages/swimming.jpeg"
+    ];
+
+    const mainImage =
+        document.getElementById("swimmingMainImage");
+
+    if (!mainImage || !images[index]) return;
+
+    mainImage.src = images[index];
+
+    document
+        .querySelectorAll(".swimming-thumb")
+        .forEach(function(thumb, i) {
+
+            thumb.classList.toggle(
+                "active",
+                i === index
+            );
+
+        });
+}
+
+function selectBeverageImage(index) {
+
+    const images = [
+        "images/packages/beverage.png"
+    ];
+
+    const mainImage =
+        document.getElementById("beverageMainImage");
+
+    if (!mainImage || !images[index]) return;
+
+    mainImage.src = images[index];
+
+    document
+        .querySelectorAll(".beverage-thumb")
+        .forEach(function(thumb, i) {
+
+            thumb.classList.toggle(
+                "active",
+                i === index
+            );
+
+        });
+}
 </script>
 <!-- DAY LONG FULL SCREEN IMAGE VIEWER -->
 
@@ -11758,6 +11867,21 @@ document.addEventListener("keydown", function(event) {
 
 </div>
 
+<div id="dayLongImageViewer"
+     class="package-image-viewer"
+     onclick="closeDayLongImage()">
+
+    <button class="package-image-viewer-close"
+            type="button"
+            onclick="event.stopPropagation(); closeDayLongImage()">
+        ×
+    </button>
+
+    <img id="dayLongFullImage"
+         src="images/packages/day-long.jpeg"
+         alt="Day Long Package">
+
+</div>
 </body>
 
 </html>

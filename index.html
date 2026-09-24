@@ -2549,26 +2549,6 @@ footer{
 .room-card-slideshow .room-slide.active{
     opacity:1;
 }
-.room-card-slideshow{
-    position:relative;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-}
-
-.room-card-slideshow .room-slide{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    opacity:0;
-    transition:opacity 1.2s ease-in-out;
-}
-
-.room-card-slideshow .room-slide.active{
-    opacity:1;
-}
 /* =========================================================
    SPECIAL OFFER
 ========================================================= */
@@ -3523,6 +3503,77 @@ footer{
     background: #c9a45c;
     color: #11110f;
 }
+
+/* ================================================
+   RESORT GALLERY MOBILE
+   SAME OUTER STYLE AS ABOUT
+===================================================== */
+
+@media (max-width:768px){
+
+    .resort-gallery-section{
+        background:#f3f3f2;
+        padding:75px 5%;
+    }
+
+    .resort-gallery-header{
+        max-width:100%;
+        margin:0 0 30px;
+        text-align:left;
+    }
+
+    .resort-gallery-label{
+        display:block;
+        margin-bottom:15px;
+        color:#0a0a0a;
+        font-family:Arial,sans-serif;
+        font-size:11px;
+        letter-spacing:2px;
+        text-transform:uppercase;
+    }
+
+    .resort-gallery-header h2{
+        margin:0;
+        font-family:Georgia,serif;
+        font-size:34px;
+        font-weight:400;
+        line-height:1.2;
+        color:var(--dark);
+    }
+
+    .resort-gallery-header p{
+        margin:18px 0 0;
+        max-width:100%;
+        font-family:Arial,sans-serif;
+        font-size:14px;
+        line-height:1.7;
+        color:var(--muted);
+    }
+
+
+    /* GALLERY CARDS */
+
+    .resort-gallery-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .resort-gallery-grid > .resort-gallery-item{
+        width:100%;
+        min-width:0;
+        height:300px;
+        min-height:300px;
+        grid-column:1 !important;
+        grid-row:auto !important;
+    }
+
+    .resort-gallery-overlay{
+        padding:32px 28px;
+        font-size:25px;
+    }
+}
+
+
 </style>
 
 </head>

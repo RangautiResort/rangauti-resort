@@ -3572,6 +3572,271 @@ footer{
         font-size:25px;
     }
 }
+/* =======================================================
+DAY LONG PACKAGE DETAILS
+======================================================= */
+
+.package-details-modal {
+
+
+position: relative;
+
+width: min(1100px, 100%);
+
+max-height: 90vh;
+
+overflow-y: auto;
+
+display: grid;
+
+grid-template-columns: 1fr 1fr;
+
+gap: 40px;
+
+padding: 40px;
+
+background: #fff;
+
+border-radius: 14px;
+
+box-sizing: border-box;
+
+
+}
+
+/* LEFT IMAGE */
+
+.package-details-modal .room-details-left {
+
+
+display: flex;
+
+flex-direction: column;
+
+gap: 15px;
+
+}
+
+.package-details-modal .room-main-image img {
+
+
+width: 100%;
+
+height: 480px;
+
+object-fit: cover;
+
+border-radius: 10px;
+
+display: block;
+
+
+}
+
+/* THUMBNAILS */
+
+.package-details-modal .room-thumbnails {
+
+
+display: flex;
+
+gap: 10px;
+
+
+}
+
+.package-details-modal .room-thumbnails img {
+
+
+width: 80px;
+
+height: 65px;
+
+object-fit: cover;
+
+border-radius: 6px;
+
+cursor: pointer;
+
+opacity: .65;
+
+
+}
+
+.package-details-modal .room-thumbnails img.active {
+
+
+opacity: 1;
+
+outline: 2px solid var(--green);
+
+
+}
+
+/* RIGHT DETAILS */
+
+.package-details-modal .room-details-right {
+
+
+position: relative;
+
+padding: 10px 20px 10px 0;
+
+
+}
+
+.package-details-modal .room-details-right h2 {
+
+
+font-family: Georgia, serif;
+
+font-size: 38px;
+
+font-weight: 400;
+
+margin: 8px 0 12px;
+
+
+}
+
+.package-details-modal .room-details-price {
+
+
+font-size: 22px;
+
+font-weight: 600;
+
+margin-bottom: 25px;
+
+
+}
+
+.package-details-modal .room-detail-info {
+
+
+display: grid;
+
+gap: 12px;
+
+margin-bottom: 25px;
+
+
+}
+
+.package-details-modal .room-detail-info div {
+
+
+display: flex;
+
+justify-content: space-between;
+
+gap: 20px;
+
+padding-bottom: 10px;
+
+border-bottom: 1px solid #ddd;
+
+
+}
+
+.package-details-modal .room-detail-info span {
+
+
+color: #666;
+
+text-align: right;
+
+
+}
+
+.package-details-modal .room-details-right h3 {
+
+
+font-family: Georgia, serif;
+
+font-size: 21px;
+
+font-weight: 400;
+
+margin: 22px 0 12px;
+
+
+}
+
+.package-details-modal .room-amenities {
+
+
+margin: 0;
+
+padding-left: 20px;
+
+line-height: 1.9;
+
+
+}
+
+.package-details-modal .room-details-description {
+
+
+color: #666;
+
+line-height: 1.7;
+
+}
+
+/* CLOSE BUTTON */
+
+.package-details-modal .modal-close {
+
+
+position: absolute;
+
+top: 12px;
+
+right: 12px;
+
+z-index: 10;
+
+
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+
+.package-details-modal {
+
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    padding: 25px;
+
+    max-height: 92vh;
+
+}
+
+.package-details-modal .room-main-image img {
+
+    height: 300px;
+
+}
+
+.package-details-modal .room-details-right {
+
+    padding-right: 0;
+
+}
+
+.package-details-modal .room-details-right h2 {
+
+    font-size: 30px;
+
+}
+
+
+}
 
 
 </style>
@@ -3907,7 +4172,7 @@ escape to a refreshing swimming or beverage package.
 <div class="package-image">
 
 <img src="images/packages/day-long.jpeg"
-     alt="Day Long Package">
+  alt="Day Long Package">
 
 </div>
 
@@ -3921,16 +4186,7 @@ Day Long
 BDT 1,800 / Person
 </div>
 
-<ul>
 
-<li>Resort Entry</li>
-<li>1 Single Room (12 PM–6 PM)</li>
-<li>Set Lunch</li>
-<li>Swimming Pool</li>
-<li>Celo Engine Boat Ride</li>
-<li>Evening Tea / Coffee</li>
-
-</ul>
 
 <div class="package-note">
 Advance payment is required to confirm booking.
@@ -3939,15 +4195,13 @@ Advance payment is required to confirm booking.
 <div class="package-actions">
 
 <button class="small-btn"
-onclick="openPackageImage('images/packages/day-long.jpeg','Day Long Package')">
-VIEW
-</button>
+onclick="openPackageDetails('dayLongDetails')">
+VIEW </button>
 
 <a class="small-btn whatsapp"
 href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Day%20Long%20Package."
 target="_blank">
-BOOK NOW
-</a>
+BOOK NOW </a>
 
 </div>
 
@@ -4174,26 +4428,108 @@ BOOK NOW
 
 
 </div>
-<!-- =======================================================
-     PACKAGE IMAGE POPUP
-======================================================= -->
+<!-- ======================================================= DAY LONG PACKAGE DETAILS MODAL ======================================================= -->
 
-<div class="modal" id="packageImageModal">
+<div class="modal" id="dayLongDetails">
 
-    <div class="package-image-popup">
+<div class="package-details-modal">
 
-        <button class="modal-close"
-                onclick="closePackageImage()">
-            ×
-        </button>
+    <!-- CLOSE -->
+    <button class="modal-close"
+            onclick="closePackageDetails('dayLongDetails')">
+        ×
+    </button>
 
-        <h2 id="packageImageTitle">
-            Package
+
+    <!-- LEFT : IMAGE -->
+    <div class="room-details-left">
+
+        <div class="room-main-image">
+
+            <img id="dayLongMainImage"
+                 src="images/packages/day-long.jpeg"
+                 alt="Day Long Package">
+
+        </div>
+
+
+        <div class="room-thumbnails">
+
+            <img class="day-long-thumb active"
+                 src="images/packages/day-long.jpeg"
+                 alt="Day Long Package"
+                 onclick="selectDayLongImage(0)">
+
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT : DETAILS -->
+    <div class="room-details-right">
+
+        <div class="eyebrow">
+            VISITOR EXPERIENCE
+        </div>
+
+        <h2>
+            Day Long
         </h2>
 
-        <img id="packageImage"
-             src=""
-             alt="Package Image">
+        <div class="room-details-price">
+            BDT 1,800 / Person
+        </div>
+
+
+        <div class="room-detail-info">
+
+            <div>
+                <strong>Timing</strong>
+                <span>12:00 PM – 6:00 PM</span>
+            </div>
+
+            <div>
+                <strong>Package Type</strong>
+                <span>Day Long Experience</span>
+            </div>
+
+        </div>
+
+
+        <h3>
+            Package Details
+        </h3>
+
+        <ul class="room-amenities">
+
+            <li>Resort Entry</li>
+            <li>1 Single Room (12 PM–6 PM)</li>
+            <li>Set Lunch</li>
+            <li>Swimming Pool Access</li>
+            <li>Celo Engine Boat Ride</li>
+            <li>Evening Tea / Coffee</li>
+
+        </ul>
+
+
+        <h3>
+            Important Note
+        </h3>
+
+        <p class="room-details-description">
+            Advance payment is required to confirm booking.
+        </p>
+
+
+        <div class="room-details-actions">
+
+            <a class="small-btn whatsapp"
+               href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Day%20Long%20Package."
+               target="_blank">
+                BOOK NOW
+            </a>
+
+        </div>
 
     </div>
 
@@ -10611,6 +10947,60 @@ function changeSpecialSuperImage(direction) {
     updateSpecialSuperImage();
 
 }
+/* =======================================================
+DAY LONG PACKAGE DETAILS
+======================================================= */
+
+function openPackageDetails(id) {
+
+
+const modal = document.getElementById(id);
+
+if (!modal) return;
+
+modal.classList.add("active");
+
+document.body.classList.add("modal-open");
+
+
+}
+
+function closePackageDetails(id) {
+
+
+const modal = document.getElementById(id);
+
+if (!modal) return;
+
+modal.classList.remove("active");
+
+document.body.classList.remove("modal-open");
+
+
+}
+
+function selectDayLongImage(index) {
+
+
+const images = [
+    "images/packages/day-long.jpeg"
+];
+
+const mainImage = document.getElementById("dayLongMainImage");
+
+if (!mainImage || !images[index]) return;
+
+mainImage.src = images[index];
+
+document.querySelectorAll(".day-long-thumb").forEach(function (thumb, i) {
+
+    thumb.classList.toggle("active", i === index);
+
+});
+
+
+}
+
 </script>
 
 

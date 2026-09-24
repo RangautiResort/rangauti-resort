@@ -3899,6 +3899,70 @@ z-index: 10;
     object-fit: contain;
     display: block;
 }
+/* =======================================================
+   DAY LONG FULL SCREEN IMAGE
+======================================================= */
+
+.package-image-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.92);
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.package-image-viewer.active {
+    display: flex;
+}
+
+.package-image-viewer img {
+    display: block;
+
+    max-width: 95vw;
+    max-height: 90vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    cursor: zoom-out;
+}
+
+.package-image-viewer-close {
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    z-index: 100000;
+
+    width: auto;
+    height: auto;
+
+    padding: 0;
+
+    background: none;
+    border: none;
+
+    color: white;
+
+    font-size: 42px;
+    line-height: 1;
+
+    cursor: pointer;
+}
 </style>
 
 </head>
@@ -5569,9 +5633,11 @@ aria-label="WhatsApp">
 
             <div class="room-main-image">
 
+                <!-- CLICK IMAGE = FULL SCREEN -->
                 <img id="dayLongMainImage"
                      src="images/packages/day-long.jpeg"
-                     alt="Day Long Package">
+                     alt="Day Long Package"
+                     onclick="openDayLongImage()">
 
             </div>
 
@@ -5596,7 +5662,7 @@ aria-label="WhatsApp">
             </div>
 
             <h2>
-      Day Long Package
+                Day Long Package
             </h2>
 
             <div class="room-details-price">
@@ -5623,6 +5689,7 @@ aria-label="WhatsApp">
                 Package Details
             </h3>
 
+
             <ul class="room-amenities">
 
                 <li>Resort Entry</li>
@@ -5638,6 +5705,7 @@ aria-label="WhatsApp">
             <h3>
                 Important Note
             </h3>
+
 
             <p class="room-details-description">
                 Advance payment is required to confirm booking.
@@ -5659,6 +5727,7 @@ aria-label="WhatsApp">
     </div>
 
 </div>
+
 <!-- =======================================================
      LUNCH PACKAGE — DETAILS
 ======================================================= -->
@@ -11593,8 +11662,101 @@ function selectSwimmingImage(index) {
 
         });
 }
-</script>
+/* =======================================================
+   DAY LONG IMAGE
+======================================================= */
 
+function selectDayLongImage(index) {
+
+    const images = [
+        "images/packages/day-long.jpeg"
+    ];
+
+    const mainImage =
+        document.getElementById("dayLongMainImage");
+
+    if (!mainImage || !images[index]) return;
+
+    mainImage.src = images[index];
+
+    document
+        .querySelectorAll(".day-long-thumb")
+        .forEach(function(thumb, i) {
+
+            thumb.classList.toggle(
+                "active",
+                i === index
+            );
+
+        });
+}
+
+
+/* =======================================================
+   DAY LONG FULL SCREEN IMAGE
+======================================================= */
+
+function openDayLongImage() {
+
+    const viewer =
+        document.getElementById("dayLongImageViewer");
+
+    const mainImage =
+        document.getElementById("dayLongMainImage");
+
+    const fullImage =
+        document.getElementById("dayLongFullImage");
+
+    if (!viewer || !mainImage || !fullImage) return;
+
+    fullImage.src = mainImage.src;
+
+    viewer.classList.add("active");
+}
+
+
+function closeDayLongImage() {
+
+    const viewer =
+        document.getElementById("dayLongImageViewer");
+
+    if (!viewer) return;
+
+    viewer.classList.remove("active");
+}
+
+
+/* =======================================================
+   ESC = CLOSE FULL SCREEN IMAGE
+======================================================= */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key !== "Escape") return;
+
+    closeDayLongImage();
+
+});
+
+
+</script>
+<!-- DAY LONG FULL SCREEN IMAGE VIEWER -->
+
+<div id="dayLongImageViewer"
+     class="package-image-viewer"
+     onclick="closeDayLongImage()">
+
+    <button class="package-image-viewer-close"
+            type="button"
+            onclick="event.stopPropagation(); closeDayLongImage()">
+        ×
+    </button>
+
+    <img id="dayLongFullImage"
+         src="images/packages/day-long.jpeg"
+         alt="Day Long Package">
+
+</div>
 
 </body>
 

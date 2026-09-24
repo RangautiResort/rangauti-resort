@@ -3572,6 +3572,7 @@ footer{
         font-size:25px;
     }
 }
+
 /* =======================================================
 DAY LONG PACKAGE DETAILS
 ======================================================= */
@@ -3624,7 +3625,7 @@ width: 100%;
 
 height: 480px;
 
-object-fit: cover;
+object-fit: contain;
 
 border-radius: 10px;
 
@@ -3837,8 +3838,67 @@ z-index: 10;
 
 
 }
+@media (max-width: 768px) {
 
+    .package-details-modal .room-main-image {
+        height: 300px;
+    }
 
+}
+
+/* =======================================================
+   PACKAGE DETAILS MODAL OVERLAY
+======================================================= */
+
+.modal.package-details-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100vh;
+
+    padding: 30px;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    box-sizing: border-box;
+}
+
+.modal.package-details-modal.active {
+    display: flex;
+}
+#lunchDetails .room-main-image img {
+    width: 100%;
+    height: 480px;
+    object-fit: contain;
+    background: #f5f5f5;
+    border-radius: 10px;
+    display: block;
+}
+/* =======================================================
+   ALL PACKAGE DETAILS — IMAGE SIZE
+======================================================= */
+
+.package-details-modal .room-main-image {
+    width: 100%;
+    height: 480px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.package-details-modal .room-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
 </style>
 
 </head>
@@ -4231,14 +4291,7 @@ Lunch
 BDT 1,100 / Person
 </div>
 
-<ul>
 
-<li>Resort Entry</li>
-<li>Set Lunch</li>
-<li>12 PM–6 PM Visit</li>
-<li>Resort Environment</li>
-
-</ul>
 
 <div class="package-note">
 Advance payment is required to confirm booking.
@@ -4247,14 +4300,14 @@ Advance payment is required to confirm booking.
 <div class="package-actions">
 
 <button class="small-btn"
-onclick="openPackageImage('images/packages/lunch.png','Lunch Package')">
-VIEW
+        onclick="openPackageDetails('lunchDetails')">
+    VIEW
 </button>
 
 <a class="small-btn whatsapp"
-href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Lunch%20Package."
-target="_blank">
-BOOK NOW
+   href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Lunch%20Package."
+   target="_blank">
+    BOOK NOW
 </a>
 
 </div>
@@ -4285,24 +4338,15 @@ Snacks
 BDT 700 / Person
 </div>
 
-<ul>
-
-<li>Resort Entry</li>
-<li>Snacks</li>
-<li>2 Hours Visit</li>
-<li>3 PM–6 PM</li>
-
-</ul>
-
 <div class="package-note">
-Payment can be made at the resort.
+No advance payment required. Pay at resort.
 </div>
 
 <div class="package-actions">
 
 <button class="small-btn"
-onclick="openPackageImage('images/packages/snacks.jpeg','Snacks Package')">
-VIEW
+        onclick="openPackageDetails('snacksDetails')">
+    VIEW
 </button>
 
 <a class="small-btn whatsapp"
@@ -4317,58 +4361,43 @@ BOOK NOW
 
 </div>
 
-
-<!-- SWIMMING -->
+<!-- ENTRY WITH SWIMMING -->
 
 <div class="package-card">
 
-<div class="package-image">
+    <div class="package-image">
+        <img src="images/packages/swimming.jpeg"
+             alt="Entry With Swimming">
+    </div>
 
-<img src="images/packages/swimming.jpeg"
-     alt="Swimming Package">
+    <div class="package-content">
 
-</div>
+        <h3>Swimming</h3>
 
-<div class="package-content">
+        <div class="package-price">
+            BDT 800 / Person
+        </div>
 
-<h3>
-Swimming
-</h3>
+        <div class="package-note">
+            No advance payment required. Pay at resort.
+        </div>
 
-<div class="package-price">
-BDT 800 / Person
-</div>
+        <div class="package-actions">
 
-<ul>
+            <button class="small-btn"
+                    onclick="openPackageDetails('swimmingDetails')">
+                VIEW
+            </button>
 
-<li>Resort Entry</li>
-<li>Swimming Pool</li>
-<li>1 Hour Swimming</li>
-<li>Beverage</li>
-<li>12 PM–6 PM Visit</li>
+            <a class="small-btn whatsapp"
+               href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20know%20about%20the%20Swimming%20Package."
+               target="_blank">
+                BOOK NOW
+            </a>
 
-</ul>
+        </div>
 
-<div class="package-note">
-No advance payment required. Pay at resort.
-</div>
-
-<div class="package-actions">
-
-<button class="small-btn"
-onclick="openPackageImage('images/packages/swimming.jpeg','Swimming Package')">
-VIEW
-</button>
-
-<a class="small-btn whatsapp"
-href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20know%20about%20the%20Swimming%20Package."
-target="_blank">
-BOOK NOW
-</a>
-
-</div>
-
-</div>
+    </div>
 
 </div>
 
@@ -4380,7 +4409,7 @@ BOOK NOW
 <div class="package-image">
 
 <img src="images/packages/beverage.png"
-     alt="Beverage Package">
+     alt="Beverage">
 
 </div>
 
@@ -4394,14 +4423,7 @@ Beverage
 BDT 500 / Person
 </div>
 
-<ul>
 
-<li>Resort Entry</li>
-<li>Selected Beverages</li>
-<li>2 Hours Visit</li>
-<li>12 PM–6 PM</li>
-
-</ul>
 
 <div class="package-note">
 No advance payment required. Pay at resort.
@@ -4410,8 +4432,8 @@ No advance payment required. Pay at resort.
 <div class="package-actions">
 
 <button class="small-btn"
-onclick="openPackageImage('images/packages/beverage.png','Beverage Package')">
-VIEW
+        onclick="openPackageDetails('beverageDetails')">
+    VIEW
 </button>
 
 <a class="small-btn whatsapp"
@@ -4423,115 +4445,6 @@ BOOK NOW
 </div>
 
 </div>
-
-</div>
-
-
-</div>
-<!-- ======================================================= DAY LONG PACKAGE DETAILS MODAL ======================================================= -->
-
-<div class="modal" id="dayLongDetails">
-
-<div class="package-details-modal">
-
-    <!-- CLOSE -->
-    <button class="modal-close"
-            onclick="closePackageDetails('dayLongDetails')">
-        ×
-    </button>
-
-
-    <!-- LEFT : IMAGE -->
-    <div class="room-details-left">
-
-        <div class="room-main-image">
-
-            <img id="dayLongMainImage"
-                 src="images/packages/day-long.jpeg"
-                 alt="Day Long Package">
-
-        </div>
-
-
-        <div class="room-thumbnails">
-
-            <img class="day-long-thumb active"
-                 src="images/packages/day-long.jpeg"
-                 alt="Day Long Package"
-                 onclick="selectDayLongImage(0)">
-
-        </div>
-
-    </div>
-
-
-    <!-- RIGHT : DETAILS -->
-    <div class="room-details-right">
-
-        <div class="eyebrow">
-            VISITOR EXPERIENCE
-        </div>
-
-        <h2>
-            Day Long
-        </h2>
-
-        <div class="room-details-price">
-            BDT 1,800 / Person
-        </div>
-
-
-        <div class="room-detail-info">
-
-            <div>
-                <strong>Timing</strong>
-                <span>12:00 PM – 6:00 PM</span>
-            </div>
-
-            <div>
-                <strong>Package Type</strong>
-                <span>Day Long Experience</span>
-            </div>
-
-        </div>
-
-
-        <h3>
-            Package Details
-        </h3>
-
-        <ul class="room-amenities">
-
-            <li>Resort Entry</li>
-            <li>1 Single Room (12 PM–6 PM)</li>
-            <li>Set Lunch</li>
-            <li>Swimming Pool Access</li>
-            <li>Celo Engine Boat Ride</li>
-            <li>Evening Tea / Coffee</li>
-
-        </ul>
-
-
-        <h3>
-            Important Note
-        </h3>
-
-        <p class="room-details-description">
-            Advance payment is required to confirm booking.
-        </p>
-
-
-        <div class="room-details-actions">
-
-            <a class="small-btn whatsapp"
-               href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Day%20Long%20Package."
-               target="_blank">
-                BOOK NOW
-            </a>
-
-        </div>
-
-    </div>
 
 </div>
 
@@ -5634,11 +5547,574 @@ aria-label="WhatsApp">
 ☏
 
 </a>
+</section>
+
 <!-- =======================================================
-     ROOM GALLERY MODALS
+     DAY LONG PACKAGE DETAILS MODAL
 ======================================================= -->
 
+<div class="modal" id="dayLongDetails">
 
+    <div class="package-details-modal">
+
+        <!-- CLOSE -->
+        <button class="modal-close"
+                onclick="closePackageDetails('dayLongDetails')">
+            ×
+        </button>
+
+
+        <!-- LEFT : IMAGE -->
+        <div class="room-details-left">
+
+            <div class="room-main-image">
+
+                <img id="dayLongMainImage"
+                     src="images/packages/day-long.jpeg"
+                     alt="Day Long Package">
+
+            </div>
+
+
+            <div class="room-thumbnails">
+
+                <img class="day-long-thumb active"
+                     src="images/packages/day-long.jpeg"
+                     alt="Day Long Package"
+                     onclick="selectDayLongImage(0)">
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT : DETAILS -->
+        <div class="room-details-right">
+
+            <div class="eyebrow">
+                VISITOR EXPERIENCE
+            </div>
+
+            <h2>
+      Day Long Package
+            </h2>
+
+            <div class="room-details-price">
+                BDT 1,800 / Person
+            </div>
+
+
+            <div class="room-detail-info">
+
+                <div>
+                    <strong>Timing</strong>
+                    <span>12:00 PM – 6:00 PM</span>
+                </div>
+
+                <div>
+                    <strong>Package Type</strong>
+                    <span>Day Long Experience</span>
+                </div>
+
+            </div>
+
+
+            <h3>
+                Package Details
+            </h3>
+
+            <ul class="room-amenities">
+
+                <li>Resort Entry</li>
+                <li>1 Single Room (12 PM–6 PM)</li>
+                <li>Set Lunch</li>
+                <li>Swimming Pool Access</li>
+                <li>Celo Engine Boat Ride</li>
+                <li>Evening Tea / Coffee</li>
+
+            </ul>
+
+
+            <h3>
+                Important Note
+            </h3>
+
+            <p class="room-details-description">
+                Advance payment is required to confirm booking.
+            </p>
+
+
+            <div class="room-details-actions">
+
+                <a class="small-btn whatsapp"
+                   href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Day%20Long%20Package."
+                   target="_blank">
+                    BOOK NOW
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =======================================================
+     LUNCH PACKAGE — DETAILS
+======================================================= -->
+
+<div class="modal"
+     id="lunchDetails">
+
+    <div class="package-details-modal">
+
+        <!-- CLOSE -->
+        <button class="modal-close"
+                onclick="closePackageDetails('lunchDetails')">
+            ×
+        </button>
+
+
+        <!-- LEFT : IMAGE -->
+        <div class="room-details-left">
+
+            <div class="room-main-image">
+
+                <img
+                    id="lunchMainImage"
+                    src="images/packages/lunch.png"
+                    alt="Lunch Package">
+
+            </div>
+
+
+            <div class="room-thumbnails">
+
+                <img
+                    class="lunch-thumb active"
+                    src="images/packages/lunch.png"
+                    alt="Lunch Package"
+                    onclick="selectLunchImage(0)">
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT : DETAILS -->
+        <div class="room-details-right">
+
+            <div class="eyebrow">
+                VISITOR EXPERIENCE
+            </div>
+
+            <h2>
+                Lunch Package
+            </h2>
+
+            <div class="room-details-price">
+                BDT 1,100 / Person
+            </div>
+
+
+            <div class="room-detail-info">
+
+                <div>
+                    <strong>Timing</strong>
+                    <span>12:00 PM – 6:00 PM</span>
+                </div>
+
+                <div>
+                    <strong>Package Type</strong>
+                    <span>Lunch Experience</span>
+                </div>
+
+            </div>
+
+
+            <h3>
+                Package Details
+            </h3>
+
+            <ul class="room-amenities">
+
+                <li>Resort Entry</li>
+                <li>Set Lunch</li>
+                <li>12 PM–6 PM Visit</li>
+                <li>Resort Environment</li>
+
+            </ul>
+
+
+            <h3>
+                Important Note
+            </h3>
+
+            <p class="room-details-description">
+                Advance payment is required to confirm booking.
+            </p>
+
+
+            <div class="room-details-actions">
+
+                <a
+                    class="small-btn whatsapp"
+                    href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Lunch%20Package."
+                    target="_blank">
+
+                    BOOK NOW
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =======================================================
+     SNACKS PACKAGE — DETAILS
+======================================================= -->
+
+<div class="modal"
+     id="snacksDetails">
+
+    <div class="package-details-modal">
+
+        <!-- CLOSE -->
+        <button class="modal-close"
+                onclick="closePackageDetails('snacksDetails')">
+            ×
+        </button>
+
+
+        <!-- LEFT : IMAGE -->
+        <div class="room-details-left">
+
+            <div class="room-main-image">
+
+                <img
+                    id="snacksMainImage"
+                    src="images/packages/snacks.jpeg"
+                    alt="Snacks Package">
+
+            </div>
+
+
+            <div class="room-thumbnails">
+
+                <img
+                    class="snacks-thumb active"
+                    src="images/packages/snacks.jpeg"
+                    alt="Snacks Package"
+                    onclick="selectSnacksImage(0)">
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT : DETAILS -->
+        <div class="room-details-right">
+
+            <div class="eyebrow">
+                VISITOR EXPERIENCE
+            </div>
+
+            <h2>
+        Snacks Package
+            </h2>
+
+            <div class="room-details-price">
+                BDT 700 / Person
+            </div>
+
+
+            <div class="room-detail-info">
+
+                <div>
+                    <strong>Timing</strong>
+                    <span>3:00 PM – 6:00 PM</span>
+                </div>
+
+                <div>
+                    <strong>Package Type</strong>
+                    <span>Snacks Experience</span>
+                </div>
+
+            </div>
+
+
+            <h3>
+                Package Details
+            </h3>
+
+            <ul class="room-amenities">
+
+                <li>Resort Entry</li>
+                <li>Snacks</li>
+                <li>2 Hours Visit</li>
+                <li>Resort Environment</li>
+
+            </ul>
+
+
+            <h3>
+                Important Note
+            </h3>
+
+            <p class="room-details-description">
+                Payment can be made at the resort.
+            </p>
+
+
+            <div class="room-details-actions">
+
+                <a
+                    class="small-btn whatsapp"
+                    href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Snacks%20Package."
+                    target="_blank">
+
+                    BOOK NOW
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =======================================================
+     SWIMMING PACKAGE — DETAILS
+======================================================= -->
+
+<div class="modal"
+     id="swimmingDetails">
+
+    <div class="package-details-modal">
+
+        <!-- CLOSE -->
+        <button class="modal-close"
+                onclick="closePackageDetails('swimmingDetails')">
+            ×
+        </button>
+
+
+        <!-- LEFT : IMAGE -->
+        <div class="room-details-left">
+
+            <div class="room-main-image">
+
+                <img
+                    id="swimmingMainImage"
+                    src="images/packages/swimming.jpeg"
+                    alt="Swimming Package">
+
+            </div>
+
+
+            <div class="room-thumbnails">
+
+                <img
+                    class="swimming-thumb active"
+                    src="images/packages/swimming.jpeg"
+                    alt="Swimming Package"
+                    onclick="selectSwimmingImage(0)">
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT : DETAILS -->
+        <div class="room-details-right">
+
+            <div class="eyebrow">
+                VISITOR EXPERIENCE
+            </div>
+
+            <h2>
+      Entry With Swimming
+            </h2>
+
+            <div class="room-details-price">
+                BDT 800 / Person
+            </div>
+
+
+            <div class="room-detail-info">
+
+                <div>
+                    <strong>Timing</strong>
+                    <span>12:00 PM – 6:00 PM</span>
+                </div>
+
+                <div>
+                    <strong>Package Type</strong>
+                    <span>Swimming Experience</span>
+                </div>
+
+            </div>
+
+
+            <h3>
+                Package Details
+            </h3>
+
+            <ul class="room-amenities">
+
+                <li>Resort Entry</li>
+                <li>2 Hours Visit</li>
+                <li>Swimming Pool Access</li>
+                <li>1 Hours Swimming</li>
+                <li>Resort Environment</li>
+                <li>Beverage</li>
+
+            </ul>
+
+
+            <h3>
+                Important Note
+            </h3>
+
+            <p class="room-details-description">
+                Payment can be made at the resort.
+            </p>
+
+
+            <div class="room-details-actions">
+
+                <a
+                    class="small-btn whatsapp"
+                    href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Swimming%20Package."
+                    target="_blank">
+
+                    BOOK NOW
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =======================================================
+     BEVERAGE PACKAGE — DETAILS
+======================================================= -->
+
+<div class="modal"
+     id="beverageDetails">
+
+    <div class="package-details-modal">
+
+        <!-- CLOSE -->
+        <button class="modal-close"
+                onclick="closePackageDetails('beverageDetails')">
+            ×
+        </button>
+
+
+        <!-- LEFT : IMAGE -->
+        <div class="room-details-left">
+
+            <div class="room-main-image">
+
+                <img
+                    id="beverageMainImage"
+                    src="images/packages/beverage.png"
+                    alt="Beverage Package">
+                    
+            </div>
+
+
+            <div class="room-thumbnails">
+
+                <img
+                    class="beverage-thumb active"
+                    src="images/packages/beverage.png"
+                    alt="Beverage Package"
+                    onclick="selectBeverageImage(0)">
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT : DETAILS -->
+        <div class="room-details-right">
+
+            <div class="eyebrow">
+                VISITOR EXPERIENCE
+            </div>
+
+            <h2>
+        Beverage Package
+            </h2>
+
+            <div class="room-details-price">
+                BDT 500 / Person
+            </div>
+
+
+            <div class="room-detail-info">
+
+                <div>
+                    <strong>Timing</strong>
+                    <span>12:00 PM – 6:00 PM</span>
+                </div>
+
+                <div>
+                    <strong>Package Type</strong>
+                    <span>Beverage Experience</span>
+                </div>
+
+            </div>
+
+
+            <h3>
+                Package Details
+            </h3>
+
+            <ul class="room-amenities">
+
+                <li>Resort Entry</li>
+                <li>2 Hours Visit</li>
+                <li>Beverage</li>
+                <li>Refreshment</li>
+
+            </ul>
+
+
+            <h3>
+                Important Note
+            </h3>
+
+            <p class="room-details-description">
+                No advance payment required. Pay at resort.
+            </p>
+
+
+            <div class="room-details-actions">
+
+                <a
+                    class="small-btn whatsapp"
+                    href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Beverage%20Package."
+                    target="_blank">
+                    BOOK NOW
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 <!-- =======================================================
      SUPER FAMILY DELUXE — ROOM DETAILS
 ======================================================= -->
@@ -11000,7 +11476,123 @@ document.querySelectorAll(".day-long-thumb").forEach(function (thumb, i) {
 
 
 }
+/* =======================================================
+   PACKAGE DETAILS — OPEN
+======================================================= */
 
+function openPackageDetails(id) {
+
+    const modal = document.getElementById(id);
+
+    if (!modal) {
+        alert("Package modal not found: " + id);
+        return;
+    }
+
+    document
+        .querySelectorAll(".package-details-modal.active")
+        .forEach(function(item) {
+            item.classList.remove("active");
+        });
+
+    modal.classList.add("active");
+
+    document.body.classList.add("modal-open");
+}
+
+
+/* =======================================================
+   PACKAGE DETAILS — CLOSE
+======================================================= */
+
+function closePackageDetails(id) {
+
+    const modal = document.getElementById(id);
+
+    if (!modal) return;
+
+    modal.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+}
+
+
+/* =======================================================
+   DAY LONG PACKAGE IMAGE
+======================================================= */
+
+function selectDayLongImage(index) {
+
+    const images = [
+        "images/packages/day-long.jpeg"
+    ];
+
+    const mainImage =
+        document.getElementById("dayLongMainImage");
+
+    if (!mainImage || !images[index]) return;
+
+    mainImage.src = images[index];
+
+    document
+        .querySelectorAll(".day-long-thumb")
+        .forEach(function(thumb, i) {
+
+            thumb.classList.toggle(
+                "active",
+                i === index
+            );
+
+        });
+}
+
+
+/* =======================================================
+   PACKAGE DETAILS — ESC
+======================================================= */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key !== "Escape") return;
+
+    const activeModal =
+        document.querySelector(
+            ".package-details-modal.active"
+        );
+
+    if (!activeModal) return;
+
+    closePackageDetails(activeModal.id);
+
+});
+/* =======================================================
+   SWIMMING PACKAGE IMAGE
+======================================================= */
+
+function selectSwimmingImage(index) {
+
+    const images = [
+        "images/packages/swimming.jpeg"
+    ];
+
+    const mainImage =
+        document.getElementById("swimmingMainImage");
+
+    if (!mainImage || !images[index]) return;
+
+    mainImage.src = images[index];
+
+    document
+        .querySelectorAll(".swimming-thumb")
+        .forEach(function(thumb, i) {
+
+            thumb.classList.toggle(
+                "active",
+                i === index
+            );
+
+        });
+}
 </script>
 
 

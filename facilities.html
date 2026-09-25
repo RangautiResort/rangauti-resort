@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,12 +10,7 @@
 
 <title>Facilities | Rangauti Resort</title>
 
-
-
 <style>
-
-
-
 
 /* =======================================================
    RESET
@@ -63,7 +57,6 @@ body{
 
     border-bottom:1px solid rgba(212,175,55,.18);
 }
-
 
 .site-logo img{
     width:145px;
@@ -183,7 +176,6 @@ body{
     text-align:center;
 }
 
-
 .eyebrow{
 
     color:#d4af37;
@@ -197,7 +189,6 @@ body{
     text-transform:uppercase;
 }
 
-
 .section-head h1{
 
     font-size:clamp(38px,5vw,64px);
@@ -209,20 +200,19 @@ body{
     margin-bottom:20px;
 }
 
-
 .section-head p{
 
     color:#c9c5bb;
 
     font-family:Arial, sans-serif;
 
- 
-   font-size:15px;
+    font-size:15px;
 }
 
 
 /* =======================================================
    FACILITIES GRID
+   ALL CARDS — 4 PER ROW
 ======================================================= */
 
 .facilities-grid{
@@ -234,7 +224,7 @@ body{
     display:grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(4, 1fr);
 
     gap:24px;
 }
@@ -245,8 +235,6 @@ body{
 ======================================================= */
 
 .facility-card{
-
-
 
     position:relative;
 
@@ -268,7 +256,9 @@ body{
 }
 
 
-/* DARK IMAGE OVERLAY */
+/* =======================================================
+   DARK IMAGE OVERLAY
+======================================================= */
 
 .facility-card::after{
 
@@ -291,7 +281,7 @@ body{
 
 
 /* =======================================================
-   CARD IMAGE = BACKGROUND
+   CARD IMAGE
 ======================================================= */
 
 .facility-card img{
@@ -327,7 +317,6 @@ body{
         0 28px 65px rgba(0,0,0,.4);
 }
 
-
 .facility-card:hover img{
 
     transform:scale(1.06);
@@ -351,7 +340,6 @@ body{
     z-index:2;
 }
 
-
 .facility-content h2{
 
     color:#f5f1e8;
@@ -364,7 +352,6 @@ body{
 
     margin-bottom:8px;
 }
-
 
 .facility-content p{
 
@@ -400,7 +387,22 @@ body{
 
 
 /* =======================================================
-   MOBILE
+   TABLET
+======================================================= */
+
+@media(max-width:1100px){
+
+    .facilities-grid{
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+
+/* =======================================================
+   TABLET / SMALL SCREEN
 ======================================================= */
 
 @media(max-width:900px){
@@ -414,6 +416,10 @@ body{
 }
 
 
+/* =======================================================
+   MOBILE
+======================================================= */
+
 @media(max-width:700px){
 
     .site-header{
@@ -423,12 +429,10 @@ body{
         padding:0 5%;
     }
 
-
     .site-logo img{
 
         width:120px;
     }
-
 
     .menu-toggle{
 
@@ -437,7 +441,6 @@ body{
 
         font-size:22px;
     }
-
 
     .menu-dropdown{
 
@@ -448,7 +451,6 @@ body{
         width:230px;
     }
 
-
     .facilities-section{
 
         padding:
@@ -456,12 +458,10 @@ body{
             60px;
     }
 
-
     .section-head{
 
         margin-bottom:35px;
     }
-
 
     .section-head h1{
 
@@ -475,18 +475,15 @@ body{
         gap:18px;
     }
 
-
     .facility-card{
 
         min-height:350px;
     }
 
-
     .facility-content{
 
         padding:25px 22px;
     }
-
 
     .facility-content h2{
 
@@ -508,7 +505,6 @@ body{
 ======================================================= -->
 
 <header class="site-header">
-
 
 <a href="index.html"
    class="site-logo">
@@ -584,8 +580,6 @@ body{
 <a href="index.html#about">
 <strong>ABOUT</strong>
 </a>
-
-
 
 
 </div>
@@ -783,6 +777,872 @@ Thoughtfully arranged spaces and facilities for a relaxing stay.
 </div>
 
 
+
+<!-- ===================================================
+     7. LAKE VIEW
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/lake-view.jpeg"
+alt="Lake View">
+
+<div class="facility-content">
+
+<h2>
+Lake View
+</h2>
+
+<p>
+Enjoy beautiful lake views and peaceful natural surroundings.
+</p>
+
+</div>
+
+</div>
+
+<!-- ===================================================
+     8. PARKING
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/parking.jpeg"
+alt="Parking">
+
+<div class="facility-content">
+
+<h2>
+Parking
+</h2>
+
+<p>
+Convenient parking space for a comfortable and hassle-free visit.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     9. AIR-CONDITIONED ROOMS
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/air-conditioned-rooms.jpeg"
+alt="Air-conditioned Rooms">
+
+<div class="facility-content">
+
+<h2>
+Air-conditioned Rooms
+</h2>
+
+<p>
+Enjoy a cool and comfortable stay in thoughtfully arranged air-conditioned rooms.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     10. WI-FI
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/wifi.jpeg"
+alt="Wi-Fi">
+
+<div class="facility-content">
+
+<h2>
+Wi-Fi
+</h2>
+
+<p>
+Stay connected with convenient Wi-Fi access throughout the resort.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     12. PHOTOGRAPHY SPOTS
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/photography-spots.jpeg"
+alt="Photography Spots">
+
+<div class="facility-content">
+
+<h2>
+Photography Spots
+</h2>
+
+<p>
+Beautiful spots around the resort for memorable photographs.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     13. GROUP / FAMILY STAY
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/group-family-stay.jpeg"
+alt="Group / Family Stay">
+
+<div class="facility-content">
+
+<h2>
+Group / Family Stay
+</h2>
+
+<p>
+Comfortable spaces and a welcoming environment for families and groups.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     14. KAYAKING BOAT
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/kayaking-boat.jpeg"
+alt="Kayaking Boat">
+
+<div class="facility-content">
+
+<h2>
+Kayaking Boat
+</h2>
+
+<p>
+Enjoy a peaceful kayaking experience surrounded by the beauty of nature.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     15. CYCLING
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/cycling.jpeg"
+alt="Cycling">
+
+<div class="facility-content">
+
+<h2>
+Cycling
+</h2>
+
+<p>
+Enjoy a refreshing cycling experience around the peaceful resort surroundings.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     16. POOL BILLIARD
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/pool-billiard.jpeg"
+alt="Pool Billiard">
+
+<div class="facility-content">
+
+<h2>
+Pool Billiard
+</h2>
+
+<p>
+Enjoy a fun and relaxing game of pool billiard during your stay.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     17. KIDS PLAYGROUND
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/kids-playground.jpeg"
+alt="Kids Playground">
+
+<div class="facility-content">
+
+<h2>
+Kids Playground
+</h2>
+
+<p>
+A fun and safe space where children can play and enjoy their time.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     18. TEA / COFFEE CORNER
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/tea-coffee-corner.jpeg"
+alt="Tea / Coffee Corner">
+
+<div class="facility-content">
+
+<h2>
+Tea / Coffee Corner
+</h2>
+
+<p>
+Relax with a warm cup of tea or coffee in a peaceful resort setting.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     19. WELCOME DRINKS
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/welcome-drinks.jpeg"
+alt="Welcome Drinks">
+
+<div class="facility-content">
+
+<h2>
+Welcome Drinks
+</h2>
+
+<p>
+Enjoy a refreshing welcome drink as you begin your stay at Rangauti Resort.
+</p>
+
+</div>
+
+</div> 
+<!-- ===================================================
+     20. COMPLIMENTARY BREAKFAST
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/complimentary-breakfast.jpeg"
+alt="Complimentary Breakfast">
+
+<div class="facility-content">
+
+<h2>
+Complimentary Breakfast
+</h2>
+
+<p>
+Start your day with a delicious complimentary breakfast during your stay.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     21. 24/7 ROOM SERVICE
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/room-service.jpeg"
+alt="24/7 Room Service">
+
+<div class="facility-content">
+
+<h2>
+24/7 Room Service
+</h2>
+
+<p>
+Enjoy convenient room service support throughout your stay.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     22. PEACEFUL ENVIRONMENT
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/peaceful-environment.jpeg"
+alt="Peaceful Environment">
+
+<div class="facility-content">
+
+<h2>
+Peaceful Environment
+</h2>
+
+<p>
+Relax and unwind in the calm and peaceful surroundings of Rangauti Resort.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     23. WALKING AREA
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/walking-area.jpeg"
+alt="Walking Area">
+
+<div class="facility-content">
+
+<h2>
+Walking Area
+</h2>
+
+<p>
+Take a relaxing walk and enjoy the peaceful natural surroundings of the resort.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     24. GARDEN AREA
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/garden-area.jpeg"
+alt="Garden Area">
+
+<div class="facility-content">
+
+<h2>
+Garden Area
+</h2>
+
+<p>
+Enjoy a refreshing and peaceful time surrounded by greenery and open spaces.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     25. OUTDOOR SITTING AREA
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/outdoor-sitting-area.jpeg"
+alt="Outdoor Sitting Area">
+
+<div class="facility-content">
+
+<h2>
+Outdoor Sitting Area
+</h2>
+
+<p>
+Sit back, relax and enjoy the fresh air in a comfortable outdoor setting.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     26. RESORT VIEW
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/resort-view.jpeg"
+alt="Resort View">
+
+<div class="facility-content">
+
+<h2>
+Resort View
+</h2>
+
+<p>
+Take in beautiful views of the resort and its natural surroundings.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     27. DAY LONG EXPERIENCE
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/day-long-experience.jpeg"
+alt="Day Long Experience">
+
+<div class="facility-content">
+
+<h2>
+Day Long Experience
+</h2>
+
+<p>
+Enjoy a refreshing day at Rangauti Resort with access to selected facilities and activities.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     28. CORPORATE / GROUP EVENTS
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/corporate-group-events.jpeg"
+alt="Corporate / Group Events">
+
+<div class="facility-content">
+
+<h2>
+Corporate / Group Events
+</h2>
+
+<p>
+A comfortable setting for corporate gatherings, group activities and events.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     29. FAMILY GATHERINGS
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/family-gatherings.jpeg"
+alt="Family Gatherings">
+
+<div class="facility-content">
+
+<h2>
+Family Gatherings
+</h2>
+
+<p>
+A welcoming space to create memorable moments with family and loved ones.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     30. PRE-WEDDING PHOTOGRAPHY
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/pre-wedding-photography.jpeg"
+alt="Pre-Wedding Photography">
+
+<div class="facility-content">
+
+<h2>
+Pre-Wedding Photography
+</h2>
+
+<p>
+Beautiful natural surroundings and scenic spots for memorable photography sessions.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     31. EVENING RELAXATION
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/evening-relaxation.jpeg"
+alt="Evening Relaxation">
+
+<div class="facility-content">
+
+<h2>
+Evening Relaxation
+</h2>
+
+<p>
+Unwind in the evening and enjoy peaceful moments in the relaxing resort surroundings.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     32. 24-HOUR RECEPTION
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/24-hour-reception.jpeg"
+alt="24-Hour Reception">
+
+<div class="facility-content">
+
+<h2>
+24-Hour Reception
+</h2>
+
+<p>
+Guest assistance and reception support are available throughout your stay.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     33. DAILY HOUSEKEEPING
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/daily-housekeeping.jpeg"
+alt="Daily Housekeeping">
+
+<div class="facility-content">
+
+<h2>
+Daily Housekeeping
+</h2>
+
+<p>
+Enjoy a clean, comfortable and well-maintained room throughout your stay.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     34. SUNSET VIEWING
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/sunset-viewing.jpeg"
+alt="Sunset Viewing">
+
+<div class="facility-content">
+
+<h2>
+Sunset Viewing
+</h2>
+
+<p>
+Enjoy beautiful sunset moments surrounded by the peaceful natural scenery.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     35. SECURITY & SAFETY
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/security-safety.jpeg"
+alt="Security & Safety">
+
+<div class="facility-content">
+
+<h2>
+Security & Safety
+</h2>
+
+<p>
+A secure and comfortable environment for guests throughout their stay.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     36. LAKESIDE SEATING
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/lakeside-seating.jpeg"
+alt="Lakeside Seating">
+
+<div class="facility-content">
+
+<h2>
+Lakeside Seating
+</h2>
+
+<p>
+Relax by the lakeside and enjoy the peaceful views and fresh surroundings.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     37. EVENT & CELEBRATION SPACE
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/event-celebration-space.jpeg"
+alt="Event & Celebration Space">
+
+<div class="facility-content">
+
+<h2>
+Event & Celebration Space
+</h2>
+
+<p>
+A welcoming space for celebrations, gatherings and special occasions.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     38. IN-ROOM DINING
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/in-room-dining.jpeg"
+alt="In-Room Dining">
+
+<div class="facility-content">
+
+<h2>
+In-Room Dining
+</h2>
+
+<p>
+Enjoy selected meals and refreshments in the comfort of your room.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     39. NATURE WALK
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/nature-walk.jpeg"
+alt="Nature Walk">
+
+<div class="facility-content">
+
+<h2>
+Nature Walk
+</h2>
+
+<p>
+Take a refreshing walk and enjoy the natural beauty and peaceful surroundings.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     40. LAKESIDE RELAXATION
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/lakeside-relaxation.jpeg"
+alt="Lakeside Relaxation">
+
+<div class="facility-content">
+
+<h2>
+Lakeside Relaxation
+</h2>
+
+<p>
+Unwind beside the lake and enjoy calm moments surrounded by nature.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     41. KIDS & FAMILY ACTIVITIES
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/kids-family-activities.jpeg"
+alt="Kids & Family Activities">
+
+<div class="facility-content">
+
+<h2>
+Kids & Family Activities
+</h2>
+
+<p>
+Enjoy fun and relaxing activities designed for children and families.
+</p>
+
+</div>
+
+</div>
+<!-- ===================================================
+     42. RECEPTION & GUEST SERVICE
+=================================================== -->
+
+<div class="facility-card">
+
+<img
+src="images/facilities/reception-guest-service.jpeg"
+alt="Reception & Guest Service">
+
+<div class="facility-content">
+
+<h2>
+Reception & Guest Service
+</h2>
+
+<p>
+Friendly assistance and guest support to help make your stay comfortable.
+</p>
+
+</div>
+
+</div>
+<!-- CANDLE NIGHT DINNER -->
+<div class="facility-card">
+
+<img
+src="images/facilities/candle-night-dinner.jpeg"
+alt="Candle Night Dinner">
+
+<div class="facility-content">
+
+<h2>
+Candle Night Dinner
+</h2>
+
+<p>
+Enjoy a special candlelight dinner beside the lake in a peaceful and romantic lakeside setting.
+</p>
+
+</div>
+
+</div>
+<!-- LIVE BBQ -->
+<div class="facility-card">
+
+<img
+src="images/facilities/live-bbq.jpeg"
+alt="Live BBQ">
+
+<div class="facility-content">
+
+<h2>
+Live BBQ
+</h2>
+
+<p>
+Enjoy freshly grilled BBQ prepared live in a delightful outdoor setting at Rangauti Resort.
+</p>
+
+</div>
+
+</div>
+<!-- HALL ROOM WEDDING -->
+<div class="facility-card">
+
+<img
+src="images/facilities/hall-room-wedding.jpeg"
+alt="Hall Room Wedding">
+
+<div class="facility-content">
+
+<h2>
+Events & Celebration Hall
+</h2>
+
+<p>
+Celebrate your special day with family and guests in our spacious and beautifully arranged hall room.
+</p>
+
+</div>
+
 </div>
 
 </section>
@@ -843,4 +1703,3 @@ document.addEventListener("click", function(event){
 </body>
 
 </html>
-```

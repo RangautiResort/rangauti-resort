@@ -3963,6 +3963,190 @@ z-index: 10;
 
     cursor: pointer;
 }
+/* =======================================================
+   EXPLORE VIDEO
+======================================================= */
+
+.explore-video-section {
+    padding: 100px 6%;
+    background: #f7f4ee;
+}
+
+.explore-video-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 55px;
+}
+
+.explore-video-label {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #9a7b3f;
+    margin-bottom: 14px;
+}
+
+.explore-video-header h2 {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: 500;
+    color: #252018;
+}
+
+
+/* TWO COLUMN LAYOUT */
+
+.explore-video-layout {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 55px;
+    align-items: center;
+    transform: translateX(-50px);
+}
+
+
+
+/* VIDEO */
+.explore-video-box {
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    background: #111;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+}
+
+
+/* DESCRIPTION */
+
+.explore-video-description {
+    padding: 20px 10px;
+}
+
+.explore-video-eyebrow {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #9a7b3f;
+}
+
+.explore-video-description h3 {
+    margin: 0 0 22px;
+    font-family: Georgia, serif;
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #252018;
+}
+
+.explore-video-description p {
+    margin: 0 0 18px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #6d665b;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .explore-video-section {
+        padding: 70px 20px;
+    }
+
+    .explore-video-header h2 {
+        font-size: 32px;
+    }
+
+    .explore-video-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .explore-video-box {
+        height: 300px;
+    }
+
+    .explore-video-description {
+        padding: 0;
+    }
+
+    .explore-video-description h3 {
+        font-size: 30px;
+    }
+
+}
+.explore-videos-btn {
+    margin-top: 12px;
+    padding: 14px 28px;
+    border: 1px solid #9a7b3f;
+    background: transparent;
+    color: #9a7b3f;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.explore-videos-btn span {
+    margin-left: 12px;
+    font-size: 17px;
+}
+
+.explore-videos-btn:hover {
+    background: #9a7b3f;
+    color: #fff;
+}
+.explore-video-box {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    background: #111;
+}
+
+.explore-video-box video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.video-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 76px;
+    height: 76px;
+
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.35);
+    color: #fff;
+
+    font-size: 25px;
+    padding-left: 5px;
+
+    cursor: pointer;
+    z-index: 5;
+
+    transition: 0.3s ease;
+}
+
+.video-play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: rgba(154,123,63,0.85);
+}
 </style>
 
 </head>
@@ -4112,6 +4296,77 @@ Surrounded by peaceful natural landscapes, the resort offers comfortable rooms a
 
 </div>
 
+</section>
+<!-- =======================================================
+     EXPLORE VIDEO
+======================================================= -->
+
+<section class="explore-video-section" id="explore-video">
+
+    <div class="explore-video-header">
+
+        <span class="explore-video-label">
+            EXPLORE RANGAUTI
+        </span>
+
+        <h2>
+            Discover Rangauti Resort
+        </h2>
+
+    </div>
+
+
+    <div class="explore-video-layout">
+
+       <!-- LEFT : VIDEO -->
+<div class="explore-video-box">
+
+    <video id="rangautiVideo"
+           autoplay
+           muted
+           loop
+           controls
+           poster="images/videos/resort-cover.jpeg">
+
+        <source src="images/videos/rangauti-resort.mp4"
+                type="video/mp4">
+
+        Your browser does not support the video tag.
+
+    </video>
+
+</div>
+        <!-- RIGHT : DESCRIPTION -->
+
+<div class="explore-video-description">
+
+    <span class="explore-video-eyebrow">
+        EXPERIENCE RANGAUTI
+    </span>
+
+    <h3>
+        Where Nature Meets Comfort
+    </h3>
+
+    <p>
+        Discover the peaceful beauty and unforgettable experiences
+        of Rangauti Resort. Surrounded by natural scenery, scenic
+        lake views and refreshing surroundings, the resort offers
+        a perfect escape from everyday life.
+    </p>
+
+    <p>
+        Take a moment to explore Rangauti Resort through our video
+        and discover the beauty waiting for you.
+    </p>
+
+    <button class="explore-videos-btn"
+            onclick="openExploreVideos()">
+        EXPLORE VIDEOS
+        <span>→</span>
+    </button>
+
+</div>
 </section>
 <!-- =======================================================
      RESORT GALLERY
@@ -11882,6 +12137,21 @@ function selectBeverageImage(index) {
          alt="Day Long Package">
 
 </div>
+<script>
+
+function playRangautiVideo() {
+
+    const video = document.getElementById("rangautiVideo");
+    const button = document.querySelector(".video-play-button");
+
+    video.play();
+
+    button.style.display = "none";
+}
+
+</script>
+
 </body>
+
 
 </html>

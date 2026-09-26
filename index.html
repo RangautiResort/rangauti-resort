@@ -3996,22 +3996,31 @@ z-index: 10;
 }
 
 
-/* TWO COLUMN LAYOUT */
+/* =======================================================
+   DESKTOP LAYOUT
+======================================================= */
 
 .explore-video-layout {
+    width: 100%;
     max-width: 1300px;
-    margin: auto;
+    margin: 0 auto;
+
     display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+
     gap: 55px;
     align-items: center;
-    transform: translateX(-50px);
+
+    transform: none;
 }
 
 
+/* =======================================================
+   VIDEO
+======================================================= */
 
-/* VIDEO */
 .explore-video-box {
+    position: relative;
     width: 100%;
     height: 480px;
     overflow: hidden;
@@ -4019,10 +4028,20 @@ z-index: 10;
     box-shadow: 0 18px 40px rgba(0,0,0,0.16);
 }
 
+.explore-video-box video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
 
-/* DESCRIPTION */
+
+/* =======================================================
+   DESCRIPTION
+======================================================= */
 
 .explore-video-description {
+    width: 100%;
     padding: 20px 10px;
 }
 
@@ -4052,45 +4071,22 @@ z-index: 10;
 }
 
 
-/* MOBILE */
+/* =======================================================
+   BUTTON
+======================================================= */
 
-@media (max-width: 800px) {
-
-    .explore-video-section {
-        padding: 70px 20px;
-    }
-
-    .explore-video-header h2 {
-        font-size: 32px;
-    }
-
-    .explore-video-layout {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .explore-video-box {
-        height: 300px;
-    }
-
-    .explore-video-description {
-        padding: 0;
-    }
-
-    .explore-video-description h3 {
-        font-size: 30px;
-    }
-
-}
 .explore-videos-btn {
     margin-top: 12px;
     padding: 14px 28px;
+
     border: 1px solid #9a7b3f;
     background: transparent;
     color: #9a7b3f;
+
     font-size: 12px;
     letter-spacing: 2px;
     font-weight: 600;
+
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -4104,48 +4100,171 @@ z-index: 10;
     background: #9a7b3f;
     color: #fff;
 }
-.explore-video-box {
-    position: relative;
-    width: 100%;
-    height: 480px;
-    overflow: hidden;
-    background: #111;
+
+
+/* =======================================================
+   TABLET
+======================================================= */
+
+@media (max-width: 1000px) {
+
+    .explore-video-section {
+        padding: 85px 5%;
+    }
+
+    .explore-video-header {
+        margin-bottom: 40px;
+    }
+
+    .explore-video-header h2 {
+        font-size: 38px;
+    }
+
+    .explore-video-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        transform: none;
+    }
+
+    .explore-video-box {
+        width: 100%;
+        height: 420px;
+    }
+
+    .explore-video-description {
+        padding: 0;
+    }
+
+    .explore-video-description h3 {
+        font-size: 32px;
+    }
+
+    .explore-video-description p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
 }
 
-.explore-video-box video {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media (max-width: 600px) {
+
+    .explore-video-section {
+        padding: 70px 20px 60px;
+    }
+
+    .explore-video-header {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .explore-video-label {
+        font-size: 11px;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    .explore-video-header h2 {
+        font-size: 30px;
+        line-height: 1.25;
+    }
+
+    .explore-video-layout {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        transform: none;
+    }
+
+    .explore-video-box {
+        width: 100%;
+        height: 230px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+    }
+
+    .explore-video-box video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .explore-video-description {
+        width: 100%;
+        padding: 0;
+    }
+
+    .explore-video-eyebrow {
+        margin-bottom: 10px;
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .explore-video-description h3 {
+        margin-bottom: 16px;
+        font-size: 27px;
+        line-height: 1.25;
+    }
+
+    .explore-video-description p {
+        margin-bottom: 15px;
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .explore-videos-btn {
+        width: 100%;
+        margin-top: 8px;
+        padding: 14px 16px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 11px;
+        letter-spacing: 1.2px;
+        white-space: nowrap;
+    }
+
+    .explore-videos-btn span {
+        margin-left: 8px;
+        font-size: 17px;
+    }
 }
 
-.video-play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
-    width: 76px;
-    height: 76px;
+/* =======================================================
+   SMALL MOBILE
+======================================================= */
 
-    border: 1px solid rgba(255,255,255,0.8);
-    border-radius: 50%;
+@media (max-width: 380px) {
 
-    background: rgba(0,0,0,0.35);
-    color: #fff;
+    .explore-video-section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
-    font-size: 25px;
-    padding-left: 5px;
+    .explore-video-header h2 {
+        font-size: 27px;
+    }
 
-    cursor: pointer;
-    z-index: 5;
+    .explore-video-box {
+        height: 210px;
+    }
 
-    transition: 0.3s ease;
-}
+    .explore-video-description h3 {
+        font-size: 25px;
+    }
 
-.video-play-button:hover {
-    transform: translate(-50%, -50%) scale(1.1);
-    background: rgba(154,123,63,0.85);
+    .explore-videos-btn {
+        font-size: 10px;
+        letter-spacing: 0.8px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 </style>
 

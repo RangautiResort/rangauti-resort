@@ -1,0 +1,2458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Rangauti | Rangauti Resort</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    color:#f5f1e8;
+    background:#11110f;
+}
+
+:root{
+    --dark:#222;
+    --green:#3d5a45;
+}
+
+/* =========================================================
+   HEADER — FACILITIES STYLE
+========================================================= */
+
+.site-header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:78px;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    background:rgba(17,17,15,.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(212,175,55,.18);
+}
+
+.site-logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.site-logo img{
+    width:145px;
+    height:auto;
+    display:block;
+}
+
+/* 3 DOT BUTTON */
+
+.menu-toggle{
+    width:46px;
+    height:46px;
+    border:1px solid rgba(212,175,55,.45);
+    border-radius:50%;
+    background:transparent;
+    color:#d4af37;
+    font-size:25px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    line-height:1;
+    transition:.3s ease;
+}
+
+.menu-toggle:hover{
+    background:#d4af37;
+    color:#11110f;
+}
+
+/* MENU */
+
+.menu-dropdown{
+    position:absolute;
+    top:88px;
+    right:6%;
+    width:260px;
+    background:#171714;
+    border:1px solid rgba(212,175,55,.3);
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+    padding:14px;
+    display:none;
+}
+
+.menu-dropdown.active{
+    display:block;
+}
+
+.menu-dropdown a{
+    display:block;
+    padding:12px 14px;
+    color:#ffffff;
+    text-decoration:none;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    letter-spacing:.5px;
+    transition:.25s ease;
+}
+
+.menu-dropdown a:hover{
+    background:rgba(212,175,55,.06);
+    color:#d4af37;
+}
+
+/* =========================================================
+   RESORT GALLERY
+   CARD DESIGN UNCHANGED
+========================================================= */
+
+.resort-gallery-section{
+    padding:140px 5% 90px;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(212,175,55,.08),
+            transparent 35%
+        ),
+        #11110f;
+}
+
+.resort-gallery-header{
+    max-width:760px;
+    margin:0 auto 45px;
+    text-align:center;
+}
+
+.resort-gallery-label{
+    display:inline-block;
+    margin-bottom:12px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2.5px;
+    color:#d4af37;
+}
+
+.resort-gallery-header h2{
+    margin:0 0 15px;
+    font-family:Georgia,serif;
+    font-size:38px;
+    line-height:1.2;
+    font-weight:400;
+    color:#f5f1e8;
+}
+
+.resort-gallery-header p{
+    margin:0 auto;
+    max-width:680px;
+    font-family:Arial,sans-serif;
+    font-size:16px;
+    line-height:1.8;
+    color:#c9c5bb;
+}
+
+/* =========================================================
+   RESORT GALLERY CARDS — EXACTLY SAME
+========================================================= */
+
+.resort-gallery-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.resort-gallery-grid>.resort-gallery-item{
+    position:relative;
+    width:100%;
+    min-width:0;
+    min-height:300px;
+    height:300px;
+    background:#eee;
+    overflow:hidden;
+    display:flex;
+    align-items:flex-end;
+    border-radius:4px;
+    box-shadow:0 15px 40px rgba(20,30,24,.12);
+    cursor:pointer;
+    transition:transform .35s ease;
+    grid-column:auto!important;
+    grid-row:auto!important;
+}
+
+.resort-gallery-large,
+.resort-gallery-wide{
+    grid-column:auto!important;
+    grid-row:auto!important;
+}
+
+.resort-gallery-item img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:block;
+    max-width:none;
+    object-fit:cover;
+    object-position:center;
+    transition:transform .6s ease;
+}
+
+.resort-gallery-item::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.78),
+        rgba(0,0,0,.25),
+        transparent
+    );
+    z-index:1;
+    pointer-events:none;
+}
+
+.resort-gallery-overlay{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:32px 28px;
+    color:white;
+    font-family:Georgia,serif;
+    font-size:25px;
+    font-weight:400;
+    margin:0;
+    letter-spacing:0;
+    text-shadow:0 2px 8px rgba(0,0,0,.5);
+}
+
+.resort-gallery-item:hover{
+    transform:translateY(-5px);
+}
+
+.resort-gallery-item:hover img{
+    transform:scale(1.07);
+}
+
+/* =========================================================
+   GALLERY MODALS — UNCHANGED
+========================================================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    background:rgba(0,0,0,.88);
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-content{
+    position:relative;
+    max-width:1100px;
+    width:100%;
+    max-height:90vh;
+    overflow:auto;
+    background:white;
+    padding:25px;
+}
+
+.modal-close{
+    position:absolute;
+    right:15px;
+    top:10px;
+    width:40px;
+    height:40px;
+    border:none;
+    background:var(--dark);
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    z-index:5;
+}
+
+.modal-close:hover{
+    background:var(--green);
+}
+
+.gallery-title{
+    font-family:Georgia,serif;
+    text-align:center;
+    font-size:30px;
+    font-weight:400;
+    margin:5px 0 8px;
+    padding-right:50px;
+}
+
+.gallery-subtitle{
+    text-align:center;
+    margin:0 0 25px;
+    color:#777;
+    font-size:15px;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.gallery-grid img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.03);
+    opacity:.9;
+}
+
+/* =========================================================
+   SINGLE IMAGE LIGHTBOX — UNCHANGED
+========================================================= */
+
+.single-image-modal{
+    padding:20px;
+    z-index:99999;
+    background:rgba(0,0,0,.94);
+}
+
+.single-image-wrapper{
+    position:relative;
+    width:95%;
+    max-width:1200px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#singleImage{
+    max-width:95vw;
+    max-height:90vh;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    border-radius:10px;
+    box-shadow:0 20px 70px rgba(0,0,0,.5);
+    user-select:none;
+    -webkit-user-select:none;
+    transition:transform .15s ease;
+    cursor:zoom-in;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next{
+    position:fixed;
+    border:none;
+    background:rgba(0,0,0,.65);
+    color:#fff;
+    cursor:pointer;
+    z-index:100001;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.lightbox-close{
+    top:20px;
+    right:25px;
+    width:48px;
+    height:48px;
+    font-size:30px;
+    border-radius:50%;
+}
+
+.lightbox-prev,
+.lightbox-next{
+    top:50%;
+    transform:translateY(-50%);
+    width:52px;
+    height:72px;
+    font-size:30px;
+}
+
+.lightbox-prev{
+    left:18px;
+}
+
+.lightbox-next{
+    right:18px;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover{
+    background:rgba(255,255,255,.2);
+}
+
+/* =========================================================
+   AUTOMATIC COVER SLIDESHOW — UNCHANGED
+========================================================= */
+
+.resort-gallery-item .gallery-cover-slideshow{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
+
+.resort-gallery-item .gallery-cover-slide{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    opacity:0;
+    transform:scale(1);
+    transition:opacity 1.2s ease,transform 5s ease;
+}
+
+.resort-gallery-item .gallery-cover-slide.active{
+    opacity:1;
+    transform:scale(1.06);
+}
+
+.resort-gallery-item:hover .gallery-cover-slide.active{
+    transform:scale(1.12);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .resort-gallery-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:24px;
+    }
+
+    .resort-gallery-grid>.resort-gallery-item{
+        grid-column:auto!important;
+        grid-row:auto!important;
+        width:100%;
+        min-height:300px;
+        height:300px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+    .site-header{
+        height:70px;
+        padding:0 5%;
+    }
+
+    .site-logo img{
+        width:120px;
+    }
+
+    .menu-toggle{
+        width:42px;
+        height:42px;
+        font-size:22px;
+    }
+
+    .menu-dropdown{
+        top:78px;
+        right:5%;
+        width:230px;
+    }
+
+    .resort-gallery-section{
+        padding:115px 15px 65px;
+    }
+
+    .resort-gallery-header{
+        margin-bottom:30px;
+    }
+
+    .resort-gallery-header h2{
+        font-size:31px;
+    }
+
+    .resort-gallery-header p{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    .resort-gallery-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .resort-gallery-grid>.resort-gallery-item{
+        height:260px;
+        min-height:260px;
+    }
+
+    .resort-gallery-overlay{
+        padding:25px 22px;
+        font-size:22px;
+    }
+
+    .modal{
+        padding:12px;
+    }
+
+    .modal-content{
+        padding:18px;
+        max-height:92vh;
+    }
+
+    .gallery-title{
+        font-size:25px;
+    }
+
+    .gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:9px;
+    }
+
+    .gallery-grid img{
+        height:145px;
+        border-radius:8px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next{
+        width:42px;
+        height:58px;
+        font-size:24px;
+    }
+
+    .lightbox-prev{
+        left:5px;
+    }
+
+    .lightbox-next{
+        right:5px;
+    }
+
+    .lightbox-close{
+        top:10px;
+        right:10px;
+        width:42px;
+        height:42px;
+    }
+
+    #singleImage{
+        max-width:92vw;
+        max-height:84vh;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:420px){
+
+    .resort-gallery-header h2{
+        font-size:29px;
+    }
+
+    .resort-gallery-grid>.resort-gallery-item{
+        height:250px;
+        min-height:250px;
+    }
+
+    .resort-gallery-overlay{
+        padding:22px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header class="site-header">
+
+    <a href="index.html" class="site-logo">
+        <img src="images/logo.png" alt="Rangauti Resort">
+    </a>
+
+    <button
+        class="menu-toggle"
+        onclick="toggleMenu()"
+        aria-label="Open Menu">
+        ⋮
+    </button>
+
+    <nav class="menu-dropdown" id="menuDropdown">
+
+        <a href="index.html">HOME</a>
+
+        <a href="facilities.html">FACILITIES</a>
+
+        <a href="explore-videos.html">EXPLORE RANGAUTI</a>
+
+        <a href="index.html#packages">PACKAGES</a>
+
+        <a href="index.html#rooms">ROOMS &amp; SUITES</a>
+
+        <a href="complimentary.html">COMPLIMENTARY</a>
+
+        <a href="offers.html">SPECIAL OFFER</a>
+
+        <a href="booking.html">BOOK NOW</a>
+
+        <a href="index.html#contact">CONTACT</a>
+
+        <a href="terms.html">TERMS</a>
+
+        <a href="index.html#about">ABOUT</a>
+
+    </nav>
+
+</header>
+
+
+<!-- =======================================================
+     RESORT GALLERY
+======================================================= -->
+
+<section class="resort-gallery-section" id="resort-gallery">
+
+<div class="resort-gallery-header">
+
+    <span class="resort-gallery-label">
+        EXPLORE RANGAUTI
+    </span>
+
+    <h2>
+        Discover Rangauti Resort
+    </h2>
+
+    <p>
+        Explore the natural beauty, peaceful surroundings,
+        refreshing pool, scenic views and memorable experiences
+        at Rangauti Resort.
+    </p>
+
+</div>
+
+
+<div class="resort-gallery-grid">
+
+
+<!-- =====================================================
+     RESORT VIEW
+===================================================== -->
+
+<div
+    class="resort-gallery-item"
+    onclick="openGallery('resortViewGallery')">
+
+    <div class="gallery-cover-slideshow">
+
+        <img
+            class="gallery-cover-slide active"
+            src="images/resort-gallery/resort-view/cover.jpeg"
+            alt="Rangauti Resort View">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/resort-view/01.jpeg"
+            alt="Rangauti Resort View">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/resort-view/02.jpeg"
+            alt="Rangauti Resort View">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/resort-view/04.jpeg"
+            alt="Rangauti Resort View">
+
+    </div>
+
+    <div class="resort-gallery-overlay">
+        Resort View
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     LAKE VIEW
+===================================================== -->
+
+<div
+    class="resort-gallery-item"
+    onclick="openGallery('lakeViewGallery')">
+
+    <div class="gallery-cover-slideshow">
+
+        <img
+            class="gallery-cover-slide active"
+            src="images/resort-gallery/lake-view/cover.png"
+            alt="Rangauti Resort Lake View">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/lake-view/01.jpeg"
+            alt="Rangauti Resort Lake View">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/lake-view/02.jpeg"
+            alt="Rangauti Resort Lake View">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/lake-view/05.jpeg"
+            alt="Rangauti Resort Lake View">
+
+    </div>
+
+    <div class="resort-gallery-overlay">
+        Lake View
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SWIMMING POOL VIEW
+===================================================== -->
+
+<div
+    class="resort-gallery-item"
+    onclick="openGallery('swimmingPoolViewGallery')">
+
+    <div class="gallery-cover-slideshow">
+
+        <img
+            class="gallery-cover-slide active"
+            src="images/resort-gallery/swimming-pool-view/cover.jpeg"
+            alt="Rangauti Resort Swimming Pool View">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/swimming-pool-view/Swimming1.jpeg"
+            alt="Rangauti Resort Swimming Pool View">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/swimming-pool-view/Swimming4.jpeg"
+            alt="Rangauti Resort Swimming Pool View">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/swimming-pool-view/Swimming8.jpeg"
+            alt="Rangauti Resort Swimming Pool View">
+
+    </div>
+
+    <div class="resort-gallery-overlay">
+        Swimming Pool View
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NATURAL ENVIRONMENT
+===================================================== -->
+
+<div
+    class="resort-gallery-item"
+    onclick="openGallery('naturalEnvironmentGallery')">
+
+    <div class="gallery-cover-slideshow">
+
+        <img
+            class="gallery-cover-slide active"
+            src="images/resort-gallery/natural-environment/cover.jpeg"
+            alt="Rangauti Resort Natural Environment">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/natural-environment/nature1.jpeg"
+            alt="Rangauti Resort Natural Environment">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/natural-environment/nature5.jpeg"
+            alt="Rangauti Resort Natural Environment">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/natural-environment/nature9.jpeg"
+            alt="Rangauti Resort Natural Environment">
+
+    </div>
+
+    <div class="resort-gallery-overlay">
+        Natural Environment
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     BOAT RIDE
+===================================================== -->
+
+<div
+    class="resort-gallery-item"
+    onclick="openGallery('boatRideGallery')">
+
+    <div class="gallery-cover-slideshow">
+
+        <img
+            class="gallery-cover-slide active"
+            src="images/resort-gallery/boat-ride/cover.jpeg"
+            alt="Rangauti Resort Boat Ride">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/boat-ride/boat1.jpeg"
+            alt="Rangauti Resort Boat Ride">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/boat-ride/boat4.jpeg"
+            alt="Rangauti Resort Boat Ride">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/boat-ride/boat7.jpeg"
+            alt="Rangauti Resort Boat Ride">
+
+    </div>
+
+    <div class="resort-gallery-overlay">
+        Boat Ride
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PEACEFUL MOMENTS
+===================================================== -->
+
+<div
+    class="resort-gallery-item"
+    onclick="openGallery('peacefulMomentsGallery')">
+
+    <div class="gallery-cover-slideshow">
+
+        <img
+            class="gallery-cover-slide active"
+            src="images/resort-gallery/peaceful-moments/Cover.jpeg"
+            alt="Rangauti Resort Peaceful Moments">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/peaceful-moments/moment1.jpeg"
+            alt="Rangauti Resort Peaceful Moments">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/peaceful-moments/moment6.jpeg"
+            alt="Rangauti Resort Peaceful Moments">
+
+        <img
+            class="gallery-cover-slide"
+            src="images/resort-gallery/peaceful-moments/moment12.jpeg"
+            alt="Rangauti Resort Peaceful Moments">
+
+    </div>
+
+    <div class="resort-gallery-overlay">
+        Peaceful Moments
+    </div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =======================================================
+     RESORT VIEW MODAL
+======================================================= -->
+
+<div class="modal" id="resortViewGallery">
+
+<div class="modal-content">
+
+<button
+    class="modal-close"
+    onclick="closeGallery('resortViewGallery')">
+    ×
+</button>
+
+<h2 class="gallery-title">
+    Resort View
+</h2>
+
+<p class="gallery-subtitle">
+    Explore Rangauti Resort
+</p>
+
+<div class="gallery-grid">
+
+<img src="images/resort-gallery/resort-view/01.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Resort View 01">
+
+<img src="images/resort-gallery/resort-view/02.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Resort View 02">
+
+<img src="images/resort-gallery/resort-view/03.png"
+     onclick="openSingleImage(this)"
+     alt="Resort View 03">
+
+<img src="images/resort-gallery/resort-view/04.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Resort View 04">
+
+<img src="images/resort-gallery/resort-view/05.png"
+     onclick="openSingleImage(this)"
+     alt="Resort View 05">
+
+<img src="images/resort-gallery/resort-view/06.png"
+     onclick="openSingleImage(this)"
+     alt="Resort View 06">
+
+<img src="images/resort-gallery/resort-view/07.png"
+     onclick="openSingleImage(this)"
+     alt="Resort View 07">
+
+<img src="images/resort-gallery/resort-view/08.png"
+     onclick="openSingleImage(this)"
+     alt="Resort View 08">
+
+<img src="images/resort-gallery/resort-view/09.png"
+     onclick="openSingleImage(this)"
+     alt="Resort View 09">
+
+<img src="images/resort-gallery/resort-view/10.png"
+     onclick="openSingleImage(this)"
+     alt="Resort View 10">
+
+<img src="images/resort-gallery/resort-view/11.png"
+     onclick="openSingleImage(this)"
+     alt="Resort View 11">
+
+<img src="images/resort-gallery/resort-view/12.png"
+     onclick="openSingleImage(this)"
+     alt="Resort View 12">
+
+<img src="images/resort-gallery/resort-view/13.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Resort View 13">
+
+</div>
+</div>
+</div>
+
+
+<!-- =======================================================
+     LAKE VIEW MODAL
+======================================================= -->
+
+<div class="modal" id="lakeViewGallery">
+
+<div class="modal-content">
+
+<button
+    class="modal-close"
+    onclick="closeGallery('lakeViewGallery')">
+    ×
+</button>
+
+<h2 class="gallery-title">
+    Lake View
+</h2>
+
+<p class="gallery-subtitle">
+    Explore Rangauti Resort
+</p>
+
+<div class="gallery-grid">
+
+<img src="images/resort-gallery/lake-view/01.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Lake View 01">
+
+<img src="images/resort-gallery/lake-view/02.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Lake View 02">
+
+<img src="images/resort-gallery/lake-view/03.png"
+     onclick="openSingleImage(this)"
+     alt="Lake View 03">
+
+<img src="images/resort-gallery/lake-view/04.png"
+     onclick="openSingleImage(this)"
+     alt="Lake View 04">
+
+<img src="images/resort-gallery/lake-view/05.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Lake View 05">
+
+<img src="images/resort-gallery/lake-view/06.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Lake View 06">
+
+<img src="images/resort-gallery/lake-view/07.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Lake View 07">
+
+</div>
+</div>
+</div>
+
+
+<!-- =======================================================
+     SWIMMING POOL VIEW MODAL
+======================================================= -->
+
+<div class="modal" id="swimmingPoolViewGallery">
+
+<div class="modal-content">
+
+<button
+    class="modal-close"
+    onclick="closeGallery('swimmingPoolViewGallery')">
+    ×
+</button>
+
+<h2 class="gallery-title">
+    Swimming Pool View
+</h2>
+
+<p class="gallery-subtitle">
+    Explore Rangauti Resort
+</p>
+
+<div class="gallery-grid">
+
+<img src="images/resort-gallery/swimming-pool-view/Swimming1.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Swimming Pool 1">
+
+<img src="images/resort-gallery/swimming-pool-view/Swimming2.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Swimming Pool 2">
+
+<img src="images/resort-gallery/swimming-pool-view/Swimming3.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Swimming Pool 3">
+
+<img src="images/resort-gallery/swimming-pool-view/Swimming4.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Swimming Pool 4">
+
+<img src="images/resort-gallery/swimming-pool-view/Swimming5.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Swimming Pool 5">
+
+<img src="images/resort-gallery/swimming-pool-view/Swimming6.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Swimming Pool 6">
+
+<img src="images/resort-gallery/swimming-pool-view/Swimming7.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Swimming Pool 7">
+
+<img src="images/resort-gallery/swimming-pool-view/Swimming8.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Swimming Pool 8">
+
+<img src="images/resort-gallery/swimming-pool-view/Swimming9.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Swimming Pool 9">
+
+<img src="images/resort-gallery/swimming-pool-view/Swimming10.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Swimming Pool 10">
+
+<img src="images/resort-gallery/swimming-pool-view/Swimming11.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Swimming Pool 11">
+
+<img src="images/resort-gallery/swimming-pool-view/Swimming12.jfif"
+     onclick="openSingleImage(this)"
+     alt="Swimming Pool 12">
+
+</div>
+</div>
+</div>
+
+
+<!-- =======================================================
+     NATURAL ENVIRONMENT MODAL
+======================================================= -->
+
+<div class="modal" id="naturalEnvironmentGallery">
+
+<div class="modal-content">
+
+<button
+    class="modal-close"
+    onclick="closeGallery('naturalEnvironmentGallery')">
+    ×
+</button>
+
+<h2 class="gallery-title">
+    Natural Environment
+</h2>
+
+<p class="gallery-subtitle">
+    Explore Rangauti Resort
+</p>
+
+<div class="gallery-grid">
+
+<img src="images/resort-gallery/natural-environment/nature1.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Natural Environment 1">
+
+<img src="images/resort-gallery/natural-environment/nature2.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Natural Environment 2">
+
+<img src="images/resort-gallery/natural-environment/nature3.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Natural Environment 3">
+
+<img src="images/resort-gallery/natural-environment/nature4.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Natural Environment 4">
+
+<img src="images/resort-gallery/natural-environment/nature5.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Natural Environment 5">
+
+<img src="images/resort-gallery/natural-environment/nature6.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Natural Environment 6">
+
+<img src="images/resort-gallery/natural-environment/nature7.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Natural Environment 7">
+
+<img src="images/resort-gallery/natural-environment/nature8.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Natural Environment 8">
+
+<img src="images/resort-gallery/natural-environment/nature9.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Natural Environment 9">
+
+<img src="images/resort-gallery/natural-environment/nature10.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Natural Environment 10">
+
+<img src="images/resort-gallery/natural-environment/nature11.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Natural Environment 11">
+
+</div>
+</div>
+</div>
+
+
+<!-- =======================================================
+     BOAT RIDE MODAL
+======================================================= -->
+
+<div class="modal" id="boatRideGallery">
+
+<div class="modal-content">
+
+<button
+    class="modal-close"
+    onclick="closeGallery('boatRideGallery')">
+    ×
+</button>
+
+<h2 class="gallery-title">
+    Boat Ride
+</h2>
+
+<p class="gallery-subtitle">
+    Explore Rangauti Resort
+</p>
+
+<div class="gallery-grid">
+
+<img src="images/resort-gallery/boat-ride/boat1.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Boat Ride 1">
+
+<img src="images/resort-gallery/boat-ride/boat2.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Boat Ride 2">
+
+<img src="images/resort-gallery/boat-ride/boat3.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Boat Ride 3">
+
+<img src="images/resort-gallery/boat-ride/boat4.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Boat Ride 4">
+
+<img src="images/resort-gallery/boat-ride/boat5.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Boat Ride 5">
+
+<img src="images/resort-gallery/boat-ride/boat6.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Boat Ride 6">
+
+<img src="images/resort-gallery/boat-ride/boat7.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Boat Ride 7">
+
+<img src="images/resort-gallery/boat-ride/boat8.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Boat Ride 8">
+
+</div>
+</div>
+</div>
+
+
+<!-- =======================================================
+     PEACEFUL MOMENTS MODAL
+======================================================= -->
+
+<div class="modal" id="peacefulMomentsGallery">
+
+<div class="modal-content">
+
+<button
+    class="modal-close"
+    onclick="closeGallery('peacefulMomentsGallery')">
+    ×
+</button>
+
+<h2 class="gallery-title">
+    Peaceful Moments
+</h2>
+
+<p class="gallery-subtitle">
+    Explore Rangauti Resort
+</p>
+
+<div class="gallery-grid">
+
+<img src="images/resort-gallery/peaceful-moments/moment1.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 1">
+
+<img src="images/resort-gallery/peaceful-moments/moment2.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 2">
+
+<img src="images/resort-gallery/peaceful-moments/moment3.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 3">
+
+<img src="images/resort-gallery/peaceful-moments/moment4.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 4">
+
+<img src="images/resort-gallery/peaceful-moments/moment5.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 5">
+
+<img src="images/resort-gallery/peaceful-moments/moment6.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 6">
+
+<img src="images/resort-gallery/peaceful-moments/moment7.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 7">
+
+<img src="images/resort-gallery/peaceful-moments/moment8.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 8">
+
+<img src="images/resort-gallery/peaceful-moments/moment9.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 9">
+
+<img src="images/resort-gallery/peaceful-moments/moment10.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 10">
+
+<img src="images/resort-gallery/peaceful-moments/moment11.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 11">
+
+<img src="images/resort-gallery/peaceful-moments/moment12.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 12">
+
+<img src="images/resort-gallery/peaceful-moments/moment13.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 13">
+
+<img src="images/resort-gallery/peaceful-moments/moment14.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 14">
+
+<img src="images/resort-gallery/peaceful-moments/moment15.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 15">
+
+<img src="images/resort-gallery/peaceful-moments/moment16.jpeg"
+     onclick="openSingleImage(this)"
+     alt="Peaceful Moment 16">
+
+</div>
+</div>
+</div>
+
+
+<!-- =======================================================
+     SINGLE IMAGE LIGHTBOX
+======================================================= -->
+
+<div
+    class="modal single-image-modal"
+    id="singleImageModal">
+
+<button
+    class="lightbox-close"
+    onclick="closeSingleImage()">
+    ×
+</button>
+
+<button
+    class="lightbox-prev"
+    onclick="previousImage()">
+    ❮
+</button>
+
+<div class="single-image-wrapper">
+
+<img
+    id="singleImage"
+    src=""
+    alt="Full Size Image">
+
+</div>
+
+<button
+    class="lightbox-next"
+    onclick="nextImage()">
+    ❯
+</button>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   3-DOT MENU
+========================================================= */
+
+function toggleMenu(){
+
+    const menu =
+        document.getElementById('menuDropdown');
+
+    if(!menu) return;
+
+    menu.classList.toggle('active');
+}
+
+
+document.addEventListener('click',function(event){
+
+    const menu =
+        document.getElementById('menuDropdown');
+
+    const button =
+        document.querySelector('.menu-toggle');
+
+    if(!menu || !button) return;
+
+    if(
+        !menu.contains(event.target) &&
+        !button.contains(event.target)
+    ){
+        menu.classList.remove('active');
+    }
+
+});
+
+
+/* =========================================================
+   GALLERY / LIGHTBOX VARIABLES
+========================================================= */
+
+let currentGalleryImages=[];
+let currentImageIndex=0;
+
+let zoomLevel=1;
+
+const MIN_ZOOM=1;
+const MAX_ZOOM=2;
+
+const MODAL_HISTORY_KEY="rangautiModal";
+
+let modalHistoryDepth=0;
+
+
+/* =========================================================
+   BODY SCROLL
+========================================================= */
+
+function updateBodyScroll(){
+
+    document.body.style.overflow =
+        document.querySelector('.modal.active')
+        ? 'hidden'
+        : '';
+}
+
+
+/* =========================================================
+   GET MODAL
+========================================================= */
+
+function getModal(id){
+
+    return document.getElementById(id);
+
+}
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+function pushModalHistory(modalId){
+
+    history.pushState(
+        {
+            [MODAL_HISTORY_KEY]:modalId
+        },
+        '',
+        window.location.href
+    );
+
+    modalHistoryDepth++;
+
+}
+
+
+function isCurrentModalHistory(modalId){
+
+    return history.state &&
+           history.state[MODAL_HISTORY_KEY]===modalId;
+
+}
+
+
+function removeModalFromHistory(modalId){
+
+    if(
+        modalHistoryDepth>0 &&
+        isCurrentModalHistory(modalId)
+    ){
+
+        history.back();
+
+        return true;
+
+    }
+
+    return false;
+
+}
+
+
+/* =========================================================
+   OPEN GALLERY
+========================================================= */
+
+function openGallery(id){
+
+    const modal=getModal(id);
+
+    if(
+        !modal ||
+        modal.classList.contains('active')
+    ){
+        return;
+    }
+
+    modal.classList.add('active');
+
+    updateBodyScroll();
+
+    pushModalHistory(id);
+
+}
+
+
+/* =========================================================
+   CLOSE GALLERY
+========================================================= */
+
+function closeGallery(id,useHistory=true){
+
+    const modal=getModal(id);
+
+    if(!modal) return;
+
+    if(
+        useHistory &&
+        removeModalFromHistory(id)
+    ){
+        return;
+    }
+
+    modal.classList.remove('active');
+
+    updateBodyScroll();
+
+}
+
+
+/* =========================================================
+   OPEN SINGLE IMAGE
+========================================================= */
+
+function openSingleImage(img){
+
+    const modal =
+        getModal('singleImageModal');
+
+    const image =
+        document.getElementById('singleImage');
+
+    if(!modal || !image || !img){
+        return;
+    }
+
+    const gallery =
+        img.closest('.modal');
+
+    if(gallery){
+
+        currentGalleryImages =
+            Array.from(
+                gallery.querySelectorAll(
+                    '.gallery-grid img'
+                )
+            );
+
+        currentImageIndex =
+            currentGalleryImages.indexOf(img);
+
+        if(currentImageIndex<0){
+            currentImageIndex=0;
+        }
+
+    }else{
+
+        currentGalleryImages=[img];
+
+        currentImageIndex=0;
+
+    }
+
+    image.src =
+        img.currentSrc || img.src;
+
+    resetZoom();
+
+    const alreadyOpen =
+        modal.classList.contains('active');
+
+    modal.classList.add('active');
+
+    updateBodyScroll();
+
+    if(!alreadyOpen){
+
+        pushModalHistory(
+            'singleImageModal'
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CLOSE SINGLE IMAGE
+========================================================= */
+
+function closeSingleImage(useHistory=true){
+
+    const modal =
+        getModal('singleImageModal');
+
+    if(!modal) return;
+
+    if(
+        useHistory &&
+        removeModalFromHistory(
+            'singleImageModal'
+        )
+    ){
+        return;
+    }
+
+    modal.classList.remove('active');
+
+    resetZoom();
+
+    updateBodyScroll();
+
+}
+
+
+/* =========================================================
+   NEXT IMAGE
+========================================================= */
+
+function nextImage(){
+
+    if(!currentGalleryImages.length){
+        return;
+    }
+
+    currentImageIndex =
+        (currentImageIndex+1) %
+        currentGalleryImages.length;
+
+    showCurrentImage();
+
+}
+
+
+/* =========================================================
+   PREVIOUS IMAGE
+========================================================= */
+
+function previousImage(){
+
+    if(!currentGalleryImages.length){
+        return;
+    }
+
+    currentImageIndex--;
+
+    if(currentImageIndex<0){
+
+        currentImageIndex =
+            currentGalleryImages.length-1;
+
+    }
+
+    showCurrentImage();
+
+}
+
+
+/* =========================================================
+   SHOW CURRENT IMAGE
+========================================================= */
+
+function showCurrentImage(){
+
+    const image =
+        document.getElementById('singleImage');
+
+    const current =
+        currentGalleryImages[currentImageIndex];
+
+    if(!image || !current){
+        return;
+    }
+
+    image.src =
+        current.currentSrc || current.src;
+
+    resetZoom();
+
+}
+
+
+/* =========================================================
+   IMAGE ZOOM / DRAG
+========================================================= */
+
+let imageTranslateX=0;
+let imageTranslateY=0;
+
+let isDraggingImage=false;
+
+let dragStartX=0;
+let dragStartY=0;
+
+let touchStartX=0;
+let touchStartY=0;
+
+let touchStartTime=0;
+
+let lastTapTime=0;
+let lastTapX=0;
+let lastTapY=0;
+
+
+/* =========================================================
+   APPLY ZOOM
+========================================================= */
+
+function applyZoom(){
+
+    const image =
+        document.getElementById('singleImage');
+
+    if(!image) return;
+
+    image.style.transform =
+        `translate(${imageTranslateX}px, ${imageTranslateY}px) scale(${zoomLevel})`;
+
+    image.style.transformOrigin =
+        'center center';
+
+    image.style.cursor =
+        zoomLevel>MIN_ZOOM
+        ? (
+            isDraggingImage
+            ? 'grabbing'
+            : 'grab'
+        )
+        : 'zoom-in';
+
+}
+
+
+/* =========================================================
+   ZOOM IN / OUT
+========================================================= */
+
+function zoomInOut(){
+
+    if(zoomLevel<=MIN_ZOOM){
+
+        zoomLevel=MAX_ZOOM;
+
+    }else{
+
+        zoomLevel=MIN_ZOOM;
+
+        imageTranslateX=0;
+        imageTranslateY=0;
+
+    }
+
+    applyZoom();
+
+}
+
+
+/* =========================================================
+   RESET ZOOM
+========================================================= */
+
+function resetZoom(){
+
+    zoomLevel=MIN_ZOOM;
+
+    imageTranslateX=0;
+    imageTranslateY=0;
+
+    isDraggingImage=false;
+
+    const image =
+        document.getElementById('singleImage');
+
+    if(!image) return;
+
+    image.style.transform =
+        'translate(0px, 0px) scale(1)';
+
+    image.style.transformOrigin =
+        'center center';
+
+    image.style.cursor='zoom-in';
+
+    image.style.transition =
+        'transform 0.15s ease';
+
+}
+
+
+/* =========================================================
+   DESKTOP DOUBLE CLICK ZOOM
+========================================================= */
+
+document.addEventListener(
+    'dblclick',
+    event=>{
+
+        const image =
+            document.getElementById(
+                'singleImage'
+            );
+
+        if(
+            !image ||
+            event.target!==image
+        ){
+            return;
+        }
+
+        event.preventDefault();
+
+        zoomInOut();
+
+    }
+);
+
+
+/* =========================================================
+   DESKTOP DRAG START
+========================================================= */
+
+document.addEventListener(
+    'mousedown',
+    event=>{
+
+        const image =
+            document.getElementById(
+                'singleImage'
+            );
+
+        if(
+            !image ||
+            event.target!==image ||
+            zoomLevel<=MIN_ZOOM
+        ){
+            return;
+        }
+
+        isDraggingImage=true;
+
+        dragStartX =
+            event.clientX-imageTranslateX;
+
+        dragStartY =
+            event.clientY-imageTranslateY;
+
+        image.style.transition='none';
+
+        image.style.cursor='grabbing';
+
+        event.preventDefault();
+
+    }
+);
+
+
+/* =========================================================
+   DESKTOP DRAG MOVE
+========================================================= */
+
+document.addEventListener(
+    'mousemove',
+    event=>{
+
+        if(!isDraggingImage){
+            return;
+        }
+
+        imageTranslateX =
+            event.clientX-dragStartX;
+
+        imageTranslateY =
+            event.clientY-dragStartY;
+
+        applyZoom();
+
+    }
+);
+
+
+/* =========================================================
+   DESKTOP DRAG END
+========================================================= */
+
+document.addEventListener(
+    'mouseup',
+    ()=>{
+
+        if(!isDraggingImage){
+            return;
+        }
+
+        isDraggingImage=false;
+
+        const image =
+            document.getElementById(
+                'singleImage'
+            );
+
+        if(image){
+
+            image.style.transition =
+                'transform 0.15s ease';
+
+            image.style.cursor='grab';
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   MOBILE TOUCH START
+========================================================= */
+
+document.addEventListener(
+    'touchstart',
+    event=>{
+
+        const image =
+            document.getElementById(
+                'singleImage'
+            );
+
+        if(
+            !image ||
+            event.target!==image
+        ){
+            return;
+        }
+
+        const touch =
+            event.changedTouches[0];
+
+        if(!touch) return;
+
+        touchStartX=touch.clientX;
+        touchStartY=touch.clientY;
+
+        touchStartTime=Date.now();
+
+        if(zoomLevel>MIN_ZOOM){
+
+            dragStartX =
+                touch.clientX-imageTranslateX;
+
+            dragStartY =
+                touch.clientY-imageTranslateY;
+
+        }
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+/* =========================================================
+   MOBILE TOUCH MOVE
+========================================================= */
+
+document.addEventListener(
+    'touchmove',
+    event=>{
+
+        const image =
+            document.getElementById(
+                'singleImage'
+            );
+
+        if(
+            !image ||
+            event.target!==image ||
+            zoomLevel<=MIN_ZOOM
+        ){
+            return;
+        }
+
+        const touch =
+            event.changedTouches[0];
+
+        if(!touch) return;
+
+        imageTranslateX =
+            touch.clientX-dragStartX;
+
+        imageTranslateY =
+            touch.clientY-dragStartY;
+
+        image.style.transition='none';
+
+        applyZoom();
+
+        event.preventDefault();
+
+    },
+    {
+        passive:false
+    }
+);
+
+
+/* =========================================================
+   MOBILE TOUCH END
+========================================================= */
+
+document.addEventListener(
+    'touchend',
+    event=>{
+
+        const image =
+            document.getElementById(
+                'singleImage'
+            );
+
+        if(
+            !image ||
+            event.target!==image
+        ){
+            return;
+        }
+
+        const touch =
+            event.changedTouches[0];
+
+        if(!touch) return;
+
+        const endX=touch.clientX;
+        const endY=touch.clientY;
+
+        const currentTime=Date.now();
+
+        const deltaX =
+            endX-touchStartX;
+
+        const deltaY =
+            endY-touchStartY;
+
+        const absX=Math.abs(deltaX);
+        const absY=Math.abs(deltaY);
+
+        const distance =
+            Math.sqrt(
+                deltaX*deltaX+
+                deltaY*deltaY
+            );
+
+        const duration =
+            currentTime-touchStartTime;
+
+
+        /* ZOOMED IMAGE DRAG */
+
+        if(zoomLevel>MIN_ZOOM){
+
+            image.style.transition =
+                'transform 0.15s ease';
+
+            return;
+
+        }
+
+
+        /* SWIPE */
+
+        if(
+            distance>=60 &&
+            absX>absY &&
+            duration<800
+        ){
+
+            lastTapTime=0;
+
+            if(deltaX>0){
+
+                previousImage();
+
+            }else{
+
+                nextImage();
+
+            }
+
+            return;
+
+        }
+
+
+        /* DOUBLE TAP */
+
+        if(
+            distance<25 &&
+            duration<350
+        ){
+
+            const timeSinceLastTap =
+                currentTime-lastTapTime;
+
+            const tapDistance =
+                Math.sqrt(
+                    Math.pow(
+                        endX-lastTapX,
+                        2
+                    )+
+                    Math.pow(
+                        endY-lastTapY,
+                        2
+                    )
+                );
+
+            if(
+                timeSinceLastTap<400 &&
+                tapDistance<60
+            ){
+
+                event.preventDefault();
+
+                zoomInOut();
+
+                lastTapTime=0;
+
+                return;
+
+            }
+
+            lastTapTime=currentTime;
+
+            lastTapX=endX;
+            lastTapY=endY;
+
+        }
+
+    },
+    {
+        passive:false
+    }
+);
+
+
+/* =========================================================
+   TOUCH CANCEL
+========================================================= */
+
+document.addEventListener(
+    'touchcancel',
+    ()=>{
+
+        touchStartX=0;
+        touchStartY=0;
+        touchStartTime=0;
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+/* =========================================================
+   BROWSER BACK BUTTON
+========================================================= */
+
+window.addEventListener(
+    'popstate',
+    ()=>{
+
+        if(modalHistoryDepth>0){
+            modalHistoryDepth--;
+        }
+
+        const activeModals =
+            Array.from(
+                document.querySelectorAll(
+                    '.modal.active'
+                )
+            );
+
+        if(!activeModals.length){
+
+            document.body.style.overflow='';
+
+            return;
+
+        }
+
+        const topModal =
+            activeModals[
+                activeModals.length-1
+            ];
+
+        topModal.classList.remove('active');
+
+        if(
+            topModal.id==='singleImageModal'
+        ){
+
+            resetZoom();
+
+        }
+
+        updateBodyScroll();
+
+    }
+);
+
+
+/* =========================================================
+   CLICK OUTSIDE MODAL
+========================================================= */
+
+document.addEventListener(
+    'click',
+    event=>{
+
+        if(
+            !event.target.classList.contains(
+                'modal'
+            )
+        ){
+            return;
+        }
+
+        const modal=event.target;
+
+        if(
+            modal.id==='singleImageModal'
+        ){
+
+            closeSingleImage();
+
+        }else{
+
+            closeGallery(modal.id);
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   KEYBOARD CONTROLS
+========================================================= */
+
+document.addEventListener(
+    'keydown',
+    event=>{
+
+        const singleImageModal =
+            getModal('singleImageModal');
+
+
+        /* ESC */
+
+        if(event.key==='Escape'){
+
+            if(
+                singleImageModal &&
+                singleImageModal.classList.contains(
+                    'active'
+                )
+            ){
+
+                closeSingleImage();
+
+                return;
+
+            }
+
+            const active =
+                Array.from(
+                    document.querySelectorAll(
+                        '.modal.active'
+                    )
+                );
+
+            if(!active.length){
+                return;
+            }
+
+            closeGallery(
+                active[
+                    active.length-1
+                ].id
+            );
+
+            return;
+
+        }
+
+
+        /* ARROW RIGHT */
+
+        if(
+            !singleImageModal ||
+            !singleImageModal.classList.contains(
+                'active'
+            )
+        ){
+            return;
+        }
+
+        if(event.key==='ArrowRight'){
+
+            event.preventDefault();
+
+            nextImage();
+
+        }
+
+
+        /* ARROW LEFT */
+
+        if(event.key==='ArrowLeft'){
+
+            event.preventDefault();
+
+            previousImage();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SINGLE IMAGE INITIAL SETUP
+========================================================= */
+
+document.addEventListener(
+    'DOMContentLoaded',
+    ()=>{
+
+        const image =
+            document.getElementById(
+                'singleImage'
+            );
+
+        if(image){
+
+            image.style.cursor='zoom-in';
+
+            image.style.userSelect='none';
+
+            image.style.webkitUserSelect='none';
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   AUTOMATIC RESORT GALLERY COVER SLIDESHOW
+========================================================= */
+
+document.addEventListener(
+    'DOMContentLoaded',
+    function(){
+
+        const slideshows =
+            document.querySelectorAll(
+                '.gallery-cover-slideshow'
+            );
+
+
+        slideshows.forEach(
+            function(slideshow){
+
+                const slides =
+                    slideshow.querySelectorAll(
+                        '.gallery-cover-slide'
+                    );
+
+
+                if(slides.length<2){
+                    return;
+                }
+
+
+                let index=0;
+
+
+                setInterval(
+                    function(){
+
+                        slides[
+                            index
+                        ].classList.remove(
+                            'active'
+                        );
+
+
+                        index =
+                            (index+1) %
+                            slides.length;
+
+
+                        slides[
+                            index
+                        ].classList.add(
+                            'active'
+                        );
+
+                    },
+                    3500
+                );
+
+            }
+        );
+
+    }
+);
+
+</script>
+
+</body>
+</html>

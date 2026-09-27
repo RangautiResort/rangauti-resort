@@ -4266,6 +4266,98 @@ z-index: 10;
         padding-right: 10px;
     }
 }
+/* =======================================================
+   LANGUAGE DROPDOWN
+======================================================= */
+
+.language-menu{
+    position:relative;
+    width:100%;
+}
+
+.language-title{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:12px 15px;
+
+    background:transparent;
+    border:0;
+
+    color:#000;
+
+    font-family:inherit;
+    font-size:13px;
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+}
+
+.language-title:hover{
+    color:#000;
+}
+
+.language-arrow{
+    font-size:11px;
+    transition:transform .3s ease;
+}
+
+.language-menu.open .language-arrow{
+    transform:rotate(180deg);
+}
+
+.language-options{
+    display:none;
+
+    padding:5px 10px 8px;
+
+    border-top:1px solid rgba(255,255,255,.10);
+}
+
+.language-menu.open .language-options{
+    display:block;
+}
+
+.language-options button{
+    width:100%;
+
+    display:block;
+
+    padding:10px 12px;
+
+    background:transparent;
+    border:0;
+
+    color:#000;
+
+    font-family:inherit;
+    font-size:12px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+}
+
+.language-options button:hover{
+    background:rgba(181,150,99,.15);
+    color:#000;
+}
+
+.language-options button.active{
+   color:#000;
+    font-weight:600;
+}
+.room-details-price span {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
 </style>
 
 </head>
@@ -4293,93 +4385,184 @@ z-index: 10;
 
         <nav class="nav-links" id="navLinks">
 
-            <a href="#home">HOME</a>
-            <a href="facilities.html">
-    <strong>FACILITIES</strong>
+        <a href="#home"
+   data-en="HOME"
+   data-bn="হোম">
+    HOME
 </a>
-<a href="#about">ABOUT</a>
-            <a href="index.html#explore-video">EXPLORE RANGAUTI</a>
-            <a href="#packages">PACKAGES</a>
-            <a href="#rooms">ROOMS & SUITES</a>
-            <a href="complimentary.html">
+
+<a href="facilities.html"
+   data-en="FACILITIES"
+   data-bn="সুবিধাসমূহ">
+    FACILITIES
+</a>
+
+<a href="#about"
+   data-en="ABOUT"
+   data-bn="আমাদের সম্পর্কে">
+    ABOUT
+</a>
+
+<a href="index.html#explore-video"
+   data-en="EXPLORE RANGAUTI"
+   data-bn="রাঙাউটি অন্বেষণ">
+    EXPLORE RANGAUTI
+</a>
+
+<a href="#packages"
+   data-en="PACKAGES"
+   data-bn="প্যাকেজসমূহ">
+    PACKAGES
+</a>
+
+<a href="#rooms"
+   data-en="ROOMS & SUITES"
+   data-bn="রুম ও স্যুট">
+    ROOMS & SUITES
+</a>
+
+<a href="complimentary.html"
+   data-en="COMPLIMENTARY"
+   data-bn="অতিরিক্ত সুবিধাসমূহ">
     <strong>COMPLIMENTARY</strong>
 </a>
-            <a href="offers.html"><strong>SPECIAL OFFER</strong></a>
-            <a href="booking.html">
+
+<a href="offers.html"
+   data-en="SPECIAL OFFER"
+   data-bn="বিশেষ অফার">
+    <strong>SPECIAL OFFER</strong>
+</a>
+
+<a href="booking.html"
+   data-en="BOOK NOW"
+   data-bn="এখনই বুক করুন">
     <strong>BOOK NOW</strong>
 </a>
-            <a href="#contact">CONTACT</a>
-            <a href="terms.html">
-    <strong>TERMS</strong>
-</a>       
 
+<a href="#contact"
+   data-en="CONTACT"
+   data-bn="যোগাযোগ">
+    CONTACT
+</a>
+
+<a href="terms.html"
+   data-en="TERMS"
+   data-bn="শর্তাবলী">
+    <strong>TERMS</strong>
+</a>     
+<!-- LANGUAGE DROPDOWN -->
+<div class="language-menu">
+
+    <button type="button"
+            class="language-title"
+            onclick="toggleLanguageMenu()">
+        🌐 Language
+        <span class="language-arrow">▾</span>
+    </button>
+
+    <div class="language-options" id="languageOptions">
+
+        <button type="button"
+                onclick="setLanguage('en')">
+            English
+        </button>
+
+        <button type="button"
+                onclick="setLanguage('bn')">
+             বাংলা
+        </button>
+
+    </div>
+
+</div>
         </nav>
 
     </div>
 </header>
+
 <!-- =======================================================
      HERO
 ======================================================= -->
 
 <section class="hero" id="home">
+
     <div class="hero-slideshow">
 
-    <div class="hero-slide active"
-         style="background-image:url('rooms/home.jpeg');"></div>
+        <div class="hero-slide active"
+             style="background-image:url('rooms/home.jpeg');"></div>
 
-    <div class="hero-slide"
-         style="background-image:url('rooms/home-1.jpeg');"></div>
+        <div class="hero-slide"
+             style="background-image:url('rooms/home-1.jpeg');"></div>
 
-    <div class="hero-slide"
-         style="background-image:url('rooms/home-2.jpeg');"></div>
+        <div class="hero-slide"
+             style="background-image:url('rooms/home-2.jpeg');"></div>
 
-    <div class="hero-slide"
-         style="background-image:url('rooms/home-3.jpeg');"></div>
+        <div class="hero-slide"
+             style="background-image:url('rooms/home-3.jpeg');"></div>
 
-    <div class="hero-slide"
-         style="background-image:url('rooms/home-4.png');"></div>
+        <div class="hero-slide"
+             style="background-image:url('rooms/home-4.png');"></div>
 
-    <div class="hero-slide"
-         style="background-image:url('rooms/home-5.jpeg');"></div>
+        <div class="hero-slide"
+             style="background-image:url('rooms/home-5.jpeg');"></div>
 
-    <div class="hero-slide"
-         style="background-image:url('rooms/home-6.png');"></div>
+        <div class="hero-slide"
+             style="background-image:url('rooms/home-6.png');"></div>
 
-    <div class="hero-slide"
-         style="background-image:url('rooms/home-7.png');"></div>
+        <div class="hero-slide"
+             style="background-image:url('rooms/home-7.png');"></div>
 
-    <div class="hero-slide"
-         style="background-image:url('rooms/home-8.png');"></div>
+        <div class="hero-slide"
+             style="background-image:url('rooms/home-8.png');"></div>
 
-</div>
+    </div>
 
-<div class="hero-content">
 
-<div class="eyebrow">
-MOULVIBAZAR • SYLHET
-</div>
+    <div class="hero-content">
 
-<h1>
-Welcome to<br>
-Rangauti Resort
-</h1>
+        <div class="eyebrow"
+             data-en="MOULVIBAZAR • SYLHET"
+             data-bn="মৌলভীবাজার • সিলেট">
+            মৌলভীবাজার • সিলেট
+        </div>
 
-<p>
-Where Nature Meets Comfort
-</p>
 
-<p>
-Discover a peaceful retreat surrounded by natural beauty,
-comfortable accommodation, delightful dining and memorable experiences.
-</p>
+        <h1
+            data-en="Welcome to Rangauti Resort"
+            data-bn="রাঙ্গাউটি রিসোর্টে স্বাগতম">
+            রাঙ্গাউটি রিসোর্টে স্বাগতম
+        </h1>
 
-<a href="tel:+8801780203350" class="btn">BOOK YOUR STAY</a>
 
-</a>
+        <p
+            data-en="Where Nature Meets Comfort"
+            data-bn="যেখানে প্রকৃতি মিশেছে আরামের সাথে">
+            যেখানে প্রকৃতি মিশেছে আরামের সাথে
+        </p>
 
-</div>
+
+        <p
+            data-en="Discover a peaceful retreat surrounded by natural beauty, comfortable accommodation, delightful dining and memorable experiences."
+            data-bn="প্রাকৃতিক সৌন্দর্যে ঘেরা শান্ত এক ঠিকানা আবিষ্কার করুন, যেখানে রয়েছে আরামদায়ক থাকার ব্যবস্থা, মনোরম খাবার এবং স্মরণীয় অভিজ্ঞতা।">
+            প্রাকৃতিক সৌন্দর্যে ঘেরা শান্ত এক ঠিকানা আবিষ্কার করুন,
+            যেখানে রয়েছে আরামদায়ক থাকার ব্যবস্থা, মনোরম খাবার
+            এবং স্মরণীয় অভিজ্ঞতা।
+        </p>
+
+
+        <a href="tel:+8801780203350"
+           class="btn"
+           data-en="BOOK YOUR STAY"
+           data-bn="আপনার থাকার জায়গা বুক করুন">
+            আপনার থাকার জায়গা বুক করুন
+        </a>
+
+
+    </div>
 
 </section>
+
+
 <!-- =======================================================
      ABOUT
 ======================================================= -->
@@ -4388,34 +4571,56 @@ comfortable accommodation, delightful dining and memorable experiences.
          id="about">
 
 
+
 <div class="about-content">
 
-<div class="eyebrow">
-ABOUT RANGAUTI
+<div class="eyebrow"
+     data-en="ABOUT RANGAUTI"
+     data-bn="রাঙাউটি সম্পর্কে">
+    ABOUT RANGAUTI
 </div>
 
-<h2>
-A Peaceful Retreat in the Heart <br>
-of Moulvibazar
+<h2 data-en="A Peaceful Retreat in the Heart of Moulvibazar"
+    data-bn="মৌলভীবাজারের হৃদয়ে একটি শান্তিপূর্ণ অবকাশযাপন">
+    A Peaceful Retreat in the Heart <br>
+    of Moulvibazar
 </h2>
 
-<p>
-Nestled near Manu Bridge on Taltola, Kulaura Road, Moulvibazar, Rangauti Resort is a tranquil retreat where the beauty of nature meets modern comfort.
+<p data-en="Nestled near Manu Bridge on Taltola, Kulaura Road, Moulvibazar, Rangauti Resort is a tranquil retreat where the beauty of nature meets modern comfort."
+   data-bn="মৌলভীবাজারের কুলাউড়া রোডের তালতলায় মনু ব্রিজের কাছে অবস্থিত রাঙাউটি রিসোর্ট একটি শান্তিপূর্ণ অবকাশযাপন কেন্দ্র, যেখানে প্রকৃতির সৌন্দর্যের সঙ্গে আধুনিক আরামের মিলন ঘটেছে।">
+    Nestled near Manu Bridge on Taltola, Kulaura Road, Moulvibazar, Rangauti Resort is a tranquil retreat where the beauty of nature meets modern comfort.
 </p>
 
-<p>
-Surrounded by peaceful natural landscapes, the resort offers comfortable rooms and suites, a refreshing swimming pool, dining facilities, and a variety of enjoyable experiences designed to make every visit relaxing and memorable.
+<p data-en="Surrounded by peaceful natural landscapes, the resort offers comfortable rooms and suites, a refreshing swimming pool, dining facilities, and a variety of enjoyable experiences designed to make every visit relaxing and memorable."
+   data-bn="শান্ত প্রাকৃতিক পরিবেশে ঘেরা এই রিসোর্টে রয়েছে আরামদায়ক রুম ও স্যুট, মনোরম সুইমিং পুল, ডাইনিং সুবিধা এবং বিভিন্ন আনন্দদায়ক অভিজ্ঞতা, যা প্রতিটি ভ্রমণকে করে তোলে স্বস্তিদায়ক ও স্মরণীয়।">
+    Surrounded by peaceful natural landscapes, the resort offers comfortable rooms and suites, a refreshing swimming pool, dining facilities, and a variety of enjoyable experiences designed to make every visit relaxing and memorable.
 </p>
-<h3> Experience Nature • Embrace Comfort • Create Memories </h3>
-<p> Our facilities include comfortable accommodation, a swimming pool, restaurant and dining services, natural surroundings, and enjoyable activities such as <strong>Boat Ride</strong>. </p>
 
-<p> For families, groups, and special occasions, we also offer <strong>Day Long, Lunch, and other Visitor Packages</strong>, making it easy to plan a memorable day surrounded by nature. </p>
+<h3 data-en="Experience Nature • Embrace Comfort • Create Memories"
+    data-bn="প্রকৃতিকে অনুভব করুন • আরাম উপভোগ করুন • স্মৃতি তৈরি করুন">
+    Experience Nature • Embrace Comfort • Create Memories
+</h3>
 
-<p> Whether you are looking for a relaxing getaway, a family outing, or a beautiful setting for a special celebration, <strong>Rangauti Resort welcomes you to discover nature, enjoy comfort, and create memories worth keeping. 🌿</strong> </p>
+<p data-en="Our facilities include comfortable accommodation, a swimming pool, restaurant and dining services, natural surroundings, and enjoyable activities such as Boat Ride."
+   data-bn="আমাদের সুবিধার মধ্যে রয়েছে আরামদায়ক আবাসন, সুইমিং পুল, রেস্টুরেন্ট ও ডাইনিং সেবা, প্রাকৃতিক পরিবেশ এবং বোট রাইডের মতো আনন্দদায়ক কার্যক্রম।">
+    Our facilities include comfortable accommodation, a swimming pool, restaurant and dining services, natural surroundings, and enjoyable activities such as <strong>Boat Ride</strong>.
+</p>
+
+<p data-en="For families, groups, and special occasions, we also offer Day Long, Lunch, and other Visitor Packages, making it easy to plan a memorable day surrounded by nature."
+   data-bn="পরিবার, গ্রুপ এবং বিশেষ আয়োজনের জন্য আমরা Day Long, Lunch এবং অন্যান্য Visitor Packages-ও প্রদান করি, যার মাধ্যমে প্রকৃতির মাঝে একটি স্মরণীয় দিন পরিকল্পনা করা সহজ হয়।">
+    For families, groups, and special occasions, we also offer <strong>Day Long, Lunch, and other Visitor Packages</strong>, making it easy to plan a memorable day surrounded by nature.
+</p>
+
+<p data-en="Whether you are looking for a relaxing getaway, a family outing, or a beautiful setting for a special celebration, Rangauti Resort welcomes you to discover nature, enjoy comfort, and create memories worth keeping. 🌿"
+   data-bn="আপনি যদি একটি আরামদায়ক অবকাশ, পারিবারিক ভ্রমণ অথবা বিশেষ আয়োজনের জন্য সুন্দর একটি পরিবেশ খুঁজে থাকেন, রাঙাউটি রিসোর্ট আপনাকে প্রকৃতি আবিষ্কার করতে, আরাম উপভোগ করতে এবং মনে রাখার মতো সুন্দর স্মৃতি তৈরি করতে স্বাগত জানায়। 🌿">
+    Whether you are looking for a relaxing getaway, a family outing, or a beautiful setting for a special celebration, <strong>Rangauti Resort welcomes you to discover nature, enjoy comfort, and create memories worth keeping. 🌿</strong>
+</p>
 
 </div>
 
 </section>
+
+
 <!-- =======================================================
      EXPLORE VIDEO
 ======================================================= -->
@@ -4424,11 +4629,14 @@ Surrounded by peaceful natural landscapes, the resort offers comfortable rooms a
 
     <div class="explore-video-header">
 
-        <span class="explore-video-label">
+        <span class="explore-video-label"
+              data-en="EXPLORE RANGAUTI"
+              data-bn="রাঙাউটি অন্বেষণ">
             EXPLORE RANGAUTI
         </span>
 
-        <h2>
+        <h2 data-en="Discover Rangauti Resort"
+            data-bn="রাঙাউটি রিসোর্ট আবিষ্কার করুন">
             Discover Rangauti Resort
         </h2>
 
@@ -4460,30 +4668,39 @@ Surrounded by peaceful natural landscapes, the resort offers comfortable rooms a
         <!-- RIGHT : DESCRIPTION -->
         <div class="explore-video-description">
 
-            <span class="explore-video-eyebrow">
+            <span class="explore-video-eyebrow"
+                  data-en="EXPERIENCE RANGAUTI"
+                  data-bn="রাঙাউটি অভিজ্ঞতা">
                 EXPERIENCE RANGAUTI
             </span>
 
-            <h3>
+            <h3 data-en="Where Nature Meets Comfort"
+                data-bn="যেখানে প্রকৃতির সঙ্গে আরামের মিলন">
                 Where Nature Meets Comfort
             </h3>
 
-            <p>
+            <p data-en="Discover the peaceful beauty and unforgettable experiences of Rangauti Resort. Surrounded by natural scenery, scenic lake views and refreshing surroundings, the resort offers a perfect escape from everyday life."
+               data-bn="রাঙাউটি রিসোর্টের শান্ত সৌন্দর্য এবং স্মরণীয় অভিজ্ঞতাগুলো আবিষ্কার করুন। প্রাকৃতিক দৃশ্য, মনোরম লেক ভিউ এবং সতেজ পরিবেশে ঘেরা এই রিসোর্ট দৈনন্দিন জীবনের ব্যস্ততা থেকে একটি সুন্দর অবকাশের সুযোগ দেয়।">
                 Discover the peaceful beauty and unforgettable experiences
                 of Rangauti Resort. Surrounded by natural scenery, scenic
                 lake views and refreshing surroundings, the resort offers
                 a perfect escape from everyday life.
             </p>
 
-            <p>
+            <p data-en="Take a moment to explore Rangauti Resort through our video and discover the beauty waiting for you."
+               data-bn="আমাদের ভিডিওর মাধ্যমে রাঙাউটি রিসোর্ট ঘুরে দেখুন এবং আপনার জন্য অপেক্ষা করা সৌন্দর্য আবিষ্কার করুন।">
                 Take a moment to explore Rangauti Resort through our video
                 and discover the beauty waiting for you.
             </p>
 
             <button class="explore-videos-btn"
-                    onclick="window.location.href='Photos%20Or%20Video.html'">
+                    onclick="window.location.href='Photos%20Or%20Video.html'"
+                    data-en="EXPLORE MORE PHOTOS OR VIDEOS"
+                    data-bn="আরও ছবি বা ভিডিও দেখুন">
+
                 EXPLORE MORE PHOTOS OR VIDEOS
                 <span>→</span>
+
             </button>
 
         </div>
@@ -4491,9 +4708,6 @@ Surrounded by peaceful natural landscapes, the resort offers comfortable rooms a
     </div>
 
 </section>
-
-
-
 
 <!-- =======================================================
      PACKAGES
@@ -4505,15 +4719,21 @@ Surrounded by peaceful natural landscapes, the resort offers comfortable rooms a
 
 <div class="section-head">
 
-<div class="eyebrow">
+<div class="eyebrow"
+     data-en="VISITOR EXPERIENCES"
+     data-bn="ভ্রমণ অভিজ্ঞতা">
 VISITOR EXPERIENCES
 </div>
 
-<h2>
+<h2
+    data-en="Resort Packages"
+    data-bn="রিসোর্ট প্যাকেজসমূহ">
 Resort Packages
 </h2>
 
-<p>
+<p
+    data-en="Choose an experience that suits your day — from a complete day-long escape to a refreshing swimming or beverage package."
+    data-bn="আপনার দিনের জন্য উপযুক্ত অভিজ্ঞতা বেছে নিন — সম্পূর্ণ ডে লং অবকাশ থেকে শুরু করে সতেজ সুইমিং বা বেভারেজ প্যাকেজ পর্যন্ত।">
 Choose an experience that suits your day — from a complete day-long
 escape to a refreshing swimming or beverage package.
 </p>
@@ -4531,13 +4751,15 @@ escape to a refreshing swimming or beverage package.
 <div class="package-image">
 
 <img src="images/packages/day-long.jpeg"
-  alt="Day Long Package">
+     alt="Day Long Package">
 
 </div>
 
 <div class="package-content">
 
-<h3>
+<h3
+    data-en="Day Long"
+    data-bn="ডে লং">
 Day Long
 </h3>
 
@@ -4545,22 +4767,28 @@ Day Long
 BDT 1,800 / Person
 </div>
 
-
-
-<div class="package-note">
+<div class="package-note"
+     data-en="Advance payment is required to confirm booking."
+     data-bn="বুকিং নিশ্চিত করতে অগ্রিম পেমেন্ট প্রয়োজন।">
 Advance payment is required to confirm booking.
 </div>
 
 <div class="package-actions">
 
 <button class="small-btn"
-onclick="openPackageDetails('dayLongDetails')">
-VIEW </button>
+        onclick="openPackageDetails('dayLongDetails')"
+        data-en="VIEW"
+        data-bn="দেখুন">
+VIEW
+</button>
 
 <a class="small-btn whatsapp"
-href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Day%20Long%20Package."
-target="_blank">
-BOOK NOW </a>
+   href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Day%20Long%20Package."
+   target="_blank"
+   data-en="BOOK NOW"
+   data-bn="বুক করুন">
+BOOK NOW
+</a>
 
 </div>
 
@@ -4582,7 +4810,9 @@ BOOK NOW </a>
 
 <div class="package-content">
 
-<h3>
+<h3
+    data-en="Lunch"
+    data-bn="লাঞ্চ">
 Lunch
 </h3>
 
@@ -4590,23 +4820,27 @@ Lunch
 BDT 1,100 / Person
 </div>
 
-
-
-<div class="package-note">
+<div class="package-note"
+     data-en="Advance payment is required to confirm booking."
+     data-bn="বুকিং নিশ্চিত করতে অগ্রিম পেমেন্ট প্রয়োজন।">
 Advance payment is required to confirm booking.
 </div>
 
 <div class="package-actions">
 
 <button class="small-btn"
-        onclick="openPackageDetails('lunchDetails')">
-    VIEW
+        onclick="openPackageDetails('lunchDetails')"
+        data-en="VIEW"
+        data-bn="দেখুন">
+VIEW
 </button>
 
 <a class="small-btn whatsapp"
    href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Lunch%20Package."
-   target="_blank">
-    BOOK NOW
+   target="_blank"
+   data-en="BOOK NOW"
+   data-bn="বুক করুন">
+BOOK NOW
 </a>
 
 </div>
@@ -4629,7 +4863,9 @@ Advance payment is required to confirm booking.
 
 <div class="package-content">
 
-<h3>
+<h3
+    data-en="Snacks"
+    data-bn="স্ন্যাকস">
 Snacks
 </h3>
 
@@ -4637,20 +4873,26 @@ Snacks
 BDT 700 / Person
 </div>
 
-<div class="package-note">
+<div class="package-note"
+     data-en="No advance payment required. Pay at resort."
+     data-bn="অগ্রিম পেমেন্ট প্রয়োজন নেই। রিসোর্টে পেমেন্ট করুন।">
 No advance payment required. Pay at resort.
 </div>
 
 <div class="package-actions">
 
 <button class="small-btn"
-        onclick="openPackageDetails('snacksDetails')">
-    VIEW
+        onclick="openPackageDetails('snacksDetails')"
+        data-en="VIEW"
+        data-bn="দেখুন">
+VIEW
 </button>
 
 <a class="small-btn whatsapp"
-href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20know%20about%20the%20Snacks%20Package."
-target="_blank">
+   href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20know%20about%20the%20Snacks%20Package."
+   target="_blank"
+   data-en="BOOK NOW"
+   data-bn="বুক করুন">
 BOOK NOW
 </a>
 
@@ -4660,43 +4902,56 @@ BOOK NOW
 
 </div>
 
+
 <!-- ENTRY WITH SWIMMING -->
 
 <div class="package-card">
 
-    <div class="package-image">
-        <img src="images/packages/swimming.jpeg"
-             alt="Entry With Swimming">
-    </div>
+<div class="package-image">
 
-    <div class="package-content">
+<img src="images/packages/swimming.jpeg"
+     alt="Entry With Swimming">
 
-        <h3>Swimming</h3>
+</div>
 
-        <div class="package-price">
-            BDT 800 / Person
-        </div>
+<div class="package-content">
 
-        <div class="package-note">
-            No advance payment required. Pay at resort.
-        </div>
+<h3
+    data-en="Swimming"
+    data-bn="সুইমিং">
+Swimming
+</h3>
 
-        <div class="package-actions">
+<div class="package-price">
+BDT 800 / Person
+</div>
 
-            <button class="small-btn"
-                    onclick="openPackageDetails('swimmingDetails')">
-                VIEW
-            </button>
+<div class="package-note"
+     data-en="No advance payment required. Pay at resort."
+     data-bn="অগ্রিম পেমেন্ট প্রয়োজন নেই। রিসোর্টে পেমেন্ট করুন।">
+No advance payment required. Pay at resort.
+</div>
 
-            <a class="small-btn whatsapp"
-               href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20know%20about%20the%20Swimming%20Package."
-               target="_blank">
-                BOOK NOW
-            </a>
+<div class="package-actions">
 
-        </div>
+<button class="small-btn"
+        onclick="openPackageDetails('swimmingDetails')"
+        data-en="VIEW"
+        data-bn="দেখুন">
+VIEW
+</button>
 
-    </div>
+<a class="small-btn whatsapp"
+   href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20know%20about%20the%20Swimming%20Package."
+   target="_blank"
+   data-en="BOOK NOW"
+   data-bn="বুক করুন">
+BOOK NOW
+</a>
+
+</div>
+
+</div>
 
 </div>
 
@@ -4714,7 +4969,9 @@ BOOK NOW
 
 <div class="package-content">
 
-<h3>
+<h3
+    data-en="Beverage"
+    data-bn="বেভারেজ">
 Beverage
 </h3>
 
@@ -4722,22 +4979,26 @@ Beverage
 BDT 500 / Person
 </div>
 
-
-
-<div class="package-note">
+<div class="package-note"
+     data-en="No advance payment required. Pay at resort."
+     data-bn="অগ্রিম পেমেন্ট প্রয়োজন নেই। রিসোর্টে পেমেন্ট করুন।">
 No advance payment required. Pay at resort.
 </div>
 
 <div class="package-actions">
 
 <button class="small-btn"
-        onclick="openPackageDetails('beverageDetails')">
-    VIEW
+        onclick="openPackageDetails('beverageDetails')"
+        data-en="VIEW"
+        data-bn="দেখুন">
+VIEW
 </button>
 
 <a class="small-btn whatsapp"
-href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20know%20about%20the%20Beverage%20Package."
-target="_blank">
+   href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20know%20about%20the%20Beverage%20Package."
+   target="_blank"
+   data-en="BOOK NOW"
+   data-bn="বুক করুন">
 BOOK NOW
 </a>
 
@@ -4750,6 +5011,7 @@ BOOK NOW
 </section>
 
 
+
 <!-- =======================================================
      ROOMS
 ======================================================= -->
@@ -4760,17 +5022,23 @@ BOOK NOW
 
 <div class="section-head">
 
-<div class="eyebrow">
-STAY WITH US
+<div class="eyebrow"
+     data-en="STAY WITH US"
+     data-bn="আমাদের সাথে থাকুন">
+    STAY WITH US
 </div>
 
-<h2>
-Rooms & Suites
+<h2
+    data-en="Rooms & Suites"
+    data-bn="রুম ও স্যুট">
+    Rooms & Suites
 </h2>
 
-<p>
-Choose from comfortable rooms and suites designed to make your
-stay peaceful, private and memorable.
+<p
+    data-en="Choose from comfortable rooms and suites designed to make your stay peaceful, private and memorable."
+    data-bn="আপনার অবস্থানকে শান্তিপূর্ণ, ব্যক্তিগত এবং স্মরণীয় করে তুলতে তৈরি আরামদায়ক রুম ও স্যুট থেকে বেছে নিন।">
+    Choose from comfortable rooms and suites designed to make your
+    stay peaceful, private and memorable.
 </p>
 
 </div>
@@ -4787,20 +5055,20 @@ stay peaceful, private and memorable.
 <div class="room-card-slideshow">
 
 <img src="rooms/gallery/super-family-deluxe/room1.jpeg"
-  alt="Super Family Deluxe Lake View"
-  class="room-slide active">
+     alt="Super Family Deluxe Lake View"
+     class="room-slide active">
 
 <img src="rooms/gallery/super-family-deluxe/room2.jpeg"
-  alt="Super Family Deluxe Lake View"
-  class="room-slide">
+     alt="Super Family Deluxe Lake View"
+     class="room-slide">
 
 <img src="rooms/gallery/super-family-deluxe/room3.jpeg"
-  alt="Super Family Deluxe Lake View"
-  class="room-slide">
+     alt="Super Family Deluxe Lake View"
+     class="room-slide">
 
 <img src="rooms/gallery/super-family-deluxe/room4.jpeg"
-  alt="Super Family Deluxe Lake View"
-  class="room-slide">
+     alt="Super Family Deluxe Lake View"
+     class="room-slide">
 
 </div>
 
@@ -4808,22 +5076,30 @@ stay peaceful, private and memorable.
 
 <div class="room-content">
 
-<h3>
-Super Family Deluxe
+<h3
+    data-en="Super Family Deluxe"
+    data-bn="সুপার ফ্যামিলি ডিলাক্স">
+    Super Family Deluxe
 </h3>
 
-<div class="room-view">
-Lake View
+<div class="room-view"
+     data-en="Lake View"
+     data-bn="লেক ভিউ">
+    Lake View
 </div>
 
 <div class="room-info">
 
-<div class="room-price">
-BDT 8,400 / Night
+<div class="room-price"
+     data-en="BDT 8,400"
+     data-bn="৮,৪০০ টাকা">
+    BDT 8,400
 </div>
 
-<div class="room-capacity">
-Up to 4 Persons
+<div class="room-capacity"
+     data-en="Up to 4 Persons"
+     data-bn="সর্বোচ্চ ৪ জন">
+    Up to 4 Persons
 </div>
 
 </div>
@@ -4831,13 +5107,17 @@ Up to 4 Persons
 <div class="room-actions">
 
 <button class="small-btn"
-onclick="openRoomDetails('superFamilyDetails')">
-VIEW
+        onclick="openRoomDetails('superFamilyDetails')"
+        data-en="VIEW"
+        data-bn="দেখুন">
+    VIEW
 </button>
 
 <a href="booking.html?room=Super%20Family%20Deluxe"
-   class="small-btn whatsapp">
-BOOK NOW
+   class="small-btn whatsapp"
+   data-en="BOOK NOW"
+   data-bn="বুক করুন">
+    BOOK NOW
 </a>
 
 </div>
@@ -4845,7 +5125,6 @@ BOOK NOW
 </div>
 
 </div>
-
 
 <!-- ROOM 2 -->
 
@@ -4877,22 +5156,30 @@ BOOK NOW
 
 <div class="room-content">
 
-<h3>
-Family Deluxe
+<h3
+    data-en="Family Deluxe"
+    data-bn="ফ্যামিলি ডিলাক্স">
+    Family Deluxe
 </h3>
 
-<div class="room-view">
-Lake View
+<div class="room-view"
+     data-en="Lake View"
+     data-bn="লেক ভিউ">
+    Lake View
 </div>
 
 <div class="room-info">
 
-<div class="room-price">
-BDT 7,200 / Night
+<div class="room-price"
+    data-en="BDT 7,200"
+    data-bn="৭,২০০ টাকা">
+    BDT 7,200 / Night
 </div>
 
-<div class="room-capacity">
-Up to 3 Persons
+<div class="room-capacity"
+     data-en="Up to 3 Persons"
+     data-bn="সর্বোচ্চ ৩ জন">
+    Up to 3 Persons
 </div>
 
 </div>
@@ -4900,15 +5187,18 @@ Up to 3 Persons
 <div class="room-actions">
 
 <button class="small-btn"
-        onclick="openRoomDetails('familyDeluxeDetails')">
+        onclick="openRoomDetails('familyDeluxeDetails')"
+        data-en="VIEW"
+        data-bn="দেখুন">
     VIEW
 </button>
 
 <a href="booking.html?room=Family%20Deluxe"
-   class="small-btn whatsapp">
+   class="small-btn whatsapp"
+   data-en="BOOK NOW"
+   data-bn="বুক করুন">
     BOOK NOW
 </a>
-
 
 </div>
 
@@ -4956,22 +5246,30 @@ Up to 3 Persons
 
 <div class="room-content">
 
-<h3>
-Super Deluxe
+<h3
+    data-en="Super Deluxe"
+    data-bn="সুপার ডিলাক্স">
+    Super Deluxe
 </h3>
 
-<div class="room-view">
-Garden / Cottage
+<div class="room-view"
+     data-en="Garden / Cottage"
+     data-bn="গার্ডেন / কটেজ">
+    Garden / Cottage
 </div>
 
 <div class="room-info">
 
-<div class="room-price">
-BDT 7,200 / Night
+<div class="room-price"
+    data-en="BDT 7,200"
+    data-bn="৭,২০০ টাকা">
+    BDT 7,200 / Night
 </div>
 
-<div class="room-capacity">
-Up to 2 Persons
+<div class="room-capacity"
+     data-en="Up to 2 Persons"
+     data-bn="সর্বোচ্চ ২ জন">
+    Up to 2 Persons
 </div>
 
 </div>
@@ -4980,13 +5278,17 @@ Up to 2 Persons
 
 <button type="button"
         class="small-btn"
-        onclick="openRoomDetails('cottageDetails')">
+        onclick="openRoomDetails('cottageDetails')"
+        data-en="VIEW"
+        data-bn="দেখুন">
     VIEW
 </button>
 
 <a href="booking.html?room=Super%20Deluxe%20-%20Cottage"
-   class="small-btn whatsapp">
-BOOK NOW
+   class="small-btn whatsapp"
+   data-en="BOOK NOW"
+   data-bn="বুক করুন">
+    BOOK NOW
 </a>
 
 </div>
@@ -4994,7 +5296,6 @@ BOOK NOW
 </div>
 
 </div>
-
 
 
 <!-- ROOM 4 -->
@@ -5024,24 +5325,33 @@ BOOK NOW
 </div>
 
 </div>
+
 <div class="room-content">
 
-<h3>
-Super Deluxe
+<h3
+    data-en="Super Deluxe"
+    data-bn="সুপার ডিলাক্স">
+    Super Deluxe
 </h3>
 
-<div class="room-view">
-Swimming Pool View
+<div class="room-view"
+     data-en="Swimming Pool View"
+     data-bn="সুইমিং পুল ভিউ">
+    Swimming Pool View
 </div>
 
 <div class="room-info">
 
-<div class="room-price">
-BDT 7,200 / Night
+<div class="room-price"
+    data-en="BDT 7,200"
+    data-bn="৭,২০০ টাকা">
+    BDT 7,200 / Night
 </div>
 
-<div class="room-capacity">
-Up to 2 Persons
+<div class="room-capacity"
+     data-en="Up to 2 Persons"
+     data-bn="সর্বোচ্চ ২ জন">
+    Up to 2 Persons
 </div>
 
 </div>
@@ -5049,12 +5359,16 @@ Up to 2 Persons
 <div class="room-actions">
 
 <button class="small-btn"
-onclick="openRoomDetails('superDeluxePoolDetails')">
+        onclick="openRoomDetails('superDeluxePoolDetails')"
+        data-en="VIEW"
+        data-bn="দেখুন">
     VIEW
 </button>
 
 <a href="booking.html?room=Super%20Deluxe%20-%20Swimming%20Pool%20View"
-   class="small-btn whatsapp">
+   class="small-btn whatsapp"
+   data-en="BOOK NOW"
+   data-bn="বুক করুন">
     BOOK NOW
 </a>
 
@@ -5103,22 +5417,30 @@ onclick="openRoomDetails('superDeluxePoolDetails')">
 
 <div class="room-content">
 
-<h3>
-Suite Jolojuchona
+<h3
+    data-en="Suite Jolojuchona"
+    data-bn="স্যুট জলজোছনা">
+    Suite Jolojuchona
 </h3>
 
-<div class="room-view">
-Floating Honeymoon Suite
+<div class="room-view"
+     data-en="Floating Honeymoon Suite"
+     data-bn="ফ্লোটিং হানিমুন স্যুট">
+    Floating Honeymoon Suite
 </div>
 
 <div class="room-info">
 
-<div class="room-price">
-BDT 12,000 / Night
+<div class="room-price"
+data-en="BDT 12,000" 
+data-bn="১২,০০০ টাকা">
+    BDT 12,000 / Night
 </div>
 
-<div class="room-capacity">
-Up to 2 Persons
+<div class="room-capacity"
+     data-en="Up to 2 Persons"
+     data-bn="সর্বোচ্চ ২ জন">
+    Up to 2 Persons
 </div>
 
 </div>
@@ -5126,12 +5448,16 @@ Up to 2 Persons
 <div class="room-actions">
 
 <button class="small-btn"
-onclick="openRoomDetails('jolojuchonaDetails')">
+        onclick="openRoomDetails('jolojuchonaDetails')"
+        data-en="VIEW"
+        data-bn="দেখুন">
     VIEW
 </button>
 
 <a href="booking.html?room=Suite%20Jolojuchona"
-   class="small-btn whatsapp">
+   class="small-btn whatsapp"
+   data-en="BOOK NOW"
+   data-bn="বুক করুন">
     BOOK NOW
 </a>
 
@@ -5140,7 +5466,6 @@ onclick="openRoomDetails('jolojuchonaDetails')">
 </div>
 
 </div>
-
 
 <!-- ROOM 6 -->
 
@@ -5172,22 +5497,30 @@ onclick="openRoomDetails('jolojuchonaDetails')">
 
 <div class="room-content">
 
-<h3>
-Special Family Deluxe
+<h3
+    data-en="Special Family Deluxe"
+    data-bn="স্পেশাল ফ্যামিলি ডিলাক্স">
+    Special Family Deluxe
 </h3>
 
-<div class="room-view">
-Swimming Pool View
+<div class="room-view"
+     data-en="Swimming Pool View"
+     data-bn="সুইমিং পুল ভিউ">
+    Swimming Pool View
 </div>
 
 <div class="room-info">
 
-<div class="room-price">
-BDT 8,400 / Night
+<div class="room-price"
+     data-en="BDT 8,400"
+     data-bn="৮,৪০০ টাকা">
+    BDT 8,400
 </div>
 
-<div class="room-capacity">
-Up to 3 Persons
+<div class="room-capacity"
+     data-en="Up to 3 Persons"
+     data-bn="সর্বোচ্চ ৩ জন">
+    Up to 3 Persons
 </div>
 
 </div>
@@ -5195,12 +5528,16 @@ Up to 3 Persons
 <div class="room-actions">
 
 <button class="small-btn"
-        onclick="openRoomDetails('specialFamilyDetails')">
+        onclick="openRoomDetails('specialFamilyDetails')"
+        data-en="VIEW"
+        data-bn="দেখুন">
     VIEW
 </button>
 
 <a href="booking.html?room=Special%20Family%20Deluxe"
-   class="small-btn whatsapp">
+   class="small-btn whatsapp"
+   data-en="BOOK NOW"
+   data-bn="বুক করুন">
     BOOK NOW
 </a>
 
@@ -5219,7 +5556,6 @@ Up to 3 Persons
 ======================================================= -->
 
 <div class="room7-wrap">
-
 
 <div class="room-card">
 
@@ -5246,24 +5582,33 @@ Up to 3 Persons
 </div>
 
 </div>
+
 <div class="room-content">
 
-<h3>
-Special Super Deluxe
+<h3
+    data-en="Special Super Deluxe"
+    data-bn="স্পেশাল সুপার ডিলাক্স">
+    Special Super Deluxe
 </h3>
 
-<div class="room-view">
-Lake View
+<div class="room-view"
+     data-en="Lake View"
+     data-bn="লেক ভিউ">
+    Lake View
 </div>
 
 <div class="room-info">
 
-<div class="room-price">
-BDT 8,400 / Night
+<div class="room-price"
+     data-en="BDT 8,400"
+     data-bn="৮,৪০০ টাকা">
+    BDT 8,400
 </div>
 
-<div class="room-capacity">
-Up to 2 Persons
+<div class="room-capacity"
+     data-en="Up to 2 Persons"
+     data-bn="সর্বোচ্চ ২ জন">
+    Up to 2 Persons
 </div>
 
 </div>
@@ -5271,12 +5616,16 @@ Up to 2 Persons
 <div class="room-actions">
 
 <button class="small-btn"
-        onclick="openRoomDetails('specialSuperDetails')">
+        onclick="openRoomDetails('specialSuperDetails')"
+        data-en="VIEW"
+        data-bn="দেখুন">
     VIEW
 </button>
 
 <a href="booking.html?room=Special%20Super%20Deluxe"
-   class="small-btn whatsapp">
+   class="small-btn whatsapp"
+   data-en="BOOK NOW"
+   data-bn="বুক করুন">
     BOOK NOW
 </a>
 
@@ -5284,7 +5633,10 @@ Up to 2 Persons
 
 </div>
 
+</div>
+
 </section>
+
 <!-- =========================================================
      PAYMENT METHODS
 ========================================================= -->
@@ -5294,82 +5646,166 @@ Up to 2 Persons
     <div class="payment-container">
 
         <div class="payment-heading">
+
             <span class="payment-icon">💳</span>
-            <h2>PAYMENT METHODS</h2>
-            <p>We Accept Payments Via:</p>
+
+            <h2
+                data-en="PAYMENT METHODS"
+                data-bn="পেমেন্ট পদ্ধতি">
+                পেমেন্ট পদ্ধতি
+            </h2>
+
+            <p
+                data-en="We Accept Payments Via:"
+                data-bn="আমরা যেসব মাধ্যমে পেমেন্ট গ্রহণ করি:">
+                আমরা যেসব মাধ্যমে পেমেন্ট গ্রহণ করি:
+            </p>
+
         </div>
 
 
         <div class="payment-grid">
 
+
             <!-- bKash -->
+
             <div class="payment-card">
+
                 <div class="payment-logo">
+
                     <img src="images/payment/bkash.png"
                          alt="bKash">
+
                 </div>
-                <h3>bKash</h3>
+
+                <h3
+                    data-en="bKash"
+                    data-bn="বিকাশ">
+                    বিকাশ
+                </h3>
+
             </div>
 
 
             <!-- Nagad -->
+
             <div class="payment-card">
+
                 <div class="payment-logo">
+
                     <img src="images/payment/nagad.png"
                          alt="Nagad">
+
                 </div>
-                <h3>Nagad</h3>
+
+                <h3
+                    data-en="Nagad"
+                    data-bn="নগদ">
+                    নগদ
+                </h3>
+
             </div>
 
 
             <!-- Bank Transfer -->
+
             <div class="payment-card">
+
                 <div class="payment-logo bank-logo">
+
                     <img src="images/payment/bank-transfer.png"
                          alt="Bank Transfer">
+
                 </div>
-                <h3>Bank Transfer</h3>
+
+                <h3
+                    data-en="Bank Transfer"
+                    data-bn="ব্যাংক ট্রান্সফার">
+                    ব্যাংক ট্রান্সফার
+                </h3>
+
             </div>
 
 
             <!-- Cash Payment -->
+
             <div class="payment-card">
+
                 <div class="payment-logo">
+
                     <img src="images/payment/cash.png"
                          alt="Cash Payment">
+
                 </div>
-                <h3>Cash Payment</h3>
+
+                <h3
+                    data-en="Cash Payment"
+                    data-bn="ক্যাশ পেমেন্ট">
+                    ক্যাশ পেমেন্ট
+                </h3>
+
             </div>
 
 
             <!-- Visa -->
+
             <div class="payment-card">
+
                 <div class="payment-logo">
+
                     <img src="images/payment/visa.png"
                          alt="Visa">
+
                 </div>
-                <h3>Visa</h3>
+
+                <h3
+                    data-en="Visa"
+                    data-bn="ভিসা">
+                    ভিসা
+                </h3>
+
             </div>
 
 
             <!-- Mastercard -->
+
             <div class="payment-card">
+
                 <div class="payment-logo">
+
                     <img src="images/payment/mastercard.png"
                          alt="Mastercard">
+
                 </div>
-                <h3>Mastercard</h3>
+
+                <h3
+                    data-en="Mastercard"
+                    data-bn="মাস্টারকার্ড">
+                    মাস্টারকার্ড
+                </h3>
+
             </div>
 
 
             <!-- American Express -->
+
             <div class="payment-card">
+
                 <div class="payment-logo">
+
                     <img src="images/payment/american-express.png"
                          alt="American Express">
+
                 </div>
-                <h3>American Express</h3>
+
+                <h3
+                    data-en="American Express"
+                    data-bn="আমেরিকান এক্সপ্রেস">
+                    আমেরিকান এক্সপ্রেস
+                </h3>
+
             </div>
+
 
         </div>
 
@@ -5384,119 +5820,142 @@ Up to 2 Persons
 <section class="section contact-section"
          id="contact">
 
+    <div class="section-head">
 
-<div class="section-head">
+        <div class="eyebrow"
+             data-en="GET IN TOUCH"
+             data-bn="যোগাযোগ করুন">
+            যোগাযোগ করুন
+        </div>
 
-<div class="eyebrow">
-GET IN TOUCH
-</div>
+        <h2
+            data-en="Contact Rangauti Resort"
+            data-bn="রাঙ্গাউটি রিসোর্টে যোগাযোগ করুন">
+            রাঙ্গাউটি রিসোর্টে যোগাযোগ করুন
+        </h2>
 
-<h2>
-Contact Rangauti Resort
-</h2>
+        <p
+            data-en="For room availability, packages and booking assistance, please contact our team."
+            data-bn="রুমের প্রাপ্যতা, প্যাকেজ এবং বুকিং সহায়তার জন্য আমাদের টিমের সাথে যোগাযোগ করুন।">
+            রুমের প্রাপ্যতা, প্যাকেজ এবং বুকিং সহায়তার জন্য
+            আমাদের টিমের সাথে যোগাযোগ করুন।
+        </p>
 
-<p>
-For room availability, packages and booking assistance,
-please contact our team.
-</p>
-
-</div>
-
-
-<div class="contact-grid">
-
-
-<!-- PHONE 1 -->
-
-<div class="contact-card">
-
-<span>
-PHONE
-</span>
-
-<h3>
-01780-203350
-</h3>
-
-<p>
-
-<a href="tel:01780203350">
-Call Rangauti Resort
-</a>
-
-</p>
-
-</div>
+    </div>
 
 
-<!-- PHONE 2 -->
-
-<div class="contact-card">
-
-<span>
-PHONE
-</span>
-
-<h3>
-01334-921419
-</h3>
-
-<p>
-
-<a href="tel:01334921419">
-Call Rangauti Resort
-</a>
-
-</p>
-
-</div>
+    <div class="contact-grid">
 
 
-<!-- EMAIL -->
+        <!-- PHONE 1 -->
 
-<div class="contact-card">
+        <div class="contact-card">
 
-<span>
-EMAIL
-</span>
+            <span
+                data-en="PHONE"
+                data-bn="ফোন">
+                ফোন
+            </span>
 
-<h3>
-Email Us
-</h3>
+            <h3>
+                01780-203350
+            </h3>
 
-<p>
+            <p>
 
-<a href="mailto:info.rangautiresort@gmail.com">
-info.rangautiresort@gmail.com
-</a>
+                <a href="tel:01780203350"
+                   data-en="Call Rangauti Resort"
+                   data-bn="রাঙ্গাউটি রিসোর্টে কল করুন">
+                    রাঙ্গাউটি রিসোর্টে কল করুন
+                </a>
 
-</p>
+            </p>
 
-</div>
-
-
-<!-- LOCATION -->
-
-<div class="contact-card">
-
-<span>
-LOCATION
-</span>
-
-<h3>
-Visit Us
-</h3>
-
-<p>
-Near Monu Barrage,<br>
-Taltola, Kulaura Road,<br>
-Moulvibazar-3200, Sylhet
-</p>
-
-</div>
+        </div>
 
 
-</div>
+        <!-- PHONE 2 -->
+
+        <div class="contact-card">
+
+            <span
+                data-en="PHONE"
+                data-bn="ফোন">
+                ফোন
+            </span>
+
+            <h3>
+                01334-921419
+            </h3>
+
+            <p>
+
+                <a href="tel:01334921419"
+                   data-en="Call Rangauti Resort"
+                   data-bn="রাঙ্গাউটি রিসোর্টে কল করুন">
+                    রাঙ্গাউটি রিসোর্টে কল করুন
+                </a>
+
+            </p>
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="contact-card">
+
+            <span
+                data-en="EMAIL"
+                data-bn="ইমেইল">
+                ইমেইল
+            </span>
+
+            <h3
+                data-en="Email Us"
+                data-bn="ইমেইল করুন">
+                ইমেইল করুন
+            </h3>
+
+            <p>
+
+                <a href="mailto:info.rangautiresort@gmail.com">
+                    info.rangautiresort@gmail.com
+                </a>
+
+            </p>
+
+        </div>
+
+
+        <!-- LOCATION -->
+
+        <div class="contact-card">
+
+            <span
+                data-en="LOCATION"
+                data-bn="ঠিকানা">
+                ঠিকানা
+            </span>
+
+            <h3
+                data-en="Visit Us"
+                data-bn="আমাদের ঠিকানা">
+                আমাদের ঠিকানা
+            </h3>
+
+            <p
+                data-en="Near Monu Barrage, Taltola, Kulaura Road, Moulvibazar-3200, Sylhet"
+                data-bn="মণু ব্যারেজের কাছে, তলতলা, কুলাউড়া রোড, মৌলভীবাজার-৩২০০, সিলেট">
+                মণু ব্যারেজের কাছে,<br>
+                তলতলা, কুলাউড়া রোড,<br>
+                মৌলভীবাজার-৩২০০, সিলেট
+            </p>
+
+        </div>
+
+
+    </div>
 
 </section>
 
@@ -5508,18 +5967,22 @@ Moulvibazar-3200, Sylhet
 
     <div class="faq-head">
 
-        <div class="faq-eyebrow">
-            NEED TO KNOW
+        <div class="faq-eyebrow"
+             data-en="NEED TO KNOW"
+             data-bn="জেনে রাখা প্রয়োজন">
+            জেনে রাখা প্রয়োজন
         </div>
 
-        <h2>
-            Frequently Asked<br>
-            Questions
+        <h2
+            data-en="Frequently Asked Questions"
+            data-bn="সাধারণ জিজ্ঞাসা">
+            সাধারণ জিজ্ঞাসা
         </h2>
 
-        <p>
-            Find answers to some of the most common questions
-            about staying at Rangauti Resort.
+        <p
+            data-en="Find answers to some of the most common questions about staying at Rangauti Resort."
+            data-bn="রাঙ্গাউটি রিসোর্টে অবস্থান সম্পর্কে সাধারণ কিছু প্রশ্নের উত্তর এখানে পাওয়া যাবে।">
+            রাঙ্গাউটি রিসোর্টে অবস্থান সম্পর্কে সাধারণ কিছু প্রশ্নের উত্তর এখানে পাওয়া যাবে।
         </p>
 
     </div>
@@ -5534,8 +5997,10 @@ Moulvibazar-3200, Sylhet
 
             <button class="faq-question" type="button">
 
-                <span>
-                    How can I book a room?
+                <span
+                    data-en="How can I book a room?"
+                    data-bn="আমি কীভাবে একটি রুম বুক করতে পারি?">
+                    আমি কীভাবে একটি রুম বুক করতে পারি?
                 </span>
 
                 <span class="faq-icon">
@@ -5546,10 +6011,10 @@ Moulvibazar-3200, Sylhet
 
             <div class="faq-answer">
 
-                <p>
-                    You can book your stay through our online booking
-                    form or contact Rangauti Resort directly for booking
-                    assistance and availability.
+                <p
+                    data-en="You can book your stay through our online booking form or contact Rangauti Resort directly for booking assistance and availability."
+                    data-bn="আপনি আমাদের অনলাইন বুকিং ফর্মের মাধ্যমে রুম বুক করতে পারেন অথবা বুকিং সহায়তা ও রুমের availability জানতে সরাসরি রাঙ্গাউটি রিসোর্টে যোগাযোগ করতে পারেন।">
+                    আপনি আমাদের অনলাইন বুকিং ফর্মের মাধ্যমে রুম বুক করতে পারেন অথবা বুকিং সহায়তা ও রুমের availability জানতে সরাসরি রাঙ্গাউটি রিসোর্টে যোগাযোগ করতে পারেন।
                 </p>
 
             </div>
@@ -5563,8 +6028,10 @@ Moulvibazar-3200, Sylhet
 
             <button class="faq-question" type="button">
 
-                <span>
-                    How can I contact the resort?
+                <span
+                    data-en="How can I contact the resort?"
+                    data-bn="আমি কীভাবে রিসোর্টে যোগাযোগ করতে পারি?">
+                    আমি কীভাবে রিসোর্টে যোগাযোগ করতে পারি?
                 </span>
 
                 <span class="faq-icon">
@@ -5575,11 +6042,12 @@ Moulvibazar-3200, Sylhet
 
             <div class="faq-answer">
 
-                <p>
-                    You can contact us by phone at
-                    <strong>01780-203350</strong>, via WhatsApp,
-                    or by email at
-                    <strong>info.rangautiresort@gmail.com</strong>.
+                <p
+                    data-en="You can contact us by phone at 01780-203350, via WhatsApp, or by email at info.rangautiresort@gmail.com."
+                    data-bn="আপনি 01780-203350 নম্বরে ফোন, WhatsApp অথবা info.rangautiresort@gmail.com ইমেইলের মাধ্যমে আমাদের সাথে যোগাযোগ করতে পারেন।">
+                    আপনি 01780-203350 নম্বরে ফোন, WhatsApp অথবা
+                    info.rangautiresort@gmail.com ইমেইলের মাধ্যমে
+                    আমাদের সাথে যোগাযোগ করতে পারেন।
                 </p>
 
             </div>
@@ -5593,8 +6061,10 @@ Moulvibazar-3200, Sylhet
 
             <button class="faq-question" type="button">
 
-                <span>
-                    Where is Rangauti Resort located?
+                <span
+                    data-en="Where is Rangauti Resort located?"
+                    data-bn="রাঙ্গাউটি রিসোর্ট কোথায় অবস্থিত?">
+                    রাঙ্গাউটি রিসোর্ট কোথায় অবস্থিত?
                 </span>
 
                 <span class="faq-icon">
@@ -5605,10 +6075,11 @@ Moulvibazar-3200, Sylhet
 
             <div class="faq-answer">
 
-                <p>
-                    Rangauti Resort is located near
-                    <strong>Manu Bridge, Taltola, Kulaura Road,
-                    Moulvibazar, Sylhet</strong>.
+                <p
+                    data-en="Rangauti Resort is located near Manu Bridge, Taltola, Kulaura Road, Moulvibazar, Sylhet."
+                    data-bn="রাঙ্গাউটি রিসোর্ট মণু ব্রিজের কাছে, তলতলা, কুলাউড়া রোড, মৌলভীবাজার, সিলেটে অবস্থিত।">
+                    রাঙ্গাউটি রিসোর্ট মণু ব্রিজের কাছে,
+                    তলতলা, কুলাউড়া রোড, মৌলভীবাজার, সিলেটে অবস্থিত।
                 </p>
 
             </div>
@@ -5622,8 +6093,10 @@ Moulvibazar-3200, Sylhet
 
             <button class="faq-question" type="button">
 
-                <span>
-                    Is parking available?
+                <span
+                    data-en="Is parking available?"
+                    data-bn="পার্কিংয়ের ব্যবস্থা আছে কি?">
+                    পার্কিংয়ের ব্যবস্থা আছে কি?
                 </span>
 
                 <span class="faq-icon">
@@ -5634,8 +6107,10 @@ Moulvibazar-3200, Sylhet
 
             <div class="faq-answer">
 
-                <p>
-                    Yes. Parking is available for our guests.
+                <p
+                    data-en="Yes. Parking is available for our guests."
+                    data-bn="হ্যাঁ। আমাদের অতিথিদের জন্য পার্কিংয়ের ব্যবস্থা রয়েছে।">
+                    হ্যাঁ। আমাদের অতিথিদের জন্য পার্কিংয়ের ব্যবস্থা রয়েছে।
                 </p>
 
             </div>
@@ -5649,8 +6124,10 @@ Moulvibazar-3200, Sylhet
 
             <button class="faq-question" type="button">
 
-                <span>
-                    Is Wi-Fi available?
+                <span
+                    data-en="Is Wi-Fi available?"
+                    data-bn="Wi-Fi কি পাওয়া যায়?">
+                    Wi-Fi কি পাওয়া যায়?
                 </span>
 
                 <span class="faq-icon">
@@ -5661,8 +6138,10 @@ Moulvibazar-3200, Sylhet
 
             <div class="faq-answer">
 
-                <p>
-                    Yes. Wi-Fi is available for in-house guests.
+                <p
+                    data-en="Yes. Wi-Fi is available for in-house guests."
+                    data-bn="হ্যাঁ। রিসোর্টে অবস্থানরত অতিথিদের জন্য Wi-Fi সুবিধা রয়েছে।">
+                    হ্যাঁ। রিসোর্টে অবস্থানরত অতিথিদের জন্য Wi-Fi সুবিধা রয়েছে।
                 </p>
 
             </div>
@@ -5676,8 +6155,10 @@ Moulvibazar-3200, Sylhet
 
             <button class="faq-question" type="button">
 
-                <span>
-                    Is the swimming pool available for guests?
+                <span
+                    data-en="Is the swimming pool available for guests?"
+                    data-bn="অতিথিদের জন্য কি সুইমিং পুল ব্যবহার করা যায়?">
+                    অতিথিদের জন্য কি সুইমিং পুল ব্যবহার করা যায়?
                 </span>
 
                 <span class="faq-icon">
@@ -5688,10 +6169,11 @@ Moulvibazar-3200, Sylhet
 
             <div class="faq-answer">
 
-                <p>
-                    Yes. Swimming pool access is available for
-                    in-house guests, subject to the resort's
-                    operating schedule.
+                <p
+                    data-en="Yes. Swimming pool access is available for in-house guests, subject to the resort's operating schedule."
+                    data-bn="হ্যাঁ। রিসোর্টের নির্ধারিত সময়সূচি অনুযায়ী রিসোর্টে অবস্থানরত অতিথিরা সুইমিং পুল ব্যবহার করতে পারবেন।">
+                    হ্যাঁ। রিসোর্টের নির্ধারিত সময়সূচি অনুযায়ী
+                    রিসোর্টে অবস্থানরত অতিথিরা সুইমিং পুল ব্যবহার করতে পারবেন।
                 </p>
 
             </div>
@@ -5705,8 +6187,10 @@ Moulvibazar-3200, Sylhet
 
             <button class="faq-question" type="button">
 
-                <span>
-                    What facilities are included with the room?
+                <span
+                    data-en="What facilities are included with the room?"
+                    data-bn="রুমের সাথে কী কী সুবিধা অন্তর্ভুক্ত রয়েছে?">
+                    রুমের সাথে কী কী সুবিধা অন্তর্ভুক্ত রয়েছে?
                 </span>
 
                 <span class="faq-icon">
@@ -5717,18 +6201,19 @@ Moulvibazar-3200, Sylhet
 
             <div class="faq-answer">
 
-                <p>
-                    Room guests can enjoy complimentary facilities
-                    such as <strong>Welcome Drinks, Breakfast Included,
-                    Swimming Pool Access, 24/7 Room Service, Cycling &
-                    Pool Billiard, Kayaking Boat, Kids Playground,
-                    and Wi-Fi</strong>, along with room amenities
-                    including Comfortable Bed, Wardrobe, Dressing Mirror,
-                    Mini Refrigerator, Electric Kettle, Complimentary
-                    Coffee Mini Pack, Power Backup, Daily Housekeeping,
-                    Common Veranda / Lake View, Towels, Air Conditioning,
-                    LED TV, Attached Bathroom, Hot & Cold Water, Shampoo,
-                    Soap, Toothbrush & Toothpaste.
+                <p
+                    data-en="Room guests can enjoy complimentary facilities such as Welcome Drinks, Breakfast Included, Swimming Pool Access, 24/7 Room Service, Cycling &amp; Pool Billiard, Kayaking Boat, Kids Playground, and Wi-Fi, along with room amenities including Comfortable Bed, Wardrobe, Dressing Mirror, Mini Refrigerator, Electric Kettle, Complimentary Coffee Mini Pack, Power Backup, Daily Housekeeping, Common Veranda / Lake View, Towels, Air Conditioning, LED TV, Attached Bathroom, Hot &amp; Cold Water, Shampoo, Soap, Toothbrush &amp; Toothpaste."
+                    data-bn="রুমের অতিথিরা স্বাগত পানীয়, ব্রেকফাস্ট, সুইমিং পুল ব্যবহার, ২৪/৭ রুম সার্ভিস, সাইক্লিং ও পুল বিলিয়ার্ড, কায়াকিং বোট, শিশুদের খেলার জায়গা এবং Wi-Fi-এর মতো অন্তর্ভুক্ত সুবিধা উপভোগ করতে পারবেন। এছাড়াও রয়েছে আরামদায়ক বেড, ওয়ারড্রোব, ড্রেসিং মিরর, মিনি রেফ্রিজারেটর, ইলেকট্রিক কেটলি, কমপ্লিমেন্টারি কফি মিনি প্যাক, পাওয়ার ব্যাকআপ, দৈনিক হাউসকিপিং, কমন ভেরান্ডা / লেক ভিউ, তোয়ালে, এয়ার কন্ডিশনিং, LED TV, অ্যাটাচড বাথরুম, গরম ও ঠান্ডা পানি, শ্যাম্পু, সাবান, টুথব্রাশ ও টুথপেস্ট।">
+                    রুমের অতিথিরা স্বাগত পানীয়, ব্রেকফাস্ট, সুইমিং পুল ব্যবহার,
+                    ২৪/৭ রুম সার্ভিস, সাইক্লিং ও পুল বিলিয়ার্ড, কায়াকিং বোট,
+                    শিশুদের খেলার জায়গা এবং Wi-Fi-এর মতো অন্তর্ভুক্ত সুবিধা
+                    উপভোগ করতে পারবেন। এছাড়াও রয়েছে আরামদায়ক বেড, ওয়ারড্রোব,
+                    ড্রেসিং মিরর, মিনি রেফ্রিজারেটর, ইলেকট্রিক কেটলি,
+                    কমপ্লিমেন্টারি কফি মিনি প্যাক, পাওয়ার ব্যাকআপ,
+                    দৈনিক হাউসকিপিং, কমন ভেরান্ডা / লেক ভিউ, তোয়ালে,
+                    এয়ার কন্ডিশনিং, LED TV, অ্যাটাচড বাথরুম,
+                    গরম ও ঠান্ডা পানি, শ্যাম্পু, সাবান,
+                    টুথব্রাশ ও টুথপেস্ট।
                 </p>
 
             </div>
@@ -5750,88 +6235,112 @@ Moulvibazar-3200, Sylhet
 <footer>
 
 
-<div class="footer-top">
+    <div class="footer-top">
 
 
-<div class="footer-brand">
+        <div class="footer-brand">
 
-<img src="images/logo.png"
-     alt="Rangauti Resort">
+            <img src="images/logo.png"
+                 alt="Rangauti Resort">
 
-<p>
-Experience nature, comfort and memorable moments at
-Rangauti Resort, Moulvibazar, Sylhet.
-</p>
+            <p
+                data-en="Experience nature, comfort and memorable moments at Rangauti Resort, Moulvibazar, Sylhet."
+                data-bn="মৌলভীবাজার, সিলেটের রাঙ্গাউটি রিসোর্টে উপভোগ করুন প্রকৃতি, আরাম এবং স্মরণীয় মুহূর্ত।">
+                মৌলভীবাজার, সিলেটের রাঙ্গাউটি রিসোর্টে উপভোগ করুন
+                প্রকৃতি, আরাম এবং স্মরণীয় মুহূর্ত।
+            </p>
 
-</div>
-
-
-<div class="footer-column">
-
-<h4>
-Explore
-</h4>
-
-<a href="#home">
-Home
-</a>
-
-<a href="facilities.html">
-Facilities
-</a>
-
-<a href="#packages">
-Packages
-</a>
-
-<a href="#rooms">
-Rooms & Suites
-</a>
-
-<a href="booking.html">
-Booking
-</a>
-
-</div>
+        </div>
 
 
-<div class="footer-column">
+        <div class="footer-column">
 
-<h4>
-Contact
-</h4>
+            <h4
+                data-en="Explore"
+                data-bn="এক্সপ্লোর">
+                এক্সপ্লোর
+            </h4>
 
-<a href="tel:01780203350">
-01780-203350
-</a>
+            <a href="#home"
+               data-en="Home"
+               data-bn="হোম">
+                হোম
+            </a>
 
-<a href="tel:01334921419">
-01334-921419
-</a>
+            <a href="facilities.html"
+               data-en="Facilities"
+               data-bn="সুবিধাসমূহ">
+                সুবিধাসমূহ
+            </a>
 
-<a href="mailto:info.rangautiresort@gmail.com">
-Email
-</a>
+            <a href="#packages"
+               data-en="Packages"
+               data-bn="প্যাকেজ">
+                প্যাকেজ
+            </a>
 
-<a href="https://www.facebook.com/rangautiresort"
-target="_blank">
-Facebook
-</a>
+            <a href="#rooms"
+               data-en="Rooms &amp; Suites"
+               data-bn="রুম ও সুইট">
+                রুম ও সুইট
+            </a>
 
-</div>
+            <a href="booking.html"
+               data-en="Booking"
+               data-bn="বুকিং">
+                বুকিং
+            </a>
+
+        </div>
 
 
-</div>
+        <div class="footer-column">
+
+            <h4
+                data-en="Contact"
+                data-bn="যোগাযোগ">
+                যোগাযোগ
+            </h4>
+
+            <a href="tel:01780203350">
+                01780-203350
+            </a>
+
+            <a href="tel:01334921419">
+                01334-921419
+            </a>
+
+            <a href="mailto:info.rangautiresort@gmail.com"
+               data-en="Email"
+               data-bn="ইমেইল">
+                ইমেইল
+            </a>
+
+            <a href="https://www.facebook.com/rangautiresort"
+               target="_blank"
+               data-en="Facebook"
+               data-bn="ফেসবুক">
+                ফেসবুক
+            </a>
+
+        </div>
 
 
-<div class="footer-bottom">
+    </div>
 
-© 2026 Rangauti Resort. All Rights Reserved.
 
-</div>
+    <div class="footer-bottom">
+
+        <span
+            data-en="© 2026 Rangauti Resort. All Rights Reserved."
+            data-bn="© ২০২৬ রাঙ্গাউটি রিসোর্ট। সর্বস্বত্ব সংরক্ষিত।">
+            © ২০২৬ রাঙ্গাউটি রিসোর্ট। সর্বস্বত্ব সংরক্ষিত।
+        </span>
+
+    </div>
+
 
 </footer>
-
 
 <!-- =======================================================
      WHATSAPP FLOAT
@@ -5847,6 +6356,7 @@ aria-label="WhatsApp">
 
 </a>
 </section>
+
 
 <!-- =======================================================
      DAY LONG PACKAGE DETAILS MODAL
@@ -5892,12 +6402,16 @@ aria-label="WhatsApp">
         <!-- RIGHT : DETAILS -->
         <div class="room-details-right">
 
-            <div class="eyebrow">
-                VISITOR EXPERIENCE
+            <div class="eyebrow"
+                 data-en="VISITOR EXPERIENCE"
+                 data-bn="ভিজিটর এক্সপেরিয়েন্স">
+                ভিজিটর এক্সপেরিয়েন্স
             </div>
 
-            <h2>
-                Day Long Package
+            <h2
+                data-en="Day Long Package"
+                data-bn="ডে লং প্যাকেজ">
+                ডে লং প্যাকেজ
             </h2>
 
             <div class="room-details-price">
@@ -5908,42 +6422,93 @@ aria-label="WhatsApp">
             <div class="room-detail-info">
 
                 <div>
-                    <strong>Timing</strong>
-                    <span>12:00 PM – 6:00 PM</span>
+                    <strong
+                        data-en="Timing"
+                        data-bn="সময়">
+                        সময়
+                    </strong>
+
+                    <span>
+                        12:00 PM – 6:00 PM
+                    </span>
                 </div>
 
                 <div>
-                    <strong>Package Type</strong>
-                    <span>Day Long Experience</span>
+                    <strong
+                        data-en="Package Type"
+                        data-bn="প্যাকেজের ধরন">
+                        প্যাকেজের ধরন
+                    </strong>
+
+                    <span
+                        data-en="Day Long Experience"
+                        data-bn="ডে লং এক্সপেরিয়েন্স">
+                        ডে লং এক্সপেরিয়েন্স
+                    </span>
                 </div>
 
             </div>
 
 
-            <h3>
-                Package Details
+            <h3
+                data-en="Package Details"
+                data-bn="প্যাকেজের বিস্তারিত">
+                প্যাকেজের বিস্তারিত
             </h3>
 
 
             <ul class="room-amenities">
 
-                <li>Resort Entry</li>
-                <li>1 Single Room (12 PM–6 PM)</li>
-                <li>Set Lunch</li>
-                <li>Swimming Pool Access</li>
-                <li>Celo Engine Boat Ride</li>
-                <li>Evening Tea / Coffee</li>
+                <li
+                    data-en="Resort Entry"
+                    data-bn="রিসোর্টে প্রবেশ">
+                    রিসোর্টে প্রবেশ
+                </li>
+
+                <li
+                    data-en="1 Single Room (12 PM–6 PM)"
+                    data-bn="১টি সিঙ্গেল রুম (দুপুর ১২টা–সন্ধ্যা ৬টা)">
+                    ১টি সিঙ্গেল রুম (দুপুর ১২টা–সন্ধ্যা ৬টা)
+                </li>
+
+                <li
+                    data-en="Set Lunch"
+                    data-bn="সেট লাঞ্চ">
+                    সেট লাঞ্চ
+                </li>
+
+                <li
+                    data-en="Swimming Pool Access"
+                    data-bn="সুইমিং পুল ব্যবহার">
+                    সুইমিং পুল ব্যবহার
+                </li>
+
+                <li
+                    data-en="Celo Engine Boat Ride"
+                    data-bn="সেলো ইঞ্জিন বোট রাইড">
+                    সেলো ইঞ্জিন বোট রাইড
+                </li>
+
+                <li
+                    data-en="Evening Tea / Coffee"
+                    data-bn="সন্ধ্যার চা / কফি">
+                    সন্ধ্যার চা / কফি
+                </li>
 
             </ul>
 
 
-            <h3>
-                Important Note
+            <h3
+                data-en="Important Note"
+                data-bn="গুরুত্বপূর্ণ তথ্য">
+                গুরুত্বপূর্ণ তথ্য
             </h3>
 
 
-            <p class="room-details-description">
-                Advance payment is required to confirm booking.
+            <p class="room-details-description"
+               data-en="Advance payment is required to confirm booking."
+               data-bn="বুকিং নিশ্চিত করার জন্য অগ্রিম পেমেন্ট করতে হবে।">
+                বুকিং নিশ্চিত করার জন্য অগ্রিম পেমেন্ট করতে হবে।
             </p>
 
 
@@ -5951,8 +6516,10 @@ aria-label="WhatsApp">
 
                 <a class="small-btn whatsapp"
                    href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Day%20Long%20Package."
-                   target="_blank">
-                    BOOK NOW
+                   target="_blank"
+                   data-en="BOOK NOW"
+                   data-bn="বুক করুন">
+                    বুক করুন
                 </a>
 
             </div>
@@ -5962,6 +6529,8 @@ aria-label="WhatsApp">
     </div>
 
 </div>
+
+
 
 <!-- =======================================================
      LUNCH PACKAGE — DETAILS
@@ -5985,11 +6554,10 @@ aria-label="WhatsApp">
             <div class="room-main-image">
 
                 <img
-                    
-    id="lunchMainImage"
-    src="images/packages/lunch.png"
-    alt="Lunch Package"
-    onclick="openPackageImage(this.src, this.alt)">
+                    id="lunchMainImage"
+                    src="images/packages/lunch.png"
+                    alt="Lunch Package"
+                    onclick="openPackageImage(this.src, this.alt)">
 
             </div>
 
@@ -6010,12 +6578,16 @@ aria-label="WhatsApp">
         <!-- RIGHT : DETAILS -->
         <div class="room-details-right">
 
-            <div class="eyebrow">
-                VISITOR EXPERIENCE
+            <div class="eyebrow"
+                 data-en="VISITOR EXPERIENCE"
+                 data-bn="ভিজিটর এক্সপেরিয়েন্স">
+                ভিজিটর এক্সপেরিয়েন্স
             </div>
 
-            <h2>
-                Lunch Package
+            <h2
+                data-en="Lunch Package"
+                data-bn="লাঞ্চ প্যাকেজ">
+                লাঞ্চ প্যাকেজ
             </h2>
 
             <div class="room-details-price">
@@ -6026,38 +6598,79 @@ aria-label="WhatsApp">
             <div class="room-detail-info">
 
                 <div>
-                    <strong>Timing</strong>
-                    <span>12:00 PM – 6:00 PM</span>
+                    <strong
+                        data-en="Timing"
+                        data-bn="সময়">
+                        সময়
+                    </strong>
+
+                    <span>
+                        12:00 PM – 6:00 PM
+                    </span>
                 </div>
 
                 <div>
-                    <strong>Package Type</strong>
-                    <span>Lunch Experience</span>
+                    <strong
+                        data-en="Package Type"
+                        data-bn="প্যাকেজের ধরন">
+                        প্যাকেজের ধরন
+                    </strong>
+
+                    <span
+                        data-en="Lunch Experience"
+                        data-bn="লাঞ্চ এক্সপেরিয়েন্স">
+                        লাঞ্চ এক্সপেরিয়েন্স
+                    </span>
                 </div>
 
             </div>
 
 
-            <h3>
-                Package Details
+            <h3
+                data-en="Package Details"
+                data-bn="প্যাকেজের বিস্তারিত">
+                প্যাকেজের বিস্তারিত
             </h3>
 
             <ul class="room-amenities">
 
-                <li>Resort Entry</li>
-                <li>Set Lunch</li>
-                <li>12 PM–6 PM Visit</li>
-                <li>Resort Environment</li>
+                <li
+                    data-en="Resort Entry"
+                    data-bn="রিসোর্টে প্রবেশ">
+                    রিসোর্টে প্রবেশ
+                </li>
+
+                <li
+                    data-en="Set Lunch"
+                    data-bn="সেট লাঞ্চ">
+                    সেট লাঞ্চ
+                </li>
+
+                <li
+                    data-en="12 PM–6 PM Visit"
+                    data-bn="দুপুর ১২টা–সন্ধ্যা ৬টা ভিজিট">
+                    দুপুর ১২টা–সন্ধ্যা ৬টা ভিজিট
+                </li>
+
+                <li
+                    data-en="Resort Environment"
+                    data-bn="রিসোর্টের প্রাকৃতিক পরিবেশ">
+                    রিসোর্টের প্রাকৃতিক পরিবেশ
+                </li>
 
             </ul>
 
 
-            <h3>
-                Important Note
+            <h3
+                data-en="Important Note"
+                data-bn="গুরুত্বপূর্ণ তথ্য">
+                গুরুত্বপূর্ণ তথ্য
             </h3>
 
-            <p class="room-details-description">
-                Advance payment is required to confirm booking.
+            <p class="room-details-description"
+               data-en="Advance payment is required to confirm booking."
+               data-bn="বুকিং নিশ্চিত করার জন্য অগ্রিম পেমেন্ট করতে হবে।">
+                বুকিং নিশ্চিত করার জন্য অগ্রিম পেমেন্ট করতে হবে।
             </p>
 
 
@@ -6066,9 +6679,11 @@ aria-label="WhatsApp">
                 <a
                     class="small-btn whatsapp"
                     href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Lunch%20Package."
-                    target="_blank">
+                    target="_blank"
+                    data-en="BOOK NOW"
+                    data-bn="বুক করুন">
 
-                    BOOK NOW
+                    বুক করুন
 
                 </a>
 
@@ -6079,6 +6694,9 @@ aria-label="WhatsApp">
     </div>
 
 </div>
+
+
+
 <!-- =======================================================
      SNACKS PACKAGE — DETAILS
 ======================================================= -->
@@ -6102,13 +6720,13 @@ aria-label="WhatsApp">
 
                 <div class="room-main-image">
 
-    <img
-        id="snacksMainImage"
-        src="images/packages/snacks.jpeg"
-        alt="Snacks Package"
-        onclick="openPackageImage(this.src, this.alt)">
+                    <img
+                        id="snacksMainImage"
+                        src="images/packages/snacks.jpeg"
+                        alt="Snacks Package"
+                        onclick="openPackageImage(this.src, this.alt)">
 
-</div>
+                </div>
 
             </div>
 
@@ -6129,12 +6747,16 @@ aria-label="WhatsApp">
         <!-- RIGHT : DETAILS -->
         <div class="room-details-right">
 
-            <div class="eyebrow">
-                VISITOR EXPERIENCE
+            <div class="eyebrow"
+                 data-en="VISITOR EXPERIENCE"
+                 data-bn="ভিজিটর এক্সপেরিয়েন্স">
+                ভিজিটর এক্সপেরিয়েন্স
             </div>
 
-            <h2>
-        Snacks Package
+            <h2
+                data-en="Snacks Package"
+                data-bn="স্ন্যাকস প্যাকেজ">
+                স্ন্যাকস প্যাকেজ
             </h2>
 
             <div class="room-details-price">
@@ -6145,38 +6767,79 @@ aria-label="WhatsApp">
             <div class="room-detail-info">
 
                 <div>
-                    <strong>Timing</strong>
-                    <span>3:00 PM – 6:00 PM</span>
+                    <strong
+                        data-en="Timing"
+                        data-bn="সময়">
+                        সময়
+                    </strong>
+
+                    <span>
+                        3:00 PM – 6:00 PM
+                    </span>
                 </div>
 
                 <div>
-                    <strong>Package Type</strong>
-                    <span>Snacks Experience</span>
+                    <strong
+                        data-en="Package Type"
+                        data-bn="প্যাকেজের ধরন">
+                        প্যাকেজের ধরন
+                    </strong>
+
+                    <span
+                        data-en="Snacks Experience"
+                        data-bn="স্ন্যাকস এক্সপেরিয়েন্স">
+                        স্ন্যাকস এক্সপেরিয়েন্স
+                    </span>
                 </div>
 
             </div>
 
 
-            <h3>
-                Package Details
+            <h3
+                data-en="Package Details"
+                data-bn="প্যাকেজের বিস্তারিত">
+                প্যাকেজের বিস্তারিত
             </h3>
 
             <ul class="room-amenities">
 
-                <li>Resort Entry</li>
-                <li>Snacks</li>
-                <li>2 Hours Visit</li>
-                <li>Resort Environment</li>
+                <li
+                    data-en="Resort Entry"
+                    data-bn="রিসোর্টে প্রবেশ">
+                    রিসোর্টে প্রবেশ
+                </li>
+
+                <li
+                    data-en="Snacks"
+                    data-bn="স্ন্যাকস">
+                    স্ন্যাকস
+                </li>
+
+                <li
+                    data-en="2 Hours Visit"
+                    data-bn="২ ঘণ্টার ভিজিট">
+                    ২ ঘণ্টার ভিজিট
+                </li>
+
+                <li
+                    data-en="Resort Environment"
+                    data-bn="রিসোর্টের প্রাকৃতিক পরিবেশ">
+                    রিসোর্টের প্রাকৃতিক পরিবেশ
+                </li>
 
             </ul>
 
 
-            <h3>
-                Important Note
+            <h3
+                data-en="Important Note"
+                data-bn="গুরুত্বপূর্ণ তথ্য">
+                গুরুত্বপূর্ণ তথ্য
             </h3>
 
-            <p class="room-details-description">
-                Payment can be made at the resort.
+            <p class="room-details-description"
+               data-en="Payment can be made at the resort."
+               data-bn="রিসোর্টে এসে পেমেন্ট করা যাবে।">
+                রিসোর্টে এসে পেমেন্ট করা যাবে।
             </p>
 
 
@@ -6185,9 +6848,11 @@ aria-label="WhatsApp">
                 <a
                     class="small-btn whatsapp"
                     href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Snacks%20Package."
-                    target="_blank">
+                    target="_blank"
+                    data-en="BOOK NOW"
+                    data-bn="বুক করুন">
 
-                    BOOK NOW
+                    বুক করুন
 
                 </a>
 
@@ -6198,6 +6863,9 @@ aria-label="WhatsApp">
     </div>
 
 </div>
+
+
+
 <!-- =======================================================
      SWIMMING PACKAGE — DETAILS
 ======================================================= -->
@@ -6219,13 +6887,13 @@ aria-label="WhatsApp">
 
             <div class="room-main-image">
 
-    <img
-        id="swimmingMainImage"
-        src="images/packages/swimming.jpeg"
-        alt="Swimming Package"
-        onclick="openPackageImage(this.src, this.alt)">
+                <img
+                    id="swimmingMainImage"
+                    src="images/packages/swimming.jpeg"
+                    alt="Swimming Package"
+                    onclick="openPackageImage(this.src, this.alt)">
 
-</div>
+            </div>
 
 
             <div class="room-thumbnails">
@@ -6244,12 +6912,16 @@ aria-label="WhatsApp">
         <!-- RIGHT : DETAILS -->
         <div class="room-details-right">
 
-            <div class="eyebrow">
-                VISITOR EXPERIENCE
+            <div class="eyebrow"
+                 data-en="VISITOR EXPERIENCE"
+                 data-bn="ভিজিটর এক্সপেরিয়েন্স">
+                ভিজিটর এক্সপেরিয়েন্স
             </div>
 
-            <h2>
-      Entry With Swimming
+            <h2
+                data-en="Entry With Swimming"
+                data-bn="সুইমিংসহ এন্ট্রি">
+                সুইমিংসহ এন্ট্রি
             </h2>
 
             <div class="room-details-price">
@@ -6260,40 +6932,91 @@ aria-label="WhatsApp">
             <div class="room-detail-info">
 
                 <div>
-                    <strong>Timing</strong>
-                    <span>12:00 PM – 6:00 PM</span>
+                    <strong
+                        data-en="Timing"
+                        data-bn="সময়">
+                        সময়
+                    </strong>
+
+                    <span>
+                        12:00 PM – 6:00 PM
+                    </span>
                 </div>
 
                 <div>
-                    <strong>Package Type</strong>
-                    <span>Swimming Experience</span>
+                    <strong
+                        data-en="Package Type"
+                        data-bn="প্যাকেজের ধরন">
+                        প্যাকেজের ধরন
+                    </strong>
+
+                    <span
+                        data-en="Swimming Experience"
+                        data-bn="সুইমিং এক্সপেরিয়েন্স">
+                        সুইমিং এক্সপেরিয়েন্স
+                    </span>
                 </div>
 
             </div>
 
 
-            <h3>
-                Package Details
+            <h3
+                data-en="Package Details"
+                data-bn="প্যাকেজের বিস্তারিত">
+                প্যাকেজের বিস্তারিত
             </h3>
 
             <ul class="room-amenities">
 
-                <li>Resort Entry</li>
-                <li>2 Hours Visit</li>
-                <li>Swimming Pool Access</li>
-                <li>1 Hours Swimming</li>
-                <li>Resort Environment</li>
-                <li>Beverage</li>
+                <li
+                    data-en="Resort Entry"
+                    data-bn="রিসোর্টে প্রবেশ">
+                    রিসোর্টে প্রবেশ
+                </li>
+
+                <li
+                    data-en="2 Hours Visit"
+                    data-bn="২ ঘণ্টার ভিজিট">
+                    ২ ঘণ্টার ভিজিট
+                </li>
+
+                <li
+                    data-en="Swimming Pool Access"
+                    data-bn="সুইমিং পুল ব্যবহার">
+                    সুইমিং পুল ব্যবহার
+                </li>
+
+                <li
+                    data-en="1 Hours Swimming"
+                    data-bn="১ ঘণ্টা সুইমিং">
+                    ১ ঘণ্টা সুইমিং
+                </li>
+
+                <li
+                    data-en="Resort Environment"
+                    data-bn="রিসোর্টের প্রাকৃতিক পরিবেশ">
+                    রিসোর্টের প্রাকৃতিক পরিবেশ
+                </li>
+
+                <li
+                    data-en="Beverage"
+                    data-bn="বেভারেজ">
+                    বেভারেজ
+                </li>
 
             </ul>
 
 
-            <h3>
-                Important Note
+            <h3
+                data-en="Important Note"
+                data-bn="গুরুত্বপূর্ণ তথ্য">
+                গুরুত্বপূর্ণ তথ্য
             </h3>
 
-            <p class="room-details-description">
-                Payment can be made at the resort.
+            <p class="room-details-description"
+               data-en="Payment can be made at the resort."
+               data-bn="রিসোর্টে এসে পেমেন্ট করা যাবে।">
+                রিসোর্টে এসে পেমেন্ট করা যাবে।
             </p>
 
 
@@ -6302,9 +7025,11 @@ aria-label="WhatsApp">
                 <a
                     class="small-btn whatsapp"
                     href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Swimming%20Package."
-                    target="_blank">
+                    target="_blank"
+                    data-en="BOOK NOW"
+                    data-bn="বুক করুন">
 
-                    BOOK NOW
+                    বুক করুন
 
                 </a>
 
@@ -6315,6 +7040,9 @@ aria-label="WhatsApp">
     </div>
 
 </div>
+
+
+
 <!-- =======================================================
      BEVERAGE PACKAGE — DETAILS
 ======================================================= -->
@@ -6336,13 +7064,13 @@ aria-label="WhatsApp">
 
             <div class="room-main-image">
 
-    <img
-        id="beverageMainImage"
-        src="images/packages/beverage.png"
-        alt="Beverage Package"
-        onclick="openPackageImage(this.src, this.alt)">
+                <img
+                    id="beverageMainImage"
+                    src="images/packages/beverage.png"
+                    alt="Beverage Package"
+                    onclick="openPackageImage(this.src, this.alt)">
 
-</div>
+            </div>
 
 
             <div class="room-thumbnails">
@@ -6361,12 +7089,16 @@ aria-label="WhatsApp">
         <!-- RIGHT : DETAILS -->
         <div class="room-details-right">
 
-            <div class="eyebrow">
-                VISITOR EXPERIENCE
+            <div class="eyebrow"
+                 data-en="VISITOR EXPERIENCE"
+                 data-bn="ভিজিটর এক্সপেরিয়েন্স">
+                ভিজিটর এক্সপেরিয়েন্স
             </div>
 
-            <h2>
-        Beverage Package
+            <h2
+                data-en="Beverage Package"
+                data-bn="বেভারেজ প্যাকেজ">
+                বেভারেজ প্যাকেজ
             </h2>
 
             <div class="room-details-price">
@@ -6377,38 +7109,79 @@ aria-label="WhatsApp">
             <div class="room-detail-info">
 
                 <div>
-                    <strong>Timing</strong>
-                    <span>12:00 PM – 6:00 PM</span>
+                    <strong
+                        data-en="Timing"
+                        data-bn="সময়">
+                        সময়
+                    </strong>
+
+                    <span>
+                        12:00 PM – 6:00 PM
+                    </span>
                 </div>
 
                 <div>
-                    <strong>Package Type</strong>
-                    <span>Beverage Experience</span>
+                    <strong
+                        data-en="Package Type"
+                        data-bn="প্যাকেজের ধরন">
+                        প্যাকেজের ধরন
+                    </strong>
+
+                    <span
+                        data-en="Beverage Experience"
+                        data-bn="বেভারেজ এক্সপেরিয়েন্স">
+                        বেভারেজ এক্সপেরিয়েন্স
+                    </span>
                 </div>
 
             </div>
 
 
-            <h3>
-                Package Details
+            <h3
+                data-en="Package Details"
+                data-bn="প্যাকেজের বিস্তারিত">
+                প্যাকেজের বিস্তারিত
             </h3>
 
             <ul class="room-amenities">
 
-                <li>Resort Entry</li>
-                <li>2 Hours Visit</li>
-                <li>Beverage</li>
-                <li>Refreshment</li>
+                <li
+                    data-en="Resort Entry"
+                    data-bn="রিসোর্টে প্রবেশ">
+                    রিসোর্টে প্রবেশ
+                </li>
+
+                <li
+                    data-en="2 Hours Visit"
+                    data-bn="২ ঘণ্টার ভিজিট">
+                    ২ ঘণ্টার ভিজিট
+                </li>
+
+                <li
+                    data-en="Beverage"
+                    data-bn="বেভারেজ">
+                    বেভারেজ
+                </li>
+
+                <li
+                    data-en="Refreshment"
+                    data-bn="রিফ্রেশমেন্ট">
+                    রিফ্রেশমেন্ট
+                </li>
 
             </ul>
 
 
-            <h3>
-                Important Note
+            <h3
+                data-en="Important Note"
+                data-bn="গুরুত্বপূর্ণ তথ্য">
+                গুরুত্বপূর্ণ তথ্য
             </h3>
 
-            <p class="room-details-description">
-                No advance payment required. Pay at resort.
+            <p class="room-details-description"
+               data-en="No advance payment required. Pay at resort."
+               data-bn="কোনো অগ্রিম পেমেন্টের প্রয়োজন নেই। রিসোর্টে এসে পেমেন্ট করুন।">
+                কোনো অগ্রিম পেমেন্টের প্রয়োজন নেই। রিসোর্টে এসে পেমেন্ট করুন।
             </p>
 
 
@@ -6417,8 +7190,12 @@ aria-label="WhatsApp">
                 <a
                     class="small-btn whatsapp"
                     href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Beverage%20Package."
-                    target="_blank">
-                    BOOK NOW
+                    target="_blank"
+                    data-en="BOOK NOW"
+                    data-bn="বুক করুন">
+
+                    বুক করুন
+
                 </a>
 
             </div>
@@ -6428,6 +7205,8 @@ aria-label="WhatsApp">
     </div>
 
 </div>
+
+
 <!-- =======================================================
      SUPER FAMILY DELUXE — ROOM DETAILS
 ======================================================= -->
@@ -6506,22 +7285,37 @@ aria-label="WhatsApp">
 
             <div class="room-details-information">
 
-                <div class="room-details-eyebrow">
+                <div class="room-details-eyebrow"
+                     data-en="SUPER FAMILY DELUXE"
+                     data-bn="সুপার ফ্যামিলি ডিলাক্স">
                     SUPER FAMILY DELUXE
                 </div>
 
-                <h2>
+                <h2
+                    data-en="Super Family Deluxe"
+                    data-bn="সুপার ফ্যামিলি ডিলাক্স">
                     Super Family Deluxe
                 </h2>
 
-                <div class="room-details-view">
+                <div class="room-details-view"
+                     data-en="Lake View"
+                     data-bn="লেক ভিউ">
                     Lake View
                 </div>
 
                 <div class="room-details-price">
-                    BDT 8,400
-                    <span>/ Night</span>
-                </div>
+    <span
+        data-en="BDT 8,400"
+        data-bn="৮,৪০০ টাকা">
+        BDT 8,400
+    </span>
+
+    <span
+        data-en="/ Night"
+        data-bn="/ রাত">
+        / Night
+    </span>
+</div>
 
 
                 <!-- BASIC INFORMATION -->
@@ -6530,11 +7324,15 @@ aria-label="WhatsApp">
 
                     <div class="room-detail-item">
 
-                        <strong>
+                        <strong
+                            data-en="Maximum Guests"
+                            data-bn="সর্বোচ্চ অতিথি">
                             Maximum Guests
                         </strong>
 
-                        <span>
+                        <span
+                            data-en="4 Persons"
+                            data-bn="৪ জন">
                             4 Persons
                         </span>
 
@@ -6543,11 +7341,15 @@ aria-label="WhatsApp">
 
                     <div class="room-detail-item">
 
-                        <strong>
+                        <strong
+                            data-en="Beds"
+                            data-bn="বেড">
                             Beds
                         </strong>
 
-                        <span>
+                        <span
+                            data-en="2 King Size Beds"
+                            data-bn="২টি কিং সাইজ বেড">
                             2 King Size Beds
                         </span>
 
@@ -6560,20 +7362,61 @@ aria-label="WhatsApp">
 
                 <div class="room-details-section">
 
-                    <h3>
+                    <h3
+                        data-en="Complimentary Facilities"
+                        data-bn="অতিরিক্ত সুবিধাসমূহ">
                         Complimentary Facilities
                     </h3>
 
                     <div class="room-details-list">
 
-                        <span>Welcome Drinks</span>
-                        <span>Breakfast Included</span>
-                        <span>Swimming Pool Access</span>
-                        <span>24/7 Room Service</span>
-                        <span>Cycling &amp; Pool Billiard</span>
-                        <span>Kayaking Boat</span>
-                        <span>Kids Playground</span>
-                        <span>WiFi (In-house Guests)</span>
+                        <span
+                            data-en="Welcome Drinks"
+                            data-bn="স্বাগত পানীয়">
+                            Welcome Drinks
+                        </span>
+
+                        <span
+                            data-en="Breakfast Included"
+                            data-bn="ব্রেকফাস্ট অন্তর্ভুক্ত">
+                            Breakfast Included
+                        </span>
+
+                        <span
+                            data-en="Swimming Pool Access"
+                            data-bn="সুইমিং পুল ব্যবহার">
+                            Swimming Pool Access
+                        </span>
+
+                        <span
+                            data-en="24/7 Room Service"
+                            data-bn="২৪/৭ রুম সার্ভিস">
+                            24/7 Room Service
+                        </span>
+
+                        <span
+                            data-en="Cycling &amp; Pool Billiard"
+                            data-bn="সাইক্লিং ও পুল বিলিয়ার্ড">
+                            Cycling &amp; Pool Billiard
+                        </span>
+
+                        <span
+                            data-en="Kayaking Boat"
+                            data-bn="কায়াকিং বোট">
+                            Kayaking Boat
+                        </span>
+
+                        <span
+                            data-en="Kids Playground"
+                            data-bn="শিশুদের খেলার জায়গা">
+                            Kids Playground
+                        </span>
+
+                        <span
+                            data-en="WiFi (In-house Guests)"
+                            data-bn="WiFi (রিসোর্টে অবস্থানরত অতিথিদের জন্য)">
+                            WiFi (In-house Guests)
+                        </span>
 
                     </div>
 
@@ -6584,18 +7427,49 @@ aria-label="WhatsApp">
 
                 <div class="room-details-section">
 
-                    <h3>
+                    <h3
+                        data-en="Bathroom Facilities"
+                        data-bn="বাথরুমের সুবিধাসমূহ">
                         Bathroom Facilities
                     </h3>
 
                     <div class="room-details-list">
 
-                        <span>Free toiletries</span>
-                        <span>Shower</span>
-                        <span>Toilet</span>
-                        <span>Slippers</span>
-                        <span>Hairdryer</span>
-                        <span>Toilet paper</span>
+                        <span
+                            data-en="Free toiletries"
+                            data-bn="ফ্রি টয়লেট্রিজ">
+                            Free toiletries
+                        </span>
+
+                        <span
+                            data-en="Shower"
+                            data-bn="শাওয়ার">
+                            Shower
+                        </span>
+
+                        <span
+                            data-en="Toilet"
+                            data-bn="টয়লেট">
+                            Toilet
+                        </span>
+
+                        <span
+                            data-en="Slippers"
+                            data-bn="স্লিপার">
+                            Slippers
+                        </span>
+
+                        <span
+                            data-en="Hairdryer"
+                            data-bn="হেয়ার ড্রায়ার">
+                            Hairdryer
+                        </span>
+
+                        <span
+                            data-en="Toilet paper"
+                            data-bn="টয়লেট পেপার">
+                            Toilet paper
+                        </span>
 
                     </div>
 
@@ -6604,43 +7478,118 @@ aria-label="WhatsApp">
 
                 <!-- ROOM FACILITIES -->
 
-            <div class="room-details-section">
+                <div class="room-details-section">
 
-                <h3>
-                    Room Facilities &amp; Amenities
-                </h3>
+                    <h3
+                        data-en="Room Facilities &amp; Amenities"
+                        data-bn="রুমের সুবিধা ও সরঞ্জাম">
+                        Room Facilities &amp; Amenities
+                    </h3>
 
-                <div class="room-details-list">
+                    <div class="room-details-list">
 
-                    <span>Desk</span>
-                    <span>Tile/marble floor</span>
-                    <span>Flat-screen TV</span>
-                    <span>Power Backup</span>
-                    <span>Daily Housekeeping</span>
-                    <span>Electric kettle</span>
-                    <span>Mini Refrigerator</span>
-                    <span>Fan</span>
-                    <span>Towels</span>
-                    <span>Ironing facilities</span>
-                    <span>Mineral water</span>
-                    <span>Air conditioning</span>
-                    <span>Complimentary Coffee Mini Pack</span>
-                    <span>Clothes rack</span>
+                        <span
+                            data-en="Desk"
+                            data-bn="ডেস্ক">
+                            Desk
+                        </span>
+
+                        <span
+                            data-en="Tile/marble floor"
+                            data-bn="টাইল / মার্বেল ফ্লোর">
+                            Tile/marble floor
+                        </span>
+
+                        <span
+                            data-en="Flat-screen TV"
+                            data-bn="ফ্ল্যাট-স্ক্রিন টিভি">
+                            Flat-screen TV
+                        </span>
+
+                        <span
+                            data-en="Power Backup"
+                            data-bn="পাওয়ার ব্যাকআপ">
+                            Power Backup
+                        </span>
+
+                        <span
+                            data-en="Daily Housekeeping"
+                            data-bn="দৈনিক হাউসকিপিং">
+                            Daily Housekeeping
+                        </span>
+
+                        <span
+                            data-en="Electric kettle"
+                            data-bn="ইলেকট্রিক কেটলি">
+                            Electric kettle
+                        </span>
+
+                        <span
+                            data-en="Mini Refrigerator"
+                            data-bn="মিনি রেফ্রিজারেটর">
+                            Mini Refrigerator
+                        </span>
+
+                        <span
+                            data-en="Fan"
+                            data-bn="ফ্যান">
+                            Fan
+                        </span>
+
+                        <span
+                            data-en="Towels"
+                            data-bn="তোয়ালে">
+                            Towels
+                        </span>
+
+                        <span
+                            data-en="Ironing facilities"
+                            data-bn="ইস্ত্রি করার সুবিধা">
+                            Ironing facilities
+                        </span>
+
+                        <span
+                            data-en="Mineral water"
+                            data-bn="মিনারেল ওয়াটার">
+                            Mineral water
+                        </span>
+
+                        <span
+                            data-en="Air conditioning"
+                            data-bn="এয়ার কন্ডিশনিং">
+                            Air conditioning
+                        </span>
+
+                        <span
+                            data-en="Complimentary Coffee Mini Pack"
+                            data-bn="কমপ্লিমেন্টারি কফি মিনি প্যাক">
+                            Complimentary Coffee Mini Pack
+                        </span>
+
+                        <span
+                            data-en="Clothes rack"
+                            data-bn="কাপড় রাখার র‍্যাক">
+                            Clothes rack
+                        </span>
+
+                    </div>
 
                 </div>
-
-            </div>
 
 
                 <!-- SMOKING -->
 
                 <div class="room-details-section room-smoking">
 
-                    <h3>
+                    <h3
+                        data-en="Smoking Policy"
+                        data-bn="ধূমপান নীতি">
                         Smoking Policy
                     </h3>
 
-                    <p>
+                    <p
+                        data-en="No smoking"
+                        data-bn="ধূমপান নিষিদ্ধ">
                         No smoking
                     </p>
 
@@ -6652,7 +7601,9 @@ aria-label="WhatsApp">
                 <div class="room-details-booking">
 
                     <a href="booking.html?room=Super%20Family%20Deluxe"
-                       class="small-btn whatsapp">
+                       class="small-btn whatsapp"
+                       data-en="BOOK NOW"
+                       data-bn="বুক করুন">
                         BOOK NOW
                     </a>
 
@@ -6745,21 +7696,38 @@ aria-label="WhatsApp">
 
             <div class="room-details-information">
 
-                <div class="room-details-eyebrow">
+                <div class="room-details-eyebrow"
+                     data-en="FAMILY DELUXE"
+                     data-bn="ফ্যামিলি ডিলাক্স">
                     FAMILY DELUXE
                 </div>
 
-                <h2>
+                <h2
+                    data-en="Family Deluxe"
+                    data-bn="ফ্যামিলি ডিলাক্স">
                     Family Deluxe
                 </h2>
 
-                <div class="room-details-view">
+                <div class="room-details-view"
+                     data-en="Lake View"
+                     data-bn="লেক ভিউ">
                     Lake View
                 </div>
 
                 <div class="room-details-price">
-                    BDT 7,200
-                    <span>/ Night</span>
+
+                    <span
+                        data-en="BDT 7,200"
+                        data-bn="৭,২০০ টাকা">
+                        BDT 7,200
+                    </span>
+
+                    <span
+                        data-en="/ Night"
+                        data-bn="/ রাত">
+                        / Night
+                    </span>
+
                 </div>
 
 
@@ -6769,11 +7737,15 @@ aria-label="WhatsApp">
 
                     <div class="room-detail-item">
 
-                        <strong>
+                        <strong
+                            data-en="Maximum Guests"
+                            data-bn="সর্বোচ্চ অতিথি">
                             Maximum Guests
                         </strong>
 
-                        <span>
+                        <span
+                            data-en="Up to 3 Persons"
+                            data-bn="সর্বোচ্চ ৩ জন">
                             Up to 3 Persons
                         </span>
 
@@ -6782,11 +7754,15 @@ aria-label="WhatsApp">
 
                     <div class="room-detail-item">
 
-                        <strong>
+                        <strong
+                            data-en="Beds"
+                            data-bn="বেড">
                             Beds
                         </strong>
 
-                        <span>
+                        <span
+                            data-en="1 Twin Bed + 1 King Size Bed"
+                            data-bn="১টি টুইন বেড + ১টি কিং সাইজ বেড">
                             1 Twin Bed + 1 King Size Bed
                         </span>
 
@@ -6799,20 +7775,61 @@ aria-label="WhatsApp">
 
                 <div class="room-details-section">
 
-                    <h3>
+                    <h3
+                        data-en="Complimentary Facilities"
+                        data-bn="অতিরিক্ত সুবিধাসমূহ">
                         Complimentary Facilities
                     </h3>
 
                     <div class="room-details-list">
 
-                        <span>Welcome Drinks</span>
-                        <span>Breakfast Included</span>
-                        <span>Swimming Pool Access</span>
-                        <span>24/7 Room Service</span>
-                        <span>Cycling &amp; Pool Billiard</span>
-                        <span>Kayaking Boat</span>
-                        <span>Kids Playground</span>
-                        <span>WiFi (In-house Guests)</span>
+                        <span
+                            data-en="Welcome Drinks"
+                            data-bn="স্বাগত পানীয়">
+                            Welcome Drinks
+                        </span>
+
+                        <span
+                            data-en="Breakfast Included"
+                            data-bn="ব্রেকফাস্ট অন্তর্ভুক্ত">
+                            Breakfast Included
+                        </span>
+
+                        <span
+                            data-en="Swimming Pool Access"
+                            data-bn="সুইমিং পুল ব্যবহার">
+                            Swimming Pool Access
+                        </span>
+
+                        <span
+                            data-en="24/7 Room Service"
+                            data-bn="২৪/৭ রুম সার্ভিস">
+                            24/7 Room Service
+                        </span>
+
+                        <span
+                            data-en="Cycling &amp; Pool Billiard"
+                            data-bn="সাইক্লিং ও পুল বিলিয়ার্ড">
+                            Cycling &amp; Pool Billiard
+                        </span>
+
+                        <span
+                            data-en="Kayaking Boat"
+                            data-bn="কায়াকিং বোট">
+                            Kayaking Boat
+                        </span>
+
+                        <span
+                            data-en="Kids Playground"
+                            data-bn="শিশুদের খেলার জায়গা">
+                            Kids Playground
+                        </span>
+
+                        <span
+                            data-en="WiFi (In-house Guests)"
+                            data-bn="WiFi (রিসোর্টে অবস্থানরত অতিথিদের জন্য)">
+                            WiFi (In-house Guests)
+                        </span>
 
                     </div>
 
@@ -6823,18 +7840,49 @@ aria-label="WhatsApp">
 
                 <div class="room-details-section">
 
-                    <h3>
+                    <h3
+                        data-en="Bathroom Facilities"
+                        data-bn="বাথরুমের সুবিধাসমূহ">
                         Bathroom Facilities
                     </h3>
 
                     <div class="room-details-list">
 
-                        <span>Free toiletries</span>
-                        <span>Shower</span>
-                        <span>Toilet</span>
-                        <span>Slippers</span>
-                        <span>Hairdryer</span>
-                        <span>Toilet paper</span>
+                        <span
+                            data-en="Free toiletries"
+                            data-bn="ফ্রি টয়লেট্রিজ">
+                            Free toiletries
+                        </span>
+
+                        <span
+                            data-en="Shower"
+                            data-bn="শাওয়ার">
+                            Shower
+                        </span>
+
+                        <span
+                            data-en="Toilet"
+                            data-bn="টয়লেট">
+                            Toilet
+                        </span>
+
+                        <span
+                            data-en="Slippers"
+                            data-bn="স্লিপার">
+                            Slippers
+                        </span>
+
+                        <span
+                            data-en="Hairdryer"
+                            data-bn="হেয়ার ড্রায়ার">
+                            Hairdryer
+                        </span>
+
+                        <span
+                            data-en="Toilet paper"
+                            data-bn="টয়লেট পেপার">
+                            Toilet paper
+                        </span>
 
                     </div>
 
@@ -6843,43 +7891,118 @@ aria-label="WhatsApp">
 
                 <!-- ROOM FACILITIES -->
 
-            <div class="room-details-section">
+                <div class="room-details-section">
 
-                <h3>
-                    Room Facilities &amp; Amenities
-                </h3>
+                    <h3
+                        data-en="Room Facilities &amp; Amenities"
+                        data-bn="রুমের সুবিধা ও সরঞ্জাম">
+                        Room Facilities &amp; Amenities
+                    </h3>
 
-                <div class="room-details-list">
+                    <div class="room-details-list">
 
-                    <span>Desk</span>
-                    <span>Tile/marble floor</span>
-                    <span>Flat-screen TV</span>
-                    <span>Power Backup</span>
-                    <span>Daily Housekeeping</span>
-                    <span>Electric kettle</span>
-                    <span>Mini Refrigerator</span>
-                    <span>Fan</span>
-                    <span>Towels</span>
-                    <span>Ironing facilities</span>
-                    <span>Air conditioning</span>
-                    <span>Mineral water</span>
-                    <span>Complimentary Coffee Mini Pack</span>
-                    <span>Clothes rack</span>
+                        <span
+                            data-en="Desk"
+                            data-bn="ডেস্ক">
+                            Desk
+                        </span>
+
+                        <span
+                            data-en="Tile/marble floor"
+                            data-bn="টাইল / মার্বেল ফ্লোর">
+                            Tile/marble floor
+                        </span>
+
+                        <span
+                            data-en="Flat-screen TV"
+                            data-bn="ফ্ল্যাট-স্ক্রিন টিভি">
+                            Flat-screen TV
+                        </span>
+
+                        <span
+                            data-en="Power Backup"
+                            data-bn="পাওয়ার ব্যাকআপ">
+                            Power Backup
+                        </span>
+
+                        <span
+                            data-en="Daily Housekeeping"
+                            data-bn="দৈনিক হাউসকিপিং">
+                            Daily Housekeeping
+                        </span>
+
+                        <span
+                            data-en="Electric kettle"
+                            data-bn="ইলেকট্রিক কেটলি">
+                            Electric kettle
+                        </span>
+
+                        <span
+                            data-en="Mini Refrigerator"
+                            data-bn="মিনি রেফ্রিজারেটর">
+                            Mini Refrigerator
+                        </span>
+
+                        <span
+                            data-en="Fan"
+                            data-bn="ফ্যান">
+                            Fan
+                        </span>
+
+                        <span
+                            data-en="Towels"
+                            data-bn="তোয়ালে">
+                            Towels
+                        </span>
+
+                        <span
+                            data-en="Ironing facilities"
+                            data-bn="ইস্ত্রি করার সুবিধা">
+                            Ironing facilities
+                        </span>
+
+                        <span
+                            data-en="Air conditioning"
+                            data-bn="এয়ার কন্ডিশনিং">
+                            Air conditioning
+                        </span>
+
+                        <span
+                            data-en="Mineral water"
+                            data-bn="মিনারেল ওয়াটার">
+                            Mineral water
+                        </span>
+
+                        <span
+                            data-en="Complimentary Coffee Mini Pack"
+                            data-bn="কমপ্লিমেন্টারি কফি মিনি প্যাক">
+                            Complimentary Coffee Mini Pack
+                        </span>
+
+                        <span
+                            data-en="Clothes rack"
+                            data-bn="কাপড় রাখার র‍্যাক">
+                            Clothes rack
+                        </span>
+
+                    </div>
 
                 </div>
-
-            </div>
 
 
                 <!-- SMOKING -->
 
                 <div class="room-details-section room-smoking">
 
-                    <h3>
+                    <h3
+                        data-en="Smoking Policy"
+                        data-bn="ধূমপান নীতি">
                         Smoking Policy
                     </h3>
 
-                    <p>
+                    <p
+                        data-en="Smoking is not allowed."
+                        data-bn="ধূমপান করা যাবে না।">
                         Smoking is not allowed.
                     </p>
 
@@ -6891,7 +8014,9 @@ aria-label="WhatsApp">
                 <div class="room-details-booking">
 
                     <a href="booking.html?room=Family%20Deluxe"
-                       class="small-btn whatsapp">
+                       class="small-btn whatsapp"
+                       data-en="BOOK NOW"
+                       data-bn="বুক করুন">
                         BOOK NOW
                     </a>
 
@@ -6904,6 +8029,7 @@ aria-label="WhatsApp">
     </div>
 
 </div>
+
 <!-- =======================================================
      SUPER DELUXE COTTAGE — ROOM DETAILS
 ======================================================= -->
@@ -6911,248 +8037,420 @@ aria-label="WhatsApp">
 <div class="modal room-details-modal"
      id="cottageDetails">
 
-```
-<div class="modal-content room-details-content">
+    <div class="modal-content room-details-content">
 
-    <!-- CLOSE -->
-    <button class="modal-close"
-            onclick="closeRoomDetails('cottageDetails')">
-        ×
-    </button>
-
-
-    <div class="room-details-layout">
+        <!-- CLOSE -->
+        <button class="modal-close"
+                onclick="closeRoomDetails('cottageDetails')">
+            ×
+        </button>
 
 
-        <!-- LEFT — PHOTO GALLERY -->
+        <div class="room-details-layout">
 
-        <div class="room-details-gallery">
 
-            <div class="room-main-image">
+            <!-- LEFT — PHOTO GALLERY -->
 
-                <img
-                    id="cottageMainImage"
-                    src="rooms/super-deluxe-cottage-1.jpeg"
-                    alt="Super Deluxe Cottage">
+            <div class="room-details-gallery">
 
-                <button class="room-photo-nav room-photo-prev"
-                        onclick="changeCottageImage(-1)">
-                    ‹
-                </button>
+                <div class="room-main-image">
 
-                <button class="room-photo-nav room-photo-next"
-                        onclick="changeCottageImage(1)">
-                    ›
-                </button>
+                    <img
+                        id="cottageMainImage"
+                        src="rooms/super-deluxe-cottage-1.jpeg"
+                        alt="সুপার ডিলাক্স কটেজ">
+
+                    <button class="room-photo-nav room-photo-prev"
+                            onclick="changeCottageImage(-1)">
+                        ‹
+                    </button>
+
+                    <button class="room-photo-nav room-photo-next"
+                            onclick="changeCottageImage(1)">
+                        ›
+                    </button>
+
+                </div>
+
+
+                <div class="room-photo-thumbnails">
+
+                    <img
+                        src="rooms/super-deluxe-cottage-1.jpeg"
+                        alt="সুপার ডিলাক্স কটেজ রুম ১"
+                        class="cottage-thumb active"
+                        onclick="selectCottageImage(0)">
+
+                    <img
+                        src="rooms/super-deluxe-cottage-2.jpeg"
+                        alt="সুপার ডিলাক্স কটেজ রুম ২"
+                        class="cottage-thumb"
+                        onclick="selectCottageImage(1)">
+
+                    <img
+                        src="rooms/super-deluxe-cottage-3.jpeg"
+                        alt="সুপার ডিলাক্স কটেজ রুম ৩"
+                        class="cottage-thumb"
+                        onclick="selectCottageImage(2)">
+
+                    <img
+                        src="rooms/super-deluxe-cottage-4.jpeg"
+                        alt="সুপার ডিলাক্স কটেজ রুম ৪"
+                        class="cottage-thumb"
+                        onclick="selectCottageImage(3)">
+
+                    <img
+                        src="rooms/super-deluxe-cottage-5.png"
+                        alt="সুপার ডিলাক্স কটেজ রুম ৫"
+                        class="cottage-thumb"
+                        onclick="selectCottageImage(4)">
+
+                    <img
+                        src="rooms/super-deluxe-cottage-6.png"
+                        alt="সুপার ডিলাক্স কটেজ রুম ৬"
+                        class="cottage-thumb"
+                        onclick="selectCottageImage(5)">
+
+                </div>
 
             </div>
 
 
-            <div class="room-photo-thumbnails">
+            <!-- RIGHT — DETAILS -->
 
-                <img
-                    src="rooms/super-deluxe-cottage-1.jpeg"
-                    alt="Super Deluxe Cottage Room 1"
-                    class="cottage-thumb active"
-                    onclick="selectCottageImage(0)">
+            <div class="room-details-information">
 
-                <img
-                    src="rooms/super-deluxe-cottage-2.jpeg"
-                    alt="Super Deluxe Cottage Room 2"
-                    class="cottage-thumb"
-                    onclick="selectCottageImage(1)">
+                <div class="room-details-eyebrow"
+                     data-en="SUPER DELUXE"
+                     data-bn="সুপার ডিলাক্স">
+                    সুপার ডিলাক্স
+                </div>
 
-                <img
-                    src="rooms/super-deluxe-cottage-3.jpeg"
-                    alt="Super Deluxe Cottage Room 3"
-                    class="cottage-thumb"
-                    onclick="selectCottageImage(2)">
+                <h2
+                    data-en="Super Deluxe Cottage"
+                    data-bn="সুপার ডিলাক্স কটেজ">
+                    সুপার ডিলাক্স কটেজ
+                </h2>
 
-                <img
-                    src="rooms/super-deluxe-cottage-4.jpeg"
-                    alt="Super Deluxe Cottage Room 4"
-                    class="cottage-thumb"
-                    onclick="selectCottageImage(3)">
+                <div class="room-details-view"
+                     data-en="Garden / Cottage"
+                     data-bn="গার্ডেন / কটেজ">
+                    গার্ডেন / কটেজ
+                </div>
 
-                <img
-                    src="rooms/super-deluxe-cottage-5.png"
-                    alt="Super Deluxe Cottage Room 5"
-                    class="cottage-thumb"
-                    onclick="selectCottageImage(4)">
+                <div class="room-details-price">
 
-                <img
-                    src="rooms/super-deluxe-cottage-6.png"
-                    alt="Super Deluxe Cottage Room 6"
-                    class="cottage-thumb"
-                    onclick="selectCottageImage(5)">
+                    <span
+                        data-en="BDT 7,200"
+                        data-bn="৭,২০০ টাকা">
+                        ৭,২০০ টাকা
+                    </span>
 
-            </div>
-
-        </div>
-
-
-        <!-- RIGHT — DETAILS -->
-
-        <div class="room-details-information">
-
-            <div class="room-details-eyebrow">
-                SUPER DELUXE
-            </div>
-
-            <h2>
-                Super Deluxe Cottage
-            </h2>
-
-            <div class="room-details-view">
-                Garden / Cottage
-            </div>
-
-            <div class="room-details-price">
-                BDT 7,200
-                <span>/ Night</span>
-            </div>
-
-
-            <!-- BASIC INFORMATION -->
-
-            <div class="room-details-basic">
-
-                <div class="room-detail-item">
-
-                    <strong>
-                        Maximum Guests
-                    </strong>
-
-                    <span>
-                        Up to 2 Persons
+                    <span
+                        data-en="/ Night"
+                        data-bn="/ রাত">
+                        / রাত
                     </span>
 
                 </div>
 
 
-                <div class="room-detail-item">
+                <!-- BASIC INFORMATION -->
 
-                    <strong>
-                        Beds
-                    </strong>
+                <div class="room-details-basic">
 
-                    <span>
-                        1 Queen Size Bed
-                    </span>
+                    <div class="room-detail-item">
 
-                </div>
+                        <strong
+                            data-en="Maximum Guests"
+                            data-bn="সর্বোচ্চ অতিথি">
+                            সর্বোচ্চ অতিথি
+                        </strong>
 
-            </div>
+                        <span
+                            data-en="Up to 2 Persons"
+                            data-bn="সর্বোচ্চ ২ জন">
+                            সর্বোচ্চ ২ জন
+                        </span>
 
-
-            <!-- COMPLIMENTARY FACILITIES -->
-
-            <div class="room-details-section">
-
-                <h3>
-                    Complimentary Facilities
-                </h3>
-
-                <div class="room-details-list">
-
-                    <span>Welcome Drinks</span>
-                    <span>Breakfast Included</span>
-                    <span>Swimming Pool Access</span>
-                    <span>24/7 Room Service</span>
-                    <span>Cycling &amp; Pool Billiard</span>
-                    <span>Kayaking Boat</span>
-                    <span>Kids Playground</span>
-                    <span>WiFi (In-house Guests)</span>
-
-                </div>
-
-            </div>
+                    </div>
 
 
-            <!-- BATHROOM -->
+                    <div class="room-detail-item">
 
-            <div class="room-details-section">
+                        <strong
+                            data-en="Beds"
+                            data-bn="বেড">
+                            বেড
+                        </strong>
 
-                <h3>
-                    Bathroom Facilities
-                </h3>
+                        <span
+                            data-en="1 Queen Size Bed"
+                            data-bn="১টি কুইন সাইজ বেড">
+                            ১টি কুইন সাইজ বেড
+                        </span>
 
-                <div class="room-details-list">
-
-                    <span>Free toiletries</span>
-                    <span>Shower</span>
-                    <span>Toilet</span>
-                    <span>Slippers</span>
-                    <span>Hairdryer</span>
-                    <span>Toilet paper</span>
+                    </div>
 
                 </div>
 
-            </div>
 
+                <!-- COMPLIMENTARY FACILITIES -->
 
-            <!-- ROOM FACILITIES -->
+                <div class="room-details-section">
 
-            <div class="room-details-section">
+                    <h3
+                        data-en="Complimentary Facilities"
+                        data-bn="অন্তর্ভুক্ত সুবিধাসমূহ">
+                        অন্তর্ভুক্ত সুবিধাসমূহ
+                    </h3>
 
-                <h3>
-                    Room Facilities &amp; Amenities
-                </h3>
+                    <div class="room-details-list">
 
-                <div class="room-details-list">
+                        <span
+                            data-en="Welcome Drinks"
+                            data-bn="স্বাগত পানীয়">
+                            স্বাগত পানীয়
+                        </span>
 
-                    <span>Desk</span>
-                    <span>Tile/marble floor</span>
-                    <span>Flat-screen TV</span>
-                    <span>Power Backup</span>
-                    <span>Daily Housekeeping</span>
-                    <span>Electric kettle</span>
-                    <span>Mini Refrigerator</span>
-                    <span>Fan</span>
-                    <span>Towels</span>
-                    <span>Ironing facilities</span>
-                    <span>Air conditioning</span>
-                    <span>Mineral water</span>
-                    <span>Complimentary Coffee Mini Pack</span>
-                    <span>Clothes rack</span>
+                        <span
+                            data-en="Breakfast Included"
+                            data-bn="ব্রেকফাস্ট অন্তর্ভুক্ত">
+                            ব্রেকফাস্ট অন্তর্ভুক্ত
+                        </span>
+
+                        <span
+                            data-en="Swimming Pool Access"
+                            data-bn="সুইমিং পুল ব্যবহার">
+                            সুইমিং পুল ব্যবহার
+                        </span>
+
+                        <span
+                            data-en="24/7 Room Service"
+                            data-bn="২৪/৭ রুম সার্ভিস">
+                            ২৪/৭ রুম সার্ভিস
+                        </span>
+
+                        <span
+                            data-en="Cycling &amp; Pool Billiard"
+                            data-bn="সাইক্লিং ও পুল বিলিয়ার্ড">
+                            সাইক্লিং ও পুল বিলিয়ার্ড
+                        </span>
+
+                        <span
+                            data-en="Kayaking Boat"
+                            data-bn="কায়াকিং বোট">
+                            কায়াকিং বোট
+                        </span>
+
+                        <span
+                            data-en="Kids Playground"
+                            data-bn="শিশুদের খেলার জায়গা">
+                            শিশুদের খেলার জায়গা
+                        </span>
+
+                        <span
+                            data-en="WiFi (In-house Guests)"
+                            data-bn="WiFi (রিসোর্টে অবস্থানরত অতিথিদের জন্য)">
+                            WiFi (রিসোর্টে অবস্থানরত অতিথিদের জন্য)
+                        </span>
+
+                    </div>
 
                 </div>
 
-            </div>
+
+                <!-- BATHROOM -->
+
+                <div class="room-details-section">
+
+                    <h3
+                        data-en="Bathroom Facilities"
+                        data-bn="বাথরুমের সুবিধাসমূহ">
+                        বাথরুমের সুবিধাসমূহ
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span
+                            data-en="Free toiletries"
+                            data-bn="ফ্রি টয়লেট্রিজ">
+                            ফ্রি টয়লেট্রিজ
+                        </span>
+
+                        <span
+                            data-en="Shower"
+                            data-bn="শাওয়ার">
+                            শাওয়ার
+                        </span>
+
+                        <span
+                            data-en="Toilet"
+                            data-bn="টয়লেট">
+                            টয়লেট
+                        </span>
+
+                        <span
+                            data-en="Slippers"
+                            data-bn="স্লিপার">
+                            স্লিপার
+                        </span>
+
+                        <span
+                            data-en="Hairdryer"
+                            data-bn="হেয়ার ড্রায়ার">
+                            হেয়ার ড্রায়ার
+                        </span>
+
+                        <span
+                            data-en="Toilet paper"
+                            data-bn="টয়লেট পেপার">
+                            টয়লেট পেপার
+                        </span>
+
+                    </div>
+
+                </div>
 
 
-            <!-- SMOKING -->
+                <!-- ROOM FACILITIES -->
 
-            <div class="room-details-section room-smoking">
+                <div class="room-details-section">
 
-                <h3>
-                    Smoking Policy
-                </h3>
+                    <h3
+                        data-en="Room Facilities &amp; Amenities"
+                        data-bn="রুমের সুবিধা ও সরঞ্জাম">
+                        রুমের সুবিধা ও সরঞ্জাম
+                    </h3>
 
-                <p>
-                    Smoking is not allowed.
-                </p>
+                    <div class="room-details-list">
 
-            </div>
+                        <span
+                            data-en="Desk"
+                            data-bn="ডেস্ক">
+                            ডেস্ক
+                        </span>
+
+                        <span
+                            data-en="Tile/marble floor"
+                            data-bn="টাইল / মার্বেল ফ্লোর">
+                            টাইল / মার্বেল ফ্লোর
+                        </span>
+
+                        <span
+                            data-en="Flat-screen TV"
+                            data-bn="ফ্ল্যাট-স্ক্রিন টিভি">
+                            ফ্ল্যাট-স্ক্রিন টিভি
+                        </span>
+
+                        <span
+                            data-en="Power Backup"
+                            data-bn="পাওয়ার ব্যাকআপ">
+                            পাওয়ার ব্যাকআপ
+                        </span>
+
+                        <span
+                            data-en="Daily Housekeeping"
+                            data-bn="দৈনিক হাউসকিপিং">
+                            দৈনিক হাউসকিপিং
+                        </span>
+
+                        <span
+                            data-en="Electric kettle"
+                            data-bn="ইলেকট্রিক কেটলি">
+                            ইলেকট্রিক কেটলি
+                        </span>
+
+                        <span
+                            data-en="Mini Refrigerator"
+                            data-bn="মিনি রেফ্রিজারেটর">
+                            মিনি রেফ্রিজারেটর
+                        </span>
+
+                        <span
+                            data-en="Fan"
+                            data-bn="ফ্যান">
+                            ফ্যান
+                        </span>
+
+                        <span
+                            data-en="Towels"
+                            data-bn="তোয়ালে">
+                            তোয়ালে
+                        </span>
+
+                        <span
+                            data-en="Ironing facilities"
+                            data-bn="ইস্ত্রি করার সুবিধা">
+                            ইস্ত্রি করার সুবিধা
+                        </span>
+
+                        <span
+                            data-en="Air conditioning"
+                            data-bn="এয়ার কন্ডিশনিং">
+                            এয়ার কন্ডিশনিং
+                        </span>
+
+                        <span
+                            data-en="Mineral water"
+                            data-bn="মিনারেল ওয়াটার">
+                            মিনারেল ওয়াটার
+                        </span>
+
+                        <span
+                            data-en="Complimentary Coffee Mini Pack"
+                            data-bn="কমপ্লিমেন্টারি কফি মিনি প্যাক">
+                            কমপ্লিমেন্টারি কফি মিনি প্যাক
+                        </span>
+
+                        <span
+                            data-en="Clothes rack"
+                            data-bn="কাপড় রাখার র‍্যাক">
+                            কাপড় রাখার র‍্যাক
+                        </span>
+
+                    </div>
+
+                </div>
 
 
-            <!-- BOOK NOW -->
+                <!-- SMOKING -->
 
-            <div class="room-details-booking">
+                <div class="room-details-section room-smoking">
 
-                <a href="booking.html?room=Super%20Deluxe%20-%20Cottage"
-                   class="small-btn whatsapp">
-                    BOOK NOW
-                </a>
+                    <h3
+                        data-en="Smoking Policy"
+                        data-bn="ধূমপান নীতি">
+                        ধূমপান নীতি
+                    </h3>
+
+                    <p
+                        data-en="Smoking is not allowed."
+                        data-bn="ধূমপান করা যাবে না।">
+                        ধূমপান করা যাবে না।
+                    </p>
+
+                </div>
+
+
+                <!-- BOOK NOW -->
+
+                <div class="room-details-booking">
+
+                    <a href="booking.html?room=Super%20Deluxe%20-%20Cottage"
+                       class="small-btn whatsapp"
+                       data-en="BOOK NOW"
+                       data-bn="বুক করুন">
+                        বুক করুন
+                    </a>
+
+                </div>
 
             </div>
 
         </div>
 
     </div>
-
-</div>
-```
 
 </div>
 
@@ -7163,226 +8461,396 @@ aria-label="WhatsApp">
 <div class="modal room-details-modal"
      id="superDeluxePoolDetails">
 
-```
-<div class="modal-content room-details-content">
+    <div class="modal-content room-details-content">
 
-    <!-- CLOSE -->
-    <button class="modal-close"
-            onclick="closeRoomDetails('superDeluxePoolDetails')">
-        ×
-    </button>
-
-
-    <div class="room-details-layout">
+        <!-- CLOSE -->
+        <button class="modal-close"
+                onclick="closeRoomDetails('superDeluxePoolDetails')">
+            ×
+        </button>
 
 
-        <!-- LEFT — PHOTO GALLERY -->
+        <div class="room-details-layout">
 
-        <div class="room-details-gallery">
 
-            <div class="room-main-image">
+            <!-- LEFT — PHOTO GALLERY -->
 
-                <img
-                    id="superDeluxePoolMainImage"
-                    src="rooms/gallery/swimming-pool/room1.jpeg"
-                    alt="Super Deluxe Swimming Pool View">
+            <div class="room-details-gallery">
 
-                <button class="room-photo-nav room-photo-prev"
-                        onclick="changeSuperDeluxePoolImage(-1)">
-                    ‹
-                </button>
+                <div class="room-main-image">
 
-                <button class="room-photo-nav room-photo-next"
-                        onclick="changeSuperDeluxePoolImage(1)">
-                    ›
-                </button>
+                    <img
+                        id="superDeluxePoolMainImage"
+                        src="rooms/gallery/swimming-pool/room1.jpeg"
+                        alt="সুপার ডিলাক্স সুইমিং পুল ভিউ">
+
+                    <button class="room-photo-nav room-photo-prev"
+                            onclick="changeSuperDeluxePoolImage(-1)">
+                        ‹
+                    </button>
+
+                    <button class="room-photo-nav room-photo-next"
+                            onclick="changeSuperDeluxePoolImage(1)">
+                        ›
+                    </button>
+
+                </div>
+
+
+                <div class="room-photo-thumbnails">
+
+                    <img
+                        src="rooms/gallery/swimming-pool/room1.jpeg"
+                        alt="সুপার ডিলাক্স সুইমিং পুল ভিউ রুম ১"
+                        class="super-deluxe-pool-thumb active"
+                        onclick="selectSuperDeluxePoolImage(0)">
+
+                    <img
+                        src="rooms/gallery/swimming-pool/room2.jpeg"
+                        alt="সুপার ডিলাক্স সুইমিং পুল ভিউ রুম ২"
+                        class="super-deluxe-pool-thumb"
+                        onclick="selectSuperDeluxePoolImage(1)">
+
+                    <img
+                        src="rooms/gallery/swimming-pool/room3.jpeg"
+                        alt="সুপার ডিলাক্স সুইমিং পুল ভিউ রুম ৩"
+                        class="super-deluxe-pool-thumb"
+                        onclick="selectSuperDeluxePoolImage(2)">
+
+                    <img
+                        src="rooms/gallery/swimming-pool/room4.jpeg"
+                        alt="সুপার ডিলাক্স সুইমিং পুল ভিউ রুম ৪"
+                        class="super-deluxe-pool-thumb"
+                        onclick="selectSuperDeluxePoolImage(3)">
+
+                </div>
 
             </div>
 
 
-            <div class="room-photo-thumbnails">
+            <!-- RIGHT — DETAILS -->
 
-                <img
-                    src="rooms/gallery/swimming-pool/room1.jpeg"
-                    alt="Super Deluxe Swimming Pool View Room 1"
-                    class="super-deluxe-pool-thumb active"
-                    onclick="selectSuperDeluxePoolImage(0)">
+            <div class="room-details-information">
 
-                <img
-                    src="rooms/gallery/swimming-pool/room2.jpeg"
-                    alt="Super Deluxe Swimming Pool View Room 2"
-                    class="super-deluxe-pool-thumb"
-                    onclick="selectSuperDeluxePoolImage(1)">
+                <div class="room-details-eyebrow"
+                     data-en="SUPER DELUXE"
+                     data-bn="সুপার ডিলাক্স">
+                    সুপার ডিলাক্স
+                </div>
 
-                <img
-                    src="rooms/gallery/swimming-pool/room3.jpeg"
-                    alt="Super Deluxe Swimming Pool View Room 3"
-                    class="super-deluxe-pool-thumb"
-                    onclick="selectSuperDeluxePoolImage(2)">
+                <h2
+                    data-en="Super Deluxe"
+                    data-bn="সুপার ডিলাক্স">
+                    সুপার ডিলাক্স
+                </h2>
 
-                <img
-                    src="rooms/gallery/swimming-pool/room4.jpeg"
-                    alt="Super Deluxe Swimming Pool View Room 4"
-                    class="super-deluxe-pool-thumb"
-                    onclick="selectSuperDeluxePoolImage(3)">
+                <div class="room-details-view"
+                     data-en="Swimming Pool View"
+                     data-bn="সুইমিং পুল ভিউ">
+                    সুইমিং পুল ভিউ
+                </div>
 
-            </div>
+                <div class="room-details-price">
 
-        </div>
+                    <span
+                        data-en="BDT 7,200"
+                        data-bn="৭,২০০ টাকা">
+                        ৭,২০০ টাকা
+                    </span>
 
-
-        <!-- RIGHT — DETAILS -->
-
-        <div class="room-details-information">
-
-            <div class="room-details-eyebrow">
-                SUPER DELUXE
-            </div>
-
-            <h2>
-                Super Deluxe
-            </h2>
-
-            <div class="room-details-view">
-                Swimming Pool View
-            </div>
-
-            <div class="room-details-price">
-                BDT 7,200
-                <span>/ Night</span>
-            </div>
-
-
-            <!-- BASIC INFORMATION -->
-
-            <div class="room-details-basic">
-
-                <div class="room-detail-item">
-
-                    <strong>
-                        Maximum Guests
-                    </strong>
-
-                    <span>
-                        Up to 2 Persons
+                    <span
+                        data-en="/ Night"
+                        data-bn="/ রাত">
+                        / রাত
                     </span>
 
                 </div>
 
 
-                <div class="room-detail-item">
+                <!-- BASIC INFORMATION -->
 
-                    <strong>
-                        Beds
-                    </strong>
+                <div class="room-details-basic">
 
-                    <span>
-                        1 Queen Size Bed
-                    </span>
+                    <div class="room-detail-item">
 
-                </div>
+                        <strong
+                            data-en="Maximum Guests"
+                            data-bn="সর্বোচ্চ অতিথি">
+                            সর্বোচ্চ অতিথি
+                        </strong>
 
-            </div>
+                        <span
+                            data-en="Up to 2 Persons"
+                            data-bn="সর্বোচ্চ ২ জন">
+                            সর্বোচ্চ ২ জন
+                        </span>
 
-
-            <!-- COMPLIMENTARY FACILITIES -->
-
-            <div class="room-details-section">
-
-                <h3>
-                    Complimentary Facilities
-                </h3>
-
-                <div class="room-details-list">
-
-                    <span>Welcome Drinks</span>
-                    <span>Breakfast Included</span>
-                    <span>Swimming Pool Access</span>
-                    <span>24/7 Room Service</span>
-                    <span>Cycling &amp; Pool Billiard</span>
-                    <span>Kayaking Boat</span>
-                    <span>Kids Playground</span>
-                    <span>WiFi (In-house Guests)</span>
-
-                </div>
-
-            </div>
+                    </div>
 
 
-            <!-- BATHROOM -->
+                    <div class="room-detail-item">
 
-            <div class="room-details-section">
+                        <strong
+                            data-en="Beds"
+                            data-bn="বেড">
+                            বেড
+                        </strong>
 
-                <h3>
-                    Bathroom Facilities
-                </h3>
+                        <span
+                            data-en="1 Queen Size Bed"
+                            data-bn="১টি কুইন সাইজ বেড">
+                            ১টি কুইন সাইজ বেড
+                        </span>
 
-                <div class="room-details-list">
-
-                    <span>Free toiletries</span>
-                    <span>Shower</span>
-                    <span>Toilet</span>
-                    <span>Slippers</span>
-                    <span>Hairdryer</span>
-                    <span>Toilet paper</span>
+                    </div>
 
                 </div>
 
-            </div>
 
+                <!-- COMPLIMENTARY FACILITIES -->
 
-            <!-- ROOM FACILITIES -->
+                <div class="room-details-section">
 
-            <div class="room-details-section">
+                    <h3
+                        data-en="Complimentary Facilities"
+                        data-bn="অন্তর্ভুক্ত সুবিধাসমূহ">
+                        অন্তর্ভুক্ত সুবিধাসমূহ
+                    </h3>
 
-                <h3>
-                    Room Facilities &amp; Amenities
-                </h3>
+                    <div class="room-details-list">
 
-                <div class="room-details-list">
+                        <span
+                            data-en="Welcome Drinks"
+                            data-bn="স্বাগত পানীয়">
+                            স্বাগত পানীয়
+                        </span>
 
-                    <span>Desk</span>
-                    <span>Tile/marble floor</span>
-                    <span>Flat-screen TV</span>
-                    <span>Power Backup</span>
-                    <span>Daily Housekeeping</span>
-                    <span>Electric kettle</span>
-                    <span>Fan</span>
-                    <span>Towels</span>
-                    <span>Ironing facilities</span>
-                    <span>Air conditioning</span>
-                    <span>Mineral water</span>
-                    <span>Complimentary Coffee Mini Pack</span>
-                    <span>Clothes rack</span>
+                        <span
+                            data-en="Breakfast Included"
+                            data-bn="ব্রেকফাস্ট অন্তর্ভুক্ত">
+                            ব্রেকফাস্ট অন্তর্ভুক্ত
+                        </span>
+
+                        <span
+                            data-en="Swimming Pool Access"
+                            data-bn="সুইমিং পুল ব্যবহার">
+                            সুইমিং পুল ব্যবহার
+                        </span>
+
+                        <span
+                            data-en="24/7 Room Service"
+                            data-bn="২৪/৭ রুম সার্ভিস">
+                            ২৪/৭ রুম সার্ভিস
+                        </span>
+
+                        <span
+                            data-en="Cycling &amp; Pool Billiard"
+                            data-bn="সাইক্লিং ও পুল বিলিয়ার্ড">
+                            সাইক্লিং ও পুল বিলিয়ার্ড
+                        </span>
+
+                        <span
+                            data-en="Kayaking Boat"
+                            data-bn="কায়াকিং বোট">
+                            কায়াকিং বোট
+                        </span>
+
+                        <span
+                            data-en="Kids Playground"
+                            data-bn="শিশুদের খেলার জায়গা">
+                            শিশুদের খেলার জায়গা
+                        </span>
+
+                        <span
+                            data-en="WiFi (In-house Guests)"
+                            data-bn="WiFi (রিসোর্টে অবস্থানরত অতিথিদের জন্য)">
+                            WiFi (রিসোর্টে অবস্থানরত অতিথিদের জন্য)
+                        </span>
+
+                    </div>
 
                 </div>
 
-            </div>
+
+                <!-- BATHROOM -->
+
+                <div class="room-details-section">
+
+                    <h3
+                        data-en="Bathroom Facilities"
+                        data-bn="বাথরুমের সুবিধাসমূহ">
+                        বাথরুমের সুবিধাসমূহ
+                    </h3>
+
+                    <div class="room-details-list">
+
+                        <span
+                            data-en="Free toiletries"
+                            data-bn="ফ্রি টয়লেট্রিজ">
+                            ফ্রি টয়লেট্রিজ
+                        </span>
+
+                        <span
+                            data-en="Shower"
+                            data-bn="শাওয়ার">
+                            শাওয়ার
+                        </span>
+
+                        <span
+                            data-en="Toilet"
+                            data-bn="টয়লেট">
+                            টয়লেট
+                        </span>
+
+                        <span
+                            data-en="Slippers"
+                            data-bn="স্লিপার">
+                            স্লিপার
+                        </span>
+
+                        <span
+                            data-en="Hairdryer"
+                            data-bn="হেয়ার ড্রায়ার">
+                            হেয়ার ড্রায়ার
+                        </span>
+
+                        <span
+                            data-en="Toilet paper"
+                            data-bn="টয়লেট পেপার">
+                            টয়লেট পেপার
+                        </span>
+
+                    </div>
+
+                </div>
 
 
-            <!-- SMOKING -->
+                <!-- ROOM FACILITIES -->
 
-            <div class="room-details-section room-smoking">
+                <div class="room-details-section">
 
-                <h3>
-                    Smoking Policy
-                </h3>
+                    <h3
+                        data-en="Room Facilities &amp; Amenities"
+                        data-bn="রুমের সুবিধা ও সরঞ্জাম">
+                        রুমের সুবিধা ও সরঞ্জাম
+                    </h3>
 
-                <p>
-                    Smoking is not allowed.
-                </p>
+                    <div class="room-details-list">
 
-            </div>
+                        <span
+                            data-en="Desk"
+                            data-bn="ডেস্ক">
+                            ডেস্ক
+                        </span>
+
+                        <span
+                            data-en="Tile/marble floor"
+                            data-bn="টাইল / মার্বেল ফ্লোর">
+                            টাইল / মার্বেল ফ্লোর
+                        </span>
+
+                        <span
+                            data-en="Flat-screen TV"
+                            data-bn="ফ্ল্যাট-স্ক্রিন টিভি">
+                            ফ্ল্যাট-স্ক্রিন টিভি
+                        </span>
+
+                        <span
+                            data-en="Power Backup"
+                            data-bn="পাওয়ার ব্যাকআপ">
+                            পাওয়ার ব্যাকআপ
+                        </span>
+
+                        <span
+                            data-en="Daily Housekeeping"
+                            data-bn="দৈনিক হাউসকিপিং">
+                            দৈনিক হাউসকিপিং
+                        </span>
+
+                        <span
+                            data-en="Electric kettle"
+                            data-bn="ইলেকট্রিক কেটলি">
+                            ইলেকট্রিক কেটলি
+                        </span>
+
+                        <span
+                            data-en="Fan"
+                            data-bn="ফ্যান">
+                            ফ্যান
+                        </span>
+
+                        <span
+                            data-en="Towels"
+                            data-bn="তোয়ালে">
+                            তোয়ালে
+                        </span>
+
+                        <span
+                            data-en="Ironing facilities"
+                            data-bn="ইস্ত্রি করার সুবিধা">
+                            ইস্ত্রি করার সুবিধা
+                        </span>
+
+                        <span
+                            data-en="Air conditioning"
+                            data-bn="এয়ার কন্ডিশনিং">
+                            এয়ার কন্ডিশনিং
+                        </span>
+
+                        <span
+                            data-en="Mineral water"
+                            data-bn="মিনারেল ওয়াটার">
+                            মিনারেল ওয়াটার
+                        </span>
+
+                        <span
+                            data-en="Complimentary Coffee Mini Pack"
+                            data-bn="কমপ্লিমেন্টারি কফি মিনি প্যাক">
+                            কমপ্লিমেন্টারি কফি মিনি প্যাক
+                        </span>
+
+                        <span
+                            data-en="Clothes rack"
+                            data-bn="কাপড় রাখার র‍্যাক">
+                            কাপড় রাখার র‍্যাক
+                        </span>
+
+                    </div>
+
+                </div>
 
 
-            <!-- BOOK NOW -->
+                <!-- SMOKING -->
 
-            <div class="room-details-booking">
+                <div class="room-details-section room-smoking">
 
-                <a href="booking.html?room=Super%20Deluxe%20-%20Swimming%20Pool%20View"
-                   class="small-btn whatsapp">
-                    BOOK NOW
-                </a>
+                    <h3
+                        data-en="Smoking Policy"
+                        data-bn="ধূমপান নীতি">
+                        ধূমপান নীতি
+                    </h3>
+
+                    <p
+                        data-en="Smoking is not allowed."
+                        data-bn="ধূমপান করা যাবে না।">
+                        ধূমপান করা যাবে না।
+                    </p>
+
+                </div>
+
+
+                <!-- BOOK NOW -->
+
+                <div class="room-details-booking">
+
+                    <a href="booking.html?room=Super%20Deluxe%20-%20Swimming%20Pool%20View"
+                       class="small-btn whatsapp"
+                       data-en="BOOK NOW"
+                       data-bn="বুক করুন">
+                        বুক করুন
+                    </a>
+
+                </div>
 
             </div>
 
@@ -7391,11 +8859,6 @@ aria-label="WhatsApp">
     </div>
 
 </div>
-```
-
-</div>
-
-
 
 <!-- =======================================================
      SPECIAL FAMILY DELUXE — ROOM DETAILS
@@ -7412,9 +8875,7 @@ aria-label="WhatsApp">
             ×
         </button>
 
-
         <div class="room-details-layout">
-
 
             <!-- LEFT — PHOTO GALLERY -->
 
@@ -7438,7 +8899,6 @@ aria-label="WhatsApp">
                     </button>
 
                 </div>
-
 
                 <div class="room-photo-thumbnails">
 
@@ -7470,28 +8930,38 @@ aria-label="WhatsApp">
 
             </div>
 
-
             <!-- RIGHT — DETAILS -->
 
             <div class="room-details-information">
 
-                <div class="room-details-eyebrow">
-                    SPECIAL FAMILY DELUXE
+                <div class="room-details-eyebrow"
+                     data-en="SPECIAL FAMILY DELUXE"
+                     data-bn="স্পেশাল ফ্যামিলি ডিলাক্স">
+                    স্পেশাল ফ্যামিলি ডিলাক্স
                 </div>
 
-                <h2>
-                    Special Family Deluxe
+                <h2
+                    data-en="Special Family Deluxe"
+                    data-bn="স্পেশাল ফ্যামিলি ডিলাক্স">
+                    স্পেশাল ফ্যামিলি ডিলাক্স
                 </h2>
 
-                <div class="room-details-view">
-                    Swimming Pool View
+                <div class="room-details-view"
+                     data-en="Swimming Pool View"
+                     data-bn="সুইমিং পুল ভিউ">
+                    সুইমিং পুল ভিউ
                 </div>
 
-                <div class="room-details-price">
-                    BDT 8,400
-                    <span>/ Night</span>
+                <div class="room-details-price"
+                     data-en="BDT 8,400"
+                     data-bn="৳ ৮,৪০০">
+                    ৳ ৮,৪০০
+                    <span
+                        data-en="/ Night"
+                        data-bn="/ রাত">
+                        / রাত
+                    </span>
                 </div>
-
 
                 <!-- BASIC INFORMATION -->
 
@@ -7499,129 +8969,248 @@ aria-label="WhatsApp">
 
                     <div class="room-detail-item">
 
-                        <strong>
-                            Maximum Guests
+                        <strong
+                            data-en="Maximum Guests"
+                            data-bn="সর্বোচ্চ অতিথি">
+                            সর্বোচ্চ অতিথি
                         </strong>
 
-                        <span>
-                            Up to 3 Persons
+                        <span
+                            data-en="Up to 3 Persons"
+                            data-bn="সর্বোচ্চ ৩ জন">
+                            সর্বোচ্চ ৩ জন
                         </span>
 
                     </div>
 
-
                     <div class="room-detail-item">
 
-                        <strong>
-                            Beds
+                        <strong
+                            data-en="Beds"
+                            data-bn="বেড">
+                            বেড
                         </strong>
 
-                        <span>
-                            1 Twin Bed + 1 King Size Bed
+                        <span
+                            data-en="1 Twin Bed + 1 King Size Bed"
+                            data-bn="১টি টুইন বেড + ১টি কিং সাইজ বেড">
+                            ১টি টুইন বেড + ১টি কিং সাইজ বেড
                         </span>
 
                     </div>
 
                 </div>
-
 
                 <!-- COMPLIMENTARY FACILITIES -->
 
                 <div class="room-details-section">
 
-                    <h3>
-                        Complimentary Facilities
+                    <h3
+                        data-en="Complimentary Facilities"
+                        data-bn="অন্তর্ভুক্ত সুবিধাসমূহ">
+                        অন্তর্ভুক্ত সুবিধাসমূহ
                     </h3>
 
                     <div class="room-details-list">
 
-                        <span>Welcome Drinks</span>
-                        <span>Breakfast Included</span>
-                        <span>Swimming Pool Access</span>
-                        <span>24/7 Room Service</span>
-                        <span>Cycling &amp; Pool Billiard</span>
-                        <span>Kayaking Boat</span>
-                        <span>Kids Playground</span>
-                        <span>WiFi (In-house Guests)</span>
+                        <span data-en="Welcome Drinks"
+                              data-bn="স্বাগত পানীয়">
+                            স্বাগত পানীয়
+                        </span>
+
+                        <span data-en="Breakfast Included"
+                              data-bn="ব্রেকফাস্ট অন্তর্ভুক্ত">
+                            ব্রেকফাস্ট অন্তর্ভুক্ত
+                        </span>
+
+                        <span data-en="Swimming Pool Access"
+                              data-bn="সুইমিং পুল ব্যবহার">
+                            সুইমিং পুল ব্যবহার
+                        </span>
+
+                        <span data-en="24/7 Room Service"
+                              data-bn="২৪/৭ রুম সার্ভিস">
+                            ২৪/৭ রুম সার্ভিস
+                        </span>
+
+                        <span data-en="Cycling &amp; Pool Billiard"
+                              data-bn="সাইক্লিং ও পুল বিলিয়ার্ড">
+                            সাইক্লিং ও পুল বিলিয়ার্ড
+                        </span>
+
+                        <span data-en="Kayaking Boat"
+                              data-bn="কায়াকিং বোট">
+                            কায়াকিং বোট
+                        </span>
+
+                        <span data-en="Kids Playground"
+                              data-bn="শিশুদের খেলার জায়গা">
+                            শিশুদের খেলার জায়গা
+                        </span>
+
+                        <span data-en="WiFi (In-house Guests)"
+                              data-bn="WiFi (রিসোর্টে অবস্থানরত অতিথিদের জন্য)">
+                            WiFi (রিসোর্টে অবস্থানরত অতিথিদের জন্য)
+                        </span>
 
                     </div>
 
                 </div>
-
 
                 <!-- BATHROOM -->
 
                 <div class="room-details-section">
 
-                    <h3>
-                        Bathroom Facilities
+                    <h3
+                        data-en="Bathroom Facilities"
+                        data-bn="বাথরুমের সুবিধাসমূহ">
+                        বাথরুমের সুবিধাসমূহ
                     </h3>
 
                     <div class="room-details-list">
 
-                        <span>Free toiletries</span>
-                        <span>Shower</span>
-                        <span>Toilet</span>
-                        <span>Slippers</span>
-                        <span>Hairdryer</span>
-                        <span>Toilet paper</span>
+                        <span data-en="Free toiletries"
+                              data-bn="ফ্রি টয়লেট্রিজ">
+                            ফ্রি টয়লেট্রিজ
+                        </span>
+
+                        <span data-en="Shower"
+                              data-bn="শাওয়ার">
+                            শাওয়ার
+                        </span>
+
+                        <span data-en="Toilet"
+                              data-bn="টয়লেট">
+                            টয়লেট
+                        </span>
+
+                        <span data-en="Slippers"
+                              data-bn="স্লিপার">
+                            স্লিপার
+                        </span>
+
+                        <span data-en="Hairdryer"
+                              data-bn="হেয়ার ড্রায়ার">
+                            হেয়ার ড্রায়ার
+                        </span>
+
+                        <span data-en="Toilet paper"
+                              data-bn="টয়লেট পেপার">
+                            টয়লেট পেপার
+                        </span>
 
                     </div>
 
                 </div>
 
-
                 <!-- ROOM FACILITIES -->
 
-            <div class="room-details-section">
+                <div class="room-details-section">
 
-                <h3>
-                    Room Facilities &amp; Amenities
-                </h3>
+                    <h3
+                        data-en="Room Facilities &amp; Amenities"
+                        data-bn="রুমের সুবিধা ও সরঞ্জাম">
+                        রুমের সুবিধা ও সরঞ্জাম
+                    </h3>
 
-                <div class="room-details-list">
+                    <div class="room-details-list">
 
-                    <span>Desk</span>
-                    <span>Tile/marble floor</span>
-                    <span>Flat-screen TV</span>
-                    <span>Power Backup</span>
-                    <span>Daily Housekeeping</span>
-                    <span>Electric kettle</span>
-                    <span>Fan</span>
-                    <span>Towels</span>
-                    <span>Ironing facilities</span>
-                    <span>Air conditioning</span>
-                    <span>Mineral water</span>
-                    <span>Complimentary Coffee Mini Pack</span>
-                    <span>Clothes rack</span>
+                        <span data-en="Desk"
+                              data-bn="ডেস্ক">
+                            ডেস্ক
+                        </span>
+
+                        <span data-en="Tile/marble floor"
+                              data-bn="টাইল / মার্বেল ফ্লোর">
+                            টাইল / মার্বেল ফ্লোর
+                        </span>
+
+                        <span data-en="Flat-screen TV"
+                              data-bn="ফ্ল্যাট-স্ক্রিন টিভি">
+                            ফ্ল্যাট-স্ক্রিন টিভি
+                        </span>
+
+                        <span data-en="Power Backup"
+                              data-bn="পাওয়ার ব্যাকআপ">
+                            পাওয়ার ব্যাকআপ
+                        </span>
+
+                        <span data-en="Daily Housekeeping"
+                              data-bn="দৈনিক হাউসকিপিং">
+                            দৈনিক হাউসকিপিং
+                        </span>
+
+                        <span data-en="Electric kettle"
+                              data-bn="ইলেকট্রিক কেটলি">
+                            ইলেকট্রিক কেটলি
+                        </span>
+
+                        <span data-en="Fan"
+                              data-bn="ফ্যান">
+                            ফ্যান
+                        </span>
+
+                        <span data-en="Towels"
+                              data-bn="তোয়ালে">
+                            তোয়ালে
+                        </span>
+
+                        <span data-en="Ironing facilities"
+                              data-bn="ইস্ত্রি করার সুবিধা">
+                            ইস্ত্রি করার সুবিধা
+                        </span>
+
+                        <span data-en="Air conditioning"
+                              data-bn="এয়ার কন্ডিশনিং">
+                            এয়ার কন্ডিশনিং
+                        </span>
+
+                        <span data-en="Mineral water"
+                              data-bn="মিনারেল ওয়াটার">
+                            মিনারেল ওয়াটার
+                        </span>
+
+                        <span data-en="Complimentary Coffee Mini Pack"
+                              data-bn="কমপ্লিমেন্টারি কফি মিনি প্যাক">
+                            কমপ্লিমেন্টারি কফি মিনি প্যাক
+                        </span>
+
+                        <span data-en="Clothes rack"
+                              data-bn="কাপড় রাখার র‍্যাক">
+                            কাপড় রাখার র‍্যাক
+                        </span>
+
+                    </div>
 
                 </div>
-
-            </div>
-
 
                 <!-- SMOKING -->
 
                 <div class="room-details-section room-smoking">
 
-                    <h3>
-                        Smoking Policy
+                    <h3
+                        data-en="Smoking Policy"
+                        data-bn="ধূমপান নীতি">
+                        ধূমপান নীতি
                     </h3>
 
-                    <p>
-                        Smoking is not allowed.
+                    <p
+                        data-en="Smoking is not allowed."
+                        data-bn="ধূমপান করা যাবে না।">
+                        ধূমপান করা যাবে না।
                     </p>
 
                 </div>
-
 
                 <!-- BOOK NOW -->
 
                 <div class="room-details-booking">
 
                     <a href="booking.html?room=Special%20Family%20Deluxe"
-                       class="small-btn whatsapp">
-                        BOOK NOW
+                       class="small-btn whatsapp"
+                       data-en="BOOK NOW"
+                       data-bn="বুক করুন">
+                        বুক করুন
                     </a>
 
                 </div>
@@ -7649,9 +9238,7 @@ aria-label="WhatsApp">
             ×
         </button>
 
-
         <div class="room-details-layout">
-
 
             <!-- LEFT — PHOTO GALLERY -->
 
@@ -7675,7 +9262,6 @@ aria-label="WhatsApp">
                     </button>
 
                 </div>
-
 
                 <div class="room-photo-thumbnails">
 
@@ -7707,28 +9293,38 @@ aria-label="WhatsApp">
 
             </div>
 
-
             <!-- RIGHT — DETAILS -->
 
             <div class="room-details-information">
 
-                <div class="room-details-eyebrow">
-                    SPECIAL SUPER DELUXE
+                <div class="room-details-eyebrow"
+                     data-en="SPECIAL SUPER DELUXE"
+                     data-bn="স্পেশাল সুপার ডিলাক্স">
+                    স্পেশাল সুপার ডিলাক্স
                 </div>
 
-                <h2>
-                    Special Super Deluxe
+                <h2
+                    data-en="Special Super Deluxe"
+                    data-bn="স্পেশাল সুপার ডিলাক্স">
+                    স্পেশাল সুপার ডিলাক্স
                 </h2>
 
-                <div class="room-details-view">
-                    Lake View
+                <div class="room-details-view"
+                     data-en="Lake View"
+                     data-bn="লেক ভিউ">
+                    লেক ভিউ
                 </div>
 
-                <div class="room-details-price">
-                    BDT 8,400
-                    <span>/ Night</span>
+                <div class="room-details-price"
+                     data-en="BDT 8,400"
+                     data-bn="৳ ৮,৪০০">
+                    ৳ ৮,৪০০
+                    <span
+                        data-en="/ Night"
+                        data-bn="/ রাত">
+                        / রাত
+                    </span>
                 </div>
-
 
                 <!-- BASIC INFORMATION -->
 
@@ -7736,130 +9332,253 @@ aria-label="WhatsApp">
 
                     <div class="room-detail-item">
 
-                        <strong>
-                            Maximum Guests
+                        <strong
+                            data-en="Maximum Guests"
+                            data-bn="সর্বোচ্চ অতিথি">
+                            সর্বোচ্চ অতিথি
                         </strong>
 
-                        <span>
-                            Up to 2 Persons
+                        <span
+                            data-en="Up to 2 Persons"
+                            data-bn="সর্বোচ্চ ২ জন">
+                            সর্বোচ্চ ২ জন
                         </span>
 
                     </div>
 
-
                     <div class="room-detail-item">
 
-                        <strong>
-                            Beds
+                        <strong
+                            data-en="Beds"
+                            data-bn="বেড">
+                            বেড
                         </strong>
 
-                        <span>
-                            1 Queen Size Bed
+                        <span
+                            data-en="1 Queen Size Bed"
+                            data-bn="১টি কুইন সাইজ বেড">
+                            ১টি কুইন সাইজ বেড
                         </span>
 
                     </div>
 
                 </div>
-
 
                 <!-- COMPLIMENTARY FACILITIES -->
 
                 <div class="room-details-section">
 
-                    <h3>
-                        Complimentary Facilities
+                    <h3
+                        data-en="Complimentary Facilities"
+                        data-bn="অন্তর্ভুক্ত সুবিধাসমূহ">
+                        অন্তর্ভুক্ত সুবিধাসমূহ
                     </h3>
 
                     <div class="room-details-list">
 
-                        <span>Welcome Drinks</span>
-                        <span>Breakfast Included</span>
-                        <span>Swimming Pool Access</span>
-                        <span>24/7 Room Service</span>
-                        <span>Cycling &amp; Pool Billiard</span>
-                        <span>Kayaking Boat</span>
-                        <span>Kids Playground</span>
-                        <span>WiFi (In-house Guests)</span>
+                        <span data-en="Welcome Drinks"
+                              data-bn="স্বাগত পানীয়">
+                            স্বাগত পানীয়
+                        </span>
+
+                        <span data-en="Breakfast Included"
+                              data-bn="ব্রেকফাস্ট অন্তর্ভুক্ত">
+                            ব্রেকফাস্ট অন্তর্ভুক্ত
+                        </span>
+
+                        <span data-en="Swimming Pool Access"
+                              data-bn="সুইমিং পুল ব্যবহার">
+                            সুইমিং পুল ব্যবহার
+                        </span>
+
+                        <span data-en="24/7 Room Service"
+                              data-bn="২৪/৭ রুম সার্ভিস">
+                            ২৪/৭ রুম সার্ভিস
+                        </span>
+
+                        <span data-en="Cycling &amp; Pool Billiard"
+                              data-bn="সাইক্লিং ও পুল বিলিয়ার্ড">
+                            সাইক্লিং ও পুল বিলিয়ার্ড
+                        </span>
+
+                        <span data-en="Kayaking Boat"
+                              data-bn="কায়াকিং বোট">
+                            কায়াকিং বোট
+                        </span>
+
+                        <span data-en="Kids Playground"
+                              data-bn="শিশুদের খেলার জায়গা">
+                            শিশুদের খেলার জায়গা
+                        </span>
+
+                        <span data-en="WiFi (In-house Guests)"
+                              data-bn="WiFi (রিসোর্টে অবস্থানরত অতিথিদের জন্য)">
+                            WiFi (রিসোর্টে অবস্থানরত অতিথিদের জন্য)
+                        </span>
 
                     </div>
 
                 </div>
-
 
                 <!-- BATHROOM -->
 
                 <div class="room-details-section">
 
-                    <h3>
-                        Bathroom Facilities
+                    <h3
+                        data-en="Bathroom Facilities"
+                        data-bn="বাথরুমের সুবিধাসমূহ">
+                        বাথরুমের সুবিধাসমূহ
                     </h3>
 
                     <div class="room-details-list">
 
-                        <span>Free toiletries</span>
-                        <span>Shower</span>
-                        <span>Toilet</span>
-                        <span>Slippers</span>
-                        <span>Hairdryer</span>
-                        <span>Toilet paper</span>
+                        <span data-en="Free toiletries"
+                              data-bn="ফ্রি টয়লেট্রিজ">
+                            ফ্রি টয়লেট্রিজ
+                        </span>
+
+                        <span data-en="Shower"
+                              data-bn="শাওয়ার">
+                            শাওয়ার
+                        </span>
+
+                        <span data-en="Toilet"
+                              data-bn="টয়লেট">
+                            টয়লেট
+                        </span>
+
+                        <span data-en="Slippers"
+                              data-bn="স্লিপার">
+                            স্লিপার
+                        </span>
+
+                        <span data-en="Hairdryer"
+                              data-bn="হেয়ার ড্রায়ার">
+                            হেয়ার ড্রায়ার
+                        </span>
+
+                        <span data-en="Toilet paper"
+                              data-bn="টয়লেট পেপার">
+                            টয়লেট পেপার
+                        </span>
 
                     </div>
 
                 </div>
 
-
                 <!-- ROOM FACILITIES -->
 
-            <div class="room-details-section">
+                <div class="room-details-section">
 
-                <h3>
-                    Room Facilities &amp; Amenities
-                </h3>
+                    <h3
+                        data-en="Room Facilities &amp; Amenities"
+                        data-bn="রুমের সুবিধা ও সরঞ্জাম">
+                        রুমের সুবিধা ও সরঞ্জাম
+                    </h3>
 
-                <div class="room-details-list">
+                    <div class="room-details-list">
 
-                    <span>Desk</span>
-                    <span>Tile/marble floor</span>
-                    <span>Flat-screen TV</span>
-                    <span>Power Backup</span>
-                    <span>Daily Housekeeping</span>
-                    <span>Electric kettle</span>
-                    <span>Mini Refrigerator</span>
-                    <span>Fan</span>
-                    <span>Towels</span>
-                    <span>Ironing facilities</span>
-                    <span>Air conditioning</span>
-                    <span>Mineral water</span>
-                    <span>Complimentary Coffee Mini Pack</span>
-                    <span>Clothes rack</span>
+                        <span data-en="Desk"
+                              data-bn="ডেস্ক">
+                            ডেস্ক
+                        </span>
+
+                        <span data-en="Tile/marble floor"
+                              data-bn="টাইল / মার্বেল ফ্লোর">
+                            টাইল / মার্বেল ফ্লোর
+                        </span>
+
+                        <span data-en="Flat-screen TV"
+                              data-bn="ফ্ল্যাট-স্ক্রিন টিভি">
+                            ফ্ল্যাট-স্ক্রিন টিভি
+                        </span>
+
+                        <span data-en="Power Backup"
+                              data-bn="পাওয়ার ব্যাকআপ">
+                            পাওয়ার ব্যাকআপ
+                        </span>
+
+                        <span data-en="Daily Housekeeping"
+                              data-bn="দৈনিক হাউসকিপিং">
+                            দৈনিক হাউসকিপিং
+                        </span>
+
+                        <span data-en="Electric kettle"
+                              data-bn="ইলেকট্রিক কেটলি">
+                            ইলেকট্রিক কেটলি
+                        </span>
+
+                        <span data-en="Mini Refrigerator"
+                              data-bn="মিনি রেফ্রিজারেটর">
+                            মিনি রেফ্রিজারেটর
+                        </span>
+
+                        <span data-en="Fan"
+                              data-bn="ফ্যান">
+                            ফ্যান
+                        </span>
+
+                        <span data-en="Towels"
+                              data-bn="তোয়ালে">
+                            তোয়ালে
+                        </span>
+
+                        <span data-en="Ironing facilities"
+                              data-bn="ইস্ত্রি করার সুবিধা">
+                            ইস্ত্রি করার সুবিধা
+                        </span>
+
+                        <span data-en="Air conditioning"
+                              data-bn="এয়ার কন্ডিশনিং">
+                            এয়ার কন্ডিশনিং
+                        </span>
+
+                        <span data-en="Mineral water"
+                              data-bn="মিনারেল ওয়াটার">
+                            মিনারেল ওয়াটার
+                        </span>
+
+                        <span data-en="Complimentary Coffee Mini Pack"
+                              data-bn="কমপ্লিমেন্টারি কফি মিনি প্যাক">
+                            কমপ্লিমেন্টারি কফি মিনি প্যাক
+                        </span>
+
+                        <span data-en="Clothes rack"
+                              data-bn="কাপড় রাখার র‍্যাক">
+                            কাপড় রাখার র‍্যাক
+                        </span>
+
+                    </div>
 
                 </div>
-
-            </div>
-
 
                 <!-- SMOKING -->
 
                 <div class="room-details-section room-smoking">
 
-                    <h3>
-                        Smoking Policy
+                    <h3
+                        data-en="Smoking Policy"
+                        data-bn="ধূমপান নীতি">
+                        ধূমপান নীতি
                     </h3>
 
-                    <p>
-                        Smoking is not allowed.
+                    <p
+                        data-en="Smoking is not allowed."
+                        data-bn="ধূমপান করা যাবে না।">
+                        ধূমপান করা যাবে না।
                     </p>
 
                 </div>
-
 
                 <!-- BOOK NOW -->
 
                 <div class="room-details-booking">
 
                     <a href="booking.html?room=Special%20Super%20Deluxe"
-                       class="small-btn whatsapp">
-                        BOOK NOW
+                       class="small-btn whatsapp"
+                       data-en="BOOK NOW"
+                       data-bn="বুক করুন">
+                        বুক করুন
                     </a>
 
                 </div>
@@ -7871,7 +9590,6 @@ aria-label="WhatsApp">
     </div>
 
 </div>
-
 
 <!-- =======================================================
      SUITE JOLOJUCHONA — ROOM DETAILS
@@ -7901,7 +9619,7 @@ aria-label="WhatsApp">
                     <img
                         id="jolojuchonaMainImage"
                         src="rooms/gallery/suite-jolojuchona/room1.jpeg"
-                        alt="Suite Jolojuchona">
+                        alt="সুইট জলজোছনা">
 
                     <button class="room-photo-nav room-photo-prev"
                             onclick="changeJolojuchonaImage(-1)">
@@ -7920,37 +9638,37 @@ aria-label="WhatsApp">
 
                     <img
                         src="rooms/gallery/suite-jolojuchona/room1.jpeg"
-                        alt="Suite Jolojuchona Room 1"
+                        alt="সুইট জলজোছনা রুম ১"
                         class="jolojuchona-thumb active"
                         onclick="selectJolojuchonaImage(0)">
 
                     <img
                         src="rooms/gallery/suite-jolojuchona/room2.jpeg"
-                        alt="Suite Jolojuchona Room 2"
+                        alt="সুইট জলজোছনা রুম ২"
                         class="jolojuchona-thumb"
                         onclick="selectJolojuchonaImage(1)">
 
                     <img
                         src="rooms/gallery/suite-jolojuchona/room3.jpeg"
-                        alt="Suite Jolojuchona Room 3"
+                        alt="সুইট জলজোছনা রুম ৩"
                         class="jolojuchona-thumb"
                         onclick="selectJolojuchonaImage(2)">
 
                     <img
                         src="rooms/gallery/suite-jolojuchona/room4.jpeg"
-                        alt="Suite Jolojuchona Room 4"
+                        alt="সুইট জলজোছনা রুম ৪"
                         class="jolojuchona-thumb"
                         onclick="selectJolojuchonaImage(3)">
 
                     <img
                         src="rooms/gallery/suite-jolojuchona/room5.jpeg"
-                        alt="Suite Jolojuchona Room 5"
+                        alt="সুইট জলজোছনা রুম ৫"
                         class="jolojuchona-thumb"
                         onclick="selectJolojuchonaImage(4)">
 
                     <img
                         src="rooms/gallery/suite-jolojuchona/Room6.png"
-                        alt="Suite Jolojuchona Room 6"
+                        alt="সুইট জলজোছনা রুম ৬"
                         class="jolojuchona-thumb"
                         onclick="selectJolojuchonaImage(5)">
 
@@ -7963,21 +9681,38 @@ aria-label="WhatsApp">
 
             <div class="room-details-information">
 
-                <div class="room-details-eyebrow">
-                    SUITE JOLOJUCHONA
+                <div class="room-details-eyebrow"
+                     data-en="SUITE JOLOJUCHONA"
+                     data-bn="সুইট জলজোছনা">
+                    সুইট জলজোছনা
                 </div>
 
-                <h2>
-                    Suite Jolojuchona
+                <h2
+                    data-en="Suite Jolojuchona"
+                    data-bn="সুইট জলজোছনা">
+                    সুইট জলজোছনা
                 </h2>
 
-                <div class="room-details-view">
-                    Floating Honeymoon Suite
+                <div class="room-details-view"
+                     data-en="Floating Honeymoon Suite"
+                     data-bn="ভাসমান হানিমুন সুইট">
+                    ভাসমান হানিমুন সুইট
                 </div>
 
                 <div class="room-details-price">
-                    BDT 12,000
-                    <span>/ Night</span>
+
+                    <span
+                        data-en="BDT 12,000"
+                        data-bn="১২,০০০ টাকা">
+                        ১২,০০০ টাকা
+                    </span>
+
+                    <span
+                        data-en="/ Night"
+                        data-bn="/ রাত">
+                        / রাত
+                    </span>
+
                 </div>
 
 
@@ -7987,12 +9722,16 @@ aria-label="WhatsApp">
 
                     <div class="room-detail-item">
 
-                        <strong>
-                            Maximum Guests
+                        <strong
+                            data-en="Maximum Guests"
+                            data-bn="সর্বোচ্চ অতিথি">
+                            সর্বোচ্চ অতিথি
                         </strong>
 
-                        <span>
-                            Up to 2 Persons
+                        <span
+                            data-en="Up to 2 Persons"
+                            data-bn="সর্বোচ্চ ২ জন">
+                            সর্বোচ্চ ২ জন
                         </span>
 
                     </div>
@@ -8000,12 +9739,16 @@ aria-label="WhatsApp">
 
                     <div class="room-detail-item">
 
-                        <strong>
-                            Beds
+                        <strong
+                            data-en="Beds"
+                            data-bn="বেড">
+                            বেড
                         </strong>
 
-                        <span>
-                            1 Queen Size Bed
+                        <span
+                            data-en="1 Queen Size Bed"
+                            data-bn="১টি কুইন সাইজ বেড">
+                            ১টি কুইন সাইজ বেড
                         </span>
 
                     </div>
@@ -8017,20 +9760,61 @@ aria-label="WhatsApp">
 
                 <div class="room-details-section">
 
-                    <h3>
-                        Complimentary Facilities
+                    <h3
+                        data-en="Complimentary Facilities"
+                        data-bn="অন্তর্ভুক্ত সুবিধাসমূহ">
+                        অন্তর্ভুক্ত সুবিধাসমূহ
                     </h3>
 
                     <div class="room-details-list">
 
-                        <span>Welcome Drinks</span>
-                        <span>Breakfast Included</span>
-                        <span>Swimming Pool Access</span>
-                        <span>24/7 Room Service</span>
-                        <span>Cycling &amp; Pool Billiard</span>
-                        <span>Kayaking Boat</span>
-                        <span>Kids Playground</span>
-                        <span>WiFi (In-house Guests)</span>
+                        <span
+                            data-en="Welcome Drinks"
+                            data-bn="স্বাগত পানীয়">
+                            স্বাগত পানীয়
+                        </span>
+
+                        <span
+                            data-en="Breakfast Included"
+                            data-bn="ব্রেকফাস্ট অন্তর্ভুক্ত">
+                            ব্রেকফাস্ট অন্তর্ভুক্ত
+                        </span>
+
+                        <span
+                            data-en="Swimming Pool Access"
+                            data-bn="সুইমিং পুল ব্যবহার">
+                            সুইমিং পুল ব্যবহার
+                        </span>
+
+                        <span
+                            data-en="24/7 Room Service"
+                            data-bn="২৪/৭ রুম সার্ভিস">
+                            ২৪/৭ রুম সার্ভিস
+                        </span>
+
+                        <span
+                            data-en="Cycling &amp; Pool Billiard"
+                            data-bn="সাইক্লিং ও পুল বিলিয়ার্ড">
+                            সাইক্লিং ও পুল বিলিয়ার্ড
+                        </span>
+
+                        <span
+                            data-en="Kayaking Boat"
+                            data-bn="কায়াকিং বোট">
+                            কায়াকিং বোট
+                        </span>
+
+                        <span
+                            data-en="Kids Playground"
+                            data-bn="শিশুদের খেলার জায়গা">
+                            শিশুদের খেলার জায়গা
+                        </span>
+
+                        <span
+                            data-en="WiFi (In-house Guests)"
+                            data-bn="WiFi (রিসোর্টে অবস্থানরত অতিথিদের জন্য)">
+                            WiFi (রিসোর্টে অবস্থানরত অতিথিদের জন্য)
+                        </span>
 
                     </div>
 
@@ -8041,18 +9825,49 @@ aria-label="WhatsApp">
 
                 <div class="room-details-section">
 
-                    <h3>
-                        Bathroom Facilities
+                    <h3
+                        data-en="Bathroom Facilities"
+                        data-bn="বাথরুমের সুবিধাসমূহ">
+                        বাথরুমের সুবিধাসমূহ
                     </h3>
 
                     <div class="room-details-list">
 
-                        <span>Free toiletries</span>
-                        <span>Shower</span>
-                        <span>Toilet</span>
-                        <span>Slippers</span>
-                        <span>Hairdryer</span>
-                        <span>Toilet paper</span>
+                        <span
+                            data-en="Free toiletries"
+                            data-bn="ফ্রি টয়লেট্রিজ">
+                            ফ্রি টয়লেট্রিজ
+                        </span>
+
+                        <span
+                            data-en="Shower"
+                            data-bn="শাওয়ার">
+                            শাওয়ার
+                        </span>
+
+                        <span
+                            data-en="Toilet"
+                            data-bn="টয়লেট">
+                            টয়লেট
+                        </span>
+
+                        <span
+                            data-en="Slippers"
+                            data-bn="স্লিপার">
+                            স্লিপার
+                        </span>
+
+                        <span
+                            data-en="Hairdryer"
+                            data-bn="হেয়ার ড্রায়ার">
+                            হেয়ার ড্রায়ার
+                        </span>
+
+                        <span
+                            data-en="Toilet paper"
+                            data-bn="টয়লেট পেপার">
+                            টয়লেট পেপার
+                        </span>
 
                     </div>
 
@@ -8061,44 +9876,119 @@ aria-label="WhatsApp">
 
                 <!-- ROOM FACILITIES -->
 
-            <div class="room-details-section">
+                <div class="room-details-section">
 
-                <h3>
-                    Room Facilities &amp; Amenities
-                </h3>
+                    <h3
+                        data-en="Room Facilities &amp; Amenities"
+                        data-bn="রুমের সুবিধা ও সরঞ্জাম">
+                        রুমের সুবিধা ও সরঞ্জাম
+                    </h3>
 
-                <div class="room-details-list">
+                    <div class="room-details-list">
 
-                    <span>Desk</span>
-                    <span>Tile/marble floor</span>
-                    <span>Flat-screen TV</span>
-                    <span>Power Backup</span>
-                    <span>Daily Housekeeping</span>
-                    <span>Electric kettle</span>
-                    <span>Mini Refrigerator</span>
-                    <span>Fan</span>
-                    <span>Towels</span>
-                    <span>Ironing facilities</span>
-                    <span>Mineral water</span>
-                    <span>Air conditioning</span>
-                    <span>Complimentary Coffee Mini Pack</span>
-                    <span>Clothes rack</span>
+                        <span
+                            data-en="Desk"
+                            data-bn="ডেস্ক">
+                            ডেস্ক
+                        </span>
+
+                        <span
+                            data-en="Tile/marble floor"
+                            data-bn="টাইল / মার্বেল ফ্লোর">
+                            টাইল / মার্বেল ফ্লোর
+                        </span>
+
+                        <span
+                            data-en="Flat-screen TV"
+                            data-bn="ফ্ল্যাট-স্ক্রিন টিভি">
+                            ফ্ল্যাট-স্ক্রিন টিভি
+                        </span>
+
+                        <span
+                            data-en="Power Backup"
+                            data-bn="পাওয়ার ব্যাকআপ">
+                            পাওয়ার ব্যাকআপ
+                        </span>
+
+                        <span
+                            data-en="Daily Housekeeping"
+                            data-bn="দৈনিক হাউসকিপিং">
+                            দৈনিক হাউসকিপিং
+                        </span>
+
+                        <span
+                            data-en="Electric kettle"
+                            data-bn="ইলেকট্রিক কেটলি">
+                            ইলেকট্রিক কেটলি
+                        </span>
+
+                        <span
+                            data-en="Mini Refrigerator"
+                            data-bn="মিনি রেফ্রিজারেটর">
+                            মিনি রেফ্রিজারেটর
+                        </span>
+
+                        <span
+                            data-en="Fan"
+                            data-bn="ফ্যান">
+                            ফ্যান
+                        </span>
+
+                        <span
+                            data-en="Towels"
+                            data-bn="তোয়ালে">
+                            তোয়ালে
+                        </span>
+
+                        <span
+                            data-en="Ironing facilities"
+                            data-bn="ইস্ত্রি করার সুবিধা">
+                            ইস্ত্রি করার সুবিধা
+                        </span>
+
+                        <span
+                            data-en="Mineral water"
+                            data-bn="মিনারেল ওয়াটার">
+                            মিনারেল ওয়াটার
+                        </span>
+
+                        <span
+                            data-en="Air conditioning"
+                            data-bn="এয়ার কন্ডিশনিং">
+                            এয়ার কন্ডিশনিং
+                        </span>
+
+                        <span
+                            data-en="Complimentary Coffee Mini Pack"
+                            data-bn="কমপ্লিমেন্টারি কফি মিনি প্যাক">
+                            কমপ্লিমেন্টারি কফি মিনি প্যাক
+                        </span>
+
+                        <span
+                            data-en="Clothes rack"
+                            data-bn="কাপড় রাখার র‍্যাক">
+                            কাপড় রাখার র‍্যাক
+                        </span>
+
+                    </div>
 
                 </div>
-
-            </div>
 
 
                 <!-- SMOKING -->
 
                 <div class="room-details-section room-smoking">
 
-                    <h3>
-                        Smoking Policy
+                    <h3
+                        data-en="Smoking Policy"
+                        data-bn="ধূমপান নীতি">
+                        ধূমপান নীতি
                     </h3>
 
-                    <p>
-                        Smoking is not allowed.
+                    <p
+                        data-en="Smoking is not allowed."
+                        data-bn="ধূমপান করা যাবে না।">
+                        ধূমপান করা যাবে না।
                     </p>
 
                 </div>
@@ -8109,8 +9999,10 @@ aria-label="WhatsApp">
                 <div class="room-details-booking">
 
                     <a href="booking.html?room=Suite%20Jolojuchona"
-                       class="small-btn whatsapp">
-                        BOOK NOW
+                       class="small-btn whatsapp"
+                       data-en="BOOK NOW"
+                       data-bn="বুক করুন">
+                        বুক করুন
                     </a>
 
                 </div>
@@ -8122,9 +10014,6 @@ aria-label="WhatsApp">
     </div>
 
 </div>
-
-
-
 
 <script>
 /* =========================================================
@@ -11650,6 +13539,7 @@ function selectBeverageImage(index) {
          alt="Day Long Package">
 
 </div>
+
 <script>
 
 function playRangautiVideo() {
@@ -11661,6 +13551,107 @@ function playRangautiVideo() {
 
     button.style.display = "none";
 }
+
+
+/* =======================================================
+   LANGUAGE DROPDOWN
+======================================================= */
+
+function toggleLanguageMenu(){
+
+    const menu =
+        document.querySelector(".language-menu");
+
+    if(menu){
+        menu.classList.toggle("open");
+    }
+}
+
+
+/* =======================================================
+   LANGUAGE SWITCH
+======================================================= */
+
+function setLanguage(language){
+
+    const elements =
+        document.querySelectorAll(
+            "[data-en][data-bn]"
+        );
+
+    elements.forEach(function(element){
+
+        if(language === "bn"){
+
+            element.innerHTML =
+                element.getAttribute("data-bn");
+
+        }else{
+
+            element.innerHTML =
+                element.getAttribute("data-en");
+
+        }
+
+    });
+
+
+    /* Active language */
+
+    const buttons =
+        document.querySelectorAll(
+            ".language-options button"
+        );
+
+    buttons.forEach(function(button){
+
+        button.classList.remove("active");
+
+    });
+
+
+    if(language === "bn"){
+
+        if(buttons[1]){
+            buttons[1].classList.add("active");
+        }
+
+    }else{
+
+        if(buttons[0]){
+            buttons[0].classList.add("active");
+        }
+
+    }
+
+
+    /* Save language */
+
+    localStorage.setItem(
+        "rangautiLanguage",
+        language
+    );
+
+}
+
+
+/* =======================================================
+   LOAD SAVED LANGUAGE
+======================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const savedLanguage =
+            localStorage.getItem(
+                "rangautiLanguage"
+            ) || "en";
+
+        setLanguage(savedLanguage);
+
+    }
+);
 
 </script>
 

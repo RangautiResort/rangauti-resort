@@ -499,6 +499,592 @@ body{
     font-size:12px;
     letter-spacing:1px;
 }
+/* =========================================================
+   FACILITIES — BOOKING PAGE PREMIUM 3D STYLE
+========================================================= */
+
+:root{
+    --gold:#d8b878;
+    --gold-dark:#b59663;
+    --green:#344a3c;
+    --green-dark:#162019;
+    --cream:#f5f1e8;
+    --light:#faf9f5;
+    --text:#283129;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body{
+    background:var(--light);
+    color:var(--text);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header{
+    background:rgba(5,13,9,.90) !important;
+
+    border-bottom:
+        1px solid rgba(216,184,120,.16) !important;
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+
+    box-shadow:
+        0 8px 35px rgba(0,0,0,.25);
+}
+
+.site-logo img{
+    transition:.35s ease;
+}
+
+.site-logo img:hover{
+    transform:translateY(-2px) scale(1.02);
+
+    filter:
+        drop-shadow(
+            0 8px 18px
+            rgba(216,184,120,.20)
+        );
+}
+
+
+/* =========================================================
+   MENU BUTTON
+========================================================= */
+
+.menu-toggle{
+    background:rgba(15,34,26,.88) !important;
+
+    border:
+        1px solid
+        rgba(216,184,120,.35) !important;
+
+    color:var(--gold) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.06),
+        0 8px 25px rgba(0,0,0,.30);
+
+    transition:.3s ease;
+}
+
+.menu-toggle:hover{
+    background:rgba(15,34,26,.98) !important;
+
+    color:var(--gold) !important;
+
+    border-color:var(--gold) !important;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.35),
+        0 0 20px rgba(216,184,120,.10);
+}
+
+
+/* =========================================================
+   MENU DROPDOWN
+========================================================= */
+
+.menu-dropdown{
+    background:rgba(8,22,16,.97) !important;
+
+    border:
+        1px solid
+        rgba(216,184,120,.20) !important;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+
+    border-radius:12px;
+}
+
+.menu-dropdown a{
+    color:#e7e5dd !important;
+
+    transition:.25s ease;
+}
+
+.menu-dropdown a:hover{
+    background:
+        rgba(216,184,120,.08) !important;
+
+    color:var(--gold) !important;
+
+    transform:translateX(3px);
+}
+
+
+/* =========================================================
+   FACILITIES SECTION
+========================================================= */
+
+.facilities-section{
+    min-height:100vh;
+
+    padding:
+        150px 6%
+        110px;
+
+    background:
+        radial-gradient(
+            circle at 8% 10%,
+            rgba(80,107,89,.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 92% 85%,
+            rgba(216,184,120,.08),
+            transparent 28%
+        ),
+        var(--light);
+}
+
+
+/* =========================================================
+   SECTION HEAD
+========================================================= */
+
+.section-head{
+    max-width:850px;
+
+    margin:
+        0 auto 55px;
+
+    text-align:center;
+}
+
+.eyebrow{
+    color:var(--gold);
+
+    letter-spacing:4px;
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+.section-head h1{
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    color:var(--green-dark);
+
+    font-weight:400;
+
+    letter-spacing:.5px;
+
+    text-shadow:
+        0 2px 10px
+        rgba(30,45,36,.05);
+}
+
+.section-head h1::after{
+    content:"";
+
+    display:block;
+
+    width:55px;
+    height:2px;
+
+    margin:18px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            transparent
+        );
+}
+
+.section-head p{
+    color:#69736c;
+}
+
+
+/* =========================================================
+   FACILITIES GRID
+========================================================= */
+
+.facilities-grid{
+    max-width:1180px;
+
+    margin:0 auto;
+
+    gap:24px;
+}
+
+
+/* =========================================================
+   FACILITY CARD — PREMIUM 3D
+========================================================= */
+
+.facility-card{
+    position:relative;
+
+    min-height:390px;
+
+    overflow:hidden;
+
+    background:#162019;
+
+    border:
+        1px solid
+        rgba(80,107,89,.20);
+
+    border-radius:18px;
+
+    box-shadow:
+        0 16px 40px
+        rgba(30,45,36,.10),
+
+        inset 0 1px 0
+        rgba(255,255,255,.08);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.facility-card img{
+    transition:
+        transform .7s ease,
+        filter .5s ease;
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.facility-card::after{
+    background:
+        linear-gradient(
+            to top,
+            rgba(4,10,7,.92),
+            rgba(4,10,7,.48) 52%,
+            rgba(4,10,7,.08)
+        );
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.facility-card:hover{
+    transform:translateY(-7px);
+
+    border-color:
+        rgba(216,184,120,.55);
+
+    box-shadow:
+        0 28px 65px
+        rgba(30,45,36,.18),
+
+        0 0 0 1px
+        rgba(216,184,120,.06);
+}
+
+.facility-card:hover img{
+    transform:scale(1.07);
+
+    filter:
+        saturate(1.08);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.facility-content{
+    padding:
+        30px 28px;
+
+    z-index:3;
+}
+
+.facility-content h2{
+    color:#f5f1e8;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:24px;
+
+    font-weight:400;
+
+    letter-spacing:.2px;
+
+    text-shadow:
+        0 5px 15px
+        rgba(0,0,0,.55);
+}
+
+.facility-content p{
+    color:#d8d4ca;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    text-shadow:
+        0 3px 10px
+        rgba(0,0,0,.45);
+}
+
+
+/* =========================================================
+   T&C
+========================================================= */
+
+.facility-terms{
+    color:#7b847e !important;
+
+    margin-top:45px;
+
+    font-size:12px;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(80,107,89,.20),
+            transparent 40%
+        ),
+        #07130e !important;
+
+    border-top:
+        1px solid
+        rgba(216,184,120,.15);
+
+    box-shadow:
+        0 -20px 60px
+        rgba(0,0,0,.12);
+
+    color:#aeb7b0;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1100px){
+
+    .facilities-grid{
+        gap:22px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .site-header{
+        height:70px;
+    }
+
+    .facilities-section{
+        padding:
+            120px 5%
+            80px;
+    }
+
+    .section-head h1{
+        font-size:38px;
+    }
+
+    .facility-card{
+        min-height:350px;
+
+        border-radius:16px;
+    }
+
+    .facility-content{
+        padding:
+            25px 22px;
+    }
+
+    .facility-content h2{
+        font-size:23px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:480px){
+
+    .section-head h1{
+        font-size:34px;
+    }
+
+    .facility-card{
+        min-height:340px;
+    }
+
+    .facility-content{
+        padding:
+            23px 20px;
+    }
+}
+/* =========================================================
+   EXPLORE FOOTER
+========================================================= */
+
+.explore-footer{
+    position:relative;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(80,107,89,.20),
+            transparent 40%
+        ),
+        #07130e;
+    border-top:1px solid rgba(216,184,120,.15);
+    box-shadow:0 -20px 60px rgba(0,0,0,.12);
+    color:#aeb7b0;
+}
+
+.explore-footer-container{
+    max-width:1180px;
+    margin:0 auto;
+    padding:75px 6% 55px;
+
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1.2fr;
+    gap:60px;
+}
+
+.explore-footer-brand img{
+    width:145px;
+    margin-bottom:20px;
+}
+
+.explore-footer-brand p{
+    max-width:360px;
+    margin:0;
+    color:#9da8a1;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.explore-footer h3{
+    margin:0 0 18px;
+    color:#d8b878;
+    font-family:Georgia,serif;
+    font-size:20px;
+    font-weight:400;
+}
+
+.explore-footer-links{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.explore-footer-links a,
+.explore-footer-contact a{
+    display:block;
+    margin-bottom:10px;
+    color:#aeb7b0;
+    text-decoration:none;
+    font-size:13px;
+    transition:.25s ease;
+}
+
+.explore-footer-links a:hover,
+.explore-footer-contact a:hover{
+    color:#d8b878;
+    transform:translateX(3px);
+}
+
+.explore-footer-contact p{
+    margin:0 0 14px;
+    color:#9da8a1;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.explore-footer-bottom{
+    max-width:1180px;
+    margin:0 auto;
+    padding:20px 6% 25px;
+
+    border-top:1px solid rgba(216,184,120,.10);
+
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+
+    color:#747f78;
+    font-size:11px;
+    letter-spacing:.5px;
+}
+
+@media(max-width:700px){
+
+    .explore-footer-container{
+        padding:55px 7% 40px;
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .explore-footer-brand img{
+        width:125px;
+    }
+
+    .explore-footer-bottom{
+        padding:18px 7% 22px;
+        flex-direction:column;
+        text-align:center;
+        gap:8px;
+    }
+}
 </style>
 
 </head>
@@ -1666,9 +2252,55 @@ Celebrate your special day with family and guests in our spacious and beautifull
      FOOTER
 ======================================================= -->
 
-<footer class="footer">
+<footer class="explore-footer">
 
-© Rangauti Resort. All Rights Reserved.
+    <div class="explore-footer-container">
+
+        <div class="explore-footer-brand">
+            <img src="images/logo.png" alt="Rangauti Resort">
+
+            <p>
+                Where Nature Meets Comfort.
+                Experience peaceful moments,
+                scenic beauty and memorable stays
+                at Rangauti Resort.
+            </p>
+        </div>
+
+        <div class="explore-footer-links">
+            <h3>Explore</h3>
+
+            <a href="index.html">Home</a>
+            <a href="facilities.html">Facilities</a>
+            <a href="index.html#rooms">Rooms &amp; Suites</a>
+            <a href="index.html#packages">Packages</a>
+            <a href="booking.html">Book Now</a>
+        </div>
+
+        <div class="explore-footer-contact">
+            <h3>Contact</h3>
+
+            <p>
+                Near Manu Bridge,<br>
+                Taltola, Kulaura Road,<br>
+                Moulvibazar, Sylhet
+            </p>
+
+            <a href="tel:+8801780203350">
+                01780-203350
+            </a>
+
+            <a href="mailto:info.rangautiresort@gmail.com">
+                info.rangautiresort@gmail.com
+            </a>
+        </div>
+
+    </div>
+
+    <div class="explore-footer-bottom">
+        <span>© 2026 Rangauti Resort. All Rights Reserved.</span>
+        <span>T&amp;C Apply</span>
+    </div>
 
 </footer>
 

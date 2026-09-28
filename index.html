@@ -15748,27 +15748,39 @@ function setLanguage(language){
         language
     );
 
+
+    /* Close Language */
+
+    const languageMenu =
+        document.querySelector(".language-menu");
+
+    if(languageMenu){
+        languageMenu.classList.remove("open");
+    }
+
+
+    /* Close 3-dot menu */
+
+    const nav =
+        document.getElementById("navLinks");
+
+    if(nav){
+        nav.classList.remove("active");
+    }
+
 }
-
-
 /* =======================================================
    LOAD SAVED LANGUAGE
 ======================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
+document.addEventListener("DOMContentLoaded", function(){
 
-        const savedLanguage =
-            localStorage.getItem(
-                "rangautiLanguage"
-            ) || "en";
+    const savedLanguage =
+        localStorage.getItem("rangautiLanguage") || "en";
 
-        setLanguage(savedLanguage);
+    setLanguage(savedLanguage);
 
-    }
-);
-
+});
 </script>
 
 </body>

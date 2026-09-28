@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,15 +10,20 @@
 name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Special Offers | Rangauti Resort</title>
+<title
+data-en="Special Offers | Rangauti Resort"
+data-bn="বিশেষ অফার | রাঙ্গাউটি রিসোর্ট">
+Special Offers | Rangauti Resort
+</title>
 
 <meta
 name="description"
+data-en="Discover special offers and discounted stays at Rangauti Resort, Moulvibazar, Sylhet."
+data-bn="মৌলভীবাজার, সিলেটে রাঙ্গাউটি রিসোর্টের বিশেষ অফার ও ছাড়যুক্ত থাকার সুযোগ সম্পর্কে জানুন।"
 content="Discover special offers and discounted stays at Rangauti Resort, Moulvibazar, Sylhet.">
 
+
 <style>
-
-
 
 
 /* =======================================================
@@ -31,9 +36,11 @@ content="Discover special offers and discounted stays at Rangauti Resort, Moulvi
     box-sizing:border-box;
 }
 
+
 html{
     scroll-behavior:smooth;
 }
+
 
 body{
     font-family:Georgia, "Times New Roman", serif;
@@ -48,6 +55,7 @@ body{
 ======================================================= */
 
 .site-header{
+
     position:fixed;
     top:0;
     left:0;
@@ -76,6 +84,7 @@ body{
 ======================================================= */
 
 .site-logo img{
+
     width:145px;
     height:auto;
     display:block;
@@ -87,8 +96,6 @@ body{
 ======================================================= */
 
 .menu-toggle{
-
-
 
     width:46px;
     height:46px;
@@ -111,6 +118,7 @@ body{
 
     transition:.3s ease;
 }
+
 
 .menu-toggle:hover{
 
@@ -149,9 +157,11 @@ body{
     display:none;
 }
 
+
 .menu-dropdown.show{
     display:block;
 }
+
 
 .menu-dropdown a{
 
@@ -172,6 +182,7 @@ body{
     transition:.25s ease;
 }
 
+
 .menu-dropdown a:hover{
 
     color:#d4af37 !important;
@@ -182,10 +193,140 @@ body{
 
 
 /* =======================================================
+   LANGUAGE MENU
+======================================================= */
+
+.language-menu{
+
+    position:relative;
+
+    width:100%;
+
+    margin-top:4px;
+}
+
+
+.language-button{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:13px 14px;
+
+    background:rgba(15,34,26,.95) !important;
+
+    border:
+        1px solid
+        rgba(216,184,120,.20) !important;
+
+    border-radius:8px;
+
+    color:#ffffff !important;
+
+    font-family:Georgia,"Times New Roman",serif;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+
+.language-button:hover{
+
+    background:#344a3c !important;
+
+    border-color:
+        rgba(216,184,120,.45) !important;
+}
+
+
+.language-button span{
+
+    color:#ffffff !important;
+}
+
+
+.language-options{
+
+    display:none;
+
+    margin-top:6px;
+
+    background:#202c24 !important;
+
+    border:
+        1px solid
+        rgba(216,184,120,.35) !important;
+
+    border-radius:9px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.40);
+
+    z-index:10000;
+}
+
+
+.language-options.show{
+
+    display:block !important;
+}
+
+
+.language-options button{
+
+    width:100%;
+
+    display:block;
+
+    padding:12px 18px;
+
+    background:#202c24 !important;
+
+    border:0 !important;
+
+    color:#ffffff !important;
+
+    font-family:Georgia,"Times New Roman",serif;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+
+.language-options button:hover{
+
+    background:#344a3c !important;
+
+    color:#d8b878 !important;
+}
+
+
+/* =======================================================
    OFFERS SECTION
 ======================================================= */
 
 .offer-section{
+
     min-height:100vh;
 
     padding:
@@ -194,7 +335,6 @@ body{
 
     position:relative;
 
-    
     background:
         linear-gradient(
             rgba(17,17,15,.60),
@@ -220,6 +360,7 @@ body{
     text-align:center;
 }
 
+
 .eyebrow{
 
     color:#d4af37;
@@ -235,6 +376,7 @@ body{
     text-transform:uppercase;
 }
 
+
 .section-head h1{
 
     font-size:
@@ -246,6 +388,7 @@ body{
 
     margin-bottom:20px;
 }
+
 
 .section-head p{
 
@@ -298,6 +441,7 @@ body{
     padding:20px 10px;
 }
 
+
 .offer-content h2{
 
     font-size:
@@ -311,8 +455,6 @@ body{
 
     color:#f5f1e8;
 }
-
-
 
 
 .offer-content p{
@@ -329,7 +471,6 @@ body{
 
     line-height:1.8;
 }
-
 
 
 /* =======================================================
@@ -385,6 +526,7 @@ body{
     transition:.35s ease;
 }
 
+
 .offer-btn:hover{
 
     background:transparent;
@@ -428,10 +570,12 @@ body{
         padding:0 5%;
     }
 
+
     .site-logo img{
 
         width:120px;
     }
+
 
     .menu-toggle{
 
@@ -442,6 +586,7 @@ body{
         font-size:22px;
     }
 
+
     .menu-dropdown{
 
         top:78px;
@@ -451,6 +596,7 @@ body{
         width:230px;
     }
 
+
     .offer-section{
 
         padding:
@@ -458,20 +604,24 @@ body{
             60px;
     }
 
+
     .section-head{
 
         margin-bottom:35px;
     }
+
 
     .section-head h1{
 
         font-size:38px;
     }
 
+
     .section-head p{
 
         font-size:14px;
     }
+
 
     .offer-box{
 
@@ -479,15 +629,18 @@ body{
             25px 18px;
     }
 
+
     .offer-content{
 
         padding:10px 5px;
     }
 
+
     .offer-content h2{
 
         font-size:34px;
     }
+
 
     .offer-content p{
 
@@ -495,9 +648,6 @@ body{
 
         line-height:1.7;
     }
-
-
-
 
 
     .offer-btn{
@@ -533,11 +683,9 @@ alt="Rangauti Resort">
 </a>
 
 
-
-
 <button
 class="menu-toggle"
-onclick="toggleMenu()"
+onclick="toggleMenu(event)"
 aria-label="Open Menu">
 
 ☰
@@ -550,56 +698,183 @@ class="menu-dropdown"
 id="menuDropdown">
 
 
-<a href="index.html#home">
+<a
+href="index.html#home"
+onclick="closeMenu()"
+data-en="HOME"
+data-bn="হোম">
+
 <strong>HOME</strong>
+
 </a>
 
-<a href="facilities.html">
+
+<a
+href="facilities.html"
+onclick="closeMenu()"
+data-en="FACILITIES"
+data-bn="সুবিধাসমূহ">
+
 <strong>FACILITIES</strong>
+
 </a>
 
-<a href="index.html#resort-gallery">
+
+<a
+href="index.html#resort-gallery"
+onclick="closeMenu()"
+data-en="EXPLORE RANGAUTI"
+data-bn="রাঙ্গাউটি ঘুরে দেখুন">
+
 <strong>EXPLORE RANGAUTI</strong>
+
 </a>
 
-<a href="index.html#packages">
+
+<a
+href="index.html#packages"
+onclick="closeMenu()"
+data-en="PACKAGES"
+data-bn="প্যাকেজসমূহ">
+
 <strong>PACKAGES</strong>
+
 </a>
 
-<a href="index.html#rooms">
+
+<a
+href="index.html#rooms"
+onclick="closeMenu()"
+data-en="ROOMS & SUITES"
+data-bn="রুম ও স্যুট">
+
 <strong>ROOMS &amp; SUITES</strong>
+
 </a>
 
-<a href="complimentary.html">
+
+<a
+href="complimentary.html"
+onclick="closeMenu()"
+data-en="COMPLIMENTARY"
+data-bn="বিনামূল্যের সুবিধাসমূহ">
+
 <strong>COMPLIMENTARY</strong>
+
 </a>
 
-<a href="offers.html">
+
+<a
+href="offers.html"
+onclick="closeMenu()"
+data-en="SPECIAL OFFER"
+data-bn="বিশেষ অফার">
+
 <strong>SPECIAL OFFER</strong>
+
 </a>
 
-<a href="booking.html">
+
+<a
+href="booking.html"
+onclick="closeMenu()"
+data-en="BOOK NOW"
+data-bn="এখনই বুক করুন">
+
 <strong>BOOK NOW</strong>
+
 </a>
 
-<a href="index.html#contact">
+
+<a
+href="index.html#contact"
+onclick="closeMenu()"
+data-en="CONTACT"
+data-bn="যোগাযোগ">
+
 <strong>CONTACT</strong>
+
 </a>
 
-<a href="terms.html">
+
+<a
+href="terms.html"
+onclick="closeMenu()"
+data-en="TERMS"
+data-bn="শর্তাবলি">
+
 <strong>TERMS</strong>
+
 </a>
 
-<a href="index.html#about">
+
+<a
+href="index.html#about"
+onclick="closeMenu()"
+data-en="ABOUT"
+data-bn="আমাদের সম্পর্কে">
+
 <strong>ABOUT</strong>
+
 </a>
 
+
+<!-- ===================================================
+     LANGUAGE
+=================================================== -->
+
+<div class="language-menu">
+
+
+<button
+type="button"
+class="language-button"
+onclick="toggleLanguageMenu(event)">
+
+<span
+data-en="🌐 Language"
+data-bn="🌐 ভাষা">
+
+🌐 Language
+
+</span>
+
+<span>›</span>
+
+</button>
+
+
+<div
+class="language-options"
+id="languageOptions">
+
+
+<button
+type="button"
+onclick="setLanguage('en')">
+
+English
+
+</button>
+
+
+<button
+type="button"
+onclick="setLanguage('bn')">
+
+বাংলা
+
+</button>
+
+
+</div>
+
+</div>
 
 
 </div>
 
 </header>
-
 
 
 <!-- =======================================================
@@ -614,24 +889,36 @@ id="offers">
 <div class="section-head">
 
 
-<div class="eyebrow">
+<div
+class="eyebrow"
+data-en="SPECIAL OFFER"
+data-bn="বিশেষ অফার">
+
 SPECIAL OFFER
+
 </div>
 
 
-<h1>
+<h1
+data-en="Exclusive Stay Offers"
+data-bn="বিশেষ থাকার অফার">
+
 Exclusive Stay Offers
+
 </h1>
 
 
-<p>
+<p
+data-en="Enjoy more comfort and memorable experiences at Rangauti Resort with our special offers."
+data-bn="আমাদের বিশেষ অফারের মাধ্যমে রাঙ্গাউটি রিসোর্টে আরও আরাম ও স্মরণীয় অভিজ্ঞতা উপভোগ করুন।">
+
 Enjoy more comfort and memorable experiences
 at Rangauti Resort with our special offers.
+
 </p>
 
 
 </div>
-
 
 
 <!-- ===================================================
@@ -644,26 +931,35 @@ at Rangauti Resort with our special offers.
 <div class="offer-content">
 
 
-<h2>
+<h2
+data-en="Your Special Offer"
+data-bn="আপনার বিশেষ অফার">
+
 Your Special Offer
+
 </h2>
 
 
 <div class="offer-divider"></div>
 
 
-<p>
+<p
+data-en="Special discounts will be announced here. Please contact Rangauti Resort for the latest available offer."
+data-bn="বিশেষ ছাড়ের অফার এখানে জানানো হবে। সর্বশেষ উপলভ্য অফার সম্পর্কে জানতে রাঙ্গাউটি রিসোর্টে যোগাযোগ করুন।">
+
 Special discounts will be announced here.
 Please contact Rangauti Resort for the
 latest available offer.
+
 </p>
-
-
 
 
 <a
 href="tel:+8801780203350"
-class="offer-btn">
+class="offer-btn"
+onclick="closeMenu()"
+data-en="CONTACT US"
+data-bn="যোগাযোগ করুন">
 
 CONTACT US
 
@@ -679,56 +975,259 @@ CONTACT US
 </section>
 
 
-
 <!-- =======================================================
      FOOTER
 ======================================================= -->
 
 <footer class="footer">
 
+<span
+data-en="© Rangauti Resort. All Rights Reserved."
+data-bn="© রাঙ্গাউটি রিসোর্ট। সর্বস্বত্ব সংরক্ষিত।">
+
 © Rangauti Resort. All Rights Reserved.
+
+</span>
 
 </footer>
 
 
-
 <!-- =======================================================
-     MENU JAVASCRIPT
+     MENU + LANGUAGE JAVASCRIPT
 ======================================================= -->
 
 <script>
 
-function toggleMenu(){
+
+/* =======================================================
+   MENU
+======================================================= */
+
+function toggleMenu(event){
+
+    if(event){
+        event.stopPropagation();
+    }
 
     const menu =
         document.getElementById("menuDropdown");
 
-    menu.classList.toggle("show");
+    if(menu){
+
+        menu.classList.toggle("show");
+
+    }
 
 }
 
 
-/* Close menu when clicking outside */
+/* =======================================================
+   CLOSE MENU
+======================================================= */
+
+function closeMenu(){
+
+    const menu =
+        document.getElementById("menuDropdown");
+
+    if(menu){
+
+        menu.classList.remove("show");
+
+    }
+
+}
+
+
+/* =======================================================
+   LANGUAGE MENU
+======================================================= */
+
+function toggleLanguageMenu(event){
+
+    if(event){
+
+        event.stopPropagation();
+
+    }
+
+    const options =
+        document.getElementById("languageOptions");
+
+    if(options){
+
+        options.classList.toggle("show");
+
+    }
+
+}
+
+
+/* =======================================================
+   SET LANGUAGE
+======================================================= */
+
+function setLanguage(language){
+
+    localStorage.setItem(
+        "rangautiLanguage",
+        language
+    );
+
+
+    document.documentElement.lang =
+        language === "bn"
+        ? "bn"
+        : "en";
+
+
+    /* CHANGE TEXT */
+
+    document
+        .querySelectorAll("[data-en][data-bn]")
+        .forEach(function(element){
+
+            const value =
+                language === "bn"
+                ? element.getAttribute("data-bn")
+                : element.getAttribute("data-en");
+
+
+            element.textContent = value;
+
+        });
+
+
+    /* CHANGE PAGE TITLE */
+
+    const title =
+        document.querySelector("title");
+
+    if(title){
+
+        title.textContent =
+            language === "bn"
+            ? title.getAttribute("data-bn")
+            : title.getAttribute("data-en");
+
+    }
+
+
+    /* CHANGE META DESCRIPTION */
+
+    const description =
+        document.querySelector(
+            'meta[name="description"]'
+        );
+
+    if(description){
+
+        description.setAttribute(
+            "content",
+            language === "bn"
+            ? description.getAttribute("data-bn")
+            : description.getAttribute("data-en")
+        );
+
+    }
+
+
+    /* CLOSE LANGUAGE MENU */
+
+    const languageOptions =
+        document.getElementById(
+            "languageOptions"
+        );
+
+    if(languageOptions){
+
+        languageOptions.classList.remove("show");
+
+    }
+
+
+    /* CLOSE MAIN MENU */
+
+    closeMenu();
+
+}
+
+
+/* =======================================================
+   CLOSE MENUS WHEN CLICKING OUTSIDE
+======================================================= */
 
 document.addEventListener(
     "click",
     function(event){
 
         const menu =
-            document.getElementById("menuDropdown");
+            document.getElementById(
+                "menuDropdown"
+            );
 
-        const button =
-            document.querySelector(".menu-toggle");
+        const menuButton =
+            document.querySelector(
+                ".menu-toggle"
+            );
 
+        const languageOptions =
+            document.getElementById(
+                "languageOptions"
+            );
+
+        const languageMenu =
+            document.querySelector(
+                ".language-menu"
+            );
+
+
+        /* CLOSE MAIN MENU OUTSIDE */
 
         if(
+            menu &&
+            menuButton &&
             !menu.contains(event.target) &&
-            !button.contains(event.target)
+            !menuButton.contains(event.target)
         ){
 
             menu.classList.remove("show");
 
         }
+
+
+        /* CLOSE LANGUAGE MENU OUTSIDE */
+
+        if(
+            languageOptions &&
+            languageMenu &&
+            !languageMenu.contains(event.target)
+        ){
+
+            languageOptions.classList.remove("show");
+
+        }
+
+    }
+);
+
+
+/* =======================================================
+   LOAD SAVED LANGUAGE
+======================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const savedLanguage =
+            localStorage.getItem(
+                "rangautiLanguage"
+            )
+            || "en";
+
+
+        setLanguage(savedLanguage);
 
     }
 );
@@ -739,3 +1238,4 @@ document.addEventListener(
 </body>
 
 </html>
+

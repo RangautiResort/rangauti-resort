@@ -1523,6 +1523,99 @@ body{
         gap:8px;
     }
 }
+/* =========================================================
+   LANGUAGE MENU
+========================================================= */
+
+.language-menu{
+    position:relative;
+    width:100%;
+    margin-top:4px;
+}
+
+.language-button{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:13px 14px;
+    background:rgba(15,34,26,.95) !important;
+    border:1px solid rgba(216,184,120,.20) !important;
+    border-radius:8px;
+    color:#ffffff !important;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.language-button:hover{
+    background:#344a3c !important;
+    border-color:rgba(216,184,120,.45) !important;
+}
+
+.language-button span{
+    color:#ffffff !important;
+}
+
+.language-options{
+    display:none;
+    margin-top:6px;
+    background:#202c24 !important;
+    border:1px solid rgba(216,184,120,.35) !important;
+    border-radius:9px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,.40);
+    z-index:10000;
+}
+
+.language-options.show{
+    display:block !important;
+}
+
+.language-options button{
+    width:100%;
+    display:block;
+    padding:12px 18px;
+    background:#202c24 !important;
+    border:0 !important;
+    color:#ffffff !important;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:15px;
+    font-weight:600;
+    text-align:left;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.language-options button:hover{
+    background:#344a3c !important;
+    color:#d8b878 !important;
+}
+.resort-gallery-overlay{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    text-align:center;
+    gap:6px;
+}
+
+.resort-gallery-overlay strong{
+    display:block;
+    font-size:24px;
+    font-weight:700;
+    line-height:1.2;
+}
+
+.resort-gallery-overlay span{
+    display:block;
+    font-size:13px;
+    font-weight:400;
+    opacity:.9;
+    line-height:1.4;
+}
 </style>
 </head>
 
@@ -1547,30 +1640,114 @@ body{
 
     <nav class="menu-dropdown" id="menuDropdown">
 
-        <a href="index.html">HOME</a>
+    <a href="index.html"
+       data-en="HOME"
+       data-bn="হোম">
+        HOME
+    </a>
 
-        <a href="facilities.html">FACILITIES</a>
+    <a href="facilities.html"
+       data-en="FACILITIES"
+       data-bn="সুবিধাসমূহ">
+        FACILITIES
+    </a>
 
-        <a href="index.html#explore-video">EXPLORE RANGAUTI</a>
+    <a href="index.html#explore-video"
+       data-en="EXPLORE RANGAUTI"
+       data-bn="রাঙ্গাউটি ঘুরে দেখুন">
+        EXPLORE RANGAUTI
+    </a>
 
-        <a href="index.html#packages">PACKAGES</a>
+    <a href="index.html#packages"
+       data-en="PACKAGES"
+       data-bn="প্যাকেজসমূহ">
+        PACKAGES
+    </a>
 
-        <a href="index.html#rooms">ROOMS &amp; SUITES</a>
+    <a href="index.html#rooms"
+       data-en="ROOMS &amp; SUITES"
+       data-bn="রুম ও স্যুট">
+        ROOMS &amp; SUITES
+    </a>
 
-        <a href="complimentary.html">COMPLIMENTARY</a>
+    <a href="complimentary.html"
+       data-en="COMPLIMENTARY"
+       data-bn="কমপ্লিমেন্টারি">
+        COMPLIMENTARY
+    </a>
 
-        <a href="offers.html">SPECIAL OFFER</a>
+    <a href="offers.html"
+       data-en="SPECIAL OFFER"
+       data-bn="বিশেষ অফার">
+        SPECIAL OFFER
+    </a>
 
-        <a href="booking.html">BOOK NOW</a>
+    <a href="booking.html"
+       data-en="BOOK NOW"
+       data-bn="এখনই বুক করুন">
+        BOOK NOW
+    </a>
 
-        <a href="index.html#contact">CONTACT</a>
+    <a href="index.html#contact"
+       data-en="CONTACT"
+       data-bn="যোগাযোগ">
+        CONTACT
+    </a>
 
-        <a href="terms.html">TERMS</a>
+    <a href="terms.html"
+       data-en="TERMS"
+       data-bn="শর্তাবলি">
+        TERMS
+    </a>
 
-        <a href="index.html#about">ABOUT</a>
+    <a href="index.html#about"
+       data-en="ABOUT"
+       data-bn="আমাদের সম্পর্কে">
+        ABOUT
+    </a>
 
-    </nav>
 
+    <!-- LANGUAGE -->
+
+    <div class="language-menu">
+
+        <button
+            type="button"
+            class="language-button"
+            onclick="toggleLanguageMenu(event)">
+
+            <span
+                data-en="🌐 Language"
+                data-bn="🌐 ভাষা">
+                🌐 Language
+            </span>
+
+            <span>›</span>
+
+        </button>
+
+
+        <div
+            class="language-options"
+            id="languageOptions">
+
+            <button
+                type="button"
+                onclick="setLanguage('en')">
+                English
+            </button>
+
+            <button
+                type="button"
+                onclick="setLanguage('bn')">
+                বাংলা
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
 </header>
 
 
@@ -1582,20 +1759,26 @@ body{
 
 <div class="resort-gallery-header">
 
-    <span class="resort-gallery-label">
-        EXPLORE RANGAUTI
-    </span>
+    <span
+    class="resort-gallery-label"
+    data-en="EXPLORE RANGAUTI"
+    data-bn="রাঙ্গাউটি ঘুরে দেখুন">
+    EXPLORE RANGAUTI
+</span>
 
-    <h2>
-        Discover Rangauti Resort
-    </h2>
+<h2
+    data-en="Discover Rangauti Resort"
+    data-bn="রাঙ্গাউটি রিসোর্ট আবিষ্কার করুন">
+    Discover Rangauti Resort
+</h2>
 
-    <p>
-        Explore the natural beauty, peaceful surroundings,
-        refreshing pool, scenic views and memorable experiences
-        at Rangauti Resort.
-    </p>
-
+<p
+    data-en="Explore the natural beauty, peaceful surroundings, refreshing pool, scenic views and memorable experiences at Rangauti Resort."
+    data-bn="রাঙ্গাউটি রিসোর্টের প্রাকৃতিক সৌন্দর্য, শান্ত পরিবেশ, সতেজতাদায়ক সুইমিং পুল, মনোরম দৃশ্য ও স্মরণীয় অভিজ্ঞতাগুলো ঘুরে দেখুন।">
+    Explore the natural beauty, peaceful surroundings,
+    refreshing pool, scenic views and memorable experiences
+    at Rangauti Resort.
+</p>
 </div>
 
 
@@ -1634,9 +1817,21 @@ body{
 
     </div>
 
-    <div class="resort-gallery-overlay">
+   <div class="resort-gallery-overlay">
+
+    <strong
+        data-en="Resort View"
+        data-bn="রিসোর্ট ভিউ">
         Resort View
-    </div>
+    </strong>
+
+    <span
+        data-en="Click to explore the Resort View"
+        data-bn="রিসোর্টের ছবি দেখতে ক্লিক করুন">
+        Click to explore the resort gallery
+    </span>
+
+</div>
 
 </div>
 
@@ -1674,7 +1869,19 @@ body{
     </div>
 
     <div class="resort-gallery-overlay">
-        Lake View
+
+        <strong
+            data-en="Lake View"
+            data-bn="লেক ভিউ">
+            Lake View
+        </strong>
+
+        <span
+            data-en="Click to explore the Lake View"
+            data-bn="লেক ভিউ দেখতে ক্লিক করুন">
+            Click to explore the Lake View
+        </span>
+
     </div>
 
 </div>
@@ -1713,7 +1920,19 @@ body{
     </div>
 
     <div class="resort-gallery-overlay">
-        Swimming Pool View
+
+        <strong
+            data-en="Swimming Pool View"
+            data-bn="সুইমিং পুল ভিউ">
+            Swimming Pool View
+        </strong>
+
+        <span
+            data-en="Click to explore the Swimming Pool View"
+            data-bn="সুইমিং পুল ভিউ দেখতে ক্লিক করুন">
+            Click to explore the Swimming Pool View
+        </span>
+
     </div>
 
 </div>
@@ -1752,7 +1971,19 @@ body{
     </div>
 
     <div class="resort-gallery-overlay">
-        Natural Environment
+
+        <strong
+            data-en="Natural Environment"
+            data-bn="প্রাকৃতিক পরিবেশ">
+            Natural Environment
+        </strong>
+
+        <span
+            data-en="Click to explore the Natural Environment"
+            data-bn="প্রাকৃতিক পরিবেশ দেখতে ক্লিক করুন">
+            Click to explore the Natural Environment
+        </span>
+
     </div>
 
 </div>
@@ -1791,7 +2022,19 @@ body{
     </div>
 
     <div class="resort-gallery-overlay">
-        Boat Ride
+
+        <strong
+            data-en="Boat Ride"
+            data-bn="বোট রাইড">
+            Boat Ride
+        </strong>
+
+        <span
+            data-en="Click to explore the Boat Ride"
+            data-bn="বোট রাইড দেখতে ক্লিক করুন">
+            Click to explore the Boat Ride
+        </span>
+
     </div>
 
 </div>
@@ -1830,7 +2073,19 @@ body{
     </div>
 
     <div class="resort-gallery-overlay">
-        Peaceful Moments
+
+        <strong
+            data-en="Peaceful Moments"
+            data-bn="শান্তিময় মুহূর্ত">
+            Peaceful Moments
+        </strong>
+
+        <span
+            data-en="Click to explore the Peaceful Moments"
+            data-bn="শান্তিময় মুহূর্ত দেখতে ক্লিক করুন">
+            Click to explore the Peaceful Moments
+        </span>
+
     </div>
 
 </div>
@@ -1843,176 +2098,247 @@ body{
 
 <section class="discover-video-section" id="discover-videos">
 
+    <div class="discover-video-header">
 
-<div class="discover-video-header">
+        <span
+            class="discover-video-label"
+            data-en="DISCOVER RANGAUTI"
+            data-bn="রাঙ্গাউটি আবিষ্কার করুন">
+            DISCOVER RANGAUTI
+        </span>
 
-    <span class="discover-video-label">
-        DISCOVER RANGAUTI
-    </span>
+        <h2
+            data-en="Experience Rangauti Through Video"
+            data-bn="ভিডিওর মাধ্যমে রাঙ্গাউটি উপভোগ করুন">
+            Experience Rangauti Through Video
+        </h2>
 
-    <h2>
-        Experience Rangauti Through Video
-    </h2>
-
-    <p>
-        Take a closer look at the beauty, atmosphere and
-        memorable experiences of Rangauti Resort.
-    </p>
-
-</div>
-
-
-<div class="discover-video-list">
-
-
-    <!-- VIDEO 01 -->
-
-    <div class="discover-video-card">
-
-        <div class="discover-video-wrapper">
-
-            <video
-                controls
-                muted
-                playsinline
-                preload="metadata">
-
-                <source
-                    src="videos/resort-view.mp4"
-                    type="video/mp4">
-
-            </video>
-
-        </div>
-
-        <div class="discover-video-content">
-
-            <span>01</span>
-
-            <h3>
-                Discover Rangauti Resort
-            </h3>
-
-            <p>
-                Explore Rangauti Resort and discover
-                its beautiful surroundings, peaceful
-                atmosphere and natural charm.
-            </p>
-
-        </div>
+        <p
+            data-en="Take a closer look at the beauty, atmosphere and memorable experiences of Rangauti Resort."
+            data-bn="রাঙ্গাউটি রিসোর্টের সৌন্দর্য, পরিবেশ ও স্মরণীয় অভিজ্ঞতাগুলো আরও কাছ থেকে দেখুন।">
+            Take a closer look at the beauty, atmosphere and
+            memorable experiences of Rangauti Resort.
+        </p>
 
     </div>
 
 
-    <!-- VIDEO 02 -->
+    <div class="discover-video-list">
 
-    <div class="discover-video-card">
 
-        <div class="discover-video-wrapper">
+        <!-- VIDEO 01 -->
 
-            <video
-                controls
-                muted
-                playsinline
-                preload="metadata">
+        <div class="discover-video-card">
 
-                <source
-                    src="videos/lake-view.mp4"
-                    type="video/mp4">
+            <div class="discover-video-wrapper">
 
-            </video>
+                <video
+                    controls
+                    muted
+                    playsinline
+                    preload="metadata">
+
+                    <source
+                        src="videos/resort-view.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="discover-video-content">
+
+                <span>01</span>
+
+                <h3
+                    data-en="Discover Rangauti Resort"
+                    data-bn="রাঙ্গাউটি রিসোর্ট আবিষ্কার করুন">
+                    Discover Rangauti Resort
+                </h3>
+
+                <p
+                    data-en="Explore Rangauti Resort and discover its beautiful surroundings, peaceful atmosphere and natural charm."
+                    data-bn="রাঙ্গাউটি রিসোর্ট ঘুরে দেখুন এবং এর সুন্দর পরিবেশ, শান্ত আবহাওয়া ও প্রাকৃতিক সৌন্দর্য আবিষ্কার করুন।">
+                    Explore Rangauti Resort and discover
+                    its beautiful surroundings, peaceful
+                    atmosphere and natural charm.
+                </p>
+
+            </div>
 
         </div>
 
-        <div class="discover-video-content">
 
-            <span>02</span>
+        <!-- VIDEO 02 -->
 
-            <h3>
-                Lake View Experience
-            </h3>
+        <div class="discover-video-card">
 
-            <p>
-                Enjoy the scenic beauty of the lake,
-                peaceful surroundings and relaxing
-                moments beside nature.
-            </p>
+            <div class="discover-video-wrapper">
+
+                <video
+                    controls
+                    muted
+                    playsinline
+                    preload="metadata">
+
+                    <source
+                        src="videos/lake-view.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="discover-video-content">
+
+                <span>02</span>
+
+                <h3
+                    data-en="Lake View Experience"
+                    data-bn="লেক ভিউ অভিজ্ঞতা">
+                    Lake View Experience
+                </h3>
+
+                <p
+                    data-en="Enjoy the scenic beauty of the lake, peaceful surroundings and relaxing moments beside nature."
+                    data-bn="লেকের মনোরম সৌন্দর্য, শান্ত পরিবেশ এবং প্রকৃতির পাশে আরামদায়ক মুহূর্ত উপভোগ করুন।">
+                    Enjoy the scenic beauty of the lake,
+                    peaceful surroundings and relaxing
+                    moments beside nature.
+                </p>
+
+            </div>
 
         </div>
+
+
+        <!-- VIDEO 03 -->
+
+        <div class="discover-video-card">
+
+            <div class="discover-video-wrapper">
+
+                <video
+                    controls
+                    muted
+                    playsinline
+                    preload="metadata">
+
+                    <source
+                        src="videos/boat-ride.mp4"
+                        type="video/mp4">
+
+                </video>
+
+            </div>
+
+            <div class="discover-video-content">
+
+                <span>03</span>
+
+                <h3
+                    data-en="Boat Ride Experience"
+                    data-bn="বোট রাইড অভিজ্ঞতা">
+                    Boat Ride Experience
+                </h3>
+
+                <p
+                    data-en="Experience a refreshing boat ride surrounded by scenic views and the peaceful natural environment of Rangauti."
+                    data-bn="মনোরম দৃশ্য ও রাঙ্গাউটির শান্ত প্রাকৃতিক পরিবেশের মাঝে সতেজতাদায়ক বোট রাইড উপভোগ করুন।">
+                    Experience a refreshing boat ride
+                    surrounded by scenic views and the
+                    peaceful natural environment of Rangauti.
+                </p>
+
+            </div>
+
+        </div>
+
 
     </div>
-
-
-    <!-- VIDEO 03 -->
-
-    <div class="discover-video-card">
-
-        <div class="discover-video-wrapper">
-
-            <video
-                controls
-                muted
-                playsinline
-                preload="metadata">
-
-                <source
-                    src="videos/boat-ride.mp4"
-                    type="video/mp4">
-
-            </video>
-
-        </div>
-
-        <div class="discover-video-content">
-
-            <span>03</span>
-
-            <h3>
-                Boat Ride Experience
-            </h3>
-
-            <p>
-                Experience a refreshing boat ride
-                surrounded by scenic views and the
-                peaceful natural environment of Rangauti.
-            </p>
-
-        </div>
-
-    </div>
-
-
-</div>
-
 
 </section>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
 <footer class="explore-footer">
 
     <div class="explore-footer-container">
 
         <div class="explore-footer-brand">
-            <img src="images/logo.png" alt="Rangauti Resort">
 
-            <p>
+            <img
+                src="images/logo.png"
+                alt="Rangauti Resort">
+
+            <p
+                data-en="Where Nature Meets Comfort. Experience peaceful moments, scenic beauty and memorable stays at Rangauti Resort."
+                data-bn="প্রকৃতির সাথে আরামের মিলন। রাঙ্গাউটি রিসোর্টে উপভোগ করুন শান্ত মুহূর্ত, মনোরম প্রাকৃতিক সৌন্দর্য ও স্মরণীয় থাকা।">
                 Where Nature Meets Comfort.
                 Experience peaceful moments,
                 scenic beauty and memorable stays
                 at Rangauti Resort.
             </p>
+
         </div>
+
 
         <div class="explore-footer-links">
-            <h3>Explore</h3>
 
-            <a href="index.html">Home</a>
-            <a href="facilities.html">Facilities</a>
-            <a href="index.html#rooms">Rooms &amp; Suites</a>
-            <a href="index.html#packages">Packages</a>
-            <a href="booking.html">Book Now</a>
+            <h3
+                data-en="Explore"
+                data-bn="ঘুরে দেখুন">
+                Explore
+            </h3>
+
+            <a
+                href="index.html"
+                data-en="Home"
+                data-bn="হোম">
+                Home
+            </a>
+
+            <a
+                href="facilities.html"
+                data-en="Facilities"
+                data-bn="সুবিধাসমূহ">
+                Facilities
+            </a>
+
+            <a
+                href="index.html#rooms"
+                data-en="Rooms &amp; Suites"
+                data-bn="রুম ও স্যুট">
+                Rooms &amp; Suites
+            </a>
+
+            <a
+                href="index.html#packages"
+                data-en="Packages"
+                data-bn="প্যাকেজসমূহ">
+                Packages
+            </a>
+
+            <a
+                href="booking.html"
+                data-en="Book Now"
+                data-bn="এখনই বুক করুন">
+                Book Now
+            </a>
+
         </div>
 
+
         <div class="explore-footer-contact">
-            <h3>Contact</h3>
+
+            <h3
+                data-en="Contact"
+                data-bn="যোগাযোগ">
+                Contact
+            </h3>
 
             <p>
                 Near Manu Bridge,<br>
@@ -2027,13 +2353,26 @@ body{
             <a href="mailto:info.rangautiresort@gmail.com">
                 info.rangautiresort@gmail.com
             </a>
+
         </div>
 
     </div>
 
+
     <div class="explore-footer-bottom">
-        <span>© 2026 Rangauti Resort. All Rights Reserved.</span>
-        <span>T&amp;C Apply</span>
+
+        <span
+            data-en="© 2026 Rangauti Resort. All Rights Reserved."
+            data-bn="© 2026 Rangauti Resort. সর্বস্বত্ব সংরক্ষিত।">
+            © 2026 Rangauti Resort. All Rights Reserved.
+        </span>
+
+        <span
+            data-en="T&amp;C Apply"
+            data-bn="শর্ত প্রযোজ্য">
+            T&amp;C Apply
+        </span>
+
     </div>
 
 </footer>
@@ -2052,11 +2391,17 @@ body{
     ×
 </button>
 
-<h2 class="gallery-title">
+<h2
+    class="gallery-title"
+    data-en="Resort View"
+    data-bn="রিসোর্ট ভিউ">
     Resort View
 </h2>
 
-<p class="gallery-subtitle">
+<p
+    class="gallery-subtitle"
+    data-en="Explore Rangauti Resort"
+    data-bn="রাঙ্গাউটি রিসোর্ট ঘুরে দেখুন">
     Explore Rangauti Resort
 </p>
 
@@ -2133,11 +2478,17 @@ body{
     ×
 </button>
 
-<h2 class="gallery-title">
+<h2
+    class="gallery-title"
+    data-en="Lake View"
+    data-bn="লেক ভিউ">
     Lake View
 </h2>
 
-<p class="gallery-subtitle">
+<p
+    class="gallery-subtitle"
+    data-en="Explore Rangauti Resort"
+    data-bn="রাঙ্গাউটি রিসোর্ট ঘুরে দেখুন">
     Explore Rangauti Resort
 </p>
 
@@ -2190,11 +2541,17 @@ body{
     ×
 </button>
 
-<h2 class="gallery-title">
+<h2
+    class="gallery-title"
+    data-en="Swimming Pool View"
+    data-bn="সুইমিং পুল ভিউ">
     Swimming Pool View
 </h2>
 
-<p class="gallery-subtitle">
+<p
+    class="gallery-subtitle"
+    data-en="Explore Rangauti Resort"
+    data-bn="রাঙ্গাউটি রিসোর্ট ঘুরে দেখুন">
     Explore Rangauti Resort
 </p>
 
@@ -2267,11 +2624,17 @@ body{
     ×
 </button>
 
-<h2 class="gallery-title">
+<h2
+    class="gallery-title"
+    data-en="Natural Environment"
+    data-bn="প্রাকৃতিক পরিবেশ">
     Natural Environment
 </h2>
 
-<p class="gallery-subtitle">
+<p
+    class="gallery-subtitle"
+    data-en="Explore Rangauti Resort"
+    data-bn="রাঙ্গাউটি রিসোর্ট ঘুরে দেখুন">
     Explore Rangauti Resort
 </p>
 
@@ -2340,11 +2703,17 @@ body{
     ×
 </button>
 
-<h2 class="gallery-title">
+<h2
+    class="gallery-title"
+    data-en="Boat Ride"
+    data-bn="বোট রাইড">
     Boat Ride
 </h2>
 
-<p class="gallery-subtitle">
+<p
+    class="gallery-subtitle"
+    data-en="Explore Rangauti Resort"
+    data-bn="রাঙ্গাউটি রিসোর্ট ঘুরে দেখুন">
     Explore Rangauti Resort
 </p>
 
@@ -2401,11 +2770,17 @@ body{
     ×
 </button>
 
-<h2 class="gallery-title">
+<h2
+    class="gallery-title"
+    data-en="Peaceful Moments"
+    data-bn="শান্তিময় মুহূর্ত">
     Peaceful Moments
 </h2>
 
-<p class="gallery-subtitle">
+<p
+    class="gallery-subtitle"
+    data-en="Explore Rangauti Resort"
+    data-bn="রাঙ্গাউটি রিসোর্ট ঘুরে দেখুন">
     Explore Rangauti Resort
 </p>
 
@@ -2517,15 +2892,18 @@ body{
 
 </div>
 
-
 <script>
 
 
 /* =========================================================
-   3-DOT MENU
+   3-DOT MENU + LANGUAGE
 ========================================================= */
 
-function toggleMenu(){
+function toggleMenu(event){
+
+    if(event){
+        event.stopPropagation();
+    }
 
     const menu =
         document.getElementById('menuDropdown');
@@ -2536,24 +2914,223 @@ function toggleMenu(){
 }
 
 
-document.addEventListener('click',function(event){
+function closeMenu(){
 
     const menu =
         document.getElementById('menuDropdown');
 
-    const button =
-        document.querySelector('.menu-toggle');
-
-    if(!menu || !button) return;
-
-    if(
-        !menu.contains(event.target) &&
-        !button.contains(event.target)
-    ){
+    if(menu){
         menu.classList.remove('active');
     }
 
-});
+}
+
+
+/* =========================================================
+   LANGUAGE MENU
+========================================================= */
+
+function toggleLanguageMenu(event){
+
+    if(event){
+        event.stopPropagation();
+    }
+
+    const options =
+        document.getElementById('languageOptions');
+
+    if(!options) return;
+
+    options.classList.toggle('show');
+
+}
+
+
+/* =========================================================
+   SET LANGUAGE
+========================================================= */
+
+function setLanguage(language){
+
+    localStorage.setItem(
+        'rangautiLanguage',
+        language
+    );
+
+
+    document.documentElement.lang =
+        language === 'bn'
+        ? 'bn'
+        : 'en';
+
+
+    document
+        .querySelectorAll('[data-en][data-bn]')
+        .forEach(function(element){
+
+            const value =
+                language === 'bn'
+                ? element.getAttribute('data-bn')
+                : element.getAttribute('data-en');
+
+            element.textContent=value;
+
+        });
+
+
+    const title =
+        document.querySelector('title');
+
+
+    if(title){
+
+        const titleBn =
+            title.getAttribute('data-bn');
+
+        const titleEn =
+            title.getAttribute('data-en');
+
+
+        if(titleBn && titleEn){
+
+            title.textContent =
+                language === 'bn'
+                ? titleBn
+                : titleEn;
+
+        }
+
+    }
+
+
+    const description =
+        document.querySelector(
+            'meta[name="description"]'
+        );
+
+
+    if(description){
+
+        const descriptionBn =
+            description.getAttribute('data-bn');
+
+        const descriptionEn =
+            description.getAttribute('data-en');
+
+
+        if(descriptionBn && descriptionEn){
+
+            description.setAttribute(
+                'content',
+                language === 'bn'
+                ? descriptionBn
+                : descriptionEn
+            );
+
+        }
+
+    }
+
+
+    const languageOptions =
+        document.getElementById(
+            'languageOptions'
+        );
+
+
+    if(languageOptions){
+
+        languageOptions.classList.remove(
+            'show'
+        );
+
+    }
+
+
+    closeMenu();
+
+}
+
+
+/* =========================================================
+   MENU + LANGUAGE OUTSIDE CLICK
+========================================================= */
+
+document.addEventListener(
+    'click',
+    function(event){
+
+        const menu =
+            document.getElementById(
+                'menuDropdown'
+            );
+
+        const button =
+            document.querySelector(
+                '.menu-toggle'
+            );
+
+        const languageOptions =
+            document.getElementById(
+                'languageOptions'
+            );
+
+        const languageMenu =
+            document.querySelector(
+                '.language-menu'
+            );
+
+
+        if(
+            menu &&
+            button &&
+            !menu.contains(event.target) &&
+            !button.contains(event.target)
+        ){
+
+            menu.classList.remove(
+                'active'
+            );
+
+        }
+
+
+        if(
+            languageOptions &&
+            languageMenu &&
+            !languageMenu.contains(
+                event.target
+            )
+        ){
+
+            languageOptions.classList.remove(
+                'show'
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   LOAD SAVED LANGUAGE
+========================================================= */
+
+document.addEventListener(
+    'DOMContentLoaded',
+    function(){
+
+        const savedLanguage =
+            localStorage.getItem(
+                'rangautiLanguage'
+            ) || 'en';
+
+
+        setLanguage(savedLanguage);
+
+    }
+);
 
 
 /* =========================================================

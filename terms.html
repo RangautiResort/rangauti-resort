@@ -1,20 +1,33 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Terms & Conditions | Rangauti Resort</title>
 
+
 <style>
 
-/* =======================================================
-   RESET
-======================================================= */
+/* =========================================================
+   RANGAUTI RESORT
+   TERMS & CONDITIONS
+   PREMIUM DESIGN
+========================================================= */
+
+:root{
+    --gold:#d8b878;
+    --gold-dark:#b59663;
+    --green:#344a3c;
+    --green-dark:#162019;
+    --cream:#f5f1e8;
+    --light:#faf9f5;
+    --text:#283129;
+    --white:#ffffff;
+}
 
 *{
     margin:0;
@@ -27,16 +40,15 @@ html{
 }
 
 body{
-    font-family:Georgia, "Times New Roman", serif;
-    background:#11110f;
-    color:#f5f1e8;
-    line-height:1.7;
+    background:var(--light);
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 
-/* =======================================================
+/* =========================================================
    HEADER
-======================================================= */
+========================================================= */
 
 .site-header{
     position:fixed;
@@ -50,348 +62,42 @@ body{
     align-items:center;
     justify-content:space-between;
 
-    padding:0 6%;
+    padding:0 5%;
 
-    background:rgba(17,17,15,.92);
-    backdrop-filter:blur(12px);
+    background:rgba(5,13,9,.90);
 
-    border-bottom:1px solid rgba(212,175,55,.18);
-}
-
-
-/* LOGO */
-
-.site-logo img{
-    width:145px;
-    height:auto;
-    display:block;
-}
-
-
-/* =======================================================
-   MENU BUTTON
-======================================================= */
-
-.menu-toggle{
-    width:46px;
-    height:46px;
-
-    border:1px solid rgba(212,175,55,.45);
-    border-radius:50%;
-
-    background:transparent;
-    color:#d4af37;
-
-    font-size:25px;
-    line-height:1;
-
-    cursor:pointer;
-
-    transition:.3s ease;
-}
-
-.menu-toggle:hover{
-    background:#d4af37;
-    color:#11110f;
-}
-
-
-/* =======================================================
-   MENU DROPDOWN
-======================================================= */
-
-.menu-dropdown{
-    position:absolute;
-    top:88px;
-    right:6%;
-
-    width:260px;
-
-    background:#171714;
-
-    border:1px solid rgba(212,175,55,.3);
-
-    box-shadow:0 20px 50px rgba(0,0,0,.45);
-
-    padding:14px;
-
-    display:none;
-}
-
-.menu-dropdown.show{
-    display:block;
-}
-
-.menu-dropdown a{
-    display:block;
-
-    padding:11px 14px;
-
-    color:#ffffff !important;
-
-    text-decoration:none;
-
-    font-size:13px;
-    letter-spacing:1.2px;
-
-    transition:.25s ease;
-}
-
-.menu-dropdown a:hover{
-    color:#d4af37 !important;
-    background:rgba(212,175,55,.06);
-}
-
-
-/* =======================================================
-   TERMS SECTION
-======================================================= */
-
-.terms-section{
-    min-height:100vh;
-
-    padding:
-        150px 7%
-        90px;
-
-    background:
-        radial-gradient(
-            circle at top right,
-            rgba(212,175,55,.08),
-            transparent 35%
-        ),
-        #11110f;
-}
-
-
-/* =======================================================
-   SECTION HEAD
-======================================================= */
-
-.section-head{
-    max-width:850px;
-    margin:0 auto 55px;
-    text-align:center;
-}
-
-.eyebrow{
-    color:#d4af37;
-
-    font-size:12px;
-    letter-spacing:3px;
-
-    margin-bottom:16px;
-
-    text-transform:uppercase;
-}
-
-.section-head h1{
-    font-size:clamp(38px,5vw,64px);
-
-    font-weight:400;
-
-    line-height:1.15;
-
-    margin-bottom:20px;
-}
-
-.section-head p{
-    color:#c9c5bb;
-
-    font-family:Arial, sans-serif;
-
-    font-size:15px;
-}
-
-
-/* =======================================================
-   TERMS BOX
-======================================================= */
-
-.terms-box{
-
-    max-width:1000px;
-
-    margin:0 auto;
-
-    padding:45px 50px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.015)
-        );
-
-    border:1px solid rgba(212,175,55,.2);
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.28);
-}
-
-
-/* =======================================================
-   TERMS LIST
-======================================================= */
-
-.terms-box ol{
-
-    margin:0;
-
-    padding-left:28px;
-
-    font-family:Arial, sans-serif;
-
-    color:#d9d5cc;
-
-}
-
-.terms-box li{
-
-    padding:15px 10px;
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-    font-size:15px;
-}
-
-.terms-box li:last-child{
-    border-bottom:none;
-}
-
-.terms-box strong{
-    color:#f5f1e8;
-}
-
-
-/* =======================================================
-   FOOTER
-======================================================= */
-
-.footer{
-    padding:30px 6%;
-
-    text-align:center;
-
-    border-top:1px solid rgba(212,175,55,.15);
-
-    color:#9e9b92;
-
-    font-family:Arial, sans-serif;
-
-    font-size:13px;
-}
-
-
-/* =======================================================
-   MOBILE
-======================================================= */
-
-@media(max-width:700px){
-
-    .site-header{
-        height:70px;
-        padding:0 5%;
-    }
-
-    .site-logo img{
-        width:120px;
-    }
-
-    .menu-toggle{
-        width:42px;
-        height:42px;
-        font-size:22px;
-    }
-
-    .menu-dropdown{
-        top:78px;
-        right:5%;
-        width:230px;
-    }
-
-    .terms-section{
-        padding:
-            120px 5%
-            60px;
-    }
-
-    .section-head{
-        margin-bottom:35px;
-    }
-
-    .section-head h1{
-        font-size:38px;
-    }
-
-    .terms-box{
-        padding:25px 18px;
-    }
-
-    .terms-box ol{
-        padding-left:22px;
-    }
-
-    .terms-box li{
-        padding:13px 5px;
-        font-size:14px;
-    }
-
-}
-/* =========================================================
-   TERMS — BOOKING PAGE PREMIUM 3D STYLE
-========================================================= */
-
-:root{
-    --gold:#d8b878;
-    --gold-dark:#b59663;
-    --green:#344a3c;
-    --green-dark:#162019;
-    --cream:#f5f1e8;
-    --light:#faf9f5;
-    --text:#283129;
-}
-
-
-/* =========================================================
-   BODY
-========================================================= */
-
-body{
-    background:var(--light);
-    color:var(--text);
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.site-header{
-    background:rgba(5,13,9,.90) !important;
-
-    border-bottom:
-        1px solid rgba(216,184,120,.16) !important;
+    border-bottom:1px solid rgba(216,184,120,.16);
 
     backdrop-filter:blur(16px);
     -webkit-backdrop-filter:blur(16px);
 
-    box-shadow:
-        0 8px 35px rgba(0,0,0,.25);
+    box-shadow:0 8px 35px rgba(0,0,0,.25);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.site-logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
 }
 
 .site-logo img{
+    width:145px;
+    height:auto;
+
     transition:.35s ease;
 }
 
 .site-logo img:hover{
     transform:translateY(-2px) scale(1.02);
 
-    filter:
-        drop-shadow(
-            0 8px 18px
-            rgba(216,184,120,.20)
-        );
+    filter:drop-shadow(
+        0 8px 18px rgba(216,184,120,.20)
+    );
 }
 
 
@@ -400,25 +106,38 @@ body{
 ========================================================= */
 
 .menu-toggle{
-    background:rgba(15,34,26,.88) !important;
+    width:48px;
+    height:42px;
 
-    border:
-        1px solid
-        rgba(216,184,120,.35) !important;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    color:var(--gold) !important;
+    background:rgba(15,34,26,.88);
+
+    border:1px solid rgba(216,184,120,.35);
+
+    border-radius:10px;
+
+    color:var(--gold);
+
+    font-size:22px;
+
+    cursor:pointer;
 
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.06),
         0 8px 25px rgba(0,0,0,.30);
+
+    transition:.3s ease;
 }
 
 .menu-toggle:hover{
-    background:rgba(15,34,26,.98) !important;
+    background:rgba(15,34,26,.98);
 
-    color:var(--gold) !important;
+    color:var(--gold);
 
-    border-color:var(--gold) !important;
+    border-color:var(--gold);
 
     transform:translateY(-2px);
 
@@ -433,11 +152,23 @@ body{
 ========================================================= */
 
 .menu-dropdown{
-    background:rgba(8,22,16,.97) !important;
+    position:absolute;
 
-    border:
-        1px solid
-        rgba(216,184,120,.20) !important;
+    top:68px;
+    right:5%;
+
+    width:260px;
+
+    display:none;
+    flex-direction:column;
+
+    padding:10px;
+
+    background:rgba(8,22,16,.97);
+
+    border:1px solid rgba(216,184,120,.20);
+
+    border-radius:12px;
 
     box-shadow:
         0 25px 60px rgba(0,0,0,.55),
@@ -445,23 +176,135 @@ body{
 
     backdrop-filter:blur(16px);
     -webkit-backdrop-filter:blur(16px);
-
-    border-radius:12px;
 }
 
-.menu-dropdown a{
-    color:#e7e5dd !important;
+.menu-dropdown.show{
+    display:flex;
+}
+
+.menu-dropdown > a{
+    display:block;
+
+    padding:12px 14px;
+
+    color:#e7e5dd;
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    letter-spacing:.5px;
+
+    border-radius:8px;
 
     transition:.25s ease;
 }
 
-.menu-dropdown a:hover{
-    background:
-        rgba(216,184,120,.08) !important;
+.menu-dropdown > a:hover{
+    background:rgba(216,184,120,.08);
 
-    color:var(--gold) !important;
+    color:var(--gold);
 
     transform:translateX(3px);
+}
+
+
+/* =========================================================
+   LANGUAGE MENU
+========================================================= */
+
+.language-menu{
+    position:relative;
+}
+
+.language-button{
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:12px 14px;
+
+    background:transparent;
+
+    border:none;
+
+    border-radius:8px;
+
+    color:#e7e5dd;
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    font-size:12px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.language-button:hover{
+    background:rgba(216,184,120,.08);
+
+    color:var(--gold);
+}
+
+.language-button span{
+    color:var(--gold);
+
+    font-size:18px;
+}
+
+.language-options{
+    display:none;
+
+    margin:3px 0 5px;
+
+    padding:5px;
+
+    background:rgba(15,34,26,.95);
+
+    border:1px solid rgba(216,184,120,.15);
+
+    border-radius:8px;
+}
+
+.language-options.show{
+    display:block;
+}
+
+.language-options button{
+    width:100%;
+
+    display:block;
+
+    padding:9px 12px;
+
+    background:transparent;
+
+    border:none;
+
+    border-radius:6px;
+
+    color:#e7e5dd;
+
+    font-size:12px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.language-options button:hover{
+    background:rgba(216,184,120,.08);
+
+    color:var(--gold);
 }
 
 
@@ -472,9 +315,7 @@ body{
 .terms-section{
     min-height:100vh;
 
-    padding:
-        150px 6%
-        110px;
+    padding:150px 6% 110px;
 
     background:
         radial-gradient(
@@ -498,8 +339,7 @@ body{
 .section-head{
     max-width:850px;
 
-    margin:
-        0 auto 48px;
+    margin:0 auto 48px;
 
     text-align:center;
 }
@@ -512,13 +352,12 @@ body{
     font-size:11px;
 
     font-weight:700;
+
+    margin-bottom:12px;
 }
 
 .section-head h1{
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-family:Georgia,"Times New Roman",serif;
 
     color:var(--green-dark);
 
@@ -529,8 +368,7 @@ body{
     letter-spacing:.5px;
 
     text-shadow:
-        0 2px 10px
-        rgba(30,45,36,.05);
+        0 2px 10px rgba(30,45,36,.05);
 }
 
 .section-head h1::after{
@@ -552,12 +390,18 @@ body{
 }
 
 .section-head p{
+    margin-top:18px;
+
     color:#69736c;
+
+    font-size:15px;
+
+    line-height:1.8;
 }
 
 
 /* =========================================================
-   TERMS BOX — PREMIUM CARD
+   TERMS BOX
 ========================================================= */
 
 .terms-box{
@@ -576,13 +420,11 @@ body{
             145deg,
             rgba(255,255,255,.98),
             rgba(247,244,236,.96)
-        ) !important;
+        );
 
-    border:
-        1px solid
-        rgba(80,107,89,.16) !important;
+    border:1px solid rgba(80,107,89,.16);
 
-    border-radius:24px !important;
+    border-radius:24px;
 
     box-shadow:
         0 30px 80px rgba(30,45,36,.12),
@@ -603,8 +445,7 @@ body{
 
     border-radius:50%;
 
-    background:
-        rgba(216,184,120,.07);
+    background:rgba(216,184,120,.07);
 
     pointer-events:none;
 }
@@ -621,24 +462,17 @@ body{
 
     padding-left:30px;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
     color:#59615b;
 }
 
 .terms-box li{
-    padding:16px 12px;
+    padding:17px 12px;
 
-    border-bottom:
-        1px solid
-        rgba(80,107,89,.12);
+    border-bottom:1px solid rgba(80,107,89,.12);
 
     font-size:14px;
 
-    line-height:1.7;
+    line-height:1.75;
 
     transition:
         background .25s ease,
@@ -650,14 +484,48 @@ body{
 }
 
 .terms-box li:hover{
-    background:
-        rgba(216,184,120,.045);
+    background:rgba(216,184,120,.045);
 
     padding-left:17px;
 }
 
-.terms-box strong{
-    color:var(--green-dark);
+.term-en{
+    display:block;
+
+    color:#283129;
+}
+
+.term-bn{
+    display:block;
+
+    margin-top:5px;
+
+    color:#69736c;
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   LANGUAGE VISIBILITY
+========================================================= */
+
+html[lang="bn"] .term-en{
+    display:none;
+}
+
+html[lang="bn"] .term-bn{
+    display:block;
+}
+
+html[lang="en"] .term-en{
+    display:block;
+}
+
+html[lang="en"] .term-bn{
+    display:none;
 }
 
 
@@ -665,24 +533,132 @@ body{
    FOOTER
 ========================================================= */
 
-.footer{
+.explore-footer{
+    position:relative;
+
     background:
         radial-gradient(
             circle at 50% 0%,
             rgba(80,107,89,.20),
             transparent 40%
         ),
-        #07130e !important;
+        #07130e;
 
-    border-top:
-        1px solid
-        rgba(216,184,120,.15);
+    border-top:1px solid rgba(216,184,120,.15);
 
     box-shadow:
-        0 -20px 60px
-        rgba(0,0,0,.12);
+        0 -20px 60px rgba(0,0,0,.12);
 
     color:#aeb7b0;
+}
+
+.explore-footer-container{
+    max-width:1180px;
+
+    margin:0 auto;
+
+    padding:75px 6% 55px;
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1.2fr;
+
+    gap:60px;
+}
+
+.explore-footer-brand img{
+    width:145px;
+
+    margin-bottom:20px;
+}
+
+.explore-footer-brand p{
+    max-width:360px;
+
+    margin:0;
+
+    color:#9da8a1;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+.explore-footer h3{
+    margin:0 0 18px;
+
+    color:var(--gold);
+
+    font-family:Georgia,serif;
+
+    font-size:20px;
+
+    font-weight:400;
+}
+
+.explore-footer-links{
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+}
+
+.explore-footer-links a,
+.explore-footer-contact a{
+    display:block;
+
+    margin-bottom:10px;
+
+    color:#aeb7b0;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    transition:.25s ease;
+}
+
+.explore-footer-links a:hover,
+.explore-footer-contact a:hover{
+    color:var(--gold);
+
+    transform:translateX(3px);
+}
+
+.explore-footer-contact p{
+    margin:0 0 14px;
+
+    color:#9da8a1;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+.explore-footer-bottom{
+    max-width:1180px;
+
+    margin:0 auto;
+
+    padding:20px 6% 25px;
+
+    border-top:1px solid rgba(216,184,120,.10);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    color:#747f78;
+
+    font-size:11px;
+
+    letter-spacing:.5px;
 }
 
 
@@ -696,10 +672,20 @@ body{
         height:70px;
     }
 
+    .site-logo img{
+        width:125px;
+    }
+
+    .menu-dropdown{
+        top:62px;
+
+        right:5%;
+
+        width:235px;
+    }
+
     .terms-section{
-        padding:
-            120px 5%
-            80px;
+        padding:120px 5% 80px;
     }
 
     .section-head{
@@ -710,11 +696,14 @@ body{
         font-size:38px;
     }
 
-    .terms-box{
-        padding:
-            25px 18px;
+    .section-head p{
+        font-size:14px;
+    }
 
-        border-radius:18px !important;
+    .terms-box{
+        padding:25px 18px;
+
+        border-radius:18px;
     }
 
     .terms-box ol{
@@ -726,127 +715,16 @@ body{
 
         font-size:14px;
     }
-}
 
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media(max-width:480px){
-
-    .section-head h1{
-        font-size:34px;
-    }
-
-    .terms-box{
-        padding:
-            20px 15px;
-    }
-
-    .terms-box li{
+    .term-bn{
         font-size:13px;
     }
-}
-/* =========================================================
-   EXPLORE FOOTER
-========================================================= */
-
-.explore-footer{
-    position:relative;
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(80,107,89,.20),
-            transparent 40%
-        ),
-        #07130e;
-    border-top:1px solid rgba(216,184,120,.15);
-    box-shadow:0 -20px 60px rgba(0,0,0,.12);
-    color:#aeb7b0;
-}
-
-.explore-footer-container{
-    max-width:1180px;
-    margin:0 auto;
-    padding:75px 6% 55px;
-
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1.2fr;
-    gap:60px;
-}
-
-.explore-footer-brand img{
-    width:145px;
-    margin-bottom:20px;
-}
-
-.explore-footer-brand p{
-    max-width:360px;
-    margin:0;
-    color:#9da8a1;
-    font-size:13px;
-    line-height:1.8;
-}
-
-.explore-footer h3{
-    margin:0 0 18px;
-    color:#d8b878;
-    font-family:Georgia,serif;
-    font-size:20px;
-    font-weight:400;
-}
-
-.explore-footer-links{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-}
-
-.explore-footer-links a,
-.explore-footer-contact a{
-    display:block;
-    margin-bottom:10px;
-    color:#aeb7b0;
-    text-decoration:none;
-    font-size:13px;
-    transition:.25s ease;
-}
-
-.explore-footer-links a:hover,
-.explore-footer-contact a:hover{
-    color:#d8b878;
-    transform:translateX(3px);
-}
-
-.explore-footer-contact p{
-    margin:0 0 14px;
-    color:#9da8a1;
-    font-size:13px;
-    line-height:1.8;
-}
-
-.explore-footer-bottom{
-    max-width:1180px;
-    margin:0 auto;
-    padding:20px 6% 25px;
-
-    border-top:1px solid rgba(216,184,120,.10);
-
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-
-    color:#747f78;
-    font-size:11px;
-    letter-spacing:.5px;
-}
-
-@media(max-width:700px){
 
     .explore-footer-container{
         padding:55px 7% 40px;
+
         grid-template-columns:1fr;
+
         gap:35px;
     }
 
@@ -856,11 +734,58 @@ body{
 
     .explore-footer-bottom{
         padding:18px 7% 22px;
+
         flex-direction:column;
+
         text-align:center;
+
         gap:8px;
     }
+
 }
+
+@media(max-width:480px){
+
+    .section-head h1{
+        font-size:34px;
+    }
+
+    .terms-box{
+        padding:20px 15px;
+    }
+
+    .terms-box li{
+        font-size:13px;
+    }
+
+    .term-bn{
+        font-size:13px;
+    }
+
+}
+
+
+/* =========================================================
+   BANGLA FONT SUPPORT
+========================================================= */
+
+[lang="bn"] body{
+    font-family:
+        "Noto Sans Bengali",
+        "Noto Sans",
+        Arial,
+        sans-serif;
+}
+
+[lang="bn"] .section-head h1,
+[lang="bn"] .explore-footer h3{
+    font-family:
+        "Noto Sans Bengali",
+        "Noto Sans",
+        Arial,
+        sans-serif;
+}
+
 </style>
 
 </head>
@@ -876,192 +801,607 @@ body{
 <header class="site-header">
 
 
-<a href="index.html"
-   class="site-logo">
+    <a href="index.html" class="site-logo">
 
-<img src="images/logo.png"
-     alt="Rangauti Resort">
+        <img
+            src="images/logo.png"
+            alt="Rangauti Resort"
+        >
 
-</a>
-
-
-<button class="menu-toggle"
-        onclick="toggleMenu()">
-
-☰
-
-</button>
+    </a>
 
 
-<div class="menu-dropdown"
-     id="menuDropdown">
+
+    <button
+        class="menu-toggle"
+        onclick="toggleMenu()"
+        aria-label="Open Menu"
+    >
+        ☰
+    </button>
 
 
-<a href="index.html#home">
-<strong>HOME</strong>
-</a>
 
-<a href="facilities.html">
-<strong>FACILITIES</strong>
-</a>
-
-<a href="index.html#resort-gallery">
-<strong>EXPLORE RANGAUTI</strong>
-</a>
-
-<a href="index.html#packages">
-<strong>PACKAGES</strong>
-</a>
-
-<a href="index.html#rooms">
-<strong>ROOMS & SUITES</strong>
-</a>
-
-<a href="complimentary.html">
-<strong>COMPLIMENTARY</strong>
-</a>
-
-<a href="offers.html">
-<strong>SPECIAL OFFER</strong>
-</a>
-
-<a href="index.html#booking">
-<strong>BOOK NOW</strong>
-</a>
-
-<a href="index.html#contact">
-<strong>CONTACT</strong>
-</a>
-
-<a href="terms.html">
-<strong>TERMS</strong>
-</a>
-
-<a href="index.html#about">
-<strong>ABOUT</strong>
-</a>
+    <div
+        class="menu-dropdown"
+        id="menuDropdown"
+    >
 
 
-</div>
+        <a
+            href="index.html#home"
+            data-en="HOME"
+            data-bn="হোম"
+        >
+            HOME
+        </a>
+
+
+        <a
+            href="facilities.html"
+            data-en="FACILITIES"
+            data-bn="সুবিধাসমূহ"
+        >
+            FACILITIES
+        </a>
+
+
+        <a
+            href="index.html#resort-gallery"
+            data-en="EXPLORE RANGAUTI"
+            data-bn="রাঙ্গাউটি ঘুরে দেখুন"
+        >
+            EXPLORE RANGAUTI
+        </a>
+
+
+        <a
+            href="index.html#packages"
+            data-en="PACKAGES"
+            data-bn="প্যাকেজসমূহ"
+        >
+            PACKAGES
+        </a>
+
+
+        <a
+            href="index.html#rooms"
+            data-en="ROOMS & SUITES"
+            data-bn="রুম ও স্যুট"
+        >
+            ROOMS &amp; SUITES
+        </a>
+
+
+        <a
+            href="complimentary.html"
+            data-en="COMPLIMENTARY"
+            data-bn="বিনামূল্যের সুবিধাসমূহ"
+        >
+            COMPLIMENTARY
+        </a>
+
+
+        <a
+            href="offers.html"
+            data-en="SPECIAL OFFER"
+            data-bn="বিশেষ অফার"
+        >
+            SPECIAL OFFER
+        </a>
+
+
+        <a
+            href="index.html#booking"
+            data-en="BOOK NOW"
+            data-bn="এখনই বুক করুন"
+        >
+            BOOK NOW
+        </a>
+
+
+        <a
+            href="index.html#contact"
+            data-en="CONTACT"
+            data-bn="যোগাযোগ"
+        >
+            CONTACT
+        </a>
+
+
+        <a
+            href="terms.html"
+            data-en="TERMS"
+            data-bn="শর্তাবলি"
+        >
+            TERMS
+        </a>
+
+
+        <a
+            href="index.html#about"
+            data-en="ABOUT"
+            data-bn="আমাদের সম্পর্কে"
+        >
+            ABOUT
+        </a>
+
+
+
+        <!-- =================================================
+             LANGUAGE
+        ================================================= -->
+
+        <div class="language-menu">
+
+
+            <button
+                class="language-button"
+                onclick="toggleLanguageMenu(event)"
+            >
+
+                <span
+                    data-en="🌐 Language"
+                    data-bn="🌐 ভাষা"
+                >
+                    🌐 Language
+                </span>
+
+                <span>
+                    ›
+                </span>
+
+            </button>
+
+
+
+            <div
+                class="language-options"
+                id="languageOptions"
+            >
+
+                <button
+                    onclick="setLanguage('en')"
+                >
+                    English
+                </button>
+
+
+                <button
+                    onclick="setLanguage('bn')"
+                >
+                    বাংলা
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 </header>
 
 
 
 <!-- =======================================================
-     TERMS
+     TERMS & CONDITIONS
 ======================================================= -->
 
-<section class="terms-section"
-         id="terms">
+<section
+    class="terms-section"
+    id="terms"
+>
 
 
-<div class="section-head">
-
-<div class="eyebrow">
-IMPORTANT INFORMATION
-</div>
-
-<h1>
-Terms & Conditions
-</h1>
-
-<p>
-Please review the following resort policies and booking
-conditions before confirming your reservation.
-</p>
-
-</div>
+    <div class="section-head">
 
 
-<div class="terms-box">
+        <div
+            class="eyebrow"
+            data-en="TERMS & CONDITIONS"
+            data-bn="শর্তাবলি"
+        >
+            TERMS &amp; CONDITIONS
+        </div>
 
-<ol>
 
-<li>
-<strong>Resort Visiting Time:</strong>
-11:00 AM – 6:00 PM.
-</li>
+        <h1
+            data-en="Terms & Conditions"
+            data-bn="শর্তাবলি"
+        >
+            Terms &amp; Conditions
+        </h1>
 
-<li>
-<strong>Check-in:</strong>
-1:15 PM.
-<strong>Check-out:</strong>
-11:45 AM.
-</li>
 
-<li>
-<strong>Breakfast:</strong>
-8:30 AM – 10:30 AM.
-</li>
+        <p
+            data-en="Please read our resort policies and booking terms carefully before confirming your reservation."
+            data-bn="বুকিং নিশ্চিত করার আগে অনুগ্রহ করে আমাদের রিসোর্টের নীতিমালা ও বুকিংয়ের শর্তগুলো ভালোভাবে পড়ুন।"
+        >
+            Please read our resort policies and booking terms carefully before confirming your reservation.
+        </p>
 
-<li>
-<strong>Lunch:</strong>
-1:30 PM – 3:30 PM.
-</li>
 
-<li>
-<strong>Dinner:</strong>
-8:30 PM – 10:30 PM.
-</li>
+    </div>
 
-<li>
-<strong>Outside Food:</strong>
-Outside food is not allowed inside the resort.
-</li>
 
-<li>
-<strong>Cancellation:</strong>
-Free cancellation is available up to 72 hours before the
-check-in time.
-</li>
 
-<li>
-<strong>Extra Person:</strong>
-BDT 1,500 per person.
-</li>
+    <div class="terms-box">
 
-<li>
-<strong>Child Policy:</strong>
-Children above 5 years are charged as adults.
-</li>
 
-<li>
-<strong>Couple Policy:</strong>
-Only married couples are allowed. Valid ID and marriage
-proof may be required.
-</li>
+        <ol>
 
-<li>
-<strong>Room Booking:</strong>
-50% advance payment is required to confirm a room booking.
-</li>
 
-<li>
-<strong>Lunch Package:</strong>
-For 5 or more persons, 50% advance payment is required.
-For fewer than 5 persons, full payment is required.
-</li>
+            <!-- 01 -->
 
-<li>
-<strong>Day Long Package:</strong>
-Advance payment is required to confirm the booking.
-</li>
+            <li>
 
-<li>
-<strong>Beverage, Entry & Swimming Packages:</strong>
-No advance payment is required. Payment can be made at
-the resort.
-</li>
+                <span class="term-en">
 
-<li>
-All bookings are subject to availability and prior
-confirmation.
-</li>
+                    <strong>Resort Visiting Time:</strong>
+                    11:00 AM – 6:00 PM.
 
-</ol>
+                </span>
 
-</div>
+
+                <span class="term-bn">
+
+                    <strong>রিসোর্ট ভিজিটিং সময়:</strong>
+                    সকাল ১১:০০টা – সন্ধ্যা ৬:০০টা।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 02 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Check-in:</strong>
+                    1:15 PM.
+                    <strong>Check-out:</strong>
+                    11:45 AM.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>চেক-ইন:</strong>
+                    দুপুর ১:১৫টা।
+                    <strong>চেক-আউট:</strong>
+                    সকাল ১১:৪৫টা।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 03 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Breakfast:</strong>
+                    8:30 AM – 10:30 AM.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>নাস্তা:</strong>
+                    সকাল ৮:৩০টা – ১০:৩০টা।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 04 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Lunch:</strong>
+                    1:30 PM – 3:30 PM.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>দুপুরের খাবার:</strong>
+                    দুপুর ১:৩০টা – ৩:৩০টা।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 05 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Dinner:</strong>
+                    8:30 PM – 10:30 PM.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>রাতের খাবার:</strong>
+                    রাত ৮:৩০টা – ১০:৩০টা।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 06 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Outside Food:</strong>
+                    Outside food is not allowed inside the resort.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>বাইরের খাবার:</strong>
+                    রিসোর্টের ভিতরে বাইরের খাবার আনা
+                    অনুমোদিত নয়।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 07 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Cancellation:</strong>
+                    Free cancellation is available up to
+                    72 hours before check-in.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>বাতিলকরণ:</strong>
+                    চেক-ইন সময়ের ৭২ ঘণ্টা আগে পর্যন্ত
+                    বিনামূল্যে বুকিং বাতিল করা যাবে।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 08 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Extra Person:</strong>
+                    BDT 1,500 per person.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>অতিরিক্ত ব্যক্তি:</strong>
+                    প্রতি ব্যক্তির জন্য BDT ১,৫০০।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 09 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Child Policy:</strong>
+                    Children above 5 years are charged as adults.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>শিশু নীতি:</strong>
+                    ৫ বছরের বেশি বয়সী শিশুদের
+                    প্রাপ্তবয়স্ক হিসেবে গণ্য করা হবে।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 10 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Couple Policy:</strong>
+                    Only married couples are allowed.
+                    Valid ID and marriage proof may be required.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>কাপল নীতি:</strong>
+                    শুধুমাত্র বিবাহিত দম্পতিদের অনুমতি দেওয়া হয়।
+                    প্রয়োজনে বৈধ পরিচয়পত্র ও বিবাহের
+                    প্রমাণপত্র দেখাতে হতে পারে।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 11 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Room Booking:</strong>
+                    50% advance payment is required to
+                    confirm a room booking.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>রুম বুকিং:</strong>
+                    রুম বুকিং নিশ্চিত করতে ৫০% অগ্রিম
+                    পেমেন্ট প্রয়োজন।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 12 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Lunch Package:</strong>
+                    For 5 or more persons, 50% advance payment
+                    is required. For fewer than 5 persons,
+                    full payment is required.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>লাঞ্চ প্যাকেজ:</strong>
+                    ৫ জন বা তার বেশি ব্যক্তির জন্য ৫০% অগ্রিম
+                    পেমেন্ট প্রয়োজন। ৫ জনের কম হলে
+                    সম্পূর্ণ পেমেন্ট করতে হবে।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 13 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Day Long Package:</strong>
+                    Advance payment is required to
+                    confirm the booking.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>ডে লং প্যাকেজ:</strong>
+                    বুকিং নিশ্চিত করতে অগ্রিম পেমেন্ট
+                    প্রয়োজন।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 14 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Beverage, Entry & Swimming Packages:</strong>
+                    No advance payment is required.
+                    Payment can be made at the resort.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>বেভারেজ, এন্ট্রি ও সুইমিং প্যাকেজ:</strong>
+                    কোনো অগ্রিম পেমেন্টের প্রয়োজন নেই।
+                    রিসোর্টে এসে পেমেন্ট করা যাবে।
+
+                </span>
+
+            </li>
+
+
+
+            <!-- 15 -->
+
+            <li>
+
+                <span class="term-en">
+
+                    <strong>Availability & Confirmation:</strong>
+                    All bookings are subject to availability
+                    and prior confirmation.
+
+                </span>
+
+
+                <span class="term-bn">
+
+                    <strong>প্রাপ্যতা ও নিশ্চিতকরণ:</strong>
+                    সকল বুকিং রুম/প্যাকেজের প্রাপ্যতা এবং
+                    পূর্ব নিশ্চিতকরণের ওপর নির্ভরশীল।
+
+                </span>
+
+            </li>
+
+
+        </ol>
+
+    </div>
 
 </section>
 
@@ -1073,94 +1413,322 @@ confirmation.
 
 <footer class="explore-footer">
 
+
     <div class="explore-footer-container">
 
-        <div class="explore-footer-brand">
-            <img src="images/logo.png" alt="Rangauti Resort">
 
-            <p>
+        <!-- BRAND -->
+
+        <div class="explore-footer-brand">
+
+
+            <img
+                src="images/logo.png"
+                alt="Rangauti Resort"
+            >
+
+
+            <p
+                data-en="Where Nature Meets Comfort. Discover peaceful stays, scenic beauty and memorable experiences at Rangauti Resort."
+                data-bn="যেখানে প্রকৃতি ও আরামের মিলন। রাঙ্গাউটি রিসোর্টে উপভোগ করুন শান্ত পরিবেশ, প্রাকৃতিক সৌন্দর্য এবং স্মরণীয় অভিজ্ঞতা।"
+            >
+
                 Where Nature Meets Comfort.
-                Experience peaceful moments,
-                scenic beauty and memorable stays
-                at Rangauti Resort.
+                Discover peaceful stays, scenic beauty
+                and memorable experiences at Rangauti Resort.
+
             </p>
+
+
         </div>
+
+
+
+        <!-- QUICK LINKS -->
 
         <div class="explore-footer-links">
-            <h3>Explore</h3>
 
-            <a href="index.html">Home</a>
-            <a href="facilities.html">Facilities</a>
-            <a href="index.html#rooms">Rooms &amp; Suites</a>
-            <a href="index.html#packages">Packages</a>
-            <a href="booking.html">Book Now</a>
+
+            <h3
+                data-en="Quick Links"
+                data-bn="দ্রুত লিংক"
+            >
+                Quick Links
+            </h3>
+
+
+            <a
+                href="index.html"
+                data-en="Home"
+                data-bn="হোম"
+            >
+                Home
+            </a>
+
+
+            <a
+                href="facilities.html"
+                data-en="Facilities"
+                data-bn="সুবিধাসমূহ"
+            >
+                Facilities
+            </a>
+
+
+            <a
+                href="index.html#rooms"
+                data-en="Rooms & Suites"
+                data-bn="রুম ও স্যুট"
+            >
+                Rooms &amp; Suites
+            </a>
+
+
+            <a
+                href="index.html#packages"
+                data-en="Packages"
+                data-bn="প্যাকেজসমূহ"
+            >
+                Packages
+            </a>
+
+
+            <a
+                href="booking.html"
+                data-en="Book Your Stay"
+                data-bn="আপনার থাকার ব্যবস্থা বুক করুন"
+            >
+                Book Your Stay
+            </a>
+
+
         </div>
 
-        <div class="explore-footer-contact">
-            <h3>Contact</h3>
 
-            <p>
+
+        <!-- CONTACT -->
+
+        <div class="explore-footer-contact">
+
+
+            <h3
+                data-en="Contact Us"
+                data-bn="যোগাযোগ করুন"
+            >
+                Contact Us
+            </h3>
+
+
+            <p
+                data-en="Near Manu Bridge, Taltola, Kulaura Road, Moulvibazar, Sylhet"
+                data-bn="মানু ব্রিজের কাছে, তেলতলা, কুলাউড়া রোড, মৌলভীবাজার, সিলেট"
+            >
+
                 Near Manu Bridge,<br>
                 Taltola, Kulaura Road,<br>
                 Moulvibazar, Sylhet
+
             </p>
+
 
             <a href="tel:+8801780203350">
                 01780-203350
             </a>
 
+
             <a href="mailto:info.rangautiresort@gmail.com">
                 info.rangautiresort@gmail.com
             </a>
+
+
         </div>
 
+
     </div>
 
+
+
+    <!-- FOOTER BOTTOM -->
+
     <div class="explore-footer-bottom">
-        <span>© 2026 Rangauti Resort. All Rights Reserved.</span>
-        <span>T&amp;C Apply</span>
+
+
+        <span
+            data-en="© 2026 Rangauti Resort. All Rights Reserved."
+            data-bn="© ২০২৬ রাঙ্গাউটি রিসোর্ট। সর্বস্বত্ব সংরক্ষিত।"
+        >
+            © 2026 Rangauti Resort.
+            All Rights Reserved.
+        </span>
+
+
+        <span
+            data-en="T&C Apply"
+            data-bn="শর্ত প্রযোজ্য"
+        >
+            T&amp;C Apply
+        </span>
+
+
     </div>
+
 
 </footer>
 
 
 
 <!-- =======================================================
-     MENU SCRIPT
+     JAVASCRIPT
 ======================================================= -->
 
 <script>
+
+/* =========================================================
+   MAIN MENU
+========================================================= */
 
 function toggleMenu(){
 
     const menu =
         document.getElementById("menuDropdown");
 
-    menu.classList.toggle("show");
+    if(menu){
+        menu.classList.toggle("show");
+    }
 
 }
 
 
-/* Close menu when clicking outside */
+/* =========================================================
+   LANGUAGE MENU
+========================================================= */
 
-document.addEventListener("click", function(event){
+function toggleLanguageMenu(event){
+
+    event.stopPropagation();
+
+    const options =
+        document.getElementById("languageOptions");
+
+    if(options){
+        options.classList.toggle("show");
+    }
+
+}
+
+
+/* =========================================================
+   CHANGE LANGUAGE
+========================================================= */
+
+function setLanguage(language){
+
+    document.documentElement.lang = language;
+
+    const elements =
+        document.querySelectorAll(
+            "[data-en][data-bn]"
+        );
+
+    elements.forEach(function(element){
+
+        const english =
+            element.getAttribute("data-en");
+
+        const bangla =
+            element.getAttribute("data-bn");
+
+        element.textContent =
+            language === "bn"
+            ? bangla
+            : english;
+
+    });
+
+
+    /* Save selected language */
+
+    localStorage.setItem(
+        "rangautiLanguage",
+        language
+    );
+
+
+    /* Close Language submenu */
+
+    const languageOptions =
+        document.getElementById("languageOptions");
+
+    if(languageOptions){
+        languageOptions.classList.remove("show");
+    }
+
+
+    /* Close main 3-dot menu */
 
     const menu =
         document.getElementById("menuDropdown");
 
-    const button =
-        document.querySelector(".menu-toggle");
-
-    if(
-        !menu.contains(event.target) &&
-        !button.contains(event.target)
-    ){
-
+    if(menu){
         menu.classList.remove("show");
-
     }
 
-});
+}
+
+
+/* =========================================================
+   LOAD SAVED LANGUAGE
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const savedLanguage =
+            localStorage.getItem(
+                "rangautiLanguage"
+            ) || "en";
+
+        setLanguage(savedLanguage);
+
+    }
+);
+
+
+/* =========================================================
+   CLOSE MENU WHEN CLICKING OUTSIDE
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const menu =
+            document.getElementById("menuDropdown");
+
+        const button =
+            document.querySelector(".menu-toggle");
+
+        const languageOptions =
+            document.getElementById("languageOptions");
+
+        if(
+            menu &&
+            button &&
+            !menu.contains(event.target) &&
+            !button.contains(event.target)
+        ){
+
+            menu.classList.remove("show");
+
+            if(languageOptions){
+                languageOptions.classList.remove("show");
+            }
+
+        }
+
+    }
+);
 
 </script>
 
@@ -1168,3 +1736,4 @@ document.addEventListener("click", function(event){
 </body>
 
 </html>
+

@@ -142,6 +142,115 @@ body{
 
 
 /* =======================================================
+   LANGUAGE MENU
+======================================================= */
+
+.language-menu{
+    position:relative;
+    width:100%;
+    margin-top:5px;
+}
+
+.language-button{
+    width:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:12px 14px;
+
+    background:rgba(15,34,26,.95) !important;
+
+    border:1px solid rgba(216,184,120,.20) !important;
+
+    border-radius:8px;
+
+    color:#ffffff !important;
+
+    font-family:Georgia,"Times New Roman",serif;
+
+    font-size:13px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.language-button:hover{
+    background:#344a3c !important;
+
+    border-color:
+        rgba(216,184,120,.45) !important;
+}
+
+.language-button span{
+    color:#ffffff !important;
+}
+
+.language-options{
+    display:none;
+
+    margin-top:6px;
+
+    background:#202c24 !important;
+
+    border:
+        1px solid
+        rgba(216,184,120,.35) !important;
+
+    border-radius:9px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.40);
+
+    z-index:10000;
+}
+
+.language-options.show{
+    display:block !important;
+}
+
+.language-options button{
+    width:100%;
+
+    display:block;
+
+    padding:11px 16px;
+
+    background:#202c24 !important;
+
+    border:0 !important;
+
+    color:#ffffff !important;
+
+    font-family:Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.language-options button:hover{
+    background:#344a3c !important;
+
+    color:#d8b878 !important;
+}
+
+
+/* =======================================================
    FACILITIES SECTION
 ======================================================= */
 
@@ -212,7 +321,6 @@ body{
 
 /* =======================================================
    FACILITIES GRID
-   ALL CARDS — 4 PER ROW
 ======================================================= */
 
 .facilities-grid{
@@ -491,16 +599,29 @@ body{
     }
 
 }
+
+
+/* =======================================================
+   FACILITY TERMS
+======================================================= */
+
 .facility-terms{
     text-align:center;
+
     margin-top:35px;
+
     color:#9e9b92;
+
     font-family:Arial,sans-serif;
+
     font-size:12px;
+
     letter-spacing:1px;
 }
+
+
 /* =========================================================
-   FACILITIES — BOOKING PAGE PREMIUM 3D STYLE
+   FACILITIES — PREMIUM 3D STYLE
 ========================================================= */
 
 :root{
@@ -972,12 +1093,15 @@ body{
             23px 20px;
     }
 }
+
+
 /* =========================================================
    EXPLORE FOOTER
 ========================================================= */
 
 .explore-footer{
     position:relative;
+
     background:
         radial-gradient(
             circle at 50% 0%,
@@ -985,92 +1109,140 @@ body{
             transparent 40%
         ),
         #07130e;
-    border-top:1px solid rgba(216,184,120,.15);
-    box-shadow:0 -20px 60px rgba(0,0,0,.12);
+
+    border-top:
+        1px solid
+        rgba(216,184,120,.15);
+
+    box-shadow:
+        0 -20px 60px
+        rgba(0,0,0,.12);
+
     color:#aeb7b0;
 }
 
 .explore-footer-container{
     max-width:1180px;
+
     margin:0 auto;
-    padding:75px 6% 55px;
+
+    padding:
+        75px 6%
+        55px;
 
     display:grid;
-    grid-template-columns:1.5fr 1fr 1.2fr;
+
+    grid-template-columns:
+        1.5fr 1fr 1.2fr;
+
     gap:60px;
 }
 
 .explore-footer-brand img{
     width:145px;
+
     margin-bottom:20px;
 }
 
 .explore-footer-brand p{
     max-width:360px;
+
     margin:0;
+
     color:#9da8a1;
+
     font-size:13px;
+
     line-height:1.8;
 }
 
 .explore-footer h3{
     margin:0 0 18px;
+
     color:#d8b878;
+
     font-family:Georgia,serif;
+
     font-size:20px;
+
     font-weight:400;
 }
 
 .explore-footer-links{
     display:flex;
+
     flex-direction:column;
+
     align-items:flex-start;
 }
 
 .explore-footer-links a,
 .explore-footer-contact a{
     display:block;
+
     margin-bottom:10px;
+
     color:#aeb7b0;
+
     text-decoration:none;
+
     font-size:13px;
+
     transition:.25s ease;
 }
 
 .explore-footer-links a:hover,
 .explore-footer-contact a:hover{
     color:#d8b878;
+
     transform:translateX(3px);
 }
 
 .explore-footer-contact p{
     margin:0 0 14px;
+
     color:#9da8a1;
+
     font-size:13px;
+
     line-height:1.8;
 }
 
 .explore-footer-bottom{
     max-width:1180px;
-    margin:0 auto;
-    padding:20px 6% 25px;
 
-    border-top:1px solid rgba(216,184,120,.10);
+    margin:0 auto;
+
+    padding:
+        20px 6%
+        25px;
+
+    border-top:
+        1px solid
+        rgba(216,184,120,.10);
 
     display:flex;
+
     justify-content:space-between;
+
     gap:20px;
 
     color:#747f78;
+
     font-size:11px;
+
     letter-spacing:.5px;
 }
 
 @media(max-width:700px){
 
     .explore-footer-container{
-        padding:55px 7% 40px;
+        padding:
+            55px 7%
+            40px;
+
         grid-template-columns:1fr;
+
         gap:35px;
     }
 
@@ -1079,12 +1251,18 @@ body{
     }
 
     .explore-footer-bottom{
-        padding:18px 7% 22px;
+        padding:
+            18px 7%
+            22px;
+
         flex-direction:column;
+
         text-align:center;
+
         gap:8px;
     }
 }
+
 </style>
 
 </head>
@@ -1109,77 +1287,145 @@ body{
 
 
 <button class="menu-toggle"
-        onclick="toggleMenu()">
-
-☰
-
-</button>
+        onclick="toggleMenu(event)">☰</button>
 
 
 <div class="menu-dropdown"
      id="menuDropdown">
 
 
-<a href="index.html#home">
+<a href="index.html#home"
+   onclick="closeMenu()"
+   data-en="HOME"
+   data-bn="হোম">
 <strong>HOME</strong>
 </a>
 
 
-<a href="facilities.html">
+<a href="facilities.html"
+   onclick="closeMenu()"
+   data-en="FACILITIES"
+   data-bn="সুবিধাসমূহ">
 <strong>FACILITIES</strong>
 </a>
 
 
-<a href="index.html#resort-gallery">
+<a href="index.html#resort-gallery"
+   onclick="closeMenu()"
+   data-en="EXPLORE RANGAUTI"
+   data-bn="রাঙ্গাউটি ঘুরে দেখুন">
 <strong>EXPLORE RANGAUTI</strong>
 </a>
 
 
-<a href="index.html#packages">
+<a href="index.html#packages"
+   onclick="closeMenu()"
+   data-en="PACKAGES"
+   data-bn="প্যাকেজসমূহ">
 <strong>PACKAGES</strong>
 </a>
 
 
-<a href="index.html#rooms">
-<strong>ROOMS & SUITES</strong>
+<a href="index.html#rooms"
+   onclick="closeMenu()"
+   data-en="ROOMS & SUITES"
+   data-bn="রুম ও স্যুট">
+<strong>ROOMS &amp; SUITES</strong>
 </a>
 
 
-<a href="complimentary.html">
+<a href="complimentary.html"
+   onclick="closeMenu()"
+   data-en="COMPLIMENTARY"
+   data-bn="বিনামূল্যের সুবিধাসমূহ">
 <strong>COMPLIMENTARY</strong>
 </a>
 
 
-<a href="offers.html">
+<a href="offers.html"
+   onclick="closeMenu()"
+   data-en="SPECIAL OFFER"
+   data-bn="বিশেষ অফার">
 <strong>SPECIAL OFFER</strong>
 </a>
 
 
-<a href="booking.html">
+<a href="booking.html"
+   onclick="closeMenu()"
+   data-en="BOOK NOW"
+   data-bn="এখনই বুক করুন">
 <strong>BOOK NOW</strong>
 </a>
 
 
-<a href="index.html#contact">
+<a href="index.html#contact"
+   onclick="closeMenu()"
+   data-en="CONTACT"
+   data-bn="যোগাযোগ">
 <strong>CONTACT</strong>
 </a>
 
 
-<a href="terms.html">
+<a href="terms.html"
+   onclick="closeMenu()"
+   data-en="TERMS"
+   data-bn="শর্তাবলি">
 <strong>TERMS</strong>
 </a>
 
 
-<a href="index.html#about">
+<a href="index.html#about"
+   onclick="closeMenu()"
+   data-en="ABOUT"
+   data-bn="আমাদের সম্পর্কে">
 <strong>ABOUT</strong>
 </a>
+
+
+<!-- LANGUAGE -->
+
+<div class="language-menu">
+
+<button type="button"
+        class="language-button"
+        onclick="toggleLanguageMenu(event)">
+
+<span
+    data-en="🌐 Language"
+    data-bn="🌐 ভাষা">
+    🌐 Language
+</span>
+
+<span>›</span>
+
+</button>
+
+
+<div class="language-options"
+     id="languageOptions">
+
+<button type="button"
+        onclick="setLanguage('en')">
+
+English
+
+</button>
+
+<button type="button"
+        onclick="setLanguage('bn')">
+
+বাংলা
+
+</button>
+
+</div>
+
+</div>
 
 
 </div>
 
 </header>
-
-
 
 <!-- =======================================================
      FACILITIES
@@ -1191,21 +1437,33 @@ body{
 
 <div class="section-head">
 
-<div class="eyebrow">
+<div class="eyebrow"
+     data-en="THE EXPERIENCE"
+     data-bn="অভিজ্ঞতা">
+
 THE EXPERIENCE
+
 </div>
 
 
-<h1>
+<h1
+    data-en="Everything You Need<br>for a Memorable Stay"
+    data-bn="স্মরণীয় থাকার জন্য<br>প্রয়োজনীয় সবকিছু">
+
 Everything You Need<br>
 for a Memorable Stay
+
 </h1>
 
 
-<p>
+<p
+    data-en="Relax, explore and enjoy the natural surroundings of Rangauti Resort with thoughtfully arranged facilities and experiences."
+    data-bn="পরিকল্পিত সুবিধা ও অভিজ্ঞতার মাধ্যমে রাঙ্গাউটি রিসোর্টের প্রাকৃতিক পরিবেশে আরাম করুন, ঘুরে দেখুন এবং উপভোগ করুন।">
+
 Relax, explore and enjoy the natural surroundings of
 Rangauti Resort with thoughtfully arranged facilities
 and experiences.
+
 </p>
 
 </div>
@@ -1227,12 +1485,20 @@ alt="Swimming Pool">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Swimming Pool"
+    data-bn="সুইমিং পুল">
+
 Swimming Pool
+
 </h2>
 
-<p>
+<p
+    data-en="Relax and enjoy refreshing moments by the pool."
+    data-bn="পুলের পাশে আরাম করুন এবং সতেজ মুহূর্ত উপভোগ করুন।">
+
 Relax and enjoy refreshing moments by the pool.
+
 </p>
 
 </div>
@@ -1253,12 +1519,20 @@ alt="Restaurant">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Restaurant"
+    data-bn="রেস্টুরেন্ট">
+
 Restaurant
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy delicious meals in a comfortable resort setting."
+    data-bn="রিসোর্টের আরামদায়ক পরিবেশে সুস্বাদু খাবার উপভোগ করুন।">
+
 Enjoy delicious meals in a comfortable resort setting.
+
 </p>
 
 </div>
@@ -1279,12 +1553,20 @@ alt="Boat Ride">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Boat Ride"
+    data-bn="বোট রাইড">
+
 Boat Ride
+
 </h2>
 
-<p>
+<p
+    data-en="Experience peaceful moments on the water surrounded by nature."
+    data-bn="প্রকৃতির মাঝে পানির উপর শান্তিপূর্ণ মুহূর্ত উপভোগ করুন।">
+
 Experience peaceful moments on the water surrounded by nature.
+
 </p>
 
 </div>
@@ -1305,12 +1587,20 @@ alt="Natural Environment">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Natural Environment"
+    data-bn="প্রাকৃতিক পরিবেশ">
+
 Natural Environment
+
 </h2>
 
-<p>
+<p
+    data-en="Reconnect with nature in the peaceful surroundings of Rangauti."
+    data-bn="রাঙ্গাউটির শান্ত পরিবেশে প্রকৃতির সাথে নতুন করে সংযোগ স্থাপন করুন।">
+
 Reconnect with nature in the peaceful surroundings of Rangauti.
+
 </p>
 
 </div>
@@ -1331,12 +1621,20 @@ alt="Family Friendly">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Family Friendly"
+    data-bn="পরিবারবান্ধব">
+
 Family Friendly
+
 </h2>
 
-<p>
+<p
+    data-en="A comfortable environment designed for families and guests of all ages."
+    data-bn="পরিবার ও সকল বয়সী অতিথিদের জন্য আরামদায়ক পরিবেশ।">
+
 A comfortable environment designed for families and guests of all ages.
+
 </p>
 
 </div>
@@ -1357,12 +1655,20 @@ alt="Comfortable Stay">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Comfortable Stay"
+    data-bn="আরামদায়ক থাকা">
+
 Comfortable Stay
+
 </h2>
 
-<p>
+<p
+    data-en="Thoughtfully arranged spaces and facilities for a relaxing stay."
+    data-bn="আরামদায়ক থাকার জন্য পরিকল্পিত স্থান ও সুবিধাসমূহ।">
+
 Thoughtfully arranged spaces and facilities for a relaxing stay.
+
 </p>
 
 </div>
@@ -1383,17 +1689,27 @@ alt="Lake View">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Lake View"
+    data-bn="লেক ভিউ">
+
 Lake View
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy beautiful lake views and peaceful natural surroundings."
+    data-bn="সুন্দর লেকের দৃশ্য ও শান্ত প্রাকৃতিক পরিবেশ উপভোগ করুন।">
+
 Enjoy beautiful lake views and peaceful natural surroundings.
+
 </p>
 
 </div>
 
 </div>
+
+
 
 <!-- ===================================================
      8. PARKING
@@ -1407,17 +1723,28 @@ alt="Parking">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Parking"
+    data-bn="পার্কিং">
+
 Parking
+
 </h2>
 
-<p>
+<p
+    data-en="Convenient parking space for a comfortable and hassle-free visit."
+    data-bn="আরামদায়ক ও ঝামেলামুক্ত ভ্রমণের জন্য সুবিধাজনক পার্কিং ব্যবস্থা।">
+
 Convenient parking space for a comfortable and hassle-free visit.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
      9. AIR-CONDITIONED ROOMS
 =================================================== -->
@@ -1430,17 +1757,28 @@ alt="Air-conditioned Rooms">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Air-conditioned Rooms"
+    data-bn="শীতাতপ নিয়ন্ত্রিত রুম">
+
 Air-conditioned Rooms
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy a cool and comfortable stay in thoughtfully arranged air-conditioned rooms."
+    data-bn="পরিকল্পিত শীতাতপ নিয়ন্ত্রিত রুমে শীতল ও আরামদায়ক থাকা উপভোগ করুন।">
+
 Enjoy a cool and comfortable stay in thoughtfully arranged air-conditioned rooms.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
      10. WI-FI
 =================================================== -->
@@ -1453,19 +1791,30 @@ alt="Wi-Fi">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Wi-Fi"
+    data-bn="ওয়াই-ফাই">
+
 Wi-Fi
+
 </h2>
 
-<p>
+<p
+    data-en="Stay connected with convenient Wi-Fi access throughout the resort."
+    data-bn="পুরো রিসোর্টে সুবিধাজনক ওয়াই-ফাই সুবিধার মাধ্যমে সংযুক্ত থাকুন।">
+
 Stay connected with convenient Wi-Fi access throughout the resort.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     12. PHOTOGRAPHY SPOTS
+     11. PHOTOGRAPHY SPOTS
 =================================================== -->
 
 <div class="facility-card">
@@ -1476,19 +1825,30 @@ alt="Photography Spots">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Photography Spots"
+    data-bn="ফটোগ্রাফি স্পট">
+
 Photography Spots
+
 </h2>
 
-<p>
+<p
+    data-en="Beautiful spots around the resort for memorable photographs."
+    data-bn="স্মরণীয় ছবি তোলার জন্য রিসোর্টজুড়ে সুন্দর স্থান।">
+
 Beautiful spots around the resort for memorable photographs.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     13. GROUP / FAMILY STAY
+     12. GROUP / FAMILY STAY
 =================================================== -->
 
 <div class="facility-card">
@@ -1499,19 +1859,30 @@ alt="Group / Family Stay">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Group / Family Stay"
+    data-bn="গ্রুপ / পরিবার থাকার ব্যবস্থা">
+
 Group / Family Stay
+
 </h2>
 
-<p>
+<p
+    data-en="Comfortable spaces and a welcoming environment for families and groups."
+    data-bn="পরিবার ও গ্রুপের জন্য আরামদায়ক স্থান ও অতিথিবান্ধব পরিবেশ।">
+
 Comfortable spaces and a welcoming environment for families and groups.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     14. KAYAKING BOAT
+     13. KAYAKING BOAT
 =================================================== -->
 
 <div class="facility-card">
@@ -1522,19 +1893,30 @@ alt="Kayaking Boat">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Kayaking Boat"
+    data-bn="কায়াকিং বোট">
+
 Kayaking Boat
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy a peaceful kayaking experience surrounded by the beauty of nature."
+    data-bn="প্রকৃতির সৌন্দর্যে ঘেরা পরিবেশে শান্তিপূর্ণ কায়াকিং অভিজ্ঞতা উপভোগ করুন।">
+
 Enjoy a peaceful kayaking experience surrounded by the beauty of nature.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     15. CYCLING
+     14. CYCLING
 =================================================== -->
 
 <div class="facility-card">
@@ -1545,19 +1927,30 @@ alt="Cycling">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Cycling"
+    data-bn="সাইক্লিং">
+
 Cycling
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy a refreshing cycling experience around the peaceful resort surroundings."
+    data-bn="রিসোর্টের শান্ত পরিবেশে সতেজ সাইক্লিং অভিজ্ঞতা উপভোগ করুন।">
+
 Enjoy a refreshing cycling experience around the peaceful resort surroundings.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     16. POOL BILLIARD
+     15. POOL BILLIARD
 =================================================== -->
 
 <div class="facility-card">
@@ -1568,19 +1961,30 @@ alt="Pool Billiard">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Pool Billiard"
+    data-bn="পুল বিলিয়ার্ড">
+
 Pool Billiard
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy a fun and relaxing game of pool billiard during your stay."
+    data-bn="থাকার সময় আনন্দদায়ক ও আরামদায়ক পুল বিলিয়ার্ড খেলুন।">
+
 Enjoy a fun and relaxing game of pool billiard during your stay.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     17. KIDS PLAYGROUND
+     16. KIDS PLAYGROUND
 =================================================== -->
 
 <div class="facility-card">
@@ -1591,19 +1995,30 @@ alt="Kids Playground">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Kids Playground"
+    data-bn="শিশুদের খেলার মাঠ">
+
 Kids Playground
+
 </h2>
 
-<p>
+<p
+    data-en="A fun and safe space where children can play and enjoy their time."
+    data-bn="শিশুদের খেলাধুলা ও আনন্দের জন্য মজাদার ও নিরাপদ স্থান।">
+
 A fun and safe space where children can play and enjoy their time.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     18. TEA / COFFEE CORNER
+     17. TEA / COFFEE CORNER
 =================================================== -->
 
 <div class="facility-card">
@@ -1614,19 +2029,30 @@ alt="Tea / Coffee Corner">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Tea / Coffee Corner"
+    data-bn="চা / কফি কর্নার">
+
 Tea / Coffee Corner
+
 </h2>
 
-<p>
+<p
+    data-en="Relax with a warm cup of tea or coffee in a peaceful resort setting."
+    data-bn="রিসোর্টের শান্ত পরিবেশে এক কাপ গরম চা বা কফির সাথে আরাম করুন।">
+
 Relax with a warm cup of tea or coffee in a peaceful resort setting.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     19. WELCOME DRINKS
+     18. WELCOME DRINKS
 =================================================== -->
 
 <div class="facility-card">
@@ -1637,19 +2063,30 @@ alt="Welcome Drinks">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Welcome Drinks"
+    data-bn="স্বাগত পানীয়">
+
 Welcome Drinks
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy a refreshing welcome drink as you begin your stay at Rangauti Resort."
+    data-bn="রাঙ্গাউটি রিসোর্টে আপনার থাকা শুরু করার সময় সতেজ স্বাগত পানীয় উপভোগ করুন।">
+
 Enjoy a refreshing welcome drink as you begin your stay at Rangauti Resort.
+
 </p>
 
 </div>
 
-</div> 
+</div>
+
+
+
 <!-- ===================================================
-     20. COMPLIMENTARY BREAKFAST
+     19. COMPLIMENTARY BREAKFAST
 =================================================== -->
 
 <div class="facility-card">
@@ -1660,19 +2097,30 @@ alt="Complimentary Breakfast">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Complimentary Breakfast"
+    data-bn="বিনামূল্যের নাশতা">
+
 Complimentary Breakfast
+
 </h2>
 
-<p>
+<p
+    data-en="Start your day with a delicious complimentary breakfast during your stay."
+    data-bn="থাকার সময় সুস্বাদু বিনামূল্যের নাশতা দিয়ে আপনার দিন শুরু করুন।">
+
 Start your day with a delicious complimentary breakfast during your stay.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     21. 24/7 ROOM SERVICE
+     20. 24/7 ROOM SERVICE
 =================================================== -->
 
 <div class="facility-card">
@@ -1683,19 +2131,30 @@ alt="24/7 Room Service">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="24/7 Room Service"
+    data-bn="২৪/৭ রুম সার্ভিস">
+
 24/7 Room Service
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy convenient room service support throughout your stay."
+    data-bn="আপনার পুরো থাকার সময় সুবিধাজনক রুম সার্ভিস সহায়তা উপভোগ করুন।">
+
 Enjoy convenient room service support throughout your stay.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     22. PEACEFUL ENVIRONMENT
+     21. PEACEFUL ENVIRONMENT
 =================================================== -->
 
 <div class="facility-card">
@@ -1706,19 +2165,30 @@ alt="Peaceful Environment">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Peaceful Environment"
+    data-bn="শান্তিপূর্ণ পরিবেশ">
+
 Peaceful Environment
+
 </h2>
 
-<p>
+<p
+    data-en="Relax and unwind in the calm and peaceful surroundings of Rangauti Resort."
+    data-bn="রাঙ্গাউটি রিসোর্টের শান্ত ও নিরিবিলি পরিবেশে আরাম করুন এবং নিজেকে সতেজ করুন।">
+
 Relax and unwind in the calm and peaceful surroundings of Rangauti Resort.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     23. WALKING AREA
+     22. WALKING AREA
 =================================================== -->
 
 <div class="facility-card">
@@ -1729,19 +2199,30 @@ alt="Walking Area">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Walking Area"
+    data-bn="হাঁটার এলাকা">
+
 Walking Area
+
 </h2>
 
-<p>
+<p
+    data-en="Take a relaxing walk and enjoy the peaceful natural surroundings of the resort."
+    data-bn="আরামদায়ক হাঁটাহাঁটি করুন এবং রিসোর্টের শান্ত প্রাকৃতিক পরিবেশ উপভোগ করুন।">
+
 Take a relaxing walk and enjoy the peaceful natural surroundings of the resort.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     24. GARDEN AREA
+     23. GARDEN AREA
 =================================================== -->
 
 <div class="facility-card">
@@ -1752,19 +2233,30 @@ alt="Garden Area">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Garden Area"
+    data-bn="বাগান এলাকা">
+
 Garden Area
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy a refreshing and peaceful time surrounded by greenery and open spaces."
+    data-bn="সবুজে ঘেরা খোলামেলা পরিবেশে সতেজ ও শান্তিপূর্ণ সময় উপভোগ করুন।">
+
 Enjoy a refreshing and peaceful time surrounded by greenery and open spaces.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     25. OUTDOOR SITTING AREA
+     24. OUTDOOR SITTING AREA
 =================================================== -->
 
 <div class="facility-card">
@@ -1775,19 +2267,30 @@ alt="Outdoor Sitting Area">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Outdoor Sitting Area"
+    data-bn="আউটডোর বসার স্থান">
+
 Outdoor Sitting Area
+
 </h2>
 
-<p>
+<p
+    data-en="Sit back, relax and enjoy the fresh air in a comfortable outdoor setting."
+    data-bn="আরামদায়ক খোলা পরিবেশে বসে বিশ্রাম নিন এবং নির্মল বাতাস উপভোগ করুন।">
+
 Sit back, relax and enjoy the fresh air in a comfortable outdoor setting.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     26. RESORT VIEW
+     25. RESORT VIEW
 =================================================== -->
 
 <div class="facility-card">
@@ -1798,19 +2301,30 @@ alt="Resort View">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Resort View"
+    data-bn="রিসোর্ট ভিউ">
+
 Resort View
+
 </h2>
 
-<p>
+<p
+    data-en="Take in beautiful views of the resort and its natural surroundings."
+    data-bn="রিসোর্ট ও এর প্রাকৃতিক পরিবেশের সুন্দর দৃশ্য উপভোগ করুন।">
+
 Take in beautiful views of the resort and its natural surroundings.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     27. DAY LONG EXPERIENCE
+     26. DAY LONG EXPERIENCE
 =================================================== -->
 
 <div class="facility-card">
@@ -1821,19 +2335,30 @@ alt="Day Long Experience">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Day Long Experience"
+    data-bn="ডে লং এক্সপেরিয়েন্স">
+
 Day Long Experience
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy a refreshing day at Rangauti Resort with access to selected facilities and activities."
+    data-bn="নির্বাচিত সুবিধা ও কার্যক্রম উপভোগ করে রাঙ্গাউটি রিসোর্টে একটি সতেজ দিন কাটান।">
+
 Enjoy a refreshing day at Rangauti Resort with access to selected facilities and activities.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     28. CORPORATE / GROUP EVENTS
+     27. CORPORATE / GROUP EVENTS
 =================================================== -->
 
 <div class="facility-card">
@@ -1844,19 +2369,30 @@ alt="Corporate / Group Events">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Corporate / Group Events"
+    data-bn="কর্পোরেট / গ্রুপ ইভেন্ট">
+
 Corporate / Group Events
+
 </h2>
 
-<p>
+<p
+    data-en="A comfortable setting for corporate gatherings, group activities and events."
+    data-bn="কর্পোরেট সমাবেশ, গ্রুপ কার্যক্রম ও বিভিন্ন অনুষ্ঠানের জন্য আরামদায়ক পরিবেশ।">
+
 A comfortable setting for corporate gatherings, group activities and events.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     29. FAMILY GATHERINGS
+     28. FAMILY GATHERINGS
 =================================================== -->
 
 <div class="facility-card">
@@ -1867,19 +2403,30 @@ alt="Family Gatherings">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Family Gatherings"
+    data-bn="পারিবারিক আয়োজন">
+
 Family Gatherings
+
 </h2>
 
-<p>
+<p
+    data-en="A welcoming space to create memorable moments with family and loved ones."
+    data-bn="পরিবার ও প্রিয়জনদের সাথে স্মরণীয় মুহূর্ত তৈরি করার জন্য অতিথিবান্ধব স্থান।">
+
 A welcoming space to create memorable moments with family and loved ones.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     30. PRE-WEDDING PHOTOGRAPHY
+     29. PRE-WEDDING PHOTOGRAPHY
 =================================================== -->
 
 <div class="facility-card">
@@ -1890,19 +2437,30 @@ alt="Pre-Wedding Photography">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Pre-Wedding Photography"
+    data-bn="প্রি-ওয়েডিং ফটোগ্রাফি">
+
 Pre-Wedding Photography
+
 </h2>
 
-<p>
+<p
+    data-en="Beautiful natural surroundings and scenic spots for memorable photography sessions."
+    data-bn="স্মরণীয় ফটোগ্রাফি সেশনের জন্য সুন্দর প্রাকৃতিক পরিবেশ ও মনোরম স্থান।">
+
 Beautiful natural surroundings and scenic spots for memorable photography sessions.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     31. EVENING RELAXATION
+     30. EVENING RELAXATION
 =================================================== -->
 
 <div class="facility-card">
@@ -1913,19 +2471,30 @@ alt="Evening Relaxation">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Evening Relaxation"
+    data-bn="সন্ধ্যার আরাম">
+
 Evening Relaxation
+
 </h2>
 
-<p>
+<p
+    data-en="Unwind in the evening and enjoy peaceful moments in the relaxing resort surroundings."
+    data-bn="সন্ধ্যায় রিসোর্টের আরামদায়ক পরিবেশে বিশ্রাম নিন এবং শান্তিপূর্ণ মুহূর্ত উপভোগ করুন।">
+
 Unwind in the evening and enjoy peaceful moments in the relaxing resort surroundings.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     32. 24-HOUR RECEPTION
+     31. 24-HOUR RECEPTION
 =================================================== -->
 
 <div class="facility-card">
@@ -1936,19 +2505,30 @@ alt="24-Hour Reception">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="24-Hour Reception"
+    data-bn="২৪ ঘণ্টার রিসেপশন">
+
 24-Hour Reception
+
 </h2>
 
-<p>
+<p
+    data-en="Guest assistance and reception support are available throughout your stay."
+    data-bn="আপনার পুরো থাকার সময় অতিথি সহায়তা ও রিসেপশন সাপোর্ট পাওয়া যাবে।">
+
 Guest assistance and reception support are available throughout your stay.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     33. DAILY HOUSEKEEPING
+     32. DAILY HOUSEKEEPING
 =================================================== -->
 
 <div class="facility-card">
@@ -1959,19 +2539,30 @@ alt="Daily Housekeeping">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Daily Housekeeping"
+    data-bn="দৈনিক হাউসকিপিং">
+
 Daily Housekeeping
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy a clean, comfortable and well-maintained room throughout your stay."
+    data-bn="আপনার পুরো থাকার সময় পরিষ্কার, আরামদায়ক ও সুন্দরভাবে রক্ষণাবেক্ষণ করা রুম উপভোগ করুন।">
+
 Enjoy a clean, comfortable and well-maintained room throughout your stay.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     34. SUNSET VIEWING
+     33. SUNSET VIEWING
 =================================================== -->
 
 <div class="facility-card">
@@ -1982,19 +2573,30 @@ alt="Sunset Viewing">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Sunset Viewing"
+    data-bn="সূর্যাস্ত উপভোগ">
+
 Sunset Viewing
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy beautiful sunset moments surrounded by the peaceful natural scenery."
+    data-bn="শান্ত প্রাকৃতিক দৃশ্যের মাঝে সুন্দর সূর্যাস্তের মুহূর্ত উপভোগ করুন।">
+
 Enjoy beautiful sunset moments surrounded by the peaceful natural scenery.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     35. SECURITY & SAFETY
+     34. SECURITY & SAFETY
 =================================================== -->
 
 <div class="facility-card">
@@ -2005,19 +2607,30 @@ alt="Security & Safety">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Security & Safety"
+    data-bn="নিরাপত্তা ও সুরক্ষা">
+
 Security & Safety
+
 </h2>
 
-<p>
+<p
+    data-en="A secure and comfortable environment for guests throughout their stay."
+    data-bn="অতিথিদের পুরো থাকার সময় নিরাপদ ও আরামদায়ক পরিবেশ।">
+
 A secure and comfortable environment for guests throughout their stay.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     36. LAKESIDE SEATING
+     35. LAKESIDE SEATING
 =================================================== -->
 
 <div class="facility-card">
@@ -2028,19 +2641,30 @@ alt="Lakeside Seating">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Lakeside Seating"
+    data-bn="লেকের পাশে বসার স্থান">
+
 Lakeside Seating
+
 </h2>
 
-<p>
+<p
+    data-en="Relax by the lakeside and enjoy the peaceful views and fresh surroundings."
+    data-bn="লেকের পাশে আরাম করুন এবং শান্ত দৃশ্য ও নির্মল পরিবেশ উপভোগ করুন।">
+
 Relax by the lakeside and enjoy the peaceful views and fresh surroundings.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     37. EVENT & CELEBRATION SPACE
+     36. EVENT & CELEBRATION SPACE
 =================================================== -->
 
 <div class="facility-card">
@@ -2051,19 +2675,30 @@ alt="Event & Celebration Space">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Event & Celebration Space"
+    data-bn="ইভেন্ট ও উদযাপনের স্থান">
+
 Event & Celebration Space
+
 </h2>
 
-<p>
+<p
+    data-en="A welcoming space for celebrations, gatherings and special occasions."
+    data-bn="উদযাপন, পারিবারিক সমাবেশ ও বিশেষ অনুষ্ঠানের জন্য অতিথিবান্ধব স্থান।">
+
 A welcoming space for celebrations, gatherings and special occasions.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     38. IN-ROOM DINING
+     37. IN-ROOM DINING
 =================================================== -->
 
 <div class="facility-card">
@@ -2074,19 +2709,30 @@ alt="In-Room Dining">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="In-Room Dining"
+    data-bn="ইন-রুম ডাইনিং">
+
 In-Room Dining
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy selected meals and refreshments in the comfort of your room."
+    data-bn="আপনার রুমের আরামদায়ক পরিবেশে নির্বাচিত খাবার ও পানীয় উপভোগ করুন।">
+
 Enjoy selected meals and refreshments in the comfort of your room.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     39. NATURE WALK
+     38. NATURE WALK
 =================================================== -->
 
 <div class="facility-card">
@@ -2097,19 +2743,30 @@ alt="Nature Walk">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Nature Walk"
+    data-bn="প্রকৃতি ভ্রমণ">
+
 Nature Walk
+
 </h2>
 
-<p>
+<p
+    data-en="Take a refreshing walk and enjoy the natural beauty and peaceful surroundings."
+    data-bn="সতেজ হাঁটাহাঁটি করুন এবং প্রাকৃতিক সৌন্দর্য ও শান্ত পরিবেশ উপভোগ করুন।">
+
 Take a refreshing walk and enjoy the natural beauty and peaceful surroundings.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     40. LAKESIDE RELAXATION
+     39. LAKESIDE RELAXATION
 =================================================== -->
 
 <div class="facility-card">
@@ -2120,19 +2777,30 @@ alt="Lakeside Relaxation">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Lakeside Relaxation"
+    data-bn="লেকের পাশে বিশ্রাম">
+
 Lakeside Relaxation
+
 </h2>
 
-<p>
+<p
+    data-en="Unwind beside the lake and enjoy calm moments surrounded by nature."
+    data-bn="লেকের পাশে প্রকৃতির মাঝে শান্ত ও নিরিবিলি মুহূর্ত উপভোগ করুন।">
+
 Unwind beside the lake and enjoy calm moments surrounded by nature.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     41. KIDS & FAMILY ACTIVITIES
+     40. KIDS & FAMILY ACTIVITIES
 =================================================== -->
 
 <div class="facility-card">
@@ -2143,19 +2811,30 @@ alt="Kids & Family Activities">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Kids & Family Activities"
+    data-bn="শিশু ও পারিবারিক কার্যক্রম">
+
 Kids & Family Activities
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy fun and relaxing activities designed for children and families."
+    data-bn="শিশু ও পরিবারের জন্য পরিকল্পিত আনন্দদায়ক ও আরামদায়ক কার্যক্রম উপভোগ করুন।">
+
 Enjoy fun and relaxing activities designed for children and families.
+
 </p>
 
 </div>
 
 </div>
+
+
+
 <!-- ===================================================
-     42. RECEPTION & GUEST SERVICE
+     41. RECEPTION & GUEST SERVICE
 =================================================== -->
 
 <div class="facility-card">
@@ -2166,18 +2845,32 @@ alt="Reception & Guest Service">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Reception & Guest Service"
+    data-bn="রিসেপশন ও অতিথি সেবা">
+
 Reception & Guest Service
+
 </h2>
 
-<p>
+<p
+    data-en="Friendly assistance and guest support to help make your stay comfortable."
+    data-bn="আপনার থাকা আরামদায়ক করতে বন্ধুত্বপূর্ণ সহায়তা ও অতিথি সেবা।">
+
 Friendly assistance and guest support to help make your stay comfortable.
+
 </p>
 
 </div>
 
 </div>
-<!-- CANDLE NIGHT DINNER -->
+
+
+
+<!-- ===================================================
+     42. CANDLE NIGHT DINNER
+=================================================== -->
+
 <div class="facility-card">
 
 <img
@@ -2186,18 +2879,32 @@ alt="Candle Night Dinner">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Candle Night Dinner"
+    data-bn="ক্যান্ডেল নাইট ডিনার">
+
 Candle Night Dinner
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy a special candlelight dinner beside the lake in a peaceful and romantic lakeside setting."
+    data-bn="শান্ত ও মনোরম লেকের পাশে বিশেষ ক্যান্ডেললাইট ডিনার উপভোগ করুন।">
+
 Enjoy a special candlelight dinner beside the lake in a peaceful and romantic lakeside setting.
+
 </p>
 
 </div>
 
 </div>
-<!-- LIVE BBQ -->
+
+
+
+<!-- ===================================================
+     43. LIVE BBQ
+=================================================== -->
+
 <div class="facility-card">
 
 <img
@@ -2206,41 +2913,70 @@ alt="Live BBQ">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Live BBQ"
+    data-bn="লাইভ BBQ">
+
 Live BBQ
+
 </h2>
 
-<p>
+<p
+    data-en="Enjoy freshly grilled BBQ prepared live in a delightful outdoor setting at Rangauti Resort."
+    data-bn="রাঙ্গাউটি রিসোর্টের মনোরম খোলা পরিবেশে সরাসরি প্রস্তুত করা তাজা গ্রিলড BBQ উপভোগ করুন।">
+
 Enjoy freshly grilled BBQ prepared live in a delightful outdoor setting at Rangauti Resort.
+
 </p>
 
 </div>
 
 </div>
-<!-- HALL ROOM WEDDING -->
+
+
+
+<!-- ===================================================
+     44. EVENTS & CELEBRATION HALL
+=================================================== -->
+
 <div class="facility-card">
 
 <img
 src="images/facilities/hall-room-wedding.jpg"
-alt="Hall Room Wedding">
+alt="Events & Celebration Hall">
 
 <div class="facility-content">
 
-<h2>
+<h2
+    data-en="Events & Celebration Hall"
+    data-bn="ইভেন্ট ও উদযাপন হল">
+
 Events & Celebration Hall
+
 </h2>
 
-<p>
+<p
+    data-en="Celebrate your special day with family and guests in our spacious and beautifully arranged hall room."
+    data-bn="প্রশস্ত ও সুন্দরভাবে সাজানো হল রুমে পরিবার ও অতিথিদের সাথে আপনার বিশেষ দিন উদযাপন করুন।">
+
 Celebrate your special day with family and guests in our spacious and beautifully arranged hall room.
+
 </p>
 
 </div>
 
 </div>
-</div> <!-- facilities-grid -->
 
-<div class="facility-terms">
-    T&C Apply
+
+</div>
+
+
+<div class="facility-terms"
+     data-en="T&C Apply"
+     data-bn="শর্ত প্রযোজ্য">
+
+T&amp;C Apply
+
 </div>
 
 
@@ -2257,49 +2993,141 @@ Celebrate your special day with family and guests in our spacious and beautifull
     <div class="explore-footer-container">
 
         <div class="explore-footer-brand">
-            <img src="images/logo.png" alt="Rangauti Resort">
 
-            <p>
+            <img src="images/logo.png"
+                 alt="Rangauti Resort">
+
+            <p
+                data-en="Where Nature Meets Comfort. Experience peaceful moments, scenic beauty and memorable stays at Rangauti Resort."
+                data-bn="প্রকৃতির সাথে আরামের মিলন। রাঙ্গাউটি রিসোর্টে উপভোগ করুন শান্ত মুহূর্ত, মনোরম প্রাকৃতিক সৌন্দর্য ও স্মরণীয় থাকা।">
+
                 Where Nature Meets Comfort.
                 Experience peaceful moments,
                 scenic beauty and memorable stays
                 at Rangauti Resort.
+
             </p>
+
         </div>
+
 
         <div class="explore-footer-links">
-            <h3>Explore</h3>
 
-            <a href="index.html">Home</a>
-            <a href="facilities.html">Facilities</a>
-            <a href="index.html#rooms">Rooms &amp; Suites</a>
-            <a href="index.html#packages">Packages</a>
-            <a href="booking.html">Book Now</a>
+            <h3
+                data-en="Explore"
+                data-bn="ঘুরে দেখুন">
+
+                Explore
+
+            </h3>
+
+
+            <a href="index.html"
+               data-en="Home"
+               data-bn="হোম">
+
+                Home
+
+            </a>
+
+
+            <a href="facilities.html"
+               data-en="Facilities"
+               data-bn="সুবিধাসমূহ">
+
+                Facilities
+
+            </a>
+
+
+            <a href="index.html#rooms"
+               data-en="Rooms & Suites"
+               data-bn="রুম ও স্যুট">
+
+                Rooms &amp; Suites
+
+            </a>
+
+
+            <a href="index.html#packages"
+               data-en="Packages"
+               data-bn="প্যাকেজসমূহ">
+
+                Packages
+
+            </a>
+
+
+            <a href="booking.html"
+               data-en="Book Now"
+               data-bn="এখনই বুক করুন">
+
+                Book Now
+
+            </a>
+
         </div>
 
-        <div class="explore-footer-contact">
-            <h3>Contact</h3>
 
-            <p>
+        <div class="explore-footer-contact">
+
+            <h3
+                data-en="Contact"
+                data-bn="যোগাযোগ">
+
+                Contact
+
+            </h3>
+
+
+            <p
+                data-en="Near Manu Bridge, Taltola, Kulaura Road, Moulvibazar, Sylhet"
+                data-bn="মনু ব্রিজের কাছে, তালতলা, কুলাউড়া রোড, মৌলভীবাজার, সিলেট">
+
                 Near Manu Bridge,<br>
                 Taltola, Kulaura Road,<br>
                 Moulvibazar, Sylhet
+
             </p>
 
+
             <a href="tel:+8801780203350">
+
                 01780-203350
+
             </a>
 
+
             <a href="mailto:info.rangautiresort@gmail.com">
+
                 info.rangautiresort@gmail.com
+
             </a>
+
         </div>
 
     </div>
 
+
     <div class="explore-footer-bottom">
-        <span>© 2026 Rangauti Resort. All Rights Reserved.</span>
-        <span>T&amp;C Apply</span>
+
+        <span
+            data-en="© 2026 Rangauti Resort. All Rights Reserved."
+            data-bn="© 2026 Rangauti Resort. সর্বস্বত্ব সংরক্ষিত।">
+
+            © 2026 Rangauti Resort. All Rights Reserved.
+
+        </span>
+
+
+        <span
+            data-en="T&C Apply"
+            data-bn="শর্ত প্রযোজ্য">
+
+            T&amp;C Apply
+
+        </span>
+
     </div>
 
 </footer>
@@ -2307,40 +3135,193 @@ Celebrate your special day with family and guests in our spacious and beautifull
 
 
 <!-- =======================================================
-     MENU SCRIPT
+     MENU + LANGUAGE SCRIPT
 ======================================================= -->
 
 <script>
 
-function toggleMenu(){
+/* =======================================================
+   MENU
+======================================================= */
+
+function toggleMenu(event){
+
+    if(event){
+        event.stopPropagation();
+    }
 
     const menu =
         document.getElementById("menuDropdown");
 
-    menu.classList.toggle("show");
+    if(menu){
+        menu.classList.toggle("show");
+    }
+}
+
+
+/* =======================================================
+   CLOSE MENU
+======================================================= */
+
+function closeMenu(){
+
+    const menu =
+        document.getElementById("menuDropdown");
+
+    if(menu){
+        menu.classList.remove("show");
+    }
 
 }
 
+
+/* =======================================================
+   LANGUAGE MENU
+======================================================= */
+
+function toggleLanguageMenu(event){
+
+    if(event){
+        event.stopPropagation();
+    }
+
+    const options =
+        document.getElementById("languageOptions");
+
+    if(options){
+        options.classList.toggle("show");
+    }
+}
+
+
+/* =======================================================
+   SET LANGUAGE
+======================================================= */
+
+function setLanguage(language){
+
+    localStorage.setItem(
+        "rangautiLanguage",
+        language
+    );
+
+    document.documentElement.lang =
+        language === "bn" ? "bn" : "en";
+
+
+    document
+        .querySelectorAll("[data-en][data-bn]")
+        .forEach(function(element){
+
+            const value =
+                language === "bn"
+                ? element.getAttribute("data-bn")
+                : element.getAttribute("data-en");
+
+
+            if(
+                element.tagName === "H1" ||
+                element.tagName === "H2" ||
+                element.tagName === "H3" ||
+                element.tagName === "P" ||
+                element.tagName === "A" ||
+                element.tagName === "SPAN" ||
+                element.tagName === "DIV"
+            ){
+
+                element.innerHTML = value;
+
+            }else{
+
+                element.textContent = value;
+
+            }
+
+        });
+
+
+    /* CLOSE LANGUAGE MENU */
+
+const languageOptions =
+    document.getElementById("languageOptions");
+
+if(languageOptions){
+    languageOptions.classList.remove("show");
+}
+
+
+/* CLOSE MAIN MENU */
+
+closeMenu();
+
+}
+
+
+
+/* =======================================================
+   CLOSE MENUS WHEN CLICKING OUTSIDE
+======================================================= */
 
 document.addEventListener("click", function(event){
 
     const menu =
         document.getElementById("menuDropdown");
 
-    const button =
+    const menuButton =
         document.querySelector(".menu-toggle");
 
+    const languageOptions =
+        document.getElementById("languageOptions");
+
+    const languageMenu =
+        document.querySelector(".language-menu");
+
+
+    /* CLOSE MAIN MENU OUTSIDE */
 
     if(
+        menu &&
+        menuButton &&
         !menu.contains(event.target) &&
-        !button.contains(event.target)
+        !menuButton.contains(event.target)
     ){
 
         menu.classList.remove("show");
 
     }
 
+
+    /* CLOSE LANGUAGE MENU OUTSIDE */
+
+    if(
+        languageOptions &&
+        languageMenu &&
+        !languageMenu.contains(event.target)
+    ){
+
+        languageOptions.classList.remove("show");
+
+    }
+
 });
+
+
+/* =======================================================
+   LOAD SAVED LANGUAGE
+======================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const savedLanguage =
+            localStorage.getItem("rangautiLanguage")
+            || "en";
+
+        setLanguage(savedLanguage);
+
+    }
+);
 
 </script>
 

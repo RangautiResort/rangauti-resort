@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -607,8 +606,10 @@ footer strong{
     }
 
 }
+
+
 /* =========================================================
-   COMPLIMENTARY — BOOKING PAGE PREMIUM 3D OVERRIDE
+   COMPLIMENTARY — PREMIUM 3D OVERRIDE
 ========================================================= */
 
 :root{
@@ -633,7 +634,7 @@ body{
 
 
 /* =========================================================
-   HEADER — BOOKING STYLE
+   HEADER — PREMIUM STYLE
 ========================================================= */
 
 header{
@@ -734,7 +735,7 @@ header{
 
 
 /* =========================================================
-   HERO — BOOKING STYLE
+   HERO — PREMIUM STYLE
 ========================================================= */
 
 .complimentary-hero{
@@ -869,47 +870,6 @@ header{
 
 .amenities-container{
     max-width:1180px;
-}
-
-
-/* =========================================================
-   SECTION HEAD
-========================================================= */
-
-.section-head{
-    margin-bottom:48px;
-}
-
-.section-head h2{
-    font-family:Georgia,"Times New Roman",serif;
-
-    color:var(--green-dark);
-
-    font-weight:400;
-
-    font-size:44px;
-}
-
-.section-head h2::after{
-    content:"";
-
-    display:block;
-
-    width:55px;
-    height:2px;
-
-    margin:15px auto 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--gold),
-            transparent
-        );
-}
-
-.section-head p{
-    color:#69736c;
 }
 
 
@@ -1079,7 +1039,7 @@ header{
 
 
 /* =========================================================
-   FOOTER — BOOKING STYLE
+   FOOTER — PREMIUM STYLE
 ========================================================= */
 
 footer{
@@ -1155,12 +1115,15 @@ footer strong{
         padding:20px 15px;
     }
 }
+
+
 /* =========================================================
    EXPLORE FOOTER
 ========================================================= */
 
 .explore-footer{
     position:relative;
+
     background:
         radial-gradient(
             circle at 50% 0%,
@@ -1168,84 +1131,120 @@ footer strong{
             transparent 40%
         ),
         #07130e;
+
     border-top:1px solid rgba(216,184,120,.15);
-    box-shadow:0 -20px 60px rgba(0,0,0,.12);
+
+    box-shadow:
+        0 -20px 60px rgba(0,0,0,.12);
+
     color:#aeb7b0;
 }
 
 .explore-footer-container{
     max-width:1180px;
     margin:0 auto;
+
     padding:75px 6% 55px;
 
     display:grid;
-    grid-template-columns:1.5fr 1fr 1.2fr;
+
+    grid-template-columns:
+        1.5fr 1fr 1.2fr;
+
     gap:60px;
 }
 
 .explore-footer-brand img{
     width:145px;
+
     margin-bottom:20px;
 }
 
 .explore-footer-brand p{
     max-width:360px;
+
     margin:0;
+
     color:#9da8a1;
+
     font-size:13px;
+
     line-height:1.8;
 }
 
 .explore-footer h3{
     margin:0 0 18px;
+
     color:#d8b878;
+
     font-family:Georgia,serif;
+
     font-size:20px;
+
     font-weight:400;
 }
 
 .explore-footer-links{
     display:flex;
+
     flex-direction:column;
+
     align-items:flex-start;
 }
 
 .explore-footer-links a,
 .explore-footer-contact a{
     display:block;
+
     margin-bottom:10px;
+
     color:#aeb7b0;
+
     text-decoration:none;
+
     font-size:13px;
+
     transition:.25s ease;
 }
 
 .explore-footer-links a:hover,
 .explore-footer-contact a:hover{
     color:#d8b878;
+
     transform:translateX(3px);
 }
 
 .explore-footer-contact p{
     margin:0 0 14px;
+
     color:#9da8a1;
+
     font-size:13px;
+
     line-height:1.8;
 }
 
 .explore-footer-bottom{
     max-width:1180px;
+
     margin:0 auto;
+
     padding:20px 6% 25px;
 
-    border-top:1px solid rgba(216,184,120,.10);
+    border-top:
+        1px solid
+        rgba(216,184,120,.10);
 
     display:flex;
+
     justify-content:space-between;
+
     gap:20px;
 
     color:#747f78;
+
     font-size:11px;
+
     letter-spacing:.5px;
 }
 
@@ -1253,7 +1252,9 @@ footer strong{
 
     .explore-footer-container{
         padding:55px 7% 40px;
+
         grid-template-columns:1fr;
+
         gap:35px;
     }
 
@@ -1263,10 +1264,213 @@ footer strong{
 
     .explore-footer-bottom{
         padding:18px 7% 22px;
+
         flex-direction:column;
+
         text-align:center;
+
         gap:8px;
     }
+}
+
+
+/* =========================================================
+   LANGUAGE MENU
+========================================================= */
+
+.language-menu{
+    position:relative;
+
+    width:100%;
+
+    margin-top:4px;
+}
+
+.language-button{
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:13px 14px;
+
+    background:rgba(15,34,26,.95) !important;
+
+    border:1px solid rgba(216,184,120,.20) !important;
+
+    border-radius:8px;
+
+    color:#ffffff !important;
+
+    font-family:Georgia,"Times New Roman",serif;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.language-button:hover{
+    background:#344a3c !important;
+
+    border-color:
+        rgba(216,184,120,.45) !important;
+}
+
+.language-button span{
+    color:#ffffff !important;
+}
+
+.language-options{
+    display:none;
+
+    margin-top:6px;
+
+    background:#202c24 !important;
+
+    border:
+        1px solid
+        rgba(216,184,120,.35) !important;
+
+    border-radius:9px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.40);
+
+    z-index:10000;
+}
+
+.language-options.show{
+    display:block !important;
+}
+
+.language-options button{
+    width:100%;
+
+    display:block;
+
+    padding:12px 18px;
+
+    background:#202c24 !important;
+
+    border:0 !important;
+
+    color:#ffffff !important;
+
+    font-family:Georgia,"Times New Roman",serif;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.language-options button:hover{
+    background:#344a3c !important;
+
+    color:#d8b878 !important;
+}
+
+
+/* =========================================================
+   BANGLA FONT SUPPORT
+========================================================= */
+
+html[lang="bn"] body{
+    font-family:
+        "Noto Sans Bengali",
+        "Nirmala UI",
+        Arial,
+        sans-serif;
+}
+
+html[lang="bn"] h1,
+html[lang="bn"] h2,
+html[lang="bn"] h3,
+html[lang="bn"] .language-button,
+html[lang="bn"] .language-options button{
+    font-family:
+        "Noto Serif Bengali",
+        "Nirmala UI",
+        Georgia,
+        serif;
+}
+
+html[lang="bn"] .menu-dropdown a{
+    font-family:
+        "Noto Sans Bengali",
+        "Nirmala UI",
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================================
+   BANGLA HERO TEXT
+========================================================= */
+
+html[lang="bn"] .complimentary-hero h1{
+    line-height:1.35;
+    letter-spacing:0;
+}
+
+html[lang="bn"] .complimentary-hero p{
+    line-height:1.9;
+}
+
+
+/* =========================================================
+   BANGLA AMENITY HEADINGS
+========================================================= */
+
+html[lang="bn"] .amenity-column h3{
+    line-height:1.55;
+}
+
+html[lang="bn"] .amenity-list li{
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   BANGLA FOOTER
+========================================================= */
+
+html[lang="bn"] .explore-footer-brand p,
+html[lang="bn"] .explore-footer-contact p,
+html[lang="bn"] .explore-footer-links a,
+html[lang="bn"] .explore-footer-contact a{
+    line-height:1.9;
+}
+
+
+/* =========================================================
+   MOBILE LANGUAGE
+========================================================= */
+
+@media(max-width:800px){
+
+    .language-button{
+        font-size:14px;
+    }
+
+    .language-options button{
+        font-size:14px;
+    }
+
 }
 
 </style>
@@ -1294,7 +1498,6 @@ alt="Rangauti Resort Logo">
 </a>
 
 
-
 <div class="menu-wrap">
 
 
@@ -1308,63 +1511,145 @@ aria-label="Open navigation menu">
 </button>
 
 
-
 <div
 class="menu-dropdown"
 id="menuDropdown">
 
 
-<a href="index.html#home">
+<a
+href="index.html#home"
+data-en="HOME"
+data-bn="হোম">
 HOME
 </a>
 
 
-<a href="facilities.html">
+<a
+href="facilities.html"
+data-en="FACILITIES"
+data-bn="সুবিধাসমূহ">
 FACILITIES
 </a>
 
 
-<a href="index.html#resort-gallery">
+<a
+href="index.html#resort-gallery"
+data-en="EXPLORE RANGAUTI"
+data-bn="রাঙ্গাউটি ঘুরে দেখুন">
 EXPLORE RANGAUTI
 </a>
 
 
-<a href="index.html#packages">
+<a
+href="index.html#packages"
+data-en="PACKAGES"
+data-bn="প্যাকেজসমূহ">
 PACKAGES
 </a>
 
 
-<a href="index.html#rooms">
+<a
+href="index.html#rooms"
+data-en="ROOMS & SUITES"
+data-bn="রুম ও স্যুট">
 ROOMS &amp; SUITES
 </a>
 
 
-<a href="complimentary.html">
+<a
+href="complimentary.html"
+data-en="COMPLIMENTARY"
+data-bn="বিনামূল্যের সুবিধাসমূহ">
 COMPLIMENTARY
 </a>
 
 
-<a href="offers.html">
+<a
+href="offers.html"
+data-en="SPECIAL OFFER"
+data-bn="বিশেষ অফার">
 SPECIAL OFFER
 </a>
 
-<a href="booking.html">
+
+<a
+href="booking.html"
+data-en="BOOK NOW"
+data-bn="এখনই বুক করুন">
 BOOK NOW
 </a>
 
 
-<a href="index.html#contact">
+<a
+href="index.html#contact"
+data-en="CONTACT"
+data-bn="যোগাযোগ">
 CONTACT
 </a>
 
-<a href="terms.html">
+
+<a
+href="terms.html"
+data-en="TERMS"
+data-bn="শর্তাবলি">
 TERMS
 </a>
 
 
-<a href="index.html#about">
+<a
+href="index.html#about"
+data-en="ABOUT"
+data-bn="আমাদের সম্পর্কে">
 ABOUT
 </a>
+
+
+<!-- ===================================================
+     LANGUAGE
+=================================================== -->
+
+<div class="language-menu">
+
+<button
+type="button"
+class="language-button"
+onclick="toggleLanguageMenu(event)">
+
+<span
+data-en="🌐 Language"
+data-bn="🌐 ভাষা">
+🌐 Language
+</span>
+
+<span>›</span>
+
+</button>
+
+
+<div
+class="language-options"
+id="languageOptions">
+
+<button
+type="button"
+onclick="setLanguage('en')">
+
+English
+
+</button>
+
+
+<button
+type="button"
+onclick="setLanguage('bn')">
+
+বাংলা
+
+</button>
+
+</div>
+
+</div>
 
 
 </div>
@@ -1385,20 +1670,34 @@ ABOUT
 
 <div class="hero-content">
 
-<div class="eyebrow">
+
+<div
+class="eyebrow"
+data-en="COMFORT & EXPERIENCE"
+data-bn="আরাম ও অভিজ্ঞতা">
+
 COMFORT &amp; EXPERIENCE
+
 </div>
 
 
-<h1>
+<h1
+data-en="Complimentary Facilities<br>&amp; Room Amenities"
+data-bn="বিনামূল্যের সুবিধাসমূহ<br>ও রুমের সুযোগ-সুবিধা">
+
 Complimentary Facilities<br>
 &amp; Room Amenities
+
 </h1>
 
 
-<p>
+<p
+data-en="Enjoy thoughtfully selected complimentary facilities and essential room amenities for a comfortable stay."
+data-bn="আরামদায়ক থাকার জন্য উপভোগ করুন যত্নসহকারে নির্বাচিত বিনামূল্যের সুবিধাসমূহ ও প্রয়োজনীয় রুমের সুযোগ-সুবিধা।">
+
 Enjoy thoughtfully selected complimentary facilities and
 essential room amenities for a comfortable stay.
+
 </p>
 
 
@@ -1428,43 +1727,89 @@ essential room amenities for a comfortable stay.
 
 <div class="amenity-column">
 
-<h3>
+<h3
+data-en="🎁 Complimentary Facilities"
+data-bn="🎁 বিনামূল্যের সুবিধাসমূহ">
+
 🎁 Complimentary Facilities
+
 </h3>
+
 
 <ul class="amenity-list">
 
-<li>
+
+<li
+data-en="Welcome Drinks"
+data-bn="স্বাগত পানীয়">
+
 Welcome Drinks
+
 </li>
 
-<li>
+
+<li
+data-en="Breakfast Included"
+data-bn="প্রাতঃরাশ অন্তর্ভুক্ত">
+
 Breakfast Included
+
 </li>
 
-<li>
+
+<li
+data-en="Swimming Pool Access"
+data-bn="সুইমিং পুল ব্যবহারের সুবিধা">
+
 Swimming Pool Access
+
 </li>
 
-<li>
+
+<li
+data-en="24/7 Room Service"
+data-bn="২৪/৭ রুম সার্ভিস">
+
 24/7 Room Service
+
 </li>
 
-<li>
+
+<li
+data-en="Cycling & Pool Billiard"
+data-bn="সাইক্লিং ও পুল বিলিয়ার্ড">
+
 Cycling &amp; Pool Billiard
+
 </li>
 
-<li>
+
+<li
+data-en="Kayaking Boat"
+data-bn="কায়াকিং বোট">
+
 Kayaking Boat
+
 </li>
 
-<li>
+
+<li
+data-en="Kids Playground"
+data-bn="শিশুদের খেলার মাঠ">
+
 Kids Playground
+
 </li>
 
-<li>
+
+<li
+data-en="WiFi (In-house Guests)"
+data-bn="WiFi (ইন-হাউস অতিথিদের জন্য)">
+
 WiFi (In-house Guests)
+
 </li>
+
 
 </ul>
 
@@ -1478,63 +1823,134 @@ WiFi (In-house Guests)
 
 <div class="amenity-column">
 
-<h3>
+<h3
+data-en="Room Facilities & Amenities"
+data-bn="রুমের সুবিধাসমূহ ও সুযোগ-সুবিধা">
+
 Room Facilities &amp; Amenities
+
 </h3>
+
 
 <ul class="amenity-list">
 
-<li>
+
+<li
+data-en="Desk"
+data-bn="ডেস্ক">
+
 Desk
+
 </li>
 
-<li>
+
+<li
+data-en="Tile/marble floor"
+data-bn="টাইল/মার্বেল ফ্লোর">
+
 Tile/marble floor
+
 </li>
 
-<li>
+
+<li
+data-en="Dressing Mirror"
+data-bn="ড্রেসিং মিরর">
+
 Dressing Mirror
+
 </li>
 
-<li>
+
+<li
+data-en="Mini Refrigerator"
+data-bn="মিনি রেফ্রিজারেটর">
+
 Mini Refrigerator
+
 </li>
 
-<li>
+
+<li
+data-en="Electric Kettle"
+data-bn="ইলেকট্রিক কেটলি">
+
 Electric Kettle
+
 </li>
 
-<li>
+
+<li
+data-en="Complimentary Coffee Mini Pack"
+data-bn="বিনামূল্যের কফি মিনি প্যাক">
+
 Complimentary Coffee Mini Pack
+
 </li>
 
-<li>
+
+<li
+data-en="Power Backup"
+data-bn="পাওয়ার ব্যাকআপ">
+
 Power Backup
+
 </li>
 
-<li>
+
+<li
+data-en="Daily Housekeeping"
+data-bn="দৈনিক হাউসকিপিং">
+
 Daily Housekeeping
+
 </li>
 
-<li>
+
+<li
+data-en="Flat-screen TV"
+data-bn="ফ্ল্যাট-স্ক্রিন টিভি">
+
 Flat-screen TV
+
 </li>
 
-<li>
+
+<li
+data-en="Fan"
+data-bn="ফ্যান">
+
 Fan
+
 </li>
 
-<li>
+
+<li
+data-en="Ironing facilities"
+data-bn="ইস্ত্রি করার সুবিধা">
+
 Ironing facilities
+
 </li>
 
-<li>
+
+<li
+data-en="Clothes rack"
+data-bn="কাপড় রাখার র‍্যাক">
+
 Clothes rack
+
 </li>
 
-<li>
+
+<li
+data-en="Mineral Water"
+data-bn="মিনারেল ওয়াটার">
+
 Mineral Water
+
 </li>
+
 
 </ul>
 
@@ -1548,39 +1964,80 @@ Mineral Water
 
 <div class="amenity-column">
 
-<h3>
+<h3
+data-en="Bathroom Facilities"
+data-bn="বাথরুমের সুবিধাসমূহ">
+
 Bathroom Facilities
+
 </h3>
+
 
 <ul class="amenity-list">
 
-<li>
+
+<li
+data-en="Free toiletries"
+data-bn="বিনামূল্যের টয়লেট্রিজ">
+
 Free toiletries
+
 </li>
 
-<li>
+
+<li
+data-en="Shower"
+data-bn="শাওয়ার">
+
 Shower
+
 </li>
 
-<li>
+
+<li
+data-en="Slippers"
+data-bn="স্লিপার">
+
 Slippers
+
 </li>
 
-<li>
+
+<li
+data-en="Attached Bathroom"
+data-bn="সংযুক্ত বাথরুম">
+
 Attached Bathroom
+
 </li>
 
-<li>
+
+<li
+data-en="Hot & Cold Water"
+data-bn="গরম ও ঠান্ডা পানি">
+
 Hot &amp; Cold Water
+
 </li>
 
-<li>
+
+<li
+data-en="Hairdryer"
+data-bn="হেয়ার ড্রায়ার">
+
 Hairdryer
+
 </li>
 
-<li>
+
+<li
+data-en="Toilet paper"
+data-bn="টয়লেট পেপার">
+
 Toilet paper
+
 </li>
+
 
 </ul>
 
@@ -1601,58 +2058,168 @@ Toilet paper
      FOOTER
 ======================================================= -->
 
-
-
 <footer class="explore-footer">
 
-    <div class="explore-footer-container">
 
-        <div class="explore-footer-brand">
-            <img src="images/logo.png" alt="Rangauti Resort">
+<div class="explore-footer-container">
 
-            <p>
-                Where Nature Meets Comfort.
-                Experience peaceful moments,
-                scenic beauty and memorable stays
-                at Rangauti Resort.
-            </p>
-        </div>
 
-        <div class="explore-footer-links">
-            <h3>Explore</h3>
+<div class="explore-footer-brand">
 
-            <a href="index.html">Home</a>
-            <a href="facilities.html">Facilities</a>
-            <a href="index.html#rooms">Rooms &amp; Suites</a>
-            <a href="index.html#packages">Packages</a>
-            <a href="booking.html">Book Now</a>
-        </div>
+<img
+src="images/logo.png"
+alt="Rangauti Resort">
 
-        <div class="explore-footer-contact">
-            <h3>Contact</h3>
 
-            <p>
-                Near Manu Bridge,<br>
-                Taltola, Kulaura Road,<br>
-                Moulvibazar, Sylhet
-            </p>
+<p
+data-en="Where Nature Meets Comfort. Experience peaceful moments, scenic beauty and memorable stays at Rangauti Resort."
+data-bn="প্রকৃতির সাথে আরামের মিলন। রাঙ্গাউটি রিসোর্টে উপভোগ করুন শান্ত মুহূর্ত, মনোরম প্রাকৃতিক সৌন্দর্য ও স্মরণীয় থাকা।">
 
-            <a href="tel:+8801780203350">
-                01780-203350
-            </a>
+Where Nature Meets Comfort.
+Experience peaceful moments,
+scenic beauty and memorable stays
+at Rangauti Resort.
 
-            <a href="mailto:info.rangautiresort@gmail.com">
-                info.rangautiresort@gmail.com
-            </a>
-        </div>
+</p>
 
-    </div>
+</div>
 
-    <div class="explore-footer-bottom">
-        <span>© 2026 Rangauti Resort. All Rights Reserved.</span>
-        <span>T&amp;C Apply</span>
-    </div>
 
+
+<div class="explore-footer-links">
+
+
+<h3
+data-en="Explore"
+data-bn="ঘুরে দেখুন">
+
+Explore
+
+</h3>
+
+
+<a
+href="index.html"
+data-en="Home"
+data-bn="হোম">
+
+Home
+
+</a>
+
+
+<a
+href="facilities.html"
+data-en="Facilities"
+data-bn="সুবিধাসমূহ">
+
+Facilities
+
+</a>
+
+
+<a
+href="index.html#rooms"
+data-en="Rooms & Suites"
+data-bn="রুম ও স্যুট">
+
+Rooms &amp; Suites
+
+</a>
+
+
+<a
+href="index.html#packages"
+data-en="Packages"
+data-bn="প্যাকেজসমূহ">
+
+Packages
+
+</a>
+
+
+<a
+href="booking.html"
+data-en="Book Now"
+data-bn="এখনই বুক করুন">
+
+Book Now
+
+</a>
+
+
+</div>
+
+
+
+<div class="explore-footer-contact">
+
+
+<h3
+data-en="Contact"
+data-bn="যোগাযোগ">
+
+Contact
+
+</h3>
+
+
+<p
+data-en="Near Manu Bridge,<br>Taltola, Kulaura Road,<br>Moulvibazar, Sylhet"
+data-bn="মানু ব্রিজের কাছে,<br>তালতলা, কুলাউড়া রোড,<br>মৌলভীবাজার, সিলেট">
+
+Near Manu Bridge,<br>
+Taltola, Kulaura Road,<br>
+Moulvibazar, Sylhet
+
+</p>
+
+
+<a
+href="tel:+8801780203350">
+
+01780-203350
+
+</a>
+
+
+<a
+href="mailto:info.rangautiresort@gmail.com">
+
+info.rangautiresort@gmail.com
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="explore-footer-bottom">
+
+
+<span
+data-en="© 2026 Rangauti Resort. All Rights Reserved."
+data-bn="© 2026 Rangauti Resort. সর্বস্বত্ব সংরক্ষিত।">
+
+© 2026 Rangauti Resort. All Rights Reserved.
+
+</span>
+
+
+<span
+data-en="T&C Apply"
+data-bn="শর্ত প্রযোজ্য">
+
+T&amp;C Apply
+
+</span>
+
+
+</div>
 
 
 </footer>
@@ -1660,10 +2227,15 @@ Toilet paper
 
 
 <!-- =======================================================
-     MENU SCRIPT
+     MENU + LANGUAGE SCRIPT
 ======================================================= -->
 
 <script>
+
+
+/* =========================================================
+   MENU
+========================================================= */
 
 const menuButton =
 document.getElementById("menuButton");
@@ -1684,6 +2256,112 @@ menuButton.addEventListener(
 );
 
 
+
+/* =========================================================
+   LANGUAGE MENU
+========================================================= */
+
+function toggleLanguageMenu(event){
+
+    event.stopPropagation();
+
+    const languageOptions =
+        document.getElementById("languageOptions");
+
+    languageOptions.classList.toggle("show");
+
+}
+
+
+
+/* =========================================================
+   SET LANGUAGE
+========================================================= */
+
+function setLanguage(language){
+
+    document.documentElement.lang = language;
+
+    localStorage.setItem(
+        "rangautiLanguage",
+        language
+    );
+
+
+    /* -----------------------------------------
+       CHANGE ALL TEXT
+    ----------------------------------------- */
+
+    document
+        .querySelectorAll("[data-en][data-bn]")
+        .forEach(function(element){
+
+            if(language === "bn"){
+
+                element.innerHTML =
+                    element.getAttribute("data-bn");
+
+            }else{
+
+                element.innerHTML =
+                    element.getAttribute("data-en");
+
+            }
+
+        });
+
+
+    /* -----------------------------------------
+       CHANGE PAGE TITLE
+    ----------------------------------------- */
+
+    if(language === "bn"){
+
+        document.title =
+            "বিনামূল্যের সুবিধাসমূহ ও রুমের সুযোগ-সুবিধা | রাঙ্গাউটি রিসোর্ট";
+
+    }else{
+
+        document.title =
+            "Complimentary Facilities & Room Amenities | Rangauti Resort";
+
+    }
+
+
+    /* -----------------------------------------
+       CLOSE LANGUAGE MENU
+    ----------------------------------------- */
+
+    document
+        .getElementById("languageOptions")
+        .classList.remove("show");
+
+
+    /* -----------------------------------------
+       CLOSE MAIN MENU
+    ----------------------------------------- */
+
+    menuDropdown.classList.remove("show");
+
+}
+
+
+
+/* =========================================================
+   LOAD SAVED LANGUAGE
+========================================================= */
+
+const savedLanguage =
+    localStorage.getItem("rangautiLanguage") || "en";
+
+setLanguage(savedLanguage);
+
+
+
+/* =========================================================
+   CLOSE MENUS WHEN CLICKING OUTSIDE
+========================================================= */
+
 document.addEventListener(
     "click",
     function(event){
@@ -1694,10 +2372,15 @@ document.addEventListener(
 
             menuDropdown.classList.remove("show");
 
+            document
+                .getElementById("languageOptions")
+                .classList.remove("show");
+
         }
 
     }
 );
+
 
 </script>
 
@@ -1705,4 +2388,3 @@ document.addEventListener(
 </body>
 
 </html>
-

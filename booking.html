@@ -1562,7 +1562,103 @@ footer strong{
     background:#344a3c !important;
     color:#d8b878 !important;
 }
+/* =========================================================
+   DATE INPUT — DD / MM / YYYY
+========================================================= */
 
+.date-input-wrap{
+    position:relative;
+}
+
+.date-input-wrap input[type="text"]{
+    cursor:pointer;
+}
+
+.real-date-input{
+    position:absolute;
+    width:1px;
+    height:1px;
+    opacity:0;
+    pointer-events:none;
+}
+/* =======================================================
+   DATE INPUT
+======================================================= */
+
+.date-input-wrap{
+    position:relative;
+    width:100%;
+}
+
+.date-display-input{
+    width:100%;
+    padding:14px 50px 14px 16px;
+    border:1px solid #d8d8d8;
+    border-radius:10px;
+    background:#ffffff;
+    color:#283129;
+    font-size:15px;
+    outline:none;
+    box-sizing:border-box;
+    transition:0.3s ease;
+}
+
+.date-display-input:focus{
+    border-color:#b59663;
+    box-shadow:0 0 0 3px rgba(181,150,99,0.12);
+}
+
+.date-display-input.date-invalid{
+    border-color:#d9534f;
+    box-shadow:0 0 0 3px rgba(217,83,79,0.10);
+}
+
+.date-picker-button{
+    position:absolute;
+    right:8px;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:38px;
+    height:38px;
+
+    border:none;
+    border-radius:8px;
+
+    background:#f5f1e8;
+    color:#506b59;
+
+    cursor:pointer;
+    font-size:17px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:0.25s ease;
+}
+
+.date-picker-button:hover{
+    background:#506b59;
+    color:#ffffff;
+}
+
+.real-date-input{
+    position:absolute;
+    width:1px;
+    height:1px;
+    opacity:0;
+    pointer-events:none;
+}
+
+.date-error{
+    display:block;
+    min-height:18px;
+    margin-top:5px;
+    color:#d9534f;
+    font-size:12px;
+    line-height:1.4;
+}
 </style>
 
 </head>
@@ -1854,43 +1950,122 @@ required>
 </div>
 
 
+<!-- =======================================================
+     ARRIVAL DATE
+======================================================= -->
+
 <div class="form-group">
 
-<label
-for="arrivalDate"
-data-en="Arrival Date"
-data-bn="আগমনের তারিখ">
+    <label
+        for="arrivalDateDisplay"
+        data-en="Arrival Date"
+        data-bn="আগমনের তারিখ">
 
-Arrival Date
+        Arrival Date
 
-</label>
+    </label>
 
-<input
-type="date"
-id="arrivalDate"
-required>
+    <div class="date-input-wrap">
+
+        <!-- Guest can type here -->
+        <input
+            type="text"
+            id="arrivalDateDisplay"
+            class="date-display-input"
+            placeholder="dd / mm / yyyy"
+            data-placeholder-en="dd / mm / yyyy"
+            data-placeholder-bn="দিন / মাস / বছর"
+            inputmode="numeric"
+            maxlength="14"
+            autocomplete="off"
+            required>
+
+        <!-- Real date input for calendar + existing JS -->
+        <input
+            type="date"
+            id="arrivalDate"
+            class="real-date-input"
+            tabindex="-1"
+            aria-hidden="true">
+
+        <button
+            type="button"
+            class="date-picker-button"
+            onclick="openDatePicker('arrivalDate')"
+            aria-label="Open arrival date calendar">
+
+            📅
+
+        </button>
+
+    </div>
+
+    <small
+        id="arrivalDateError"
+        class="date-error">
+    </small>
 
 </div>
 
 
+<!-- =======================================================
+     DEPARTURE DATE
+======================================================= -->
+
 <div class="form-group">
 
-<label
-for="departureDate"
-data-en="Departure Date"
-data-bn="প্রস্থানের তারিখ">
+    <label
+        for="departureDateDisplay"
+        data-en="Departure Date"
+        data-bn="প্রস্থানের তারিখ">
 
-Departure Date
+        Departure Date
 
-</label>
+    </label>
 
-<input
-type="date"
-id="departureDate"
-required>
+    <div class="date-input-wrap">
+
+        <!-- Guest can type here -->
+        <input
+            type="text"
+            id="departureDateDisplay"
+            class="date-display-input"
+            placeholder="dd / mm / yyyy"
+            data-placeholder-en="dd / mm / yyyy"
+            data-placeholder-bn="দিন / মাস / বছর"
+            inputmode="numeric"
+            maxlength="14"
+            autocomplete="off"
+            required>
+
+        <!-- Real date input for calendar + existing JS -->
+        <input
+            type="date"
+            id="departureDate"
+            class="real-date-input"
+            tabindex="-1"
+            aria-hidden="true">
+
+        <button
+            type="button"
+            class="date-picker-button"
+            onclick="openDatePicker('departureDate')"
+            aria-label="Open departure date calendar">
+
+            📅
+
+        </button>
+
+    </div>
+
+    <small
+        id="departureDateError"
+        class="date-error">
+    </small>
 
 </div>
 
+</div>
 
 <div class="form-group">
 
@@ -2221,6 +2396,8 @@ T&C Apply
 
 <script>
 
+
+
 /* =======================================================
    ROOM DATA
 ======================================================= */
@@ -2228,45 +2405,52 @@ T&C Apply
 const roomData = [
 
     {
-        name:"Super Family Deluxe — Lake View",
-        capacity:4,
-        extraAllowed:true
+        name: "Super Family Deluxe — Lake View",
+        nameBn: "সুপার ফ্যামিলি ডিলাক্স — লেক ভিউ",
+        capacity: 4,
+        extraAllowed: true
     },
 
     {
-        name:"Family Deluxe — Lake View",
-        capacity:3,
-        extraAllowed:true
+        name: "Family Deluxe — Lake View",
+        nameBn: "ফ্যামিলি ডিলাক্স — লেক ভিউ",
+        capacity: 3,
+        extraAllowed: true
     },
 
     {
-        name:"Super Deluxe — Cottage",
-        capacity:2,
-        extraAllowed:true
+        name: "Super Deluxe — Cottage",
+        nameBn: "সুপার ডিলাক্স — কটেজ",
+        capacity: 2,
+        extraAllowed: true
     },
 
     {
-        name:"Super Deluxe — Swimming Pool View",
-        capacity:2,
-        extraAllowed:false
+        name: "Super Deluxe — Swimming Pool View",
+        nameBn: "সুপার ডিলাক্স — সুইমিং পুল ভিউ",
+        capacity: 2,
+        extraAllowed: false
     },
 
     {
-        name:"Suite Jolojuchona — Floating Honeymoon",
-        capacity:2,
-        extraAllowed:true
+        name: "Suite Jolojuchona — Floating Honeymoon",
+        nameBn: "স্যুট জলজোছনা — ফ্লোটিং হানিমুন",
+        capacity: 2,
+        extraAllowed: true
     },
 
     {
-        name:"Special Family Deluxe — Swimming Pool View",
-        capacity:3,
-        extraAllowed:true
+        name: "Special Family Deluxe — Swimming Pool View",
+        nameBn: "স্পেশাল ফ্যামিলি ডিলাক্স — সুইমিং পুল ভিউ",
+        capacity: 3,
+        extraAllowed: true
     },
 
     {
-        name:"Special Super Deluxe — Lake View",
-        capacity:2,
-        extraAllowed:true
+        name: "Special Super Deluxe — Lake View",
+        nameBn: "স্পেশাল সুপার ডিলাক্স — লেক ভিউ",
+        capacity: 2,
+        extraAllowed: true
     }
 
 ];
@@ -2276,11 +2460,26 @@ const roomData = [
    LANGUAGE HELPER
 ======================================================= */
 
-function t(en,bn){
+function t(en, bn){
 
     return document.documentElement.lang === "bn"
         ? bn
         : en;
+
+}
+
+
+/* =======================================================
+   NUMBER FORMAT
+======================================================= */
+
+function formatNumber(number){
+
+    return Number(number).toLocaleString(
+        document.documentElement.lang === "bn"
+            ? "bn-BD"
+            : "en-US"
+    );
 
 }
 
@@ -2321,7 +2520,8 @@ document.addEventListener(
             button &&
             !menu.contains(event.target) &&
             !button.contains(event.target) &&
-            (!languageMenu || !languageMenu.contains(event.target))
+            (!languageMenu ||
+             !languageMenu.contains(event.target))
         ){
 
             menu.classList.remove("show");
@@ -2329,6 +2529,15 @@ document.addEventListener(
         }
 
     }
+);
+setupDateDisplay(
+    "arrivalDateDisplay",
+    "arrivalDate"
+);
+
+setupDateDisplay(
+    "departureDateDisplay",
+    "departureDate"
 );
 
 
@@ -2345,11 +2554,66 @@ function createRoomDetails(){
         document.getElementById("roomDetailsContainer");
 
     if(!roomCountElement || !container){
+
         return;
+
     }
 
+
     const numberOfRooms =
-        parseInt(roomCountElement.value);
+        parseInt(roomCountElement.value || "1");
+
+
+    const oldCards =
+        Array.from(
+            container.querySelectorAll(".room-detail-card")
+        );
+
+
+    const oldRoomData =
+        oldCards.map(function(card){
+
+            const roomSelect =
+                card.querySelector(".room-type");
+
+            const adultSelect =
+                card.querySelector(".room-adults");
+
+            const babySelect =
+                card.querySelector(".room-babies");
+
+            return {
+
+                room:
+                    roomSelect
+                        ? roomSelect.value
+                        : "0",
+
+                adults:
+                    adultSelect
+                        ? adultSelect.value
+                        : "1",
+
+                babies:
+                    babySelect
+                        ? babySelect.value
+                        : "0",
+
+                ages:
+                    Array.from(
+                        card.querySelectorAll(
+                            ".baby-age-select"
+                        )
+                    ).map(function(select){
+
+                        return select.value;
+
+                    })
+
+            };
+
+        });
+
 
     container.innerHTML = "";
 
@@ -2373,7 +2637,7 @@ function createRoomDetails(){
 
                 ${t(
                     `Room ${roomIndex}`,
-                    `রুম ${roomIndex}`
+                    `রুম ${formatNumber(roomIndex)}`
                 )}
 
             </div>
@@ -2381,6 +2645,8 @@ function createRoomDetails(){
 
             <div class="room-detail-grid">
 
+
+                <!-- ROOM TYPE -->
 
                 <div class="room-detail-field">
 
@@ -2398,24 +2664,35 @@ function createRoomDetails(){
                         onchange="updateGuestRules(this)">
 
                         ${roomData.map(
-                            (room,index) => `
+                            function(room,index){
 
-                            <option
-                                value="${index}"
-                                data-capacity="${room.capacity}"
-                                data-extra="${room.extraAllowed}">
+                                return `
 
-                                ${room.name}
+                                    <option
+                                        value="${index}"
+                                        data-capacity="${room.capacity}"
+                                        data-extra="${room.extraAllowed}"
+                                        data-name-en="${room.name}"
+                                        data-name-bn="${room.nameBn}">
 
-                            </option>
+                                        ${t(
+                                            room.name,
+                                            room.nameBn
+                                        )}
 
-                            `
+                                    </option>
+
+                                `;
+
+                            }
                         ).join("")}
 
                     </select>
 
                 </div>
 
+
+                <!-- ADULT -->
 
                 <div class="room-detail-field">
 
@@ -2430,12 +2707,16 @@ function createRoomDetails(){
 
                     <select
                         class="room-adults"
-                        onchange="checkExtraPerson(this.closest('.room-detail-card'))">
+                        onchange="checkExtraPerson(
+                            this.closest('.room-detail-card')
+                        )">
 
                     </select>
 
                 </div>
 
+
+                <!-- BABY -->
 
                 <div class="room-detail-field">
 
@@ -2456,9 +2737,10 @@ function createRoomDetails(){
 
                 </div>
 
-
             </div>
 
+
+            <!-- BABY AGE -->
 
             <div class="baby-age-area">
 
@@ -2478,8 +2760,8 @@ function createRoomDetails(){
                     <div class="age-adult-notice">
 
                         ${t(
-                            "Guests aged 7–17 years are counted as Adult. Please adjust the Adult selection accordingly.",
-                            "৭–১৭ বছর বয়সী অতিথিদের প্রাপ্তবয়স্ক হিসেবে গণনা করা হবে। অনুগ্রহ করে Adult-এর সংখ্যা অনুযায়ী নির্বাচন করুন।"
+                            "Guests aged 6–17 years are counted as Adult. Please adjust the Adult selection accordingly.",
+                            "৬–১৭ বছর বয়সী অতিথিদের প্রাপ্তবয়স্ক হিসেবে গণনা করা হবে। অনুগ্রহ করে প্রাপ্তবয়স্কের সংখ্যা অনুযায়ী নির্বাচন করুন।"
                         )}
 
                     </div>
@@ -2488,6 +2770,8 @@ function createRoomDetails(){
 
             </div>
 
+
+            <!-- EXTRA PERSON -->
 
             <div class="extra-person-notice">
 
@@ -2505,6 +2789,8 @@ function createRoomDetails(){
             </div>
 
 
+            <!-- TERMS -->
+
             <div class="no-extra-notice"></div>
 
         `;
@@ -2512,11 +2798,53 @@ function createRoomDetails(){
 
         container.appendChild(card);
 
+
         populateBabyOptions(card);
 
+
+        const oldData =
+            oldRoomData[roomIndex - 1];
+
+
+        const roomSelect =
+            card.querySelector(".room-type");
+
+
+        if(
+            oldData &&
+            oldData.room
+        ){
+
+            roomSelect.value =
+                oldData.room;
+
+        }
+
+
         updateGuestRules(
-            card.querySelector(".room-type")
+            roomSelect,
+            oldData
         );
+
+
+        const babySelect =
+            card.querySelector(".room-babies");
+
+
+        if(
+            oldData &&
+            oldData.babies
+        ){
+
+            babySelect.value =
+                oldData.babies;
+
+            updateBabyAgeFields(
+                babySelect,
+                oldData.ages || []
+            );
+
+        }
 
     }
 
@@ -2527,35 +2855,65 @@ function createRoomDetails(){
    UPDATE ADULT OPTIONS
 ======================================================= */
 
-function updateGuestRules(element){
+function updateGuestRules(
+    element,
+    savedData = null
+){
 
     const card =
-        element.closest(".room-detail-card");
+        element.closest(
+            ".room-detail-card"
+        );
+
+    if(!card){
+
+        return;
+
+    }
+
 
     const roomSelect =
-        card.querySelector(".room-type");
+        card.querySelector(
+            ".room-type"
+        );
+
 
     const selected =
         roomSelect.options[
             roomSelect.selectedIndex
         ];
 
+
     const capacity =
-        parseInt(selected.dataset.capacity);
+        parseInt(
+            selected.dataset.capacity
+        );
+
 
     const extraAllowed =
         selected.dataset.extra === "true";
 
-    const adultSelect =
-        card.querySelector(".room-adults");
 
-    const oldAdult =
-        parseInt(adultSelect.value || "1");
+    const adultSelect =
+        card.querySelector(
+            ".room-adults"
+        );
+
+
+    const previousAdult =
+        savedData &&
+        savedData.adults
+            ? parseInt(savedData.adults)
+            : parseInt(
+                adultSelect.value || "1"
+            );
+
 
     const maxAdult =
         extraAllowed
             ? capacity + 1
             : capacity;
+
 
     adultSelect.innerHTML = "";
 
@@ -2569,29 +2927,42 @@ function updateGuestRules(element){
         const option =
             document.createElement("option");
 
-        option.value = i;
+
+        option.value =
+            i;
+
 
         option.textContent =
             t(
                 `${i} Adult${i > 1 ? "s" : ""}`,
-                `${i} জন প্রাপ্তবয়স্ক`
+                `${formatNumber(i)} জন প্রাপ্তবয়স্ক`
             );
 
-        adultSelect.appendChild(option);
+
+        adultSelect.appendChild(
+            option
+        );
 
     }
 
 
     if(
-        oldAdult >= 1 &&
-        oldAdult <= maxAdult
+        previousAdult >= 1 &&
+        previousAdult <= maxAdult
     ){
 
-        adultSelect.value = oldAdult;
+        adultSelect.value =
+            previousAdult;
 
     }else{
 
-        adultSelect.value = capacity;
+        adultSelect.value =
+            String(
+                Math.min(
+                    capacity,
+                    maxAdult
+                )
+            );
 
     }
 
@@ -2608,7 +2979,10 @@ function updateGuestRules(element){
 function populateBabyOptions(card){
 
     const babySelect =
-        card.querySelector(".room-babies");
+        card.querySelector(
+            ".room-babies"
+        );
+
 
     babySelect.innerHTML = "";
 
@@ -2622,21 +2996,34 @@ function populateBabyOptions(card){
         const option =
             document.createElement("option");
 
-        option.value = i;
+
+        option.value =
+            i;
+
 
         option.textContent =
             i === 0
-                ? t("0 Baby","০ শিশু")
+
+                ? t(
+                    "0 Babies",
+                    "০ শিশু"
+                )
+
                 : t(
-                    `${i} Baby${i > 1 ? "s" : ""}`,
-                    `${i} জন শিশু`
+                    `${i} ${i > 1 ? "Babies" : "Baby"}`,
+                    `${formatNumber(i)} জন শিশু`
                 );
 
-        babySelect.appendChild(option);
+
+        babySelect.appendChild(
+            option
+        );
 
     }
 
-    babySelect.value = "0";
+
+    babySelect.value =
+        "0";
 
 }
 
@@ -2645,26 +3032,58 @@ function populateBabyOptions(card){
    BABY AGE FIELDS
 ======================================================= */
 
-function updateBabyAgeFields(babySelect){
+function updateBabyAgeFields(
+    babySelect,
+    savedAges = []
+){
 
     const card =
-        babySelect.closest(".room-detail-card");
+        babySelect.closest(
+            ".room-detail-card"
+        );
+
 
     const babyAgeArea =
-        card.querySelector(".baby-age-area");
+        card.querySelector(
+            ".baby-age-area"
+        );
+
 
     const babyAgeGrid =
-        card.querySelector(".baby-age-grid");
+        card.querySelector(
+            ".baby-age-grid"
+        );
+
 
     const babyCount =
-        parseInt(babySelect.value || "0");
+        parseInt(
+            babySelect.value || "0"
+        );
+
 
     babyAgeGrid.innerHTML = "";
 
 
     if(babyCount === 0){
 
-        babyAgeArea.style.display = "none";
+        babyAgeArea.style.display =
+            "none";
+
+
+        const notice =
+            card.querySelector(
+                ".age-adult-notice"
+            );
+
+
+        if(notice){
+
+            notice.classList.remove(
+                "show"
+            );
+
+        }
+
 
         checkExtraPerson(card);
 
@@ -2673,7 +3092,8 @@ function updateBabyAgeFields(babySelect){
     }
 
 
-    babyAgeArea.style.display = "block";
+    babyAgeArea.style.display =
+        "block";
 
 
     for(
@@ -2685,6 +3105,7 @@ function updateBabyAgeFields(babySelect){
         const field =
             document.createElement("div");
 
+
         field.className =
             "baby-age-field";
 
@@ -2695,10 +3116,11 @@ function updateBabyAgeFields(babySelect){
 
                 ${t(
                     `Baby ${i} Age`,
-                    `শিশু ${i}-এর বয়স`
+                    `শিশু ${formatNumber(i)}-এর বয়স`
                 )}
 
             </label>
+
 
             <select
                 class="baby-age-select"
@@ -2713,20 +3135,30 @@ function updateBabyAgeFields(babySelect){
 
                 </option>
 
+
                 ${Array.from(
                     {length:17},
-                    (_,index) => {
+                    function(_,index){
 
                         const age =
                             index + 1;
 
+
                         return `
+
                             <option value="${age}">
+
                                 ${t(
-                                    `${age} ${age === 1 ? "Year" : "Years"}`,
-                                    `${age} বছর`
+                                    `${age} ${
+                                        age === 1
+                                            ? "Year"
+                                            : "Years"
+                                    }`,
+                                    `${formatNumber(age)} বছর`
                                 )}
+
                             </option>
+
                         `;
 
                     }
@@ -2737,10 +3169,31 @@ function updateBabyAgeFields(babySelect){
         `;
 
 
-        babyAgeGrid.appendChild(field);
+        babyAgeGrid.appendChild(
+            field
+        );
+
+
+        const ageSelect =
+            field.querySelector(
+                ".baby-age-select"
+            );
+
+
+        if(
+            savedAges &&
+            savedAges[i - 1]
+        ){
+
+            ageSelect.value =
+                savedAges[i - 1];
+
+        }
 
     }
 
+
+    updateBabyAgeNotice(card);
 
     checkExtraPerson(card);
 
@@ -2748,42 +3201,35 @@ function updateBabyAgeFields(babySelect){
 
 
 /* =======================================================
-   BABY AGE CHANGED
+   BABY AGE NOTICE
 ======================================================= */
 
-function babyAgeChanged(select){
-
-    const card =
-        select.closest(".room-detail-card");
-
-    const adultSelect =
-        card.querySelector(".room-adults");
-
-    const roomSelect =
-        card.querySelector(".room-type");
-
-    const selected =
-        roomSelect.options[
-            roomSelect.selectedIndex
-        ];
-
-    const capacity =
-        parseInt(selected.dataset.capacity);
-
-    const extraAllowed =
-        selected.dataset.extra === "true";
+function updateBabyAgeNotice(card){
 
     const ageSelects =
-        card.querySelectorAll(".baby-age-select");
+        card.querySelectorAll(
+            ".baby-age-select"
+        );
 
-    let adultFromBabies = 0;
+
+    const notice =
+        card.querySelector(
+            ".age-adult-notice"
+        );
+
+
+    let adultFromBabies =
+        0;
 
 
     ageSelects.forEach(
-        ageSelect => {
+        function(select){
 
             const age =
-                parseInt(ageSelect.value || "0");
+                parseInt(
+                    select.value || "0"
+                );
+
 
             if(age >= 6){
 
@@ -2795,33 +3241,36 @@ function babyAgeChanged(select){
     );
 
 
-    const normalAdult =
-        parseInt(
-            adultSelect.value || "1"
-        );
-
-    const totalAdults =
-        normalAdult + adultFromBabies;
-
-    const maxAdult =
-        extraAllowed
-            ? capacity + 1
-            : capacity;
-
-    const notice =
-        card.querySelector(".age-adult-notice");
-
-
     if(adultFromBabies > 0){
 
-        notice.classList.add("show");
+        notice.classList.add(
+            "show"
+        );
 
     }else{
 
-        notice.classList.remove("show");
+        notice.classList.remove(
+            "show"
+        );
 
     }
 
+}
+
+
+/* =======================================================
+   BABY AGE CHANGED
+======================================================= */
+
+function babyAgeChanged(select){
+
+    const card =
+        select.closest(
+            ".room-detail-card"
+        );
+
+
+    updateBabyAgeNotice(card);
 
     checkExtraPerson(card);
 
@@ -2829,30 +3278,43 @@ function babyAgeChanged(select){
 
 
 /* =======================================================
-   GET AGE-BASED ADULT COUNT
+   GET AGE BASED ADULT COUNT
 ======================================================= */
 
 function getAgeBasedAdultCount(card){
 
     const adultSelect =
-        card.querySelector(".room-adults");
+        card.querySelector(
+            ".room-adults"
+        );
+
 
     const baseAdults =
-        parseInt(adultSelect.value || "0");
+        parseInt(
+            adultSelect.value || "0"
+        );
+
 
     const ageSelects =
-        card.querySelectorAll(".baby-age-select");
+        card.querySelectorAll(
+            ".baby-age-select"
+        );
 
-    let adultBabies = 0;
+
+    let adultBabies =
+        0;
 
 
     ageSelects.forEach(
-        select => {
+        function(select){
 
             const age =
-                parseInt(select.value || "0");
+                parseInt(
+                    select.value || "0"
+                );
 
-            if(age >= 7){
+
+            if(age >= 6){
 
                 adultBabies++;
 
@@ -2862,47 +3324,75 @@ function getAgeBasedAdultCount(card){
     );
 
 
-    return baseAdults + adultBabies;
+    return (
+        baseAdults +
+        adultBabies
+    );
 
 }
 
 
 /* =======================================================
-   EXTRA PERSON CALCULATION
+   EXTRA PERSON
 ======================================================= */
 
 function checkExtraPerson(card){
 
+    if(!card){
+
+        return;
+
+    }
+
+
     const roomSelect =
-        card.querySelector(".room-type");
+        card.querySelector(
+            ".room-type"
+        );
+
 
     const selected =
         roomSelect.options[
             roomSelect.selectedIndex
         ];
 
+
     const capacity =
-        parseInt(selected.dataset.capacity);
+        parseInt(
+            selected.dataset.capacity
+        );
+
 
     const extraAllowed =
         selected.dataset.extra === "true";
 
+
     const adults =
         getAgeBasedAdultCount(card);
 
+
     const extraNotice =
-        card.querySelector(".extra-person-notice");
+        card.querySelector(
+            ".extra-person-notice"
+        );
+
 
     const noExtraNotice =
-        card.querySelector(".no-extra-notice");
+        card.querySelector(
+            ".no-extra-notice"
+        );
+
 
     const extraText =
-        card.querySelector(".extra-person-text");
+        card.querySelector(
+            ".extra-person-text"
+        );
 
 
     extraNotice.classList.remove("show");
-
     noExtraNotice.classList.remove("show");
+
+    extraText.textContent = "";
 
 
     if(!extraAllowed){
@@ -2912,7 +3402,7 @@ function checkExtraPerson(card){
             noExtraNotice.textContent =
                 t(
                     `This room does not allow extra persons. Maximum ${capacity} adults are allowed.`,
-                    `এই রুমে অতিরিক্ত ব্যক্তি অনুমোদিত নয়। সর্বোচ্চ ${capacity} জন প্রাপ্তবয়স্ক থাকতে পারবেন।`
+                    `এই রুমে অতিরিক্ত ব্যক্তি অনুমোদিত নয়। সর্বোচ্চ ${formatNumber(capacity)} জন প্রাপ্তবয়স্ক থাকতে পারবেন।`
                 );
 
             noExtraNotice.classList.add("show");
@@ -2929,18 +3419,40 @@ function checkExtraPerson(card){
         const extraPersons =
             adults - capacity;
 
-        const extraCharge =
-            extraPersons * 1500;
+
+        if(extraPersons > 1){
+
+            noExtraNotice.textContent =
+                t(
+                    "Only 1 extra adult guest is allowed per room.",
+                    "প্রতি কক্ষে সর্বোচ্চ ১ জন অতিরিক্ত প্রাপ্তবয়স্ক অতিথির থাকার অনুমতি রয়েছে।"
+                );
+
+            noExtraNotice.classList.add("show");
+
+            return;
+
+        }
 
 
         extraText.textContent =
             t(
-                `${extraPersons} extra person${extraPersons > 1 ? "s" : ""} × BDT 1,500 = BDT ${extraCharge.toLocaleString()}`,
-                `${extraPersons} জন অতিরিক্ত ব্যক্তি × BDT 1,500 = BDT ${extraCharge.toLocaleString()}`
+                "1 extra person × BDT 1,500 = BDT 1,500",
+                "১ জন অতিরিক্ত ব্যক্তি × BDT ১,৫০০ = BDT ১,৫০০"
             );
 
 
         extraNotice.classList.add("show");
+
+
+        noExtraNotice.textContent =
+            t(
+                "Terms & Conditions: Maximum 1 extra adult guest is allowed per room. An additional charge of BDT 1,500 applies.",
+                "চুক্তির শর্ত: প্রতি কক্ষে সর্বোচ্চ ১ জন অতিরিক্ত প্রাপ্তবয়স্ক অতিথির থাকার অনুমতি রয়েছে। অতিরিক্ত অতিথির জন্য BDT ১,৫০০ হারে প্রযোজ্য অতিরিক্ত চার্জ প্রযোজ্য হবে।"
+            );
+
+
+        noExtraNotice.classList.add("show");
 
     }
 
@@ -2954,7 +3466,10 @@ function checkExtraPerson(card){
 function validateBabyAges(card){
 
     const babySelect =
-        card.querySelector(".room-babies");
+        card.querySelector(
+            ".room-babies"
+        );
+
 
     const babyCount =
         parseInt(
@@ -2970,23 +3485,9 @@ function validateBabyAges(card){
 
 
     const ageSelects =
-        card.querySelectorAll(".baby-age-select");
-
-
-    if(
-        ageSelects.length !== babyCount
-    ){
-
-        alert(
-            t(
-                "Please select the age of every Baby.",
-                "প্রতিটি শিশুর বয়স নির্বাচন করুন।"
-            )
+        card.querySelectorAll(
+            ".baby-age-select"
         );
-
-        return false;
-
-    }
 
 
     for(
@@ -3006,9 +3507,10 @@ function validateBabyAges(card){
             alert(
                 t(
                     `Please select the age of Baby ${i + 1}.`,
-                    `শিশু ${i + 1}-এর বয়স নির্বাচন করুন।`
+                    `শিশু ${formatNumber(i + 1)}-এর বয়স নির্বাচন করুন।`
                 )
             );
+
 
             ageSelects[i].focus();
 
@@ -3028,24 +3530,36 @@ function validateBabyAges(card){
    VALIDATE ROOM CAPACITY
 ======================================================= */
 
-function validateRoomCapacity(card,roomNumber){
+function validateRoomCapacity(
+    card,
+    roomNumber
+){
 
     const roomSelect =
-        card.querySelector(".room-type");
+        card.querySelector(
+            ".room-type"
+        );
+
 
     const selected =
         roomSelect.options[
             roomSelect.selectedIndex
         ];
 
+
     const capacity =
-        parseInt(selected.dataset.capacity);
+        parseInt(
+            selected.dataset.capacity
+        );
+
 
     const extraAllowed =
         selected.dataset.extra === "true";
 
+
     const totalAdults =
         getAgeBasedAdultCount(card);
+
 
     const maxAllowed =
         extraAllowed
@@ -3060,7 +3574,7 @@ function validateRoomCapacity(card,roomNumber){
             alert(
                 t(
                     `Room ${roomNumber}: This room does not allow extra persons. Maximum ${capacity} adults are allowed.`,
-                    `রুম ${roomNumber}: এই রুমে অতিরিক্ত ব্যক্তি অনুমোদিত নয়। সর্বোচ্চ ${capacity} জন প্রাপ্তবয়স্ক থাকতে পারবেন।`
+                    `রুম ${formatNumber(roomNumber)}: এই রুমে অতিরিক্ত ব্যক্তি অনুমোদিত নয়। সর্বোচ্চ ${formatNumber(capacity)} জন প্রাপ্তবয়স্ক থাকতে পারবেন।`
                 )
             );
 
@@ -3069,11 +3583,12 @@ function validateRoomCapacity(card,roomNumber){
             alert(
                 t(
                     `Room ${roomNumber}: Only 1 extra adult is allowed for this room.`,
-                    `রুম ${roomNumber}: এই রুমে মাত্র ১ জন অতিরিক্ত প্রাপ্তবয়স্ক অনুমোদিত।`
+                    `রুম ${formatNumber(roomNumber)}: এই রুমে মাত্র ১ জন অতিরিক্ত প্রাপ্তবয়স্ক অতিথির থাকার অনুমতি রয়েছে।`
                 )
             );
 
         }
+
 
         return false;
 
@@ -3086,7 +3601,7 @@ function validateRoomCapacity(card,roomNumber){
 
 
 /* =======================================================
-   SEND TO WHATSAPP
+   WHATSAPP BOOKING
 ======================================================= */
 
 function sendBookingToWhatsApp(){
@@ -3094,22 +3609,28 @@ function sendBookingToWhatsApp(){
     const guestName =
         document.getElementById("guestName").value.trim();
 
+
     const phone =
         document.getElementById("phoneNumber").value.trim();
+
 
     const arrival =
         document.getElementById("arrivalDate").value;
 
+
     const departure =
         document.getElementById("departureDate").value;
+
 
     const numberOfRooms =
         parseInt(
             document.getElementById("numberOfRooms").value
         );
 
+
     const specialRequest =
         document.getElementById("specialRequest").value.trim();
+
 
     const bookingMessage =
         document.getElementById("bookingMessage").value.trim();
@@ -3171,11 +3692,7 @@ function sendBookingToWhatsApp(){
     }
 
 
-    if(
-        new Date(departure)
-        <=
-        new Date(arrival)
-    ){
+    if(new Date(departure) <= new Date(arrival)){
 
         alert(
             t(
@@ -3195,6 +3712,20 @@ function sendBookingToWhatsApp(){
         );
 
 
+    if(roomCards.length !== numberOfRooms){
+
+        alert(
+            t(
+                "Please check the room details.",
+                "অনুগ্রহ করে রুমের বিবরণ যাচাই করুন।"
+            )
+        );
+
+        return;
+
+    }
+
+
     let roomText = "";
 
 
@@ -3208,21 +3739,14 @@ function sendBookingToWhatsApp(){
             roomCards[i];
 
 
-        if(
-            !validateBabyAges(card)
-        ){
+        if(!validateBabyAges(card)){
 
             return;
 
         }
 
 
-        if(
-            !validateRoomCapacity(
-                card,
-                i + 1
-            )
-        ){
+        if(!validateRoomCapacity(card, i + 1)){
 
             return;
 
@@ -3232,19 +3756,36 @@ function sendBookingToWhatsApp(){
         const roomSelect =
             card.querySelector(".room-type");
 
+
         const selected =
             roomSelect.options[
                 roomSelect.selectedIndex
             ];
 
+
+        const roomNameEn =
+            selected.dataset.nameEn;
+
+
+        const roomNameBn =
+            selected.dataset.nameBn;
+
+
         const roomName =
-            selected.textContent.trim();
+            document.documentElement.lang === "bn"
+                ? roomNameBn
+                : roomNameEn;
+
 
         const capacity =
-            parseInt(selected.dataset.capacity);
+            parseInt(
+                selected.dataset.capacity
+            );
+
 
         const extraAllowed =
             selected.dataset.extra === "true";
+
 
         const normalAdults =
             parseInt(
@@ -3253,35 +3794,40 @@ function sendBookingToWhatsApp(){
                 ).value || "0"
             );
 
+
         const babySelect =
             card.querySelector(
                 ".room-babies"
             );
 
-        const babies =
+
+        const totalBabies =
             parseInt(
                 babySelect.value || "0"
             );
+
 
         const ageSelects =
             card.querySelectorAll(
                 ".baby-age-select"
             );
 
+
         let babyCount = 0;
-
         let adultFromBaby = 0;
-
         let babyAgeText = "";
 
 
         ageSelects.forEach(
-            (select,index) => {
+            function(select,index){
 
                 const age =
-                    parseInt(select.value);
+                    parseInt(
+                        select.value || "0"
+                    );
 
-                if(age >= 7){
+
+                if(age >= 6){
 
                     adultFromBaby++;
 
@@ -3292,8 +3838,25 @@ function sendBookingToWhatsApp(){
                 }
 
 
-                babyAgeText +=
-                    `Baby ${index + 1} Age: ${age} years\n`;
+                if(
+                    document.documentElement.lang
+                    ===
+                    "bn"
+                ){
+
+                    babyAgeText +=
+                        `শিশু ${formatNumber(index + 1)}-এর বয়স: ${formatNumber(age)} বছর\n`;
+
+                }else{
+
+                    babyAgeText +=
+                        `Baby ${index + 1} Age: ${age} ${
+                            age === 1
+                                ? "year"
+                                : "years"
+                        }\n`;
+
+                }
 
             }
         );
@@ -3305,7 +3868,6 @@ function sendBookingToWhatsApp(){
 
 
         let extraPersons = 0;
-
         let extraCharge = 0;
 
 
@@ -3317,49 +3879,113 @@ function sendBookingToWhatsApp(){
             extraPersons =
                 totalAdults - capacity;
 
-            extraCharge =
-                extraPersons * 1500;
+
+            if(extraPersons > 1){
+
+                alert(
+                    t(
+                        `Room ${i + 1}: Only 1 extra adult guest is allowed.`,
+                        `রুম ${formatNumber(i + 1)}: প্রতি কক্ষে সর্বোচ্চ ১ জন অতিরিক্ত প্রাপ্তবয়স্ক অতিথির থাকার অনুমতি রয়েছে।`
+                    )
+                );
+
+                return;
+
+            }
+
+
+            extraCharge = 1500;
 
         }
 
 
-        roomText +=
+        if(
+            document.documentElement.lang
+            !==
+            "bn"
+        ){
+
+            roomText +=
 `
 Room ${i + 1}: ${roomName}
 Adult: ${normalAdults}
 Baby: ${babyCount}`;
 
 
-        if(adultFromBaby > 0){
+            if(adultFromBaby > 0){
 
-            roomText +=
+                roomText +=
 `
-Adult from Baby Age 7–17: ${adultFromBaby}`;
+Adult from Baby Age 6–17: ${adultFromBaby}`;
 
-        }
+            }
 
 
-        if(babies > 0){
+            if(totalBabies > 0){
 
-            roomText +=
+                roomText +=
 `
 ${babyAgeText.trim()}`;
 
-        }
+            }
 
 
-        roomText +=
+            roomText +=
 `
 Total Adult Count: ${totalAdults}
 Extra Person: ${extraPersons}
 Extra Person Charge: BDT ${extraCharge.toLocaleString()}
 `;
 
+        }else{
+
+            roomText +=
+`
+রুম ${formatNumber(i + 1)}: ${roomName}
+প্রাপ্তবয়স্ক: ${formatNumber(normalAdults)}
+শিশু: ${formatNumber(babyCount)}`;
+
+
+            if(adultFromBaby > 0){
+
+                roomText +=
+`
+৬–১৭ বছর বয়সের কারণে প্রাপ্তবয়স্ক: ${formatNumber(adultFromBaby)}`;
+
+            }
+
+
+            if(totalBabies > 0){
+
+                roomText +=
+`
+${babyAgeText.trim()}`;
+
+            }
+
+
+            roomText +=
+`
+মোট প্রাপ্তবয়স্ক: ${formatNumber(totalAdults)}
+অতিরিক্ত ব্যক্তি: ${formatNumber(extraPersons)}
+অতিরিক্ত ব্যক্তির চার্জ: BDT ${extraCharge.toLocaleString("bn-BD")}
+`;
+
+        }
+
     }
 
 
-    let message =
+    let message = "";
 
+
+    if(
+        document.documentElement.lang
+        !==
+        "bn"
+    ){
+
+        message =
 `Dear Rangauti Resort,
 
 I would like to make a booking request.
@@ -3374,38 +4000,94 @@ Departure Date: ${departure}
 Number of Rooms: ${numberOfRooms}
 
 ROOM & GUEST DETAILS
-${roomText}
-`;
+${roomText}`;
 
 
-    if(specialRequest){
+        if(specialRequest){
 
-        message +=
+            message +=
 `
 Special Request:
 ${specialRequest}
 `;
 
-    }
+        }
 
 
-    if(bookingMessage){
+        if(bookingMessage){
 
-        message +=
+            message +=
 `
 Additional Message:
 ${bookingMessage}
 `;
 
-    }
+        }
 
 
-    message +=
+        message +=
 `
+TERMS & CONDITIONS:
+Maximum 1 extra adult guest is allowed per room. An additional charge of BDT 1,500 applies.
+
 Please check availability and confirm my booking.
 
 Thank you.
 Rangauti Resort`;
+
+    }else{
+
+        message =
+`প্রিয় রাঙ্গাউটি রিসোর্ট,
+
+আমি একটি রুম বুকিংয়ের জন্য অনুরোধ করতে চাই।
+
+অতিথির তথ্য
+অতিথির নাম: ${guestName}
+ফোন নম্বর: ${phone}
+
+থাকার তথ্য
+আগমনের তারিখ: ${arrival}
+প্রস্থানের তারিখ: ${departure}
+রুমের সংখ্যা: ${formatNumber(numberOfRooms)}
+
+রুম ও অতিথির বিবরণ
+${roomText}`;
+
+
+        if(specialRequest){
+
+            message +=
+`
+বিশেষ অনুরোধ:
+${specialRequest}
+`;
+
+        }
+
+
+        if(bookingMessage){
+
+            message +=
+`
+অতিরিক্ত বার্তা:
+${bookingMessage}
+`;
+
+        }
+
+
+        message +=
+`
+চুক্তির শর্ত:
+প্রতি কক্ষে সর্বোচ্চ ১ জন অতিরিক্ত প্রাপ্তবয়স্ক অতিথির থাকার অনুমতি রয়েছে। অতিরিক্ত অতিথির জন্য BDT ১,৫০০ হারে প্রযোজ্য অতিরিক্ত চার্জ প্রযোজ্য হবে।
+
+অনুগ্রহ করে রুমের প্রাপ্যতা যাচাই করে আমার বুকিং নিশ্চিত করুন।
+
+ধন্যবাদ।
+রাঙ্গাউটি রিসোর্ট`;
+
+    }
 
 
     const whatsappURL =
@@ -3423,22 +4105,7 @@ Rangauti Resort`;
 
 
 /* =======================================================
-   CURRENT YEAR
-======================================================= */
-
-const currentYear =
-    document.getElementById("currentYear");
-
-if(currentYear){
-
-    currentYear.textContent =
-        new Date().getFullYear();
-
-}
-
-
-/* =======================================================
-   AUTOMATIC ROOM SELECTION FROM ROOM CARD
+   ROOM FROM URL
 ======================================================= */
 
 function selectRoomFromURL(){
@@ -3447,6 +4114,7 @@ function selectRoomFromURL(){
         new URLSearchParams(
             window.location.search
         );
+
 
     const roomName =
         params.get("room");
@@ -3492,13 +4160,17 @@ function selectRoomFromURL(){
 
 
     const requested =
-        roomMap[roomName.trim()]
+        roomMap[
+            roomName.trim()
+        ]
         ||
         roomName.trim();
 
 
     const roomSelect =
-        document.querySelector(".room-type");
+        document.querySelector(
+            ".room-type"
+        );
 
 
     if(!roomSelect){
@@ -3511,12 +4183,23 @@ function selectRoomFromURL(){
     const option =
         Array.from(
             roomSelect.options
-        ).find(function(option){
+        ).find(
+            function(option){
 
-            return option.textContent.trim()
-                === requested;
+                return (
+                    option.dataset.nameEn
+                    ===
+                    requested
+                )
+                ||
+                (
+                    option.dataset.nameBn
+                    ===
+                    requested
+                );
 
-        });
+            }
+        );
 
 
     if(!option){
@@ -3528,6 +4211,7 @@ function selectRoomFromURL(){
 
     roomSelect.value =
         option.value;
+
 
     updateGuestRules(
         roomSelect
@@ -3570,6 +4254,83 @@ function toggleLanguageMenu(event){
 
 function setLanguage(language){
 
+    const roomCount =
+        document.getElementById(
+            "numberOfRooms"
+        );
+
+
+    const roomCountValue =
+        roomCount
+            ? roomCount.value
+            : "1";
+
+
+    const roomContainer =
+        document.getElementById(
+            "roomDetailsContainer"
+        );
+
+
+    const currentRoomData =
+        roomContainer
+            ? Array.from(
+                roomContainer.querySelectorAll(
+                    ".room-detail-card"
+                )
+            ).map(function(card){
+
+                const roomSelect =
+                    card.querySelector(
+                        ".room-type"
+                    );
+
+                const adultSelect =
+                    card.querySelector(
+                        ".room-adults"
+                    );
+
+                const babySelect =
+                    card.querySelector(
+                        ".room-babies"
+                    );
+
+                return {
+
+                    room:
+                        roomSelect
+                            ? roomSelect.value
+                            : "0",
+
+                    adults:
+                        adultSelect
+                            ? adultSelect.value
+                            : "1",
+
+                    babies:
+                        babySelect
+                            ? babySelect.value
+                            : "0",
+
+                    ages:
+                        Array.from(
+                            card.querySelectorAll(
+                                ".baby-age-select"
+                            )
+                        ).map(function(select){
+
+                            return select.value;
+
+                        })
+
+                };
+
+            })
+            : [];
+
+
+    /* CHANGE LANGUAGE */
+
     document.documentElement.lang =
         language;
 
@@ -3580,24 +4341,16 @@ function setLanguage(language){
         .querySelectorAll(
             "[data-en][data-bn]"
         )
-        .forEach(function(element){
+        .forEach(
+            function(element){
 
-            const english =
-                element.getAttribute(
-                    "data-en"
-                );
+                element.textContent =
+                    language === "bn"
+                        ? element.getAttribute("data-bn")
+                        : element.getAttribute("data-en");
 
-            const bangla =
-                element.getAttribute(
-                    "data-bn"
-                );
-
-            element.textContent =
-                language === "bn"
-                    ? bangla
-                    : english;
-
-        });
+            }
+        );
 
 
     /* PLACEHOLDERS */
@@ -3606,21 +4359,63 @@ function setLanguage(language){
         .querySelectorAll(
             "[data-placeholder-en][data-placeholder-bn]"
         )
-        .forEach(function(element){
+        .forEach(
+            function(element){
 
-            element.placeholder =
-                language === "bn"
-                    ? element.getAttribute(
-                        "data-placeholder-bn"
-                    )
-                    : element.getAttribute(
-                        "data-placeholder-en"
-                    );
+                element.placeholder =
+                    language === "bn"
+                        ? element.getAttribute("data-placeholder-bn")
+                        : element.getAttribute("data-placeholder-en");
 
-        });
+            }
+        );
 
 
-    /* SAVE LANGUAGE */
+    /* DATE INPUT LANGUAGE */
+
+    const arrivalDate =
+        document.getElementById(
+            "arrivalDate"
+        );
+
+
+    const departureDate =
+        document.getElementById(
+            "departureDate"
+        );
+
+
+    if(arrivalDate){
+
+        arrivalDate.setAttribute(
+            "lang",
+            language === "bn"
+                ? "bn-BD"
+                : "en-US"
+        );
+
+    }
+
+
+    if(departureDate){
+
+        departureDate.setAttribute(
+            "lang",
+            language === "bn"
+                ? "bn-BD"
+                : "en-US"
+        );
+
+    }
+
+
+    if(roomCount){
+
+        roomCount.value =
+            roomCountValue;
+
+    }
+
 
     localStorage.setItem(
         "rangautiLanguage",
@@ -3628,48 +4423,118 @@ function setLanguage(language){
     );
 
 
-    /* CLOSE LANGUAGE OPTIONS */
-
     const languageOptions =
         document.getElementById(
             "languageOptions"
         );
 
+
     if(languageOptions){
 
-        languageOptions.classList.remove(
-            "show"
-        );
+        languageOptions.classList.remove("show");
 
     }
 
-
-    /* CLOSE MAIN MENU */
 
     const menu =
         document.getElementById(
             "menuDropdown"
         );
 
+
     if(menu){
 
-        menu.classList.remove(
-            "show"
-        );
+        menu.classList.remove("show");
 
     }
 
 
     /* REBUILD DYNAMIC ROOM DETAILS */
 
-    const roomContainer =
-        document.getElementById(
-            "roomDetailsContainer"
-        );
-
     if(roomContainer){
 
         createRoomDetails();
+
+
+        const newCards =
+            roomContainer.querySelectorAll(
+                ".room-detail-card"
+            );
+
+
+        newCards.forEach(
+            function(card,index){
+
+                const saved =
+                    currentRoomData[index];
+
+
+                if(!saved){
+
+                    return;
+
+                }
+
+
+                const roomSelect =
+                    card.querySelector(
+                        ".room-type"
+                    );
+
+
+                const adultSelect =
+                    card.querySelector(
+                        ".room-adults"
+                    );
+
+
+                const babySelect =
+                    card.querySelector(
+                        ".room-babies"
+                    );
+
+
+                if(roomSelect){
+
+                    roomSelect.value =
+                        saved.room;
+
+                    updateGuestRules(
+                        roomSelect,
+                        saved
+                    );
+
+                }
+
+
+                if(babySelect){
+
+                    babySelect.value =
+                        saved.babies;
+
+                    updateBabyAgeFields(
+                        babySelect,
+                        saved.ages || []
+                    );
+
+                }
+
+
+                if(adultSelect){
+
+                    adultSelect.value =
+                        saved.adults;
+
+                }
+
+
+                updateBabyAgeNotice(card);
+
+                checkExtraPerson(card);
+
+            }
+        );
+
 
         selectRoomFromURL();
 
@@ -3686,6 +4551,67 @@ document.addEventListener(
     "DOMContentLoaded",
     function(){
 
+        const today =
+            new Date()
+                .toISOString()
+                .split("T")[0];
+
+
+        const arrivalDate =
+            document.getElementById(
+                "arrivalDate"
+            );
+
+
+        const departureDate =
+            document.getElementById(
+                "departureDate"
+            );
+
+
+        if(arrivalDate){
+
+            arrivalDate.min =
+                today;
+
+        }
+
+
+        if(departureDate){
+
+            departureDate.min =
+                today;
+
+        }
+
+
+        if(arrivalDate && departureDate){
+
+            arrivalDate.addEventListener(
+                "change",
+                function(){
+
+                    departureDate.min =
+                        arrivalDate.value;
+
+
+                    if(
+                        departureDate.value &&
+                        departureDate.value <=
+                        arrivalDate.value
+                    ){
+
+                        departureDate.value =
+                            "";
+
+                    }
+
+                }
+            );
+
+        }
+
+
         const savedLanguage =
             localStorage.getItem(
                 "rangautiLanguage"
@@ -3698,11 +4624,720 @@ document.addEventListener(
             savedLanguage
         );
 
+
+        const container =
+            document.getElementById(
+                "roomDetailsContainer"
+            );
+
+
+        if(
+            container &&
+            !container.children.length
+        ){
+
+            createRoomDetails();
+
+        }
+
+
+        selectRoomFromURL();
+
     }
 );
+/* =======================================================
+   CUSTOM DATE DISPLAY — DD / MM / YYYY
+======================================================= */
 
+function formatDisplayDate(value){
+
+    if(!value){
+        return "";
+    }
+
+    const parts = value.split("-");
+
+    if(parts.length !== 3){
+        return "";
+    }
+
+    const year = parts[0];
+    const month = parts[1];
+    const day = parts[2];
+
+    return `${day} / ${month} / ${year}`;
+
+}
+
+
+function setupDateDisplay(
+    displayId,
+    realId
+){
+
+    const display =
+        document.getElementById(displayId);
+
+    const real =
+        document.getElementById(realId);
+
+    if(!display || !real){
+        return;
+    }
+
+
+    display.value =
+        formatDisplayDate(real.value);
+
+
+    display.addEventListener(
+        "click",
+        function(){
+
+            if(typeof real.showPicker === "function"){
+
+                real.showPicker();
+
+            }else{
+
+                real.click();
+
+            }
+
+        }
+    );
+
+
+    real.addEventListener(
+        "change",
+        function(){
+
+            display.value =
+                formatDisplayDate(real.value);
+
+        }
+    );
+
+}
+/* =======================================================
+   DATE SYSTEM
+   Typing + Calendar Picker + Validation
+======================================================= */
+
+
+/* -------------------------------------------------------
+   CURRENT LANGUAGE
+------------------------------------------------------- */
+
+let currentDateLanguage = "en";
+
+
+/* -------------------------------------------------------
+   FORMAT YYYY-MM-DD → DD / MM / YYYY
+------------------------------------------------------- */
+
+function formatDisplayDate(value){
+
+    if(!value){
+        return "";
+    }
+
+    const parts = value.split("-");
+
+    if(parts.length !== 3){
+        return "";
+    }
+
+    const year = parts[0];
+    const month = parts[1];
+    const day = parts[2];
+
+    return `${day} / ${month} / ${year}`;
+}
+
+
+/* -------------------------------------------------------
+   CONVERT DD/MM/YYYY → YYYY-MM-DD
+------------------------------------------------------- */
+
+function convertTypedDate(value){
+
+    if(!value){
+        return "";
+    }
+
+    const numbers = value.replace(/\D/g, "");
+
+    if(numbers.length !== 8){
+        return "";
+    }
+
+    const day = numbers.substring(0,2);
+    const month = numbers.substring(2,4);
+    const year = numbers.substring(4,8);
+
+    return `${year}-${month}-${day}`;
+}
+
+
+/* -------------------------------------------------------
+   CHECK REAL DATE
+------------------------------------------------------- */
+
+function isValidDate(day, month, year){
+
+    const date = new Date(
+        Number(year),
+        Number(month) - 1,
+        Number(day)
+    );
+
+    return (
+        date.getFullYear() === Number(year) &&
+        date.getMonth() === Number(month) - 1 &&
+        date.getDate() === Number(day)
+    );
+}
+
+
+/* -------------------------------------------------------
+   SHOW ERROR
+------------------------------------------------------- */
+
+function showDateError(type, message){
+
+    const input = document.getElementById(
+        type + "DateDisplay"
+    );
+
+    const error = document.getElementById(
+        type + "DateError"
+    );
+
+    if(!input || !error){
+        return;
+    }
+
+    input.classList.add("date-invalid");
+
+    error.textContent = message;
+}
+
+
+/* -------------------------------------------------------
+   CLEAR ERROR
+------------------------------------------------------- */
+
+function clearDateError(type){
+
+    const input = document.getElementById(
+        type + "DateDisplay"
+    );
+
+    const error = document.getElementById(
+        type + "DateError"
+    );
+
+    if(!input || !error){
+        return;
+    }
+
+    input.classList.remove("date-invalid");
+
+    error.textContent = "";
+}
+
+
+/* -------------------------------------------------------
+   GET DATE ERROR TEXT
+------------------------------------------------------- */
+
+function getDateError(type){
+
+    if(currentDateLanguage === "bn"){
+
+        if(type === "arrival"){
+            return "সঠিক আগমনের তারিখ লিখুন।";
+        }
+
+        return "সঠিক প্রস্থানের তারিখ লিখুন।";
+    }
+
+    if(type === "arrival"){
+        return "Please enter a valid arrival date.";
+    }
+
+    return "Please enter a valid departure date.";
+}
+
+
+/* -------------------------------------------------------
+   GET PAST DATE ERROR
+------------------------------------------------------- */
+
+function getPastDateError(){
+
+    if(currentDateLanguage === "bn"){
+        return "আজকের আগের তারিখ নির্বাচন করা যাবে না।";
+    }
+
+    return "A past date cannot be selected.";
+}
+
+
+/* -------------------------------------------------------
+   GET DEPARTURE ERROR
+------------------------------------------------------- */
+
+function getDepartureDateError(){
+
+    if(currentDateLanguage === "bn"){
+        return "প্রস্থানের তারিখ অবশ্যই আগমনের তারিখের পরে হতে হবে।";
+    }
+
+    return "Departure date must be after the arrival date.";
+}
+
+
+/* -------------------------------------------------------
+   FORMAT TYPING AUTOMATICALLY
+   25092026 → 25 / 09 / 2026
+------------------------------------------------------- */
+
+function formatTypedDate(value){
+
+    let numbers = value.replace(/\D/g, "");
+
+    if(numbers.length > 8){
+        numbers = numbers.substring(0,8);
+    }
+
+    let result = "";
+
+    if(numbers.length > 0){
+        result += numbers.substring(0,2);
+    }
+
+    if(numbers.length >= 3){
+        result += " / ";
+        result += numbers.substring(2,4);
+    }
+
+    if(numbers.length >= 5){
+        result += " / ";
+        result += numbers.substring(4,8);
+    }
+
+    return result;
+}
+
+
+/* -------------------------------------------------------
+   VALIDATE DISPLAY DATE
+------------------------------------------------------- */
+
+function validateDisplayDate(type){
+
+    const display = document.getElementById(
+        type + "DateDisplay"
+    );
+
+    const real = document.getElementById(
+        type + "Date"
+    );
+
+    if(!display || !real){
+        return false;
+    }
+
+    const numbers = display.value.replace(/\D/g, "");
+
+    clearDateError(type);
+
+    if(numbers.length === 0){
+
+        real.value = "";
+
+        return false;
+    }
+
+    if(numbers.length !== 8){
+
+        real.value = "";
+
+        showDateError(
+            type,
+            getDateError(type)
+        );
+
+        return false;
+    }
+
+    const day = numbers.substring(0,2);
+    const month = numbers.substring(2,4);
+    const year = numbers.substring(4,8);
+
+    if(!isValidDate(day, month, year)){
+
+        real.value = "";
+
+        showDateError(
+            type,
+            getDateError(type)
+        );
+
+        return false;
+    }
+
+    const isoDate = `${year}-${month}-${day}`;
+
+    /* Prevent past dates */
+
+    const today = new Date();
+    today.setHours(0,0,0,0);
+
+    const selectedDate = new Date(
+        Number(year),
+        Number(month) - 1,
+        Number(day)
+    );
+
+    if(selectedDate < today){
+
+        real.value = "";
+
+        showDateError(
+            type,
+            getPastDateError()
+        );
+
+        return false;
+    }
+
+    /* Save to real date input */
+
+    real.value = isoDate;
+
+    clearDateError(type);
+
+    /* Departure must be after arrival */
+
+    if(type === "departure"){
+
+        const arrival = document.getElementById(
+            "arrivalDate"
+        );
+
+        if(
+            arrival &&
+            arrival.value &&
+            real.value <= arrival.value
+        ){
+
+            real.value = "";
+
+            showDateError(
+                type,
+                getDepartureDateError()
+            );
+
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+/* -------------------------------------------------------
+   CALENDAR PICKER
+------------------------------------------------------- */
+
+function openDatePicker(id){
+
+    const real = document.getElementById(id);
+
+    if(!real){
+        return;
+    }
+
+    if(typeof real.showPicker === "function"){
+
+        try{
+            real.showPicker();
+            return;
+        }catch(error){}
+    }
+
+    real.click();
+}
+
+
+/* -------------------------------------------------------
+   UPDATE DISPLAY FROM CALENDAR
+------------------------------------------------------- */
+
+function updateDateDisplayFromCalendar(type){
+
+    const real = document.getElementById(
+        type + "Date"
+    );
+
+    const display = document.getElementById(
+        type + "DateDisplay"
+    );
+
+    if(!real || !display){
+        return;
+    }
+
+    if(!real.value){
+
+        display.value = "";
+
+        return;
+    }
+
+    display.value = formatDisplayDate(
+        real.value
+    );
+
+    validateDisplayDate(type);
+}
+
+
+/* -------------------------------------------------------
+   SETUP DATE FIELD
+------------------------------------------------------- */
+
+function setupDateField(type){
+
+    const display = document.getElementById(
+        type + "DateDisplay"
+    );
+
+    const real = document.getElementById(
+        type + "Date"
+    );
+
+    if(!display || !real){
+        return;
+    }
+
+
+    /* -------------------------------
+       TODAY AS MINIMUM
+    -------------------------------- */
+
+    const today = new Date();
+
+    const year = today.getFullYear();
+
+    const month = String(
+        today.getMonth() + 1
+    ).padStart(2,"0");
+
+    const day = String(
+        today.getDate()
+    ).padStart(2,"0");
+
+    const todayISO =
+        `${year}-${month}-${day}`;
+
+    real.min = todayISO;
+
+
+    /* -------------------------------
+       TYPING
+    -------------------------------- */
+
+    display.addEventListener(
+        "input",
+        function(){
+
+            const cursorEnd =
+                display.selectionStart;
+
+            display.value =
+                formatTypedDate(
+                    display.value
+                );
+
+            /*
+             * Keep cursor at the end.
+             * This makes typing much easier.
+             */
+
+            display.setSelectionRange(
+                display.value.length,
+                display.value.length
+            );
+
+        }
+    );
+
+
+    /* -------------------------------
+       BLUR VALIDATION
+    -------------------------------- */
+
+    display.addEventListener(
+        "blur",
+        function(){
+
+            validateDisplayDate(type);
+
+        }
+    );
+
+
+    /* -------------------------------
+       CALENDAR CHANGE
+    -------------------------------- */
+
+    real.addEventListener(
+        "change",
+        function(){
+
+            updateDateDisplayFromCalendar(
+                type
+            );
+
+        }
+    );
+
+
+    /* -------------------------------
+       ENTER KEY
+    -------------------------------- */
+
+    display.addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Enter"){
+
+                event.preventDefault();
+
+                validateDisplayDate(type);
+
+            }
+
+        }
+    );
+
+}
+
+
+/* -------------------------------------------------------
+   UPDATE DEPARTURE MINIMUM
+------------------------------------------------------- */
+
+function updateDepartureMinimum(){
+
+    const arrival =
+        document.getElementById(
+            "arrivalDate"
+        );
+
+    const departure =
+        document.getElementById(
+            "departureDate"
+        );
+
+    if(!arrival || !departure){
+        return;
+    }
+
+    if(arrival.value){
+
+        departure.min =
+            arrival.value;
+
+    }else{
+
+        const today = new Date();
+
+        const year =
+            today.getFullYear();
+
+        const month =
+            String(
+                today.getMonth() + 1
+            ).padStart(2,"0");
+
+        const day =
+            String(
+                today.getDate()
+            ).padStart(2,"0");
+
+        departure.min =
+            `${year}-${month}-${day}`;
+    }
+}
+
+
+/* -------------------------------------------------------
+   INITIALIZE
+------------------------------------------------------- */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        setupDateField("arrival");
+
+        setupDateField("departure");
+
+        updateDepartureMinimum();
+
+
+        /* Arrival changes */
+
+        const arrival =
+            document.getElementById(
+                "arrivalDate"
+            );
+
+        if(arrival){
+
+            arrival.addEventListener(
+                "change",
+                function(){
+
+                    updateDepartureMinimum();
+
+                    const departure =
+                        document.getElementById(
+                            "departureDate"
+                        );
+
+                    if(
+                        departure &&
+                        departure.value &&
+                        departure.value <= arrival.value
+                    ){
+
+                        departure.value = "";
+
+                        const departureDisplay =
+                            document.getElementById(
+                                "departureDateDisplay"
+                            );
+
+                        if(departureDisplay){
+                            departureDisplay.value = "";
+                        }
+
+                    }
+
+                }
+            );
+        }
+
+    }
+);
 </script>
-
 </body>
 
 </html>

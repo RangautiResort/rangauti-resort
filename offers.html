@@ -657,6 +657,378 @@ body{
 
 }
 
+/* =======================================================
+   EXPLORE FOOTER
+======================================================= */
+
+.explore-footer{
+    background:#162019;
+    color:#ffffff;
+    padding:80px 6% 0;
+    border-top:1px solid rgba(216,184,120,.18);
+}
+
+
+.explore-footer-container{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1.2fr;
+    gap:70px;
+    padding-bottom:60px;
+}
+
+
+/* =======================================================
+   BRAND
+======================================================= */
+
+.explore-footer-brand img{
+    width:150px;
+    height:auto;
+    display:block;
+    margin-bottom:22px;
+}
+
+
+.explore-footer-brand p{
+    max-width:420px;
+    margin:0;
+    color:rgba(255,255,255,.72);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:15px;
+    line-height:1.8;
+}
+
+
+/* =======================================================
+   FOOTER HEADINGS
+======================================================= */
+
+.explore-footer-links h3,
+.explore-footer-contact h3{
+    margin:0 0 22px;
+    color:#d8b878;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:18px;
+    font-weight:700;
+}
+
+
+/* =======================================================
+   FOOTER LINKS
+======================================================= */
+
+.explore-footer-links{
+    display:flex;
+    flex-direction:column;
+}
+
+
+.explore-footer-links a{
+    width:max-content;
+    margin-bottom:13px;
+    color:rgba(255,255,255,.75);
+    text-decoration:none;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:14px;
+    transition:.25s ease;
+}
+
+
+.explore-footer-links a:hover{
+    color:#d8b878;
+    transform:translateX(4px);
+}
+
+
+/* =======================================================
+   CONTACT
+======================================================= */
+
+.explore-footer-contact{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+
+.explore-footer-contact p{
+    margin:0 0 18px;
+    color:rgba(255,255,255,.72);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:14px;
+    line-height:1.8;
+}
+
+
+.explore-footer-contact a{
+    margin-bottom:10px;
+    color:rgba(255,255,255,.78);
+    text-decoration:none;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:14px;
+    transition:.25s ease;
+    word-break:break-word;
+}
+
+
+.explore-footer-contact a:hover{
+    color:#d8b878;
+}
+
+
+/* =======================================================
+   FOOTER BOTTOM
+======================================================= */
+
+.explore-footer-bottom{
+    max-width:1200px;
+    margin:0 auto;
+    padding:22px 0;
+    border-top:1px solid rgba(255,255,255,.10);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+
+    color:rgba(255,255,255,.55);
+
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:12px;
+}
+
+
+/* =======================================================
+   TABLET
+======================================================= */
+
+@media (max-width:900px){
+
+    .explore-footer-container{
+        grid-template-columns:1fr 1fr;
+        gap:45px;
+    }
+
+    .explore-footer-brand{
+        grid-column:1 / -1;
+    }
+
+}
+
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media (max-width:600px){
+
+    .explore-footer{
+        padding:60px 6% 0;
+    }
+
+    .explore-footer-container{
+        grid-template-columns:1fr;
+        gap:38px;
+        padding-bottom:45px;
+    }
+
+    .explore-footer-brand{
+        grid-column:auto;
+    }
+
+    .explore-footer-brand img{
+        width:135px;
+    }
+
+    .explore-footer-brand p{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    .explore-footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:8px;
+        line-height:1.6;
+    }
+
+}
+/* =======================================================
+   COMPACT EXPLORE FOOTER
+======================================================= */
+
+.explore-footer{
+    background:#162019;
+    color:#ffffff;
+    padding:45px 6% 0;
+    border-top:1px solid rgba(216,184,120,.18);
+}
+
+.explore-footer-container{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1.2fr;
+    gap:45px;
+    padding-bottom:35px;
+}
+
+
+/* BRAND */
+
+.explore-footer-brand img{
+    width:125px;
+    height:auto;
+    display:block;
+    margin-bottom:14px;
+}
+
+.explore-footer-brand p{
+    max-width:360px;
+    margin:0;
+    color:rgba(255,255,255,.68);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:13px;
+    line-height:1.6;
+}
+
+
+/* HEADINGS */
+
+.explore-footer-links h3,
+.explore-footer-contact h3{
+    margin:0 0 14px;
+    color:#d8b878;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:16px;
+}
+
+
+/* LINKS */
+
+.explore-footer-links{
+    display:flex;
+    flex-direction:column;
+}
+
+.explore-footer-links a{
+    width:max-content;
+    margin-bottom:8px;
+    color:rgba(255,255,255,.68);
+    text-decoration:none;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:13px;
+    transition:.25s ease;
+}
+
+.explore-footer-links a:hover{
+    color:#d8b878;
+    transform:translateX(3px);
+}
+
+
+/* CONTACT */
+
+.explore-footer-contact{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.explore-footer-contact p{
+    margin:0 0 12px;
+    color:rgba(255,255,255,.68);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.explore-footer-contact a{
+    margin-bottom:7px;
+    color:rgba(255,255,255,.70);
+    text-decoration:none;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:13px;
+    transition:.25s ease;
+}
+
+.explore-footer-contact a:hover{
+    color:#d8b878;
+}
+
+
+/* BOTTOM */
+
+.explore-footer-bottom{
+    max-width:1200px;
+    margin:0 auto;
+    padding:15px 0;
+
+    border-top:1px solid rgba(255,255,255,.10);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    color:rgba(255,255,255,.48);
+
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:11px;
+}
+
+
+/* =======================================================
+   TABLET
+======================================================= */
+
+@media (max-width:900px){
+
+    .explore-footer-container{
+        grid-template-columns:1fr 1fr;
+        gap:30px;
+    }
+
+    .explore-footer-brand{
+        grid-column:1 / -1;
+    }
+
+}
+
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media (max-width:600px){
+
+    .explore-footer{
+        padding:35px 6% 0;
+    }
+
+    .explore-footer-container{
+        grid-template-columns:1fr;
+        gap:28px;
+        padding-bottom:28px;
+    }
+
+    .explore-footer-brand{
+        grid-column:auto;
+    }
+
+    .explore-footer-brand img{
+        width:115px;
+    }
+
+    .explore-footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:5px;
+        line-height:1.5;
+    }
+
+}
 </style>
 
 </head>
@@ -976,18 +1348,132 @@ CONTACT US
 
 
 <!-- =======================================================
-     FOOTER
+     EXPLORE FOOTER
 ======================================================= -->
 
-<footer class="footer">
+<footer class="explore-footer">
 
-<span
-data-en="© Rangauti Resort. All Rights Reserved."
-data-bn="© রাঙ্গাউটি রিসোর্ট। সর্বস্বত্ব সংরক্ষিত।">
+    <div class="explore-footer-container">
 
-© Rangauti Resort. All Rights Reserved.
+        <!-- BRAND -->
+        <div class="explore-footer-brand">
 
-</span>
+            <img
+                src="images/logo.png"
+                alt="Rangauti Resort">
+
+            <p
+                data-en="Where Nature Meets Comfort. Experience peaceful moments, scenic beauty and memorable stays at Rangauti Resort."
+                data-bn="প্রকৃতির সাথে আরামের মিলন। রাঙ্গাউটি রিসোর্টে উপভোগ করুন শান্ত মুহূর্ত, মনোরম প্রাকৃতিক সৌন্দর্য ও স্মরণীয় থাকা।">
+
+                Where Nature Meets Comfort.
+                Experience peaceful moments,
+                scenic beauty and memorable stays
+                at Rangauti Resort.
+
+            </p>
+
+        </div>
+
+
+        <!-- EXPLORE LINKS -->
+        <div class="explore-footer-links">
+
+            <h3
+                data-en="Explore"
+                data-bn="ঘুরে দেখুন">
+                Explore
+            </h3>
+
+            <a
+                href="index.html"
+                data-en="Home"
+                data-bn="হোম">
+                Home
+            </a>
+
+            <a
+                href="facilities.html"
+                data-en="Facilities"
+                data-bn="সুবিধাসমূহ">
+                Facilities
+            </a>
+
+            <a
+                href="index.html#rooms"
+                data-en="Rooms &amp; Suites"
+                data-bn="রুম ও স্যুট">
+                Rooms &amp; Suites
+            </a>
+
+            <a
+                href="index.html#packages"
+                data-en="Packages"
+                data-bn="প্যাকেজসমূহ">
+                Packages
+            </a>
+
+            <a
+                href="booking.html"
+                data-en="Book Now"
+                data-bn="এখনই বুক করুন">
+                Book Now
+            </a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+        <div class="explore-footer-contact">
+
+            <h3
+                data-en="Contact"
+                data-bn="যোগাযোগ">
+                Contact
+            </h3>
+
+            <p>
+                Near Manu Bridge,<br>
+                Taltola, Kulaura Road,<br>
+                Moulvibazar, Sylhet
+            </p>
+
+            <a href="tel:+8801780203350">
+                01780-203350
+            </a>
+
+            <a href="mailto:info.rangautiresort@gmail.com">
+                info.rangautiresort@gmail.com
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="explore-footer-bottom">
+
+        <span
+            data-en="© 2026 Rangauti Resort. All Rights Reserved."
+            data-bn="© 2026 Rangauti Resort. সর্বস্বত্ব সংরক্ষিত।">
+
+            © 2026 Rangauti Resort. All Rights Reserved.
+
+        </span>
+
+        <span
+            data-en="T&amp;C Apply"
+            data-bn="শর্ত প্রযোজ্য">
+
+            T&amp;C Apply
+
+        </span>
+
+    </div>
+
+
 
 </footer>
 

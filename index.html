@@ -88,14 +88,19 @@ header{
 }
 
 .navbar{
-    max-width:1400px;
-    margin:auto;
+    width:100%;
     min-height:82px;
-    padding:0 35px;
+    padding:0 35px 0 96px;
+    box-sizing:border-box;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:30px;
+
+    position:relative;
+}
+.logo{
+    margin-left:0;
 }
 
 .logo img{
@@ -6478,6 +6483,87 @@ section{
         height:235px;
     }
 }
+
+ /* =======================================================
+   HEADER RIGHT
+======================================================= */
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+}
+
+
+/* =======================================================
+   LIVE DATE & TIME
+======================================================= */
+
+.navbar{
+    position:relative;
+}
+
+.live-datetime{
+    position:absolute;
+    right:95px;
+    top:50%;
+    transform:translateY(-50%);
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+
+    white-space:nowrap;
+    line-height:1.1;
+
+    z-index:10;
+    pointer-events:none;
+}
+
+.live-time{
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.5px;
+    color:#344a3c;
+}
+
+.live-date{
+    margin-top:4px;
+    font-size:11px;
+    font-weight:500;
+    color:#506b59;
+}
+/* =======================================================
+   MENU BUTTON
+======================================================= */
+
+.menu-toggle{
+    flex-shrink:0;
+    position:relative;
+    z-index:20;
+}
+
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media(max-width:768px){
+
+    .live-datetime{
+        right:65px;
+    }
+
+    .live-time{
+        font-size:11px;
+    }
+
+    .live-date{
+        font-size:9px;
+    }
+
+}
 </style>
 
 </head>
@@ -6491,113 +6577,140 @@ section{
 ======================================================= -->
 
 <header>
+
     <div class="navbar">
 
+        <!-- LOGO -->
         <a href="index.html" class="logo">
             <img src="images/logo.png" alt="Rangauti Resort Logo">
         </a>
 
+
+        <!-- LIVE DATE & TIME -->
+        <div class="live-datetime" id="liveDateTime">
+
+            <div class="live-time" id="liveTime">
+                12:00:00 AM
+            </div>
+
+            <div class="live-date" id="liveDate">
+                Monday, 29 September 2026
+            </div>
+
+        </div>
+
+
+        <!-- MENU BUTTON -->
         <button class="menu-toggle"
                 onclick="toggleMenu()"
                 aria-label="Open Menu">
             ☰
         </button>
 
+
+        <!-- NAVIGATION -->
         <nav class="nav-links" id="navLinks">
 
-        <a href="#home"
-   data-en="HOME"
-   data-bn="হোম">
-    HOME
-</a>
+            <a href="#home"
+               data-en="HOME"
+               data-bn="হোম">
+                HOME
+            </a>
 
-<a href="facilities.html"
-   data-en="FACILITIES"
-   data-bn="সুবিধাসমূহ">
-    FACILITIES
-</a>
+            <a href="facilities.html"
+               data-en="FACILITIES"
+               data-bn="সুবিধাসমূহ">
+                FACILITIES
+            </a>
 
-<a href="#about"
-   data-en="ABOUT"
-   data-bn="আমাদের সম্পর্কে">
-    ABOUT
-</a>
+            <a href="#about"
+               data-en="ABOUT"
+               data-bn="আমাদের সম্পর্কে">
+                ABOUT
+            </a>
 
-<a href="index.html#explore-video"
-   data-en="EXPLORE RANGAUTI"
-   data-bn="রাঙাউটি অন্বেষণ">
-    EXPLORE RANGAUTI
-</a>
+            <a href="index.html#explore-video"
+               data-en="EXPLORE RANGAUTI"
+               data-bn="রাঙাউটি অন্বেষণ">
+                EXPLORE RANGAUTI
+            </a>
 
-<a href="#packages"
-   data-en="PACKAGES"
-   data-bn="প্যাকেজসমূহ">
-    PACKAGES
-</a>
+            <a href="#packages"
+               data-en="PACKAGES"
+               data-bn="প্যাকেজসমূহ">
+                PACKAGES
+            </a>
 
-<a href="#rooms"
-   data-en="ROOMS & SUITES"
-   data-bn="রুম ও স্যুট">
-    ROOMS & SUITES
-</a>
+            <a href="#rooms"
+               data-en="ROOMS & SUITES"
+               data-bn="রুম ও স্যুট">
+                ROOMS & SUITES
+            </a>
 
-<a href="complimentary.html"
-   data-en="COMPLIMENTARY"
-   data-bn="অতিরিক্ত সুবিধাসমূহ">
-    <strong>COMPLIMENTARY</strong>
-</a>
+            <a href="complimentary.html"
+               data-en="COMPLIMENTARY"
+               data-bn="অতিরিক্ত সুবিধাসমূহ">
+                <strong>COMPLIMENTARY</strong>
+            </a>
 
-<a href="offers.html"
-   data-en="SPECIAL OFFER"
-   data-bn="বিশেষ অফার">
-    <strong>SPECIAL OFFER</strong>
-</a>
+            <a href="offers.html"
+               data-en="SPECIAL OFFER"
+               data-bn="বিশেষ অফার">
+                <strong>SPECIAL OFFER</strong>
+            </a>
 
-<a href="booking.html"
-   data-en="BOOK NOW"
-   data-bn="এখনই বুক করুন">
-    <strong>BOOK NOW</strong>
-</a>
+            <a href="booking.html"
+               data-en="BOOK NOW"
+               data-bn="এখনই বুক করুন">
+                <strong>BOOK NOW</strong>
+            </a>
 
-<a href="#contact"
-   data-en="CONTACT"
-   data-bn="যোগাযোগ">
-    CONTACT
-</a>
+            <a href="#contact"
+               data-en="CONTACT"
+               data-bn="যোগাযোগ">
+                CONTACT
+            </a>
 
-<a href="terms.html"
-   data-en="TERMS"
-   data-bn="শর্তাবলী">
-    <strong>TERMS</strong>
-</a>     
-<!-- LANGUAGE DROPDOWN -->
-<div class="language-menu">
+            <a href="terms.html"
+               data-en="TERMS"
+               data-bn="শর্তাবলী">
+                <strong>TERMS</strong>
+            </a>
 
-    <button type="button"
-            class="language-title"
-            onclick="toggleLanguageMenu()">
-        🌐 Language
-        <span class="language-arrow">▾</span>
-    </button>
 
-    <div class="language-options" id="languageOptions">
+            <!-- LANGUAGE DROPDOWN -->
+            <div class="language-menu">
 
-        <button type="button"
-                onclick="setLanguage('en')">
-            English
-        </button>
+                <button type="button"
+                        class="language-title"
+                        onclick="toggleLanguageMenu()">
 
-        <button type="button"
-                onclick="setLanguage('bn')">
-             বাংলা
-        </button>
+                    🌐 Language
+                    <span class="language-arrow">▾</span>
 
-    </div>
+                </button>
 
-</div>
+                <div class="language-options"
+                     id="languageOptions">
+
+                    <button type="button"
+                            onclick="setLanguage('en')">
+                        English
+                    </button>
+
+                    <button type="button"
+                            onclick="setLanguage('bn')">
+                        বাংলা
+                    </button>
+
+                </div>
+
+            </div>
+
         </nav>
 
     </div>
+
 </header>
 
 <!-- =======================================================
@@ -15781,6 +15894,72 @@ document.addEventListener("DOMContentLoaded", function(){
     setLanguage(savedLanguage);
 
 });
+ /* =======================================================
+    LIVE DATE & TIME
+ ======================================================= */
+
+function updateLiveDateTime(){
+
+    const timeElement =
+        document.getElementById("liveTime");
+
+    const dateElement =
+        document.getElementById("liveDate");
+
+    if(!timeElement || !dateElement){
+        return;
+    }
+
+    const now = new Date();
+
+
+    /* =========================
+       LIVE TIME
+    ========================= */
+
+    const time = now.toLocaleTimeString(
+        "en-US",
+        {
+            hour:"2-digit",
+            minute:"2-digit",
+            second:"2-digit",
+            hour12:true
+        }
+    );
+
+
+    /* =========================
+       LIVE DATE + DAY
+    ========================= */
+
+    const date = now.toLocaleDateString(
+        "en-US",
+        {
+            weekday:"long",
+            day:"2-digit",
+            month:"long",
+            year:"numeric"
+        }
+    );
+
+
+    timeElement.textContent = time;
+
+    dateElement.textContent = date;
+}
+
+
+/* Initial display */
+
+updateLiveDateTime();
+
+
+/* Update every 1 second */
+
+setInterval(
+    updateLiveDateTime,
+    1000
+);
 </script>
 
 </body>

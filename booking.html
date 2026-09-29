@@ -1659,6 +1659,62 @@ footer strong{
     font-size:12px;
     line-height:1.4;
 }
+/* =======================================================
+   LIVE DATE & TIME
+======================================================= */
+
+.navbar{
+    position:relative;
+}
+
+.live-datetime{
+    position:absolute;
+    right:95px;
+    top:50%;
+    transform:translateY(-50%);
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+
+    white-space:nowrap;
+    line-height:1.1;
+
+    z-index:10;
+    pointer-events:none;
+}
+
+.live-time{
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.5px;
+    color:#d8b878;
+}
+
+.live-date{
+    margin-top:4px;
+    font-size:11px;
+    font-weight:500;
+    color:#bdb7a8;
+}
+
+
+/* =======================================================
+   MOBILE
+======================================================= */
+@media(max-width:700px){
+    .live-datetime{
+        right:85px;
+    }
+
+    .live-time{
+        font-size:11px;
+    }
+
+    .live-date{
+        font-size:9px;
+    }
+}
 </style>
 
 </head>
@@ -1684,7 +1740,21 @@ src="images/logo.png"
 alt="Rangauti Resort Logo">
 
 </a>
+<!-- =======================================================
+     LIVE DATE & TIME
+======================================================= -->
 
+<div class="live-datetime" id="liveDateTime">
+
+    <div class="live-time" id="liveTime">
+        12:00:00 AM
+    </div>
+
+    <div class="live-date" id="liveDate">
+        Monday, 29 September 2026
+    </div>
+
+</div>
 
 <div class="menu-wrap">
 
@@ -1714,11 +1784,11 @@ data-bn="সুবিধাসমূহ">
 <strong>FACILITIES</strong>
 </a>
 
-<a href="index.html#resort-gallery"
-data-en="EXPLORE RANGAUTI"
-data-bn="রাঙ্গাউটি ঘুরে দেখুন">
-<strong>EXPLORE RANGAUTI</strong>
-</a>
+<a href="index.html#explore-video"
+       data-en="EXPLORE RANGAUTI"
+       data-bn="রাঙ্গাউটি ঘুরে দেখুন">
+        EXPLORE RANGAUTI
+    </a>
 
 <a href="index.html#packages"
 data-en="PACKAGES"
@@ -5336,6 +5406,99 @@ document.addEventListener(
         }
 
     }
+);
+/* =======================================================
+   LIVE DATE & TIME
+======================================================= */
+
+function updateLiveDateTime(){
+
+    const timeElement =
+        document.getElementById("liveTime");
+
+    const dateElement =
+        document.getElementById("liveDate");
+
+    if(!timeElement || !dateElement){
+        return;
+    }
+
+    const now = new Date();
+
+    /* Get selected language */
+
+    const currentLanguage =
+        localStorage.getItem("rangautiLanguage") || "en";
+
+
+    /* ===================================================
+       ENGLISH
+    =================================================== */
+
+    if(currentLanguage === "en"){
+
+        const time =
+            now.toLocaleTimeString("en-US", {
+                hour:"2-digit",
+                minute:"2-digit",
+                second:"2-digit",
+                hour12:true
+            });
+
+        const date =
+            now.toLocaleDateString("en-US", {
+                weekday:"long",
+                day:"2-digit",
+                month:"long",
+                year:"numeric"
+            });
+
+        timeElement.textContent = time;
+        dateElement.textContent = date;
+
+    }
+
+
+    /* ===================================================
+       BANGLA
+    =================================================== */
+
+    else{
+
+        const time =
+            now.toLocaleTimeString("bn-BD", {
+                hour:"2-digit",
+                minute:"2-digit",
+                second:"2-digit",
+                hour12:true
+            });
+
+        const date =
+            now.toLocaleDateString("bn-BD", {
+                weekday:"long",
+                day:"2-digit",
+                month:"long",
+                year:"numeric"
+            });
+
+        timeElement.textContent = time;
+        dateElement.textContent = date;
+
+    }
+
+}
+
+
+/* Initial display */
+
+updateLiveDateTime();
+
+
+/* Update every second */
+
+setInterval(
+    updateLiveDateTime,
+    1000
 );
 </script>
 </body>

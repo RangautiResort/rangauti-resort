@@ -13962,14 +13962,12 @@ function closeResortImage(
 
 /* =========================================================
    PACKAGE IMAGE
-   FIXED
 ========================================================= */
 
 function openPackageImage(src, title) {
 
     /*
      * DAY LONG IMAGE
-     * Opens special fullscreen viewer
      */
 
     if (
@@ -14066,7 +14064,6 @@ function openPackageImage(src, title) {
 
 /* =========================================================
    CLOSE PACKAGE IMAGE
-   IMPORTANT FIX
 ========================================================= */
 
 function closePackageImage(
@@ -15211,6 +15208,7 @@ function changeSpecialSuperImage(direction) {
 
 /* =========================================================
    ROOM DETAILS — OPEN
+   FIXED PHONE BACK HISTORY
 ========================================================= */
 
 function openRoomDetails(id) {
@@ -15250,6 +15248,18 @@ function openRoomDetails(id) {
     document.body.classList.add(
         "modal-open"
     );
+
+
+    /* CREATE HISTORY ENTRY */
+
+    if (
+        !modalHistoryDepth ||
+        !isCurrentModalHistory(id)
+    ) {
+
+        pushModalHistory(id);
+
+    }
 
 
     if (
@@ -15340,9 +15350,13 @@ function openRoomDetails(id) {
 
 /* =========================================================
    ROOM DETAILS — CLOSE
+   FIXED PHONE BACK HISTORY
 ========================================================= */
 
-function closeRoomDetails(id) {
+function closeRoomDetails(
+    id,
+    useHistory = true
+) {
 
     const modal =
         document.getElementById(id);
@@ -15350,6 +15364,17 @@ function closeRoomDetails(id) {
     if (!modal) {
         return;
     }
+
+
+    if (
+        useHistory &&
+        removeModalFromHistory(id)
+    ) {
+
+        return;
+
+    }
+
 
     modal.classList.remove(
         "active"
@@ -15405,6 +15430,7 @@ function selectSwimmingImage(index) {
 
 /* =========================================================
    PACKAGE DETAILS
+   FIXED PHONE BACK HISTORY
 ========================================================= */
 
 function openPackageDetails(id) {
@@ -15446,6 +15472,18 @@ function openPackageDetails(id) {
     );
 
 
+    /* CREATE HISTORY ENTRY */
+
+    if (
+        !modalHistoryDepth ||
+        !isCurrentModalHistory(id)
+    ) {
+
+        pushModalHistory(id);
+
+    }
+
+
     if (
         id ===
         "dayLongDetails"
@@ -15462,9 +15500,13 @@ function openPackageDetails(id) {
 
 /* =========================================================
    CLOSE PACKAGE DETAILS
+   FIXED PHONE BACK HISTORY
 ========================================================= */
 
-function closePackageDetails(id) {
+function closePackageDetails(
+    id,
+    useHistory = true
+) {
 
     const modal =
         document.getElementById(id);
@@ -15472,6 +15514,17 @@ function closePackageDetails(id) {
     if (!modal) {
         return;
     }
+
+
+    if (
+        useHistory &&
+        removeModalFromHistory(id)
+    ) {
+
+        return;
+
+    }
+
 
     modal.classList.remove(
         "active"
@@ -15548,31 +15601,59 @@ function selectDayLongImage(index) {
 /* =========================================================
    DAY LONG NEXT / PREVIOUS
 ========================================================= */
+
 function changeDayLongImage(direction) {
 
-    let newIndex = currentDayLongImage + direction;
+    let newIndex =
+        currentDayLongImage +
+        direction;
 
-    if (newIndex >= dayLongImages.length) {
+    if (
+        newIndex >=
+        dayLongImages.length
+    ) {
+
         newIndex = 0;
+
     }
 
-    if (newIndex < 0) {
-        newIndex = dayLongImages.length - 1;
+    if (
+        newIndex < 0
+    ) {
+
+        newIndex =
+            dayLongImages.length - 1;
+
     }
 
-    selectDayLongImage(newIndex);
+    selectDayLongImage(
+        newIndex
+    );
+
 
     /* Fullscreen viewer active থাকলে সেটাও update হবে */
-    const viewer = document.getElementById("dayLongImageViewer");
-    const fullImage = document.getElementById("dayLongFullImage");
+
+    const viewer =
+        document.getElementById(
+            "dayLongImageViewer"
+        );
+
+    const fullImage =
+        document.getElementById(
+            "dayLongFullImage"
+        );
 
     if (
         viewer &&
         viewer.classList.contains("active") &&
         fullImage
     ) {
-        fullImage.src = dayLongImages[newIndex];
+
+        fullImage.src =
+            dayLongImages[newIndex];
+
     }
+
 }
 
 
@@ -15649,11 +15730,18 @@ function closeDayLongImage() {
 
 /* =========================================================
    BROWSER / PHONE BACK BUTTON
+   FIXED FOR ROOM + PACKAGE + NORMAL MODALS
 ========================================================= */
 
 window.addEventListener(
     "popstate",
     function() {
+
+
+        /*
+         * HISTORY ENTRY FROM ROOM / PACKAGE / GALLERY
+         * HAS NOW BEEN REMOVED
+         */
 
         if (
             modalHistoryDepth > 0
@@ -15662,6 +15750,73 @@ window.addEventListener(
             modalHistoryDepth--;
 
         }
+
+
+        /*
+         * ROOM DETAILS
+         */
+
+        const activeRooms =
+            Array.from(
+                document.querySelectorAll(
+                    ".room-details-modal.active"
+                )
+            );
+
+        if (
+            activeRooms.length > 0
+        ) {
+
+            const topRoom =
+                activeRooms[
+                    activeRooms.length - 1
+                ];
+
+            topRoom.classList.remove(
+                "active"
+            );
+
+            updateBodyScroll();
+
+            return;
+
+        }
+
+
+        /*
+         * PACKAGE DETAILS
+         */
+
+        const activePackages =
+            Array.from(
+                document.querySelectorAll(
+                    ".package-details-modal.active"
+                )
+            );
+
+        if (
+            activePackages.length > 0
+        ) {
+
+            const topPackage =
+                activePackages[
+                    activePackages.length - 1
+                ];
+
+            topPackage.classList.remove(
+                "active"
+            );
+
+            updateBodyScroll();
+
+            return;
+
+        }
+
+
+        /*
+         * NORMAL MODALS
+         */
 
         const activeModals =
             Array.from(
@@ -15680,14 +15835,17 @@ window.addEventListener(
 
         }
 
+
         const topModal =
             activeModals[
                 activeModals.length - 1
             ];
 
+
         topModal.classList.remove(
             "active"
         );
+
 
         if (
             topModal.id ===
@@ -15697,6 +15855,7 @@ window.addEventListener(
             resetZoom();
 
         }
+
 
         updateBodyScroll();
 
@@ -16434,7 +16593,6 @@ document.addEventListener(
 
     }
 );
-
 </script>
 
 

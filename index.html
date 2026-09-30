@@ -15730,7 +15730,7 @@ function closeDayLongImage() {
 
 /* =========================================================
    BROWSER / PHONE BACK BUTTON
-   FIXED FOR ROOM + PACKAGE + NORMAL MODALS
+   FIXED FOR FULLSCREEN + ROOM + PACKAGE + NORMAL MODALS
 ========================================================= */
 
 window.addEventListener(
@@ -15748,6 +15748,117 @@ window.addEventListener(
         ) {
 
             modalHistoryDepth--;
+
+        }
+
+
+        /*
+         * DAY LONG FULLSCREEN IMAGE
+         * MUST CLOSE FIRST
+         */
+
+        const dayLongViewer =
+            document.getElementById(
+                "dayLongImageViewer"
+            );
+
+        if (
+            dayLongViewer &&
+            dayLongViewer.classList.contains(
+                "active"
+            )
+        ) {
+
+            dayLongViewer.classList.remove(
+                "active"
+            );
+
+            updateBodyScroll();
+
+            return;
+
+        }
+
+
+        /*
+         * NORMAL FULLSCREEN IMAGE
+         */
+
+        const singleImageViewer =
+            document.getElementById(
+                "singleImageModal"
+            );
+
+        if (
+            singleImageViewer &&
+            singleImageViewer.classList.contains(
+                "active"
+            )
+        ) {
+
+            singleImageViewer.classList.remove(
+                "active"
+            );
+
+            resetZoom();
+
+            updateBodyScroll();
+
+            return;
+
+        }
+
+
+        /*
+         * PACKAGE IMAGE FULLSCREEN
+         */
+
+        const packageImageViewer =
+            document.getElementById(
+                "packageImageModal"
+            );
+
+        if (
+            packageImageViewer &&
+            packageImageViewer.classList.contains(
+                "active"
+            )
+        ) {
+
+            packageImageViewer.classList.remove(
+                "active"
+            );
+
+            updateBodyScroll();
+
+            return;
+
+        }
+
+
+        /*
+         * RESORT IMAGE FULLSCREEN
+         */
+
+        const resortImageViewer =
+            document.getElementById(
+                "resortImageModal"
+            );
+
+        if (
+            resortImageViewer &&
+            resortImageViewer.classList.contains(
+                "active"
+            )
+        ) {
+
+            resortImageViewer.classList.remove(
+                "active"
+            );
+
+            updateBodyScroll();
+
+            return;
 
         }
 
@@ -15858,70 +15969,6 @@ window.addEventListener(
 
 
         updateBodyScroll();
-
-    }
-);
-
-
-/* =========================================================
-   CLICK OUTSIDE MODAL
-========================================================= */
-
-document.addEventListener(
-    "click",
-    function(event) {
-
-        if (
-            !event.target.classList.contains(
-                "modal"
-            )
-        ) {
-            return;
-        }
-
-        const modal =
-            event.target;
-
-
-        if (
-            modal.id ===
-            "singleImageModal"
-        ) {
-
-            closeSingleImage();
-
-            return;
-
-        }
-
-
-        if (
-            modal.id ===
-            "resortImageModal"
-        ) {
-
-            closeResortImage();
-
-            return;
-
-        }
-
-
-        if (
-            modal.id ===
-            "packageImageModal"
-        ) {
-
-            closePackageImage();
-
-            return;
-
-        }
-
-
-        closeGallery(
-            modal.id
-        );
 
     }
 );

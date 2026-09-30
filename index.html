@@ -3855,37 +3855,7 @@ z-index: 10;
    PACKAGE DETAILS MODAL OVERLAY
 ======================================================= */
 
-.modal.package-details-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
 
-    display: none;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 100vh;
-
-    padding: 30px;
-
-    background: rgba(0, 0, 0, 0.75);
-
-    box-sizing: border-box;
-}
-
-.modal.package-details-modal.active {
-    display: flex;
-}
-#lunchDetails .room-main-image img {
-    width: 100%;
-    height: 480px;
-    object-fit: contain;
-    background: #f5f5f5;
-    border-radius: 10px;
-    display: block;
-}
 /* =======================================================
    ALL PACKAGE DETAILS — IMAGE SIZE
 ======================================================= */
@@ -6564,6 +6534,129 @@ section{
     }
 
 }
+#dayLongDetails .room-main-image {
+    position: relative;
+}
+
+#dayLongDetails .room-main-image .image-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+#dayLongDetails .room-main-image .image-nav-prev {
+    left: 12px;
+}
+
+#dayLongDetails .room-main-image .image-nav-next {
+    right: 12px;
+}
+/* DAY LONG FULLSCREEN — NO NEXT/PREV BUTTON */
+
+#dayLongImageViewer .image-nav-btn {
+    display: none !important;
+}
+/* =========================================================
+   DAY LONG IMAGE LAYOUT FIX
+========================================================= */
+
+#dayLongDetails .room-details-left {
+    min-width: 0;
+    overflow: hidden;
+}
+
+#dayLongDetails .room-main-image {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    background: #f5f5f5;
+    border-radius: 10px;
+}
+
+#dayLongDetails .room-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* THUMBNAILS */
+
+#dayLongDetails .room-thumbnails {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 5px 0;
+    box-sizing: border-box;
+}
+
+#dayLongDetails .room-thumbnails img {
+    flex: 0 0 75px;
+    width: 75px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 7px;
+    cursor: pointer;
+    display: block;
+}
+/* PACKAGE CARD IMAGE FIX */
+
+.package-card .package-image {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 14px 14px 0 0;
+}
+
+.package-card .package-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+/* RIGHT SIDE DETAILS */
+
+#dayLongDetails .room-details-right {
+    min-width: 0;
+    overflow: visible;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    #dayLongDetails .room-main-image {
+        height: 300px;
+    }
+
+    #dayLongDetails .room-thumbnails img {
+        flex-basis: 65px;
+        width: 65px;
+        height: 55px;
+    }
+
+}
 </style>
 
 </head>
@@ -6996,8 +7089,10 @@ escape to a refreshing swimming or beverage package.
 Day Long
 </h3>
 
-<div class="package-price">
-BDT 1,800 / Person
+<div class="package-price"
+     data-en="BDT 1,800 / Person"
+     data-bn="৳ ১,৮০০ / জন">
+    BDT 1,800 / Person
 </div>
 
 <div class="package-note"
@@ -7049,8 +7144,10 @@ BOOK NOW
 Lunch
 </h3>
 
-<div class="package-price">
-BDT 1,100 / Person
+<div class="package-price"
+     data-en="BDT 1,100 / Person"
+     data-bn="৳ ১,১০০ / জন">
+    BDT 1,100 / Person
 </div>
 
 <div class="package-note"
@@ -7102,8 +7199,10 @@ BOOK NOW
 Snacks
 </h3>
 
-<div class="package-price">
-BDT 700 / Person
+<div class="package-price"
+     data-en="BDT 700 / Person"
+     data-bn="৳ ৭০০ / জন">
+    BDT 700 / Person
 </div>
 
 <div class="package-note"
@@ -7155,8 +7254,10 @@ BOOK NOW
 Swimming
 </h3>
 
-<div class="package-price">
-BDT 800 / Person
+<div class="package-price"
+     data-en="BDT 800 / Person"
+     data-bn="৳ ৮০০ / জন">
+    BDT 800 / Person
 </div>
 
 <div class="package-note"
@@ -7208,8 +7309,10 @@ BOOK NOW
 Beverage
 </h3>
 
-<div class="package-price">
-BDT 500 / Person
+<div class="package-price"
+     data-en="BDT 500 / Person"
+     data-bn="৳ ৫০০ / জন">
+    BDT 500 / Person
 </div>
 
 <div class="package-note"
@@ -8593,28 +8696,52 @@ aria-label="WhatsApp">
 
 <div class="modal" id="dayLongDetails">
 
-    <div class="package-details-modal">
+    <div class="package-details-modal room-details-content">
 
         <!-- CLOSE -->
         <button class="modal-close"
+                type="button"
                 onclick="closePackageDetails('dayLongDetails')">
             ×
         </button>
 
 
-        <!-- LEFT : IMAGE -->
+        <!-- =================================================
+             LEFT : IMAGE
+        ================================================== -->
+
         <div class="room-details-left">
 
             <div class="room-main-image">
 
-                <!-- CLICK IMAGE = FULL SCREEN -->
+                <!-- PREVIOUS -->
+                <button class="image-nav-btn image-nav-prev"
+                        type="button"
+                        onclick="event.stopPropagation(); changeDayLongImage(-1)">
+                    ‹
+                </button>
+
+
+                <!-- MAIN IMAGE -->
                 <img id="dayLongMainImage"
                      src="images/packages/day-long.jpeg"
                      alt="Day Long Package"
                      onclick="openDayLongImage()">
 
+
+                <!-- NEXT -->
+                <button class="image-nav-btn image-nav-next"
+                        type="button"
+                        onclick="event.stopPropagation(); changeDayLongImage(1)">
+                    ›
+                </button>
+
             </div>
 
+
+            <!-- =================================================
+                 THUMBNAILS
+            ================================================== -->
 
             <div class="room-thumbnails">
 
@@ -8623,12 +8750,50 @@ aria-label="WhatsApp">
                      alt="Day Long Package"
                      onclick="selectDayLongImage(0)">
 
+                <img class="day-long-thumb"
+                     src="images/packages/day-long-2.jpeg"
+                     alt="Day Long Package"
+                     onclick="selectDayLongImage(1)">
+
+                <img class="day-long-thumb"
+                     src="images/packages/day-long-3.jpeg"
+                     alt="Day Long Package"
+                     onclick="selectDayLongImage(2)">
+
+                <img class="day-long-thumb"
+                     src="images/packages/day-long-4.jpeg"
+                     alt="Day Long Package"
+                     onclick="selectDayLongImage(3)">
+
+                <img class="day-long-thumb"
+                     src="images/packages/day-long-5.jpeg"
+                     alt="Day Long Package"
+                     onclick="selectDayLongImage(4)">
+
+                <img class="day-long-thumb"
+                     src="images/packages/day-long-6.jpeg"
+                     alt="Day Long Package"
+                     onclick="selectDayLongImage(5)">
+
+                <img class="day-long-thumb"
+                     src="images/packages/day-long-7.jpeg"
+                     alt="Day Long Package"
+                     onclick="selectDayLongImage(6)">
+
+                <img class="day-long-thumb"
+                     src="images/packages/day-long-8.jpeg"
+                     alt="Day Long Package"
+                     onclick="selectDayLongImage(7)">
+
             </div>
 
         </div>
 
 
-        <!-- RIGHT : DETAILS -->
+        <!-- =================================================
+             RIGHT : DETAILS
+        ================================================== -->
+
         <div class="room-details-right">
 
             <div class="eyebrow"
@@ -8637,13 +8802,16 @@ aria-label="WhatsApp">
                 ভিজিটর এক্সপেরিয়েন্স
             </div>
 
-            <h2
-                data-en="Day Long Package"
+
+            <h2 data-en="Day Long Package"
                 data-bn="ডে লং প্যাকেজ">
                 ডে লং প্যাকেজ
             </h2>
 
-            <div class="room-details-price">
+
+            <div class="package-price"
+                 data-en="BDT 1,800 / Person"
+                 data-bn="৳ ১,৮০০ / জন">
                 BDT 1,800 / Person
             </div>
 
@@ -8651,27 +8819,26 @@ aria-label="WhatsApp">
             <div class="room-detail-info">
 
                 <div>
-                    <strong
-                        data-en="Timing"
-                        data-bn="সময়">
+                    <strong data-en="Timing"
+                            data-bn="সময়">
                         সময়
                     </strong>
 
-                    <span>
-                        12:00 PM – 6:00 PM
+                    <span data-en="12:00 PM – 6:00 PM"
+                          data-bn="দুপুর ১২টা – সন্ধ্যা ৬টা">
+                        দুপুর ১২টা – সন্ধ্যা ৬টা
                     </span>
                 </div>
 
+
                 <div>
-                    <strong
-                        data-en="Package Type"
-                        data-bn="প্যাকেজের ধরন">
+                    <strong data-en="Package Type"
+                            data-bn="প্যাকেজের ধরন">
                         প্যাকেজের ধরন
                     </strong>
 
-                    <span
-                        data-en="Day Long Experience"
-                        data-bn="ডে লং এক্সপেরিয়েন্স">
+                    <span data-en="Day Long Experience"
+                          data-bn="ডে লং এক্সপেরিয়েন্স">
                         ডে লং এক্সপেরিয়েন্স
                     </span>
                 </div>
@@ -8679,8 +8846,7 @@ aria-label="WhatsApp">
             </div>
 
 
-            <h3
-                data-en="Package Details"
+            <h3 data-en="Package Details"
                 data-bn="প্যাকেজের বিস্তারিত">
                 প্যাকেজের বিস্তারিত
             </h3>
@@ -8688,38 +8854,32 @@ aria-label="WhatsApp">
 
             <ul class="room-amenities">
 
-                <li
-                    data-en="Resort Entry"
+                <li data-en="Resort Entry"
                     data-bn="রিসোর্টে প্রবেশ">
                     রিসোর্টে প্রবেশ
                 </li>
 
-                <li
-                    data-en="1 Single Room (12 PM–6 PM)"
+                <li data-en="1 Single Room (12 PM–6 PM)"
                     data-bn="১টি সিঙ্গেল রুম (দুপুর ১২টা–সন্ধ্যা ৬টা)">
                     ১টি সিঙ্গেল রুম (দুপুর ১২টা–সন্ধ্যা ৬টা)
                 </li>
 
-                <li
-                    data-en="Set Lunch"
+                <li data-en="Set Lunch"
                     data-bn="সেট লাঞ্চ">
                     সেট লাঞ্চ
                 </li>
 
-                <li
-                    data-en="Swimming Pool Access"
+                <li data-en="Swimming Pool Access"
                     data-bn="সুইমিং পুল ব্যবহার">
                     সুইমিং পুল ব্যবহার
                 </li>
 
-                <li
-                    data-en="Celo Engine Boat Ride"
+                <li data-en="Celo Engine Boat Ride"
                     data-bn="সেলো ইঞ্জিন বোট রাইড">
                     সেলো ইঞ্জিন বোট রাইড
                 </li>
 
-                <li
-                    data-en="Evening Tea / Coffee"
+                <li data-en="Evening Tea / Coffee"
                     data-bn="সন্ধ্যার চা / কফি">
                     সন্ধ্যার চা / কফি
                 </li>
@@ -8727,8 +8887,7 @@ aria-label="WhatsApp">
             </ul>
 
 
-            <h3
-                data-en="Important Note"
+            <h3 data-en="Important Note"
                 data-bn="গুরুত্বপূর্ণ তথ্য">
                 গুরুত্বপূর্ণ তথ্য
             </h3>
@@ -8746,6 +8905,7 @@ aria-label="WhatsApp">
                 <a class="small-btn whatsapp"
                    href="https://wa.me/8801780203350?text=Hello%20Rangauti%20Resort,%20I%20would%20like%20to%20book%20the%20Day%20Long%20Package."
                    target="_blank"
+                   rel="noopener"
                    data-en="BOOK NOW"
                    data-bn="বুক করুন">
                     বুক করুন
@@ -8758,9 +8918,37 @@ aria-label="WhatsApp">
     </div>
 
 </div>
+<!-- =======================================================
+     DAY LONG FULL SCREEN IMAGE VIEWER
+======================================================= -->
 
+<div id="dayLongImageViewer"
+     class="package-image-viewer"
+     onclick="closeDayLongImage()">
 
+    <button class="image-nav-btn image-nav-prev"
+            type="button"
+            onclick="event.stopPropagation(); changeDayLongImage(-1)">
+        ‹
+    </button>
 
+    <img id="dayLongFullImage"
+         src="images/packages/day-long.jpeg"
+         alt="Day Long Package">
+
+    <button class="image-nav-btn image-nav-next"
+            type="button"
+            onclick="event.stopPropagation(); changeDayLongImage(1)">
+        ›
+    </button>
+
+    <button class="package-image-viewer-close"
+            type="button"
+            onclick="event.stopPropagation(); closeDayLongImage()">
+        ×
+    </button>
+
+</div>
 <!-- =======================================================
      LUNCH PACKAGE — DETAILS
 ======================================================= -->
@@ -8819,9 +9007,11 @@ aria-label="WhatsApp">
                 লাঞ্চ প্যাকেজ
             </h2>
 
-            <div class="room-details-price">
-                BDT 1,100 / Person
-            </div>
+            <div class="package-price"
+     data-en="BDT 1,100 / Person"
+     data-bn="৳ ১,১০০ / জন">
+    BDT 1,100 / Person
+</div>
 
 
             <div class="room-detail-info">
@@ -8833,9 +9023,11 @@ aria-label="WhatsApp">
                         সময়
                     </strong>
 
-                    <span>
-                        12:00 PM – 6:00 PM
-                    </span>
+                    <span
+    data-en="12:00 PM – 6:00 PM"
+    data-bn="দুপুর ১২টা – সন্ধ্যা ৬টা">
+    দুপুর ১২টা – সন্ধ্যা ৬টা
+</span>
                 </div>
 
                 <div>
@@ -8987,10 +9179,11 @@ aria-label="WhatsApp">
                 data-bn="স্ন্যাকস প্যাকেজ">
                 স্ন্যাকস প্যাকেজ
             </h2>
-
-            <div class="room-details-price">
-                BDT 700 / Person
-            </div>
+<div class="package-price"
+     data-en="BDT 700 / Person"
+     data-bn="৳ ৭০০ / জন">
+    BDT 700 / Person
+</div>
 
 
             <div class="room-detail-info">
@@ -9002,9 +9195,11 @@ aria-label="WhatsApp">
                         সময়
                     </strong>
 
-                    <span>
-                        3:00 PM – 6:00 PM
-                    </span>
+                    <span
+    data-en="3:00 PM – 6:00 PM"
+    data-bn="বিকেল ৩টা – সন্ধ্যা ৬টা">
+    বিকেল ৩টা – সন্ধ্যা ৬টা
+</span>
                 </div>
 
                 <div>
@@ -9153,9 +9348,11 @@ aria-label="WhatsApp">
                 সুইমিংসহ এন্ট্রি
             </h2>
 
-            <div class="room-details-price">
-                BDT 800 / Person
-            </div>
+            <div class="package-price"
+     data-en="BDT 800 / Person"
+     data-bn="৳ ৮০০ / জন">
+    BDT 800 / Person
+</div>
 
 
             <div class="room-detail-info">
@@ -9167,9 +9364,11 @@ aria-label="WhatsApp">
                         সময়
                     </strong>
 
-                    <span>
-                        12:00 PM – 6:00 PM
-                    </span>
+                    <span
+    data-en="12:00 PM – 6:00 PM"
+    data-bn="দুপুর ১২টা – সন্ধ্যা ৬টা">
+    দুপুর ১২টা – সন্ধ্যা ৬টা
+</span>
                 </div>
 
                 <div>
@@ -9330,9 +9529,11 @@ aria-label="WhatsApp">
                 বেভারেজ প্যাকেজ
             </h2>
 
-            <div class="room-details-price">
-                BDT 500 / Person
-            </div>
+            <div class="package-price"
+     data-en="BDT 500 / Person"
+     data-bn="৳ ৫০০ / জন">
+    BDT 500 / Person
+</div>
 
 
             <div class="room-detail-info">
@@ -9344,9 +9545,11 @@ aria-label="WhatsApp">
                         সময়
                     </strong>
 
-                    <span>
-                        12:00 PM – 6:00 PM
-                    </span>
+                    <span
+    data-en="12:00 PM – 6:00 PM"
+    data-bn="দুপুর ১২টা – সন্ধ্যা ৬টা">
+    দুপুর ১২টা – সন্ধ্যা ৬টা
+</span>
                 </div>
 
                 <div>
@@ -12245,6 +12448,7 @@ aria-label="WhatsApp">
 </div>
 
 <script>
+
 /* =========================================================
    RANGAUTI RESORT
    FINAL PRODUCTION-READY JAVASCRIPT
@@ -12254,8 +12458,9 @@ aria-label="WhatsApp">
 /* =========================================================
    ROOM CAPACITY
 ========================================================= */
-const
- roomCapacity = {
+
+const roomCapacity = {
+
     "Super Family Deluxe": 4,
     "Family Deluxe": 3,
     "Super Deluxe - Cottage": 2,
@@ -12279,8 +12484,9 @@ let zoomLevel = 1;
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 2;
 
+
 /* =========================================================
-   MODAL HISTORY STATE
+   MODAL HISTORY
 ========================================================= */
 
 const MODAL_HISTORY_KEY = "rangautiModal";
@@ -12294,10 +12500,19 @@ let modalHistoryDepth = 0;
 
 function updateBodyScroll() {
 
-    if (document.querySelector(".modal.active")) {
+    const activeModal =
+        document.querySelector(
+            ".modal.active, .package-details-modal.active, .room-details-modal.active"
+        );
+
+    if (activeModal) {
+
         document.body.style.overflow = "hidden";
+
     } else {
+
         document.body.style.overflow = "";
+
     }
 
 }
@@ -12494,7 +12709,7 @@ function createRoomDetails() {
 
 
 /* =========================================================
-   SELECT ROOM FROM ROOM CARD
+   SELECT ROOM
 ========================================================= */
 
 function selectRoom(roomName) {
@@ -12519,11 +12734,9 @@ function selectRoom(roomName) {
         return;
     }
 
-
     numberOfRooms.value = "1";
 
     createRoomDetails();
-
 
     setTimeout(function() {
 
@@ -12556,33 +12769,27 @@ function updateAdultOptions(select) {
         return;
     }
 
-
     const roomName =
         select.value;
 
     const roomNumber =
         select.getAttribute("data-room");
 
-
     const adultSelect =
         document.querySelector(
             `.adult-count[data-room="${roomNumber}"]`
         );
-
 
     const childSelect =
         document.querySelector(
             `.child-count[data-room="${roomNumber}"]`
         );
 
-
     if (!adultSelect || !childSelect) {
         return;
     }
 
-
     adultSelect.innerHTML = "";
-
 
     if (!roomName) {
 
@@ -12600,9 +12807,9 @@ function updateAdultOptions(select) {
 
         return;
     }
+
     const capacity =
         roomCapacity[roomName] || 2;
-
 
     for (let i = 1; i <= capacity; i++) {
 
@@ -12620,7 +12827,6 @@ function updateAdultOptions(select) {
 
     }
 
-
     updateChildLimit(adultSelect);
 
 }
@@ -12636,41 +12842,33 @@ function updateChildLimit(select) {
         return;
     }
 
-
     const roomNumber =
         select.getAttribute("data-room");
-
 
     const roomTypeSelect =
         document.querySelector(
             `.room-type[data-room="${roomNumber}"]`
         );
 
-
     const roomType =
         roomTypeSelect
             ? roomTypeSelect.value
             : "";
 
-
     const adultCount =
         parseInt(select.value, 10) || 1;
-
 
     const childSelect =
         document.querySelector(
             `.child-count[data-room="${roomNumber}"]`
         );
 
-
     if (!childSelect) {
         return;
     }
 
-
     const capacity =
         roomCapacity[roomType] || 2;
-
 
     const remaining =
         Math.max(
@@ -12678,13 +12876,11 @@ function updateChildLimit(select) {
             capacity - adultCount
         );
 
-
     childSelect.innerHTML = `
         <option value="0">
             0 Child
         </option>
     `;
-
 
     for (
         let i = 1;
@@ -12706,7 +12902,6 @@ function updateChildLimit(select) {
 
     }
 
-
     createChildAgeFields(
         childSelect
     );
@@ -12724,47 +12919,35 @@ function createChildAgeFields(select) {
         return;
     }
 
-
     const roomNumber =
         select.getAttribute("data-room");
 
-
     const count =
         parseInt(select.value, 10) || 0;
-
 
     const container =
         document.querySelector(
             `.child-age-container[data-room="${roomNumber}"]`
         );
 
-
     if (!container) {
         return;
     }
 
-
     container.innerHTML = "";
-
 
     if (count <= 0) {
         return;
     }
-
 
     for (let i = 1; i <= count; i++) {
 
         const input =
             document.createElement("input");
 
-        input.type =
-            "number";
-
-        input.min =
-            "1";
-
-        input.max =
-            "17";
+        input.type = "number";
+        input.min = "1";
+        input.max = "17";
 
         input.placeholder =
             `Child ${i} Age`;
@@ -12772,29 +12955,16 @@ function createChildAgeFields(select) {
         input.className =
             "child-age-input";
 
-
-        input.style.marginTop =
-            "8px";
-
-        input.style.width =
-            "100%";
-
-        input.style.padding =
-            "14px";
-
+        input.style.marginTop = "8px";
+        input.style.width = "100%";
+        input.style.padding = "14px";
         input.style.background =
             "rgba(255,255,255,.06)";
-
-        input.style.color =
-            "white";
-
+        input.style.color = "white";
         input.style.border =
             "1px solid rgba(255,255,255,.18)";
 
-
-        container.appendChild(
-            input
-        );
+        container.appendChild(input);
 
     }
 
@@ -12811,41 +12981,33 @@ function sendBookingToWhatsApp(event) {
         event.preventDefault();
     }
 
-
     const guestName =
         document.getElementById("guestName")
         ?.value.trim() || "";
-
 
     const guestPhone =
         document.getElementById("guestPhone")
         ?.value.trim() || "";
 
-
     const arrivalDate =
         document.getElementById("arrivalDate")
         ?.value || "";
-
 
     const departureDate =
         document.getElementById("departureDate")
         ?.value || "";
 
-
     const numberOfRooms =
         document.getElementById("numberOfRooms")
         ?.value || "";
-
 
     const specialRequest =
         document.getElementById("specialRequest")
         ?.value.trim() || "";
 
-
     const bookingMessage =
         document.getElementById("bookingMessage")
         ?.value.trim() || "";
-
 
     let message =
 `Hello Rangauti Resort,
@@ -12861,12 +13023,8 @@ Departure Date: ${departureDate}
 Number of Rooms: ${numberOfRooms}
 `;
 
-
     const roomSelects =
-        document.querySelectorAll(
-            ".room-type"
-        );
-
+        document.querySelectorAll(".room-type");
 
     roomSelects.forEach(
         function(select, index) {
@@ -12874,35 +13032,29 @@ Number of Rooms: ${numberOfRooms}
             const roomNumber =
                 index + 1;
 
-
             const roomType =
                 select.value ||
                 "Not Selected";
-
 
             const adultSelect =
                 document.querySelector(
                     `.adult-count[data-room="${roomNumber}"]`
                 );
 
-
             const childSelect =
                 document.querySelector(
                     `.child-count[data-room="${roomNumber}"]`
                 );
-
 
             const adults =
                 adultSelect
                     ? adultSelect.value
                     : "1";
 
-
             const children =
                 childSelect
                     ? childSelect.value
                     : "0";
-
 
             message += `
 
@@ -12915,7 +13067,6 @@ Children: ${children}
         }
     );
 
-
     if (specialRequest) {
 
         message += `
@@ -12925,7 +13076,6 @@ ${specialRequest}
 `;
 
     }
-
 
     if (bookingMessage) {
 
@@ -12937,7 +13087,6 @@ ${bookingMessage}
 
     }
 
-
     message += `
 
 Please check availability and let me know the booking confirmation details.
@@ -12945,11 +13094,9 @@ Please check availability and let me know the booking confirmation details.
 Thank you.
 Rangauti Resort`;
 
-
     const whatsappURL =
         "https://wa.me/8801780203350?text=" +
         encodeURIComponent(message);
-
 
     window.open(
         whatsappURL,
@@ -12973,23 +13120,15 @@ function openGallery(id) {
         return;
     }
 
-
     if (
-        modal.classList.contains(
-            "active"
-        )
+        modal.classList.contains("active")
     ) {
         return;
     }
 
-
-    modal.classList.add(
-        "active"
-    );
-
+    modal.classList.add("active");
 
     updateBodyScroll();
-
 
     pushModalHistory(id);
 
@@ -13008,7 +13147,6 @@ function closeGallery(
         return;
     }
 
-
     if (
         useHistory &&
         removeModalFromHistory(id)
@@ -13016,11 +13154,7 @@ function closeGallery(
         return;
     }
 
-
-    modal.classList.remove(
-        "active"
-    );
-
+    modal.classList.remove("active");
 
     updateBodyScroll();
 
@@ -13034,16 +13168,12 @@ function closeGallery(
 function openSingleImage(img) {
 
     const modal =
-        getModal(
-            "singleImageModal"
-        );
-
+        getModal("singleImageModal");
 
     const image =
         document.getElementById(
             "singleImage"
         );
-
 
     if (
         !modal ||
@@ -13053,10 +13183,8 @@ function openSingleImage(img) {
         return;
     }
 
-
     const gallery =
         img.closest(".modal");
-
 
     if (gallery) {
 
@@ -13067,50 +13195,32 @@ function openSingleImage(img) {
                 )
             );
 
-
         currentImageIndex =
-            currentGalleryImages.indexOf(
-                img
-            );
+            currentGalleryImages.indexOf(img);
 
-
-        if (
-            currentImageIndex < 0
-        ) {
+        if (currentImageIndex < 0) {
             currentImageIndex = 0;
         }
 
     } else {
 
-        currentGalleryImages =
-            [img];
-
+        currentGalleryImages = [img];
         currentImageIndex = 0;
 
     }
-
 
     image.src =
         img.currentSrc ||
         img.src;
 
-
     resetZoom();
 
-
     const alreadyOpen =
-        modal.classList.contains(
-            "active"
-        );
+        modal.classList.contains("active");
 
-
-    modal.classList.add(
-        "active"
-    );
-
+    modal.classList.add("active");
 
     updateBodyScroll();
-
 
     if (!alreadyOpen) {
 
@@ -13136,11 +13246,9 @@ function closeSingleImage(
             "singleImageModal"
         );
 
-
     if (!modal) {
         return;
     }
-
 
     if (
         useHistory &&
@@ -13151,14 +13259,9 @@ function closeSingleImage(
         return;
     }
 
-
-    modal.classList.remove(
-        "active"
-    );
-
+    modal.classList.remove("active");
 
     resetZoom();
-
 
     updateBodyScroll();
 
@@ -13177,13 +13280,11 @@ function nextImage() {
         return;
     }
 
-
     currentImageIndex =
         (
             currentImageIndex + 1
         ) %
         currentGalleryImages.length;
-
 
     showCurrentImage();
 
@@ -13202,18 +13303,14 @@ function previousImage() {
         return;
     }
 
-
     currentImageIndex--;
 
-    if (
-        currentImageIndex < 0
-    ) {
+    if (currentImageIndex < 0) {
 
         currentImageIndex =
             currentGalleryImages.length - 1;
 
     }
-
 
     showCurrentImage();
 
@@ -13231,34 +13328,30 @@ function showCurrentImage() {
             "singleImage"
         );
 
-
     if (!image) {
         return;
     }
-
 
     const current =
         currentGalleryImages[
             currentImageIndex
         ];
 
-
     if (!current) {
         return;
     }
-
 
     image.src =
         current.currentSrc ||
         current.src;
 
-
     resetZoom();
 
 }
 
+
 /* =========================================================
-   ZOOM + PAN + DOUBLE CLICK + DOUBLE TAP + SWIPE
+   ZOOM + PAN
 ========================================================= */
 
 let imageTranslateX = 0;
@@ -13279,25 +13372,25 @@ let lastTapY = 0;
 
 
 /* =========================================================
-   APPLY ZOOM + PAN
+   APPLY ZOOM
 ========================================================= */
 
 function applyZoom() {
 
     const image =
-        document.getElementById("singleImage");
+        document.getElementById(
+            "singleImage"
+        );
 
     if (!image) {
         return;
     }
-
 
     image.style.transform =
         `translate(${imageTranslateX}px, ${imageTranslateY}px) scale(${zoomLevel})`;
 
     image.style.transformOrigin =
         "center center";
-
 
     if (zoomLevel > MIN_ZOOM) {
 
@@ -13337,14 +13430,13 @@ function zoomInOut() {
 
     }
 
-
     applyZoom();
 
 }
 
 
 /* =========================================================
-   RESET ZOOM + POSITION
+   RESET ZOOM
 ========================================================= */
 
 function resetZoom() {
@@ -13361,15 +13453,14 @@ function resetZoom() {
     isDraggingImage =
         false;
 
-
     const image =
-        document.getElementById("singleImage");
-
+        document.getElementById(
+            "singleImage"
+        );
 
     if (!image) {
         return;
     }
-
 
     image.style.transform =
         "translate(0px, 0px) scale(1)";
@@ -13387,7 +13478,7 @@ function resetZoom() {
 
 
 /* =========================================================
-   COMPUTER DOUBLE CLICK
+   DOUBLE CLICK
 ========================================================= */
 
 document.addEventListener(
@@ -13395,8 +13486,9 @@ document.addEventListener(
     function(event) {
 
         const image =
-            document.getElementById("singleImage");
-
+            document.getElementById(
+                "singleImage"
+            );
 
         if (
             !image ||
@@ -13404,7 +13496,6 @@ document.addEventListener(
         ) {
             return;
         }
-
 
         event.preventDefault();
 
@@ -13415,7 +13506,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   COMPUTER MOUSE DOWN
+   MOUSE DOWN
 ========================================================= */
 
 document.addEventListener(
@@ -13423,8 +13514,9 @@ document.addEventListener(
     function(event) {
 
         const image =
-            document.getElementById("singleImage");
-
+            document.getElementById(
+                "singleImage"
+            );
 
         if (
             !image ||
@@ -13434,10 +13526,8 @@ document.addEventListener(
             return;
         }
 
-
         isDraggingImage =
             true;
-
 
         dragStartX =
             event.clientX -
@@ -13447,13 +13537,11 @@ document.addEventListener(
             event.clientY -
             imageTranslateY;
 
-
         image.style.transition =
             "none";
 
         image.style.cursor =
             "grabbing";
-
 
         event.preventDefault();
 
@@ -13462,7 +13550,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   COMPUTER MOUSE MOVE
+   MOUSE MOVE
 ========================================================= */
 
 document.addEventListener(
@@ -13473,7 +13561,6 @@ document.addEventListener(
             return;
         }
 
-
         imageTranslateX =
             event.clientX -
             dragStartX;
@@ -13482,7 +13569,6 @@ document.addEventListener(
             event.clientY -
             dragStartY;
 
-
         applyZoom();
 
     }
@@ -13490,7 +13576,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   COMPUTER MOUSE UP
+   MOUSE UP
 ========================================================= */
 
 document.addEventListener(
@@ -13501,14 +13587,13 @@ document.addEventListener(
             return;
         }
 
-
         isDraggingImage =
             false;
 
-
         const image =
-            document.getElementById("singleImage");
-
+            document.getElementById(
+                "singleImage"
+            );
 
         if (image) {
 
@@ -13525,7 +13610,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   PHONE TOUCH START
+   TOUCH START
 ========================================================= */
 
 document.addEventListener(
@@ -13533,8 +13618,9 @@ document.addEventListener(
     function(event) {
 
         const image =
-            document.getElementById("singleImage");
-
+            document.getElementById(
+                "singleImage"
+            );
 
         if (
             !image ||
@@ -13543,15 +13629,12 @@ document.addEventListener(
             return;
         }
 
-
         const touch =
             event.changedTouches[0];
-
 
         if (!touch) {
             return;
         }
-
 
         touchStartX =
             touch.clientX;
@@ -13561,12 +13644,6 @@ document.addEventListener(
 
         touchStartTime =
             Date.now();
-
-
-        /*
-           When zoomed, remember where the
-           finger started so the image can move.
-        */
 
         if (zoomLevel > MIN_ZOOM) {
 
@@ -13588,7 +13665,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   PHONE TOUCH MOVE
+   TOUCH MOVE
 ========================================================= */
 
 document.addEventListener(
@@ -13596,8 +13673,9 @@ document.addEventListener(
     function(event) {
 
         const image =
-            document.getElementById("singleImage");
-
+            document.getElementById(
+                "singleImage"
+            );
 
         if (
             !image ||
@@ -13606,24 +13684,16 @@ document.addEventListener(
             return;
         }
 
-
-        /*
-           PAN ONLY WHEN ZOOMED
-        */
-
         if (zoomLevel <= MIN_ZOOM) {
             return;
         }
 
-
         const touch =
             event.changedTouches[0];
-
 
         if (!touch) {
             return;
         }
-
 
         imageTranslateX =
             touch.clientX -
@@ -13633,18 +13703,10 @@ document.addEventListener(
             touch.clientY -
             dragStartY;
 
-
         image.style.transition =
             "none";
 
-
         applyZoom();
-
-
-        /*
-           Prevent browser page movement
-           while moving the zoomed image.
-        */
 
         event.preventDefault();
 
@@ -13656,7 +13718,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   PHONE TOUCH END
+   TOUCH END
 ========================================================= */
 
 document.addEventListener(
@@ -13664,8 +13726,9 @@ document.addEventListener(
     function(event) {
 
         const image =
-            document.getElementById("singleImage");
-
+            document.getElementById(
+                "singleImage"
+            );
 
         if (
             !image ||
@@ -13674,15 +13737,12 @@ document.addEventListener(
             return;
         }
 
-
         const touch =
             event.changedTouches[0];
-
 
         if (!touch) {
             return;
         }
-
 
         const endX =
             touch.clientX;
@@ -13690,10 +13750,8 @@ document.addEventListener(
         const endY =
             touch.clientY;
 
-
         const currentTime =
             Date.now();
-
 
         const deltaX =
             endX -
@@ -13703,13 +13761,11 @@ document.addEventListener(
             endY -
             touchStartY;
 
-
         const absX =
             Math.abs(deltaX);
 
         const absY =
             Math.abs(deltaY);
-
 
         const distance =
             Math.sqrt(
@@ -13717,19 +13773,10 @@ document.addEventListener(
                 deltaY * deltaY
             );
 
-
         const duration =
             currentTime -
             touchStartTime;
 
-
-        /*
-           ==========================================
-           ZOOMED IMAGE
-           Do NOT change image.
-           Touch is used only for moving the image.
-           ==========================================
-        */
 
         if (zoomLevel > MIN_ZOOM) {
 
@@ -13737,14 +13784,11 @@ document.addEventListener(
                 "transform 0.15s ease";
 
             return;
+
         }
 
 
-        /*
-           ==========================================
-           LEFT / RIGHT SWIPE
-           ==========================================
-        */
+        /* SWIPE */
 
         if (
             distance >= 60 &&
@@ -13752,41 +13796,24 @@ document.addEventListener(
             duration < 800
         ) {
 
-            lastTapTime =
-                0;
-
-
-            /*
-               RIGHT → PREVIOUS
-            */
+            lastTapTime = 0;
 
             if (deltaX > 0) {
 
                 previousImage();
 
-            }
-
-
-            /*
-               LEFT → NEXT
-            */
-
-            else if (deltaX < 0) {
+            } else if (deltaX < 0) {
 
                 nextImage();
 
             }
 
-
             return;
+
         }
 
 
-        /*
-           ==========================================
-           DOUBLE TAP
-           ==========================================
-        */
+        /* DOUBLE TAP */
 
         if (
             distance < 25 &&
@@ -13796,7 +13823,6 @@ document.addEventListener(
             const timeSinceLastTap =
                 currentTime -
                 lastTapTime;
-
 
             const tapDistance =
                 Math.sqrt(
@@ -13812,7 +13838,6 @@ document.addEventListener(
                     )
                 );
 
-
             if (
                 timeSinceLastTap < 400 &&
                 tapDistance < 60
@@ -13820,17 +13845,13 @@ document.addEventListener(
 
                 event.preventDefault();
 
-
                 zoomInOut();
 
-
-                lastTapTime =
-                    0;
-
+                lastTapTime = 0;
 
                 return;
-            }
 
+            }
 
             lastTapTime =
                 currentTime;
@@ -13867,6 +13888,8 @@ document.addEventListener(
         passive: true
     }
 );
+
+
 /* =========================================================
    RESORT IMAGE LIGHTBOX
 ========================================================= */
@@ -13878,12 +13901,10 @@ function openResortImage(src) {
             "resortImageModal"
         );
 
-
     const image =
         document.getElementById(
             "resortFullImage"
         );
-
 
     if (
         !modal ||
@@ -13892,18 +13913,14 @@ function openResortImage(src) {
         return;
     }
 
-
     image.src =
         src;
-
 
     modal.classList.add(
         "active"
     );
 
-
     updateBodyScroll();
-
 
     pushModalHistory(
         "resortImageModal"
@@ -13921,11 +13938,9 @@ function closeResortImage(
             "resortImageModal"
         );
 
-
     if (!modal) {
         return;
     }
-
 
     if (
         useHistory &&
@@ -13936,11 +13951,9 @@ function closeResortImage(
         return;
     }
 
-
     modal.classList.remove(
         "active"
     );
-
 
     updateBodyScroll();
 
@@ -13949,35 +13962,80 @@ function closeResortImage(
 
 /* =========================================================
    PACKAGE IMAGE
+   FIXED
 ========================================================= */
 
-function openPackageImage(
-    src,
-    title
-) {
+function openPackageImage(src, title) {
+
+    /*
+     * DAY LONG IMAGE
+     * Opens special fullscreen viewer
+     */
+
+    if (
+        typeof src === "string" &&
+        src.toLowerCase().includes("day-long")
+    ) {
+
+        const viewer =
+            document.getElementById(
+                "dayLongImageViewer"
+            );
+
+        const fullImage =
+            document.getElementById(
+                "dayLongFullImage"
+            );
+
+        if (
+            viewer &&
+            fullImage
+        ) {
+
+            fullImage.src =
+                src;
+
+            fullImage.alt =
+                title ||
+                "Day Long Package";
+
+            viewer.classList.add(
+                "active"
+            );
+
+            document.body.classList.add(
+                "modal-open"
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    /*
+     * NORMAL PACKAGE IMAGE
+     */
 
     const modal =
         getModal(
             "packageImageModal"
         );
 
-
     const image =
         document.getElementById(
             "packageImage"
         );
-
 
     const titleElement =
         document.getElementById(
             "packageImageTitle"
         );
 
-
     if (!modal) {
         return;
     }
-
 
     if (image) {
 
@@ -13986,7 +14044,6 @@ function openPackageImage(
 
     }
 
-
     if (titleElement) {
 
         titleElement.textContent =
@@ -13994,14 +14051,11 @@ function openPackageImage(
 
     }
 
-
     modal.classList.add(
         "active"
     );
 
-
     updateBodyScroll();
-
 
     pushModalHistory(
         "packageImageModal"
@@ -14009,6 +14063,11 @@ function openPackageImage(
 
 }
 
+
+/* =========================================================
+   CLOSE PACKAGE IMAGE
+   IMPORTANT FIX
+========================================================= */
 
 function closePackageImage(
     useHistory = true
@@ -14019,11 +14078,9 @@ function closePackageImage(
             "packageImageModal"
         );
 
-
     if (!modal) {
         return;
     }
-
 
     if (
         useHistory &&
@@ -14034,11 +14091,1556 @@ function closePackageImage(
         return;
     }
 
+    modal.classList.remove(
+        "active"
+    );
+
+    updateBodyScroll();
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMenu() {
+
+    const nav =
+        document.getElementById(
+            "navLinks"
+        );
+
+    if (!nav) {
+        return;
+    }
+
+    nav.classList.toggle(
+        "active"
+    );
+
+}
+
+
+/* =========================================================
+   EXPLORE RANGAUTI
+   RESORT CARD SLIDESHOW
+========================================================= */
+
+const resortCardSlideshows = {
+
+    "Resort View": [
+
+        "images/resort-gallery/resort-view/cover.jpeg",
+        "images/resort-gallery/resort-view/01.jpeg",
+        "images/resort-gallery/resort-view/02.jpeg",
+        "images/resort-gallery/resort-view/03.png",
+        "images/resort-gallery/resort-view/04.jpeg",
+        "images/resort-gallery/resort-view/05.png",
+        "images/resort-gallery/resort-view/06.png",
+        "images/resort-gallery/resort-view/07.png",
+        "images/resort-gallery/resort-view/08.png",
+        "images/resort-gallery/resort-view/09.png",
+        "images/resort-gallery/resort-view/10.png",
+        "images/resort-gallery/resort-view/11.png",
+        "images/resort-gallery/resort-view/12.png",
+        "images/resort-gallery/resort-view/13.jpeg"
+
+    ],
+
+    "Lake View": [
+
+        "images/resort-gallery/lake-view/cover.png",
+        "images/resort-gallery/lake-view/01.jpeg",
+        "images/resort-gallery/lake-view/02.jpeg",
+        "images/resort-gallery/lake-view/03.png",
+        "images/resort-gallery/lake-view/04.png",
+        "images/resort-gallery/lake-view/05.jpeg",
+        "images/resort-gallery/lake-view/06.jpeg",
+        "images/resort-gallery/lake-view/07.jpeg"
+
+    ],
+
+    "Swimming Pool View": [
+
+        "images/resort-gallery/swimming-pool-view/cover.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming1.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming2.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming3.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming4.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming5.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming6.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming7.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming8.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming9.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming10.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming11.jpeg",
+        "images/resort-gallery/swimming-pool-view/Swimming12.jfif"
+
+    ],
+
+    "Natural Environment": [
+
+        "images/resort-gallery/natural-environment/cover.jpeg",
+        "images/resort-gallery/natural-environment/nature1.jpeg",
+        "images/resort-gallery/natural-environment/nature2.jpeg",
+        "images/resort-gallery/natural-environment/nature3.jpeg",
+        "images/resort-gallery/natural-environment/nature4.jpeg",
+        "images/resort-gallery/natural-environment/nature5.jpeg",
+        "images/resort-gallery/natural-environment/nature6.jpeg",
+        "images/resort-gallery/natural-environment/nature7.jpeg",
+        "images/resort-gallery/natural-environment/nature8.jpeg",
+        "images/resort-gallery/natural-environment/nature9.jpeg",
+        "images/resort-gallery/natural-environment/nature10.jpeg",
+        "images/resort-gallery/natural-environment/nature11.jpeg"
+
+    ],
+
+    "Boat Ride": [
+
+        "images/resort-gallery/boat-ride/cover.jpeg",
+        "images/resort-gallery/boat-ride/boat1.jpeg",
+        "images/resort-gallery/boat-ride/boat2.jpeg",
+        "images/resort-gallery/boat-ride/boat3.jpeg",
+        "images/resort-gallery/boat-ride/boat4.jpeg",
+        "images/resort-gallery/boat-ride/boat5.jpeg",
+        "images/resort-gallery/boat-ride/boat6.jpeg",
+        "images/resort-gallery/boat-ride/boat7.jpeg",
+        "images/resort-gallery/boat-ride/boat8.jpeg"
+
+    ],
+
+    "Peaceful Moments": [
+
+        "images/resort-gallery/peaceful-moments/Cover.jpeg",
+        "images/resort-gallery/peaceful-moments/moment1.jpeg",
+        "images/resort-gallery/peaceful-moments/moment2.jpeg",
+        "images/resort-gallery/peaceful-moments/moment3.jpeg",
+        "images/resort-gallery/peaceful-moments/moment4.jpeg",
+        "images/resort-gallery/peaceful-moments/moment5.jpeg",
+        "images/resort-gallery/peaceful-moments/moment6.jpeg",
+        "images/resort-gallery/peaceful-moments/moment7.jpeg",
+        "images/resort-gallery/peaceful-moments/moment8.jpeg",
+        "images/resort-gallery/peaceful-moments/moment9.jpeg",
+        "images/resort-gallery/peaceful-moments/moment10.jpeg",
+        "images/resort-gallery/peaceful-moments/moment11.jpeg",
+        "images/resort-gallery/peaceful-moments/moment12.jpeg",
+        "images/resort-gallery/peaceful-moments/moment13.jpeg",
+        "images/resort-gallery/peaceful-moments/moment14.jpeg",
+        "images/resort-gallery/peaceful-moments/moment15.jpeg",
+        "images/resort-gallery/peaceful-moments/moment16.jpeg"
+
+    ]
+
+};
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+const heroSlides =
+    document.querySelectorAll(
+        ".hero-slide"
+    );
+
+let heroCurrentSlide = 0;
+
+const heroSlideDuration =
+    6000;
+
+
+/* =========================================================
+   ROOM CARD SLIDESHOW
+========================================================= */
+
+function startRoomSlideshows() {
+
+    document
+        .querySelectorAll(
+            ".room-card-slideshow"
+        )
+        .forEach(function(slideshow) {
+
+            const slides =
+                slideshow.querySelectorAll(
+                    ".room-slide"
+                );
+
+            if (slides.length <= 1) {
+                return;
+            }
+
+            let current = 0;
+
+            setInterval(function() {
+
+                slides[current]
+                    .classList
+                    .remove("active");
+
+                current++;
+
+                if (
+                    current >=
+                    slides.length
+                ) {
+
+                    current = 0;
+
+                }
+
+                slides[current]
+                    .classList
+                    .add("active");
+
+            }, 4000);
+
+        });
+
+}
+
+
+/* =========================================================
+   RESORT CARD SLIDESHOW
+========================================================= */
+
+function startResortSlideshows() {
+
+    const cards =
+        document.querySelectorAll(
+            ".resort-gallery-item"
+        );
+
+    cards.forEach(function(card) {
+
+        const overlay =
+            card.querySelector(
+                ".resort-gallery-overlay"
+            );
+
+        const image =
+            card.querySelector("img");
+
+        if (
+            !overlay ||
+            !image
+        ) {
+            return;
+        }
+
+        const title =
+            overlay.textContent.trim();
+
+        const images =
+            resortCardSlideshows[title];
+
+        if (
+            !images ||
+            images.length < 2
+        ) {
+            return;
+        }
+
+        let currentIndex = 0;
+
+        image.classList.add(
+            "smooth-slide-image"
+        );
+
+        setInterval(function() {
+
+            image.classList.add(
+                "slide-out"
+            );
+
+            setTimeout(function() {
+
+                currentIndex++;
+
+                if (
+                    currentIndex >=
+                    images.length
+                ) {
+
+                    currentIndex = 0;
+
+                }
+
+                image.src =
+                    images[currentIndex];
+
+                image.classList.remove(
+                    "slide-out"
+                );
+
+                image.classList.add(
+                    "slide-in"
+                );
+
+                setTimeout(function() {
+
+                    image.classList.remove(
+                        "slide-in"
+                    );
+
+                }, 700);
+
+            }, 700);
+
+        }, 4000);
+
+    });
+
+}
+
+
+/* =========================================================
+   AUTOMATIC ROOM SELECTION FROM URL
+========================================================= */
+
+function selectRoomFromURL() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const roomName =
+        params.get("room");
+
+    if (!roomName) {
+        return;
+    }
+
+    const roomSelect =
+        document.querySelector(
+            ".room-type[data-room='1']"
+        );
+
+    if (!roomSelect) {
+        return;
+    }
+
+    const targetRoom =
+        roomName
+            .trim()
+            .toLowerCase();
+
+    const option =
+        Array.from(
+            roomSelect.options
+        ).find(function(option) {
+
+            return option.value
+                .trim()
+                .toLowerCase() ===
+                targetRoom;
+
+        });
+
+    if (!option) {
+        return;
+    }
+
+    roomSelect.value =
+        option.value;
+
+    updateAdultOptions(
+        roomSelect
+    );
+
+    const adultSelect =
+        document.querySelector(
+            ".adult-count[data-room='1']"
+        );
+
+    if (adultSelect) {
+
+        adultSelect.value =
+            "1";
+
+        updateChildLimit(
+            adultSelect
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+function initializeFAQ() {
+
+    const faqQuestions =
+        document.querySelectorAll(
+            ".faq-question"
+        );
+
+    faqQuestions.forEach(
+        function(question) {
+
+            question.addEventListener(
+                "click",
+                function() {
+
+                    const currentItem =
+                        question.closest(
+                            ".faq-item"
+                        );
+
+                    document
+                        .querySelectorAll(
+                            ".faq-item"
+                        )
+                        .forEach(
+                            function(item) {
+
+                                if (
+                                    item !==
+                                    currentItem
+                                ) {
+
+                                    item.classList
+                                        .remove(
+                                            "active"
+                                        );
+
+                                }
+
+                            }
+                        );
+
+                    if (currentItem) {
+
+                        currentItem.classList
+                            .toggle(
+                                "active"
+                            );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SUPER FAMILY DELUXE
+========================================================= */
+
+const superFamilyImages = [
+
+    "rooms/gallery/super-family-deluxe/room1.jpeg",
+    "rooms/gallery/super-family-deluxe/room2.jpeg",
+    "rooms/gallery/super-family-deluxe/room3.jpeg",
+    "rooms/gallery/super-family-deluxe/room4.jpeg"
+
+];
+
+let superFamilyCurrentImage = 0;
+
+
+function updateSuperFamilyImage() {
+
+    const mainImage =
+        document.getElementById(
+            "superFamilyMainImage"
+        );
+
+    const thumbnails =
+        document.querySelectorAll(
+            ".super-family-thumb"
+        );
+
+    if (!mainImage) {
+        return;
+    }
+
+    mainImage.src =
+        superFamilyImages[
+            superFamilyCurrentImage
+        ];
+
+    thumbnails.forEach(
+        function(thumb, index) {
+
+            thumb.classList.toggle(
+                "active",
+                index ===
+                superFamilyCurrentImage
+            );
+
+        }
+    );
+
+}
+
+
+function selectSuperFamilyImage(index) {
+
+    if (
+        index < 0 ||
+        index >=
+        superFamilyImages.length
+    ) {
+        return;
+    }
+
+    superFamilyCurrentImage =
+        index;
+
+    updateSuperFamilyImage();
+
+}
+
+
+function changeSuperFamilyImage(direction) {
+
+    superFamilyCurrentImage +=
+        direction;
+
+    if (
+        superFamilyCurrentImage >=
+        superFamilyImages.length
+    ) {
+
+        superFamilyCurrentImage = 0;
+
+    }
+
+    if (
+        superFamilyCurrentImage < 0
+    ) {
+
+        superFamilyCurrentImage =
+            superFamilyImages.length - 1;
+
+    }
+
+    updateSuperFamilyImage();
+
+}
+
+
+/* =========================================================
+   FAMILY DELUXE
+========================================================= */
+
+const familyDeluxeImages = [
+
+    "rooms/family-deluxe/room1.jpeg",
+    "rooms/family-deluxe/room2.jpeg",
+    "rooms/family-deluxe/room3.jpeg",
+    "rooms/family-deluxe/room4.jpeg"
+
+];
+
+let familyDeluxeCurrentImage = 0;
+
+
+function selectFamilyDeluxeImage(index) {
+
+    if (
+        index < 0 ||
+        index >=
+        familyDeluxeImages.length
+    ) {
+        return;
+    }
+
+    familyDeluxeCurrentImage =
+        index;
+
+    const mainImage =
+        document.getElementById(
+            "familyDeluxeMainImage"
+        );
+
+    const thumbnails =
+        document.querySelectorAll(
+            ".family-deluxe-thumb"
+        );
+
+    if (!mainImage) {
+        return;
+    }
+
+    mainImage.src =
+        familyDeluxeImages[index];
+
+    thumbnails.forEach(
+        function(thumb, i) {
+
+            thumb.classList.toggle(
+                "active",
+                i === index
+            );
+
+        }
+    );
+
+}
+
+
+function changeFamilyDeluxeImage(direction) {
+
+    familyDeluxeCurrentImage +=
+        direction;
+
+    if (
+        familyDeluxeCurrentImage >=
+        familyDeluxeImages.length
+    ) {
+
+        familyDeluxeCurrentImage = 0;
+
+    }
+
+    if (
+        familyDeluxeCurrentImage < 0
+    ) {
+
+        familyDeluxeCurrentImage =
+            familyDeluxeImages.length - 1;
+
+    }
+
+    selectFamilyDeluxeImage(
+        familyDeluxeCurrentImage
+    );
+
+}
+
+
+/* =========================================================
+   SUPER DELUXE COTTAGE
+========================================================= */
+
+const cottageImages = [
+
+    "rooms/super-deluxe-cottage-1.jpeg",
+    "rooms/super-deluxe-cottage-2.jpeg",
+    "rooms/super-deluxe-cottage-3.jpeg",
+    "rooms/super-deluxe-cottage-4.jpeg",
+    "rooms/super-deluxe-cottage-5.png",
+    "rooms/super-deluxe-cottage-6.png"
+
+];
+
+let cottageCurrentImage = 0;
+
+
+function updateCottageImage() {
+
+    const mainImage =
+        document.getElementById(
+            "cottageMainImage"
+        );
+
+    const thumbnails =
+        document.querySelectorAll(
+            ".cottage-thumb"
+        );
+
+    if (!mainImage) {
+        return;
+    }
+
+    mainImage.src =
+        cottageImages[
+            cottageCurrentImage
+        ];
+
+    thumbnails.forEach(
+        function(thumb, index) {
+
+            thumb.classList.toggle(
+                "active",
+                index ===
+                cottageCurrentImage
+            );
+
+        }
+    );
+
+}
+
+
+function selectCottageImage(index) {
+
+    if (
+        index < 0 ||
+        index >= cottageImages.length
+    ) {
+        return;
+    }
+
+    cottageCurrentImage =
+        index;
+
+    updateCottageImage();
+
+}
+
+
+function changeCottageImage(direction) {
+
+    cottageCurrentImage +=
+        direction;
+
+    if (
+        cottageCurrentImage < 0
+    ) {
+
+        cottageCurrentImage =
+            cottageImages.length - 1;
+
+    }
+
+    if (
+        cottageCurrentImage >=
+        cottageImages.length
+    ) {
+
+        cottageCurrentImage = 0;
+
+    }
+
+    updateCottageImage();
+
+}
+
+
+/* =========================================================
+   SUPER DELUXE SWIMMING POOL
+========================================================= */
+
+const superDeluxePoolImages = [
+
+    "rooms/gallery/swimming-pool/room1.jpeg",
+    "rooms/gallery/swimming-pool/room2.jpeg",
+    "rooms/gallery/swimming-pool/room3.jpeg",
+    "rooms/gallery/swimming-pool/room4.jpeg"
+
+];
+
+let superDeluxePoolCurrentImage = 0;
+
+
+function updateSuperDeluxePoolImage() {
+
+    const mainImage =
+        document.getElementById(
+            "superDeluxePoolMainImage"
+        );
+
+    if (!mainImage) {
+        return;
+    }
+
+    mainImage.src =
+        superDeluxePoolImages[
+            superDeluxePoolCurrentImage
+        ];
+
+    document
+        .querySelectorAll(
+            ".super-deluxe-pool-thumb"
+        )
+        .forEach(
+            function(thumb, index) {
+
+                thumb.classList.toggle(
+                    "active",
+                    index ===
+                    superDeluxePoolCurrentImage
+                );
+
+            }
+        );
+
+}
+
+
+function selectSuperDeluxePoolImage(index) {
+
+    if (
+        index < 0 ||
+        index >=
+        superDeluxePoolImages.length
+    ) {
+        return;
+    }
+
+    superDeluxePoolCurrentImage =
+        index;
+
+    updateSuperDeluxePoolImage();
+
+}
+
+
+function changeSuperDeluxePoolImage(direction) {
+
+    superDeluxePoolCurrentImage +=
+        direction;
+
+    if (
+        superDeluxePoolCurrentImage >=
+        superDeluxePoolImages.length
+    ) {
+
+        superDeluxePoolCurrentImage = 0;
+
+    }
+
+    if (
+        superDeluxePoolCurrentImage < 0
+    ) {
+
+        superDeluxePoolCurrentImage =
+            superDeluxePoolImages.length - 1;
+
+    }
+
+    updateSuperDeluxePoolImage();
+
+}
+
+
+/* =========================================================
+   SUITE JOLOJUCHONA
+========================================================= */
+
+const jolojuchonaImages = [
+
+    "rooms/gallery/suite-jolojuchona/room1.jpeg",
+    "rooms/gallery/suite-jolojuchona/room2.jpeg",
+    "rooms/gallery/suite-jolojuchona/room3.jpeg",
+    "rooms/gallery/suite-jolojuchona/room4.jpeg",
+    "rooms/gallery/suite-jolojuchona/room5.jpeg",
+    "rooms/gallery/suite-jolojuchona/Room6.png"
+
+];
+
+let jolojuchonaCurrentImage = 0;
+
+
+function updateJolojuchonaImage() {
+
+    const mainImage =
+        document.getElementById(
+            "jolojuchonaMainImage"
+        );
+
+    if (!mainImage) {
+        return;
+    }
+
+    mainImage.src =
+        jolojuchonaImages[
+            jolojuchonaCurrentImage
+        ];
+
+    document
+        .querySelectorAll(
+            ".jolojuchona-thumb"
+        )
+        .forEach(
+            function(thumb, index) {
+
+                thumb.classList.toggle(
+                    "active",
+                    index ===
+                    jolojuchonaCurrentImage
+                );
+
+            }
+        );
+
+}
+
+
+function selectJolojuchonaImage(index) {
+
+    if (
+        index < 0 ||
+        index >=
+        jolojuchonaImages.length
+    ) {
+        return;
+    }
+
+    jolojuchonaCurrentImage =
+        index;
+
+    updateJolojuchonaImage();
+
+}
+
+
+function changeJolojuchonaImage(direction) {
+
+    jolojuchonaCurrentImage +=
+        direction;
+
+    if (
+        jolojuchonaCurrentImage >=
+        jolojuchonaImages.length
+    ) {
+
+        jolojuchonaCurrentImage = 0;
+
+    }
+
+    if (
+        jolojuchonaCurrentImage < 0
+    ) {
+
+        jolojuchonaCurrentImage =
+            jolojuchonaImages.length - 1;
+
+    }
+
+    updateJolojuchonaImage();
+
+}
+
+
+/* =========================================================
+   SPECIAL FAMILY DELUXE
+========================================================= */
+
+const specialFamilyImages = [
+
+    "rooms/special-family-deluxe/room1.jpeg",
+    "rooms/special-family-deluxe/room2.jpeg",
+    "rooms/special-family-deluxe/room3.jpeg",
+    "rooms/special-family-deluxe/room4.jpeg"
+
+];
+
+let specialFamilyCurrentImage = 0;
+
+
+function updateSpecialFamilyImage() {
+
+    const mainImage =
+        document.getElementById(
+            "specialFamilyMainImage"
+        );
+
+    if (!mainImage) {
+        return;
+    }
+
+    mainImage.src =
+        specialFamilyImages[
+            specialFamilyCurrentImage
+        ];
+
+    document
+        .querySelectorAll(
+            ".special-family-thumb"
+        )
+        .forEach(
+            function(thumb, index) {
+
+                thumb.classList.toggle(
+                    "active",
+                    index ===
+                    specialFamilyCurrentImage
+                );
+
+            }
+        );
+
+}
+
+
+function selectSpecialFamilyImage(index) {
+
+    if (
+        index < 0 ||
+        index >=
+        specialFamilyImages.length
+    ) {
+        return;
+    }
+
+    specialFamilyCurrentImage =
+        index;
+
+    updateSpecialFamilyImage();
+
+}
+
+
+function changeSpecialFamilyImage(direction) {
+
+    specialFamilyCurrentImage +=
+        direction;
+
+    if (
+        specialFamilyCurrentImage >=
+        specialFamilyImages.length
+    ) {
+
+        specialFamilyCurrentImage = 0;
+
+    }
+
+    if (
+        specialFamilyCurrentImage < 0
+    ) {
+
+        specialFamilyCurrentImage =
+            specialFamilyImages.length - 1;
+
+    }
+
+    updateSpecialFamilyImage();
+
+}
+
+
+/* =========================================================
+   SPECIAL SUPER DELUXE
+========================================================= */
+
+const specialSuperImages = [
+
+    "rooms/special-super-deluxe-1.jpeg",
+    "rooms/special-super-deluxe-2.jpeg",
+    "rooms/special-super-deluxe-3.jpeg",
+    "rooms/special-super-deluxe-4.jpeg"
+
+];
+
+let specialSuperCurrentImage = 0;
+
+
+function updateSpecialSuperImage() {
+
+    const mainImage =
+        document.getElementById(
+            "specialSuperMainImage"
+        );
+
+    if (!mainImage) {
+        return;
+    }
+
+    mainImage.src =
+        specialSuperImages[
+            specialSuperCurrentImage
+        ];
+
+    document
+        .querySelectorAll(
+            ".special-super-thumb"
+        )
+        .forEach(
+            function(thumb, index) {
+
+                thumb.classList.toggle(
+                    "active",
+                    index ===
+                    specialSuperCurrentImage
+                );
+
+            }
+        );
+
+}
+
+
+function selectSpecialSuperImage(index) {
+
+    if (
+        index < 0 ||
+        index >=
+        specialSuperImages.length
+    ) {
+        return;
+    }
+
+    specialSuperCurrentImage =
+        index;
+
+    updateSpecialSuperImage();
+
+}
+
+
+function changeSpecialSuperImage(direction) {
+
+    specialSuperCurrentImage +=
+        direction;
+
+    if (
+        specialSuperCurrentImage >=
+        specialSuperImages.length
+    ) {
+
+        specialSuperCurrentImage = 0;
+
+    }
+
+    if (
+        specialSuperCurrentImage < 0
+    ) {
+
+        specialSuperCurrentImage =
+            specialSuperImages.length - 1;
+
+    }
+
+    updateSpecialSuperImage();
+
+}
+
+
+/* =========================================================
+   ROOM DETAILS — OPEN
+========================================================= */
+
+function openRoomDetails(id) {
+
+    const modal =
+        document.getElementById(id);
+
+    if (!modal) {
+
+        console.warn(
+            "Room modal not found:",
+            id
+        );
+
+        return;
+
+    }
+
+    document
+        .querySelectorAll(
+            ".room-details-modal.active"
+        )
+        .forEach(
+            function(item) {
+
+                item.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    modal.classList.add(
+        "active"
+    );
+
+    document.body.classList.add(
+        "modal-open"
+    );
+
+
+    if (
+        id ===
+        "superFamilyDetails"
+    ) {
+
+        superFamilyCurrentImage = 0;
+
+        updateSuperFamilyImage();
+
+    }
+
+
+    if (
+        id ===
+        "familyDeluxeDetails"
+    ) {
+
+        familyDeluxeCurrentImage = 0;
+
+        selectFamilyDeluxeImage(0);
+
+    }
+
+
+    if (
+        id ===
+        "cottageDetails"
+    ) {
+
+        cottageCurrentImage = 0;
+
+        updateCottageImage();
+
+    }
+
+
+    if (
+        id ===
+        "superDeluxePoolDetails"
+    ) {
+
+        superDeluxePoolCurrentImage = 0;
+
+        updateSuperDeluxePoolImage();
+
+    }
+
+
+    if (
+        id ===
+        "jolojuchonaDetails"
+    ) {
+
+        jolojuchonaCurrentImage = 0;
+
+        updateJolojuchonaImage();
+
+    }
+
+
+    if (
+        id ===
+        "specialFamilyDetails"
+    ) {
+
+        specialFamilyCurrentImage = 0;
+
+        updateSpecialFamilyImage();
+
+    }
+
+
+    if (
+        id ===
+        "specialSuperDetails"
+    ) {
+
+        specialSuperCurrentImage = 0;
+
+        updateSpecialSuperImage();
+
+    }
+
+}
+
+
+/* =========================================================
+   ROOM DETAILS — CLOSE
+========================================================= */
+
+function closeRoomDetails(id) {
+
+    const modal =
+        document.getElementById(id);
+
+    if (!modal) {
+        return;
+    }
 
     modal.classList.remove(
         "active"
     );
 
+    updateBodyScroll();
+
+}
+
+
+/* =========================================================
+   SWIMMING PACKAGE IMAGE
+========================================================= */
+
+function selectSwimmingImage(index) {
+
+    const images = [
+        "images/packages/swimming.jpeg"
+    ];
+
+    const mainImage =
+        document.getElementById(
+            "swimmingMainImage"
+        );
+
+    if (
+        !mainImage ||
+        !images[index]
+    ) {
+        return;
+    }
+
+    mainImage.src =
+        images[index];
+
+    document
+        .querySelectorAll(
+            ".swimming-thumb"
+        )
+        .forEach(
+            function(thumb, i) {
+
+                thumb.classList.toggle(
+                    "active",
+                    i === index
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   PACKAGE DETAILS
+========================================================= */
+
+function openPackageDetails(id) {
+
+    const modal =
+        document.getElementById(id);
+
+    if (!modal) {
+
+        console.warn(
+            "Package modal not found:",
+            id
+        );
+
+        return;
+
+    }
+
+    document
+        .querySelectorAll(
+            ".package-details-modal.active"
+        )
+        .forEach(
+            function(item) {
+
+                item.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    modal.classList.add(
+        "active"
+    );
+
+    document.body.classList.add(
+        "modal-open"
+    );
+
+
+    if (
+        id ===
+        "dayLongDetails"
+    ) {
+
+        currentDayLongImage = 0;
+
+        selectDayLongImage(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   CLOSE PACKAGE DETAILS
+========================================================= */
+
+function closePackageDetails(id) {
+
+    const modal =
+        document.getElementById(id);
+
+    if (!modal) {
+        return;
+    }
+
+    modal.classList.remove(
+        "active"
+    );
+
+    updateBodyScroll();
+
+}
+
+
+/* =========================================================
+   DAY LONG PACKAGE
+========================================================= */
+
+const dayLongImages = [
+
+    "images/packages/day-long.jpeg",
+    "images/packages/day-long-2.jpeg",
+    "images/packages/day-long-3.jpeg",
+    "images/packages/day-long-4.jpeg",
+    "images/packages/day-long-5.jpeg",
+    "images/packages/day-long-6.jpeg",
+    "images/packages/day-long-7.jpeg",
+    "images/packages/day-long-8.jpeg"
+
+];
+
+let currentDayLongImage = 0;
+
+
+/* =========================================================
+   SELECT DAY LONG IMAGE
+========================================================= */
+
+function selectDayLongImage(index) {
+
+    const mainImage =
+        document.getElementById(
+            "dayLongMainImage"
+        );
+
+    if (!mainImage) {
+        return;
+    }
+
+    if (!dayLongImages[index]) {
+        return;
+    }
+
+    currentDayLongImage =
+        index;
+
+    mainImage.src =
+        dayLongImages[index];
+
+    document
+        .querySelectorAll(
+            ".day-long-thumb"
+        )
+        .forEach(
+            function(thumb, i) {
+
+                thumb.classList.toggle(
+                    "active",
+                    i === index
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   DAY LONG NEXT / PREVIOUS
+========================================================= */
+function changeDayLongImage(direction) {
+
+    let newIndex = currentDayLongImage + direction;
+
+    if (newIndex >= dayLongImages.length) {
+        newIndex = 0;
+    }
+
+    if (newIndex < 0) {
+        newIndex = dayLongImages.length - 1;
+    }
+
+    selectDayLongImage(newIndex);
+
+    /* Fullscreen viewer active থাকলে সেটাও update হবে */
+    const viewer = document.getElementById("dayLongImageViewer");
+    const fullImage = document.getElementById("dayLongFullImage");
+
+    if (
+        viewer &&
+        viewer.classList.contains("active") &&
+        fullImage
+    ) {
+        fullImage.src = dayLongImages[newIndex];
+    }
+}
+
+
+/* =========================================================
+   DAY LONG FULLSCREEN
+========================================================= */
+
+function openDayLongImage() {
+
+    const viewer =
+        document.getElementById(
+            "dayLongImageViewer"
+        );
+
+    const mainImage =
+        document.getElementById(
+            "dayLongMainImage"
+        );
+
+    const fullImage =
+        document.getElementById(
+            "dayLongFullImage"
+        );
+
+    if (
+        !viewer ||
+        !mainImage ||
+        !fullImage
+    ) {
+        return;
+    }
+
+    fullImage.src =
+        mainImage.src;
+
+    fullImage.alt =
+        mainImage.alt ||
+        "Day Long Package";
+
+    viewer.classList.add(
+        "active"
+    );
+
+    document.body.classList.add(
+        "modal-open"
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE DAY LONG FULLSCREEN
+========================================================= */
+
+function closeDayLongImage() {
+
+    const viewer =
+        document.getElementById(
+            "dayLongImageViewer"
+        );
+
+    if (!viewer) {
+        return;
+    }
+
+    viewer.classList.remove(
+        "active"
+    );
 
     updateBodyScroll();
 
@@ -14047,18 +15649,11 @@ function closePackageImage(
 
 /* =========================================================
    BROWSER / PHONE BACK BUTTON
-   ONE MODAL AT A TIME
 ========================================================= */
 
 window.addEventListener(
     "popstate",
     function() {
-
-        /*
-         * The browser has moved back one history step.
-         * Close only the currently top-most modal.
-         */
-
 
         if (
             modalHistoryDepth > 0
@@ -14068,7 +15663,6 @@ window.addEventListener(
 
         }
 
-
         const activeModals =
             Array.from(
                 document.querySelectorAll(
@@ -14076,29 +15670,24 @@ window.addEventListener(
                 )
             );
 
-
         if (
             activeModals.length === 0
         ) {
 
-            document.body.style.overflow =
-                "";
+            updateBodyScroll();
 
             return;
 
         }
-
 
         const topModal =
             activeModals[
                 activeModals.length - 1
             ];
 
-
         topModal.classList.remove(
             "active"
         );
-
 
         if (
             topModal.id ===
@@ -14108,7 +15697,6 @@ window.addEventListener(
             resetZoom();
 
         }
-
 
         updateBodyScroll();
 
@@ -14131,7 +15719,6 @@ document.addEventListener(
         ) {
             return;
         }
-
 
         const modal =
             event.target;
@@ -14183,100 +15770,167 @@ document.addEventListener(
 
 /* =========================================================
    ESC KEY
+   ONE CLEAN LISTENER
 ========================================================= */
 
 document.addEventListener(
     "keydown",
     function(event) {
 
+        if (
+            event.key !==
+            "Escape"
+        ) {
+            return;
+        }
+
+
+        /* DAY LONG FULLSCREEN */
+
+        const dayLongViewer =
+            document.getElementById(
+                "dayLongImageViewer"
+            );
+
+        if (
+            dayLongViewer &&
+            dayLongViewer.classList.contains(
+                "active"
+            )
+        ) {
+
+            closeDayLongImage();
+
+            return;
+
+        }
+
+
+        /* ROOM DETAILS */
+
+        const activeRoom =
+            document.querySelector(
+                ".room-details-modal.active"
+            );
+
+        if (activeRoom) {
+
+            closeRoomDetails(
+                activeRoom.id
+            );
+
+            return;
+
+        }
+
+
+        /* PACKAGE DETAILS */
+
+        const activePackage =
+            document.querySelector(
+                ".package-details-modal.active"
+            );
+
+        if (activePackage) {
+
+            closePackageDetails(
+                activePackage.id
+            );
+
+            return;
+
+        }
+
+
+        /* SINGLE IMAGE */
+
         const singleImageModal =
             getModal(
                 "singleImageModal"
             );
 
-
-        /* ESC */
-
         if (
-            event.key === "Escape"
+            singleImageModal &&
+            singleImageModal.classList.contains(
+                "active"
+            )
         ) {
 
-            if (
-                singleImageModal &&
-                singleImageModal.classList.contains(
-                    "active"
-                )
-            ) {
-
-                closeSingleImage();
-
-                return;
-
-            }
-
-
-            const activeModals =
-                Array.from(
-                    document.querySelectorAll(
-                        ".modal.active"
-                    )
-                );
-
-
-            if (
-                activeModals.length === 0
-            ) {
-                return;
-            }
-
-
-            const topModal =
-                activeModals[
-                    activeModals.length - 1
-                ];
-
-
-            if (
-                topModal.id ===
-                "resortImageModal"
-            ) {
-
-                closeResortImage();
-
-            } else if (
-                topModal.id ===
-                "packageImageModal"
-            ) {
-
-                closePackageImage();
-
-            } else {
-
-                closeGallery(
-                    topModal.id
-                );
-
-            }
-
+            closeSingleImage();
 
             return;
 
         }
 
 
-        /* -----------------------------------------
-           KEYBOARD NEXT / PREVIOUS
-        ----------------------------------------- */
+        /* NORMAL MODALS */
+
+        const activeModals =
+            Array.from(
+                document.querySelectorAll(
+                    ".modal.active"
+                )
+            );
 
         if (
-            !singleImageModal ||
-            !singleImageModal.classList.contains(
+            activeModals.length === 0
+        ) {
+            return;
+        }
+
+        const topModal =
+            activeModals[
+                activeModals.length - 1
+            ];
+
+
+        if (
+            topModal.id ===
+            "resortImageModal"
+        ) {
+
+            closeResortImage();
+
+        } else if (
+            topModal.id ===
+            "packageImageModal"
+        ) {
+
+            closePackageImage();
+
+        } else {
+
+            closeGallery(
+                topModal.id
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   KEYBOARD NEXT / PREVIOUS
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        const modal =
+            document.getElementById(
+                "singleImageModal"
+            );
+
+        if (
+            !modal ||
+            !modal.classList.contains(
                 "active"
             )
         ) {
             return;
         }
-
 
         if (
             event.key ===
@@ -14306,21 +15960,341 @@ document.addEventListener(
 
 
 /* =========================================================
-   INITIALIZE
+   LANGUAGE DROPDOWN
+========================================================= */
+
+function toggleLanguageMenu() {
+
+    const menu =
+        document.querySelector(
+            ".language-menu"
+        );
+
+    if (menu) {
+
+        menu.classList.toggle(
+            "open"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   LANGUAGE SWITCH
+========================================================= */
+
+function setLanguage(language) {
+
+    const elements =
+        document.querySelectorAll(
+            "[data-en][data-bn]"
+        );
+
+    elements.forEach(
+        function(element) {
+
+            if (
+                language === "bn"
+            ) {
+
+                element.innerHTML =
+                    element.getAttribute(
+                        "data-bn"
+                    );
+
+            } else {
+
+                element.innerHTML =
+                    element.getAttribute(
+                        "data-en"
+                    );
+
+            }
+
+        }
+    );
+
+
+    const buttons =
+        document.querySelectorAll(
+            ".language-options button"
+        );
+
+    buttons.forEach(
+        function(button) {
+
+            button.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+    if (
+        language === "bn"
+    ) {
+
+        if (buttons[1]) {
+
+            buttons[1].classList.add(
+                "active"
+            );
+
+        }
+
+    } else {
+
+        if (buttons[0]) {
+
+            buttons[0].classList.add(
+                "active"
+            );
+
+        }
+
+    }
+
+
+    localStorage.setItem(
+        "rangautiLanguage",
+        language
+    );
+
+
+    const languageMenu =
+        document.querySelector(
+            ".language-menu"
+        );
+
+    if (languageMenu) {
+
+        languageMenu.classList.remove(
+            "open"
+        );
+
+    }
+
+
+    const nav =
+        document.getElementById(
+            "navLinks"
+        );
+
+    if (nav) {
+
+        nav.classList.remove(
+            "active"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   LIVE DATE & TIME
+========================================================= */
+
+function updateLiveDateTime() {
+
+    const timeElement =
+        document.getElementById(
+            "liveTime"
+        );
+
+    const dateElement =
+        document.getElementById(
+            "liveDate"
+        );
+
+    if (
+        !timeElement ||
+        !dateElement
+    ) {
+        return;
+    }
+
+    const now =
+        new Date();
+
+    const currentLanguage =
+        localStorage.getItem(
+            "rangautiLanguage"
+        ) || "en";
+
+
+    if (
+        currentLanguage === "en"
+    ) {
+
+        const time =
+            now.toLocaleTimeString(
+                "en-US",
+                {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    hour12: true
+                }
+            );
+
+        const date =
+            now.toLocaleDateString(
+                "en-US",
+                {
+                    weekday: "long",
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric"
+                }
+            );
+
+        timeElement.textContent =
+            time;
+
+        dateElement.textContent =
+            date;
+
+    } else {
+
+        const time =
+            now.toLocaleTimeString(
+                "bn-BD",
+                {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    hour12: true
+                }
+            );
+
+        const date =
+            now.toLocaleDateString(
+                "bn-BD",
+                {
+                    weekday: "long",
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric"
+                }
+            );
+
+        timeElement.textContent =
+            time;
+
+        dateElement.textContent =
+            date;
+
+    }
+
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+function playRangautiVideo() {
+
+    const video =
+        document.getElementById(
+            "rangautiVideo"
+        );
+
+    const button =
+        document.querySelector(
+            ".video-play-button"
+        );
+
+    if (!video) {
+        return;
+    }
+
+    video.play();
+
+    if (button) {
+
+        button.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE MENU CLOSE
+========================================================= */
+
+function closeMobileMenuAfterClick() {
+
+    document
+        .querySelectorAll(
+            "#navLinks a"
+        )
+        .forEach(
+            function(link) {
+
+                link.addEventListener(
+                    "click",
+                    function() {
+
+                        const nav =
+                            document.getElementById(
+                                "navLinks"
+                            );
+
+                        if (nav) {
+
+                            nav.classList.remove(
+                                "active"
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   INITIALIZE EVERYTHING
+   ONLY ONE DOMCONTENTLOADED
 ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
     function() {
 
+
+        /* ROOM BOOKING */
+
         createRoomDetails();
 
+
+        setTimeout(
+            function() {
+
+                selectRoomFromURL();
+
+            },
+            100
+        );
+
+
+        /* IMAGE ZOOM */
 
         const image =
             document.getElementById(
                 "singleImage"
             );
-
 
         if (image) {
 
@@ -14338,1653 +16312,133 @@ document.addEventListener(
 
         }
 
-    }
-);
-function toggleMenu() {
-    const nav = document.getElementById("navLinks");
 
-    if (!nav) return;
+        /* HERO */
 
-    nav.classList.toggle("active");
-}
+        if (
+            heroSlides.length > 1
+        ) {
 
+            setInterval(
+                function() {
 
-/* CLOSE MOBILE MENU AFTER CLICKING A MENU LINK */
+                    heroSlides[
+                        heroCurrentSlide
+                    ]
+                    .classList
+                    .remove(
+                        "active"
+                    );
 
-document.querySelectorAll("#navLinks a").forEach(function(link) {
+                    heroCurrentSlide++;
 
-    link.addEventListener("click", function() {
+                    if (
+                        heroCurrentSlide >=
+                        heroSlides.length
+                    ) {
 
-        const nav = document.getElementById("navLinks");
+                        heroCurrentSlide = 0;
 
-        if (nav) {
-            nav.classList.remove("active");
+                    }
+
+                    heroSlides[
+                        heroCurrentSlide
+                    ]
+                    .classList
+                    .add(
+                        "active"
+                    );
+
+                },
+                heroSlideDuration
+            );
+
         }
 
-    });
-
-});
-
-
-/* =========================================================
-   EXPLORE RANGAUTI
-   SMOOTH SLIDE SHOW
-========================================================= */
-
-const resortCardSlideshows = {
-
-    "Resort View": [
-        "images/resort-gallery/resort-view/cover.jpeg",
-        "images/resort-gallery/resort-view/01.jpeg",
-        "images/resort-gallery/resort-view/02.jpeg",
-        "images/resort-gallery/resort-view/03.png",
-        "images/resort-gallery/resort-view/04.jpeg",
-        "images/resort-gallery/resort-view/05.png",
-        "images/resort-gallery/resort-view/06.png",
-        "images/resort-gallery/resort-view/07.png",
-        "images/resort-gallery/resort-view/08.png",
-        "images/resort-gallery/resort-view/09.png",
-        "images/resort-gallery/resort-view/10.png",
-        "images/resort-gallery/resort-view/11.png",
-        "images/resort-gallery/resort-view/12.png",
-        "images/resort-gallery/resort-view/13.jpeg"
-    ],
-
-    "Lake View": [
-        "images/resort-gallery/lake-view/cover.png",
-        "images/resort-gallery/lake-view/01.jpeg",
-        "images/resort-gallery/lake-view/02.jpeg",
-        "images/resort-gallery/lake-view/03.png",
-        "images/resort-gallery/lake-view/04.png",
-        "images/resort-gallery/lake-view/05.jpeg",
-        "images/resort-gallery/lake-view/06.jpeg",
-        "images/resort-gallery/lake-view/07.jpeg"
-    ],
-
-    "Swimming Pool View": [
-        "images/resort-gallery/swimming-pool-view/cover.jpeg",
-        "images/resort-gallery/swimming-pool-view/Swimming1.jpeg",
-        "images/resort-gallery/swimming-pool-view/Swimming2.jpeg",
-        "images/resort-gallery/swimming-pool-view/Swimming3.jpeg",
-        "images/resort-gallery/swimming-pool-view/Swimming4.jpeg",
-        "images/resort-gallery/swimming-pool-view/Swimming5.jpeg",
-        "images/resort-gallery/swimming-pool-view/Swimming6.jpeg",
-        "images/resort-gallery/swimming-pool-view/Swimming7.jpeg",
-        "images/resort-gallery/swimming-pool-view/Swimming8.jpeg",
-        "images/resort-gallery/swimming-pool-view/Swimming9.jpeg",
-        "images/resort-gallery/swimming-pool-view/Swimming10.jpeg",
-        "images/resort-gallery/swimming-pool-view/Swimming11.jpeg",
-        "images/resort-gallery/swimming-pool-view/Swimming12.jfif"
-    ],
-
-    "Natural Environment": [
-        "images/resort-gallery/natural-environment/cover.jpeg",
-        "images/resort-gallery/natural-environment/nature1.jpeg",
-        "images/resort-gallery/natural-environment/nature2.jpeg",
-        "images/resort-gallery/natural-environment/nature3.jpeg",
-        "images/resort-gallery/natural-environment/nature4.jpeg",
-        "images/resort-gallery/natural-environment/nature5.jpeg",
-        "images/resort-gallery/natural-environment/nature6.jpeg",
-        "images/resort-gallery/natural-environment/nature7.jpeg",
-        "images/resort-gallery/natural-environment/nature8.jpeg",
-        "images/resort-gallery/natural-environment/nature9.jpeg",
-        "images/resort-gallery/natural-environment/nature10.jpeg",
-        "images/resort-gallery/natural-environment/nature11.jpeg"
-    ],
-
-    "Boat Ride": [
-        "images/resort-gallery/boat-ride/cover.jpeg",
-        "images/resort-gallery/boat-ride/boat1.jpeg",
-        "images/resort-gallery/boat-ride/boat2.jpeg",
-        "images/resort-gallery/boat-ride/boat3.jpeg",
-        "images/resort-gallery/boat-ride/boat4.jpeg",
-        "images/resort-gallery/boat-ride/boat5.jpeg",
-        "images/resort-gallery/boat-ride/boat6.jpeg",
-        "images/resort-gallery/boat-ride/boat7.jpeg",
-        "images/resort-gallery/boat-ride/boat8.jpeg"
-    ],
 
-    "Peaceful Moments": [
-        "images/resort-gallery/peaceful-moments/Cover.jpeg",
-        "images/resort-gallery/peaceful-moments/moment1.jpeg",
-        "images/resort-gallery/peaceful-moments/moment2.jpeg",
-        "images/resort-gallery/peaceful-moments/moment3.jpeg",
-        "images/resort-gallery/peaceful-moments/moment4.jpeg",
-        "images/resort-gallery/peaceful-moments/moment5.jpeg",
-        "images/resort-gallery/peaceful-moments/moment6.jpeg",
-        "images/resort-gallery/peaceful-moments/moment7.jpeg",
-        "images/resort-gallery/peaceful-moments/moment8.jpeg",
-        "images/resort-gallery/peaceful-moments/moment9.jpeg",
-        "images/resort-gallery/peaceful-moments/moment10.jpeg",
-        "images/resort-gallery/peaceful-moments/moment11.jpeg",
-        "images/resort-gallery/peaceful-moments/moment12.jpeg",
-        "images/resort-gallery/peaceful-moments/moment13.jpeg",
-        "images/resort-gallery/peaceful-moments/moment14.jpeg",
-        "images/resort-gallery/peaceful-moments/moment15.jpeg",
-        "images/resort-gallery/peaceful-moments/moment16.jpeg"
-    ]
+        /* RESORT SLIDESHOW */
 
-};
+        startResortSlideshows();
 
 
-document.addEventListener("DOMContentLoaded", function () {
+        /* ROOM SLIDESHOW */
 
-    const cards = document.querySelectorAll(".resort-gallery-item");
+        startRoomSlideshows();
 
-    cards.forEach(function (card) {
 
-        const overlay = card.querySelector(".resort-gallery-overlay");
-        const image = card.querySelector("img");
+        /* FAQ */
 
-        if (!overlay || !image) return;
+        initializeFAQ();
 
-        const title = overlay.textContent.trim();
-        const images = resortCardSlideshows[title];
 
-        if (!images || images.length < 2) return;
+        /* MOBILE MENU */
 
-        let currentIndex = 0;
+        closeMobileMenuAfterClick();
 
-        image.classList.add("smooth-slide-image");
 
+        /* SAVED LANGUAGE */
 
-        setInterval(function () {
+        const savedLanguage =
+            localStorage.getItem(
+                "rangautiLanguage"
+            ) || "en";
 
-            /* Slide current image out */
+        setLanguage(
+            savedLanguage
+        );
 
-            image.classList.add("slide-out");
 
+        /* LIVE DATE */
 
-            setTimeout(function () {
-
-                currentIndex++;
-
-                if (currentIndex >= images.length) {
-                    currentIndex = 0;
-                }
-
-                image.src = images[currentIndex];
-
-                /* Prepare new image */
-
-                image.classList.remove("slide-out");
-                image.classList.add("slide-in");
-
-
-                setTimeout(function () {
-                    image.classList.remove("slide-in");
-                }, 700);
-
-            }, 700);
-
-        }, 4000);
-
-    });
-
-});
-
-/* =========================================================
-   HERO IMAGE SLIDESHOW
-========================================================= */
-
-const heroSlides = document.querySelectorAll(".hero-slide");
-
-let heroCurrentSlide = 0;
-
-const heroSlideDuration = 6000;
-
-setInterval(() => {
-
-    heroSlides[heroCurrentSlide].classList.remove("active");
-
-    heroCurrentSlide++;
-
-    if (heroCurrentSlide >= heroSlides.length) {
-        heroCurrentSlide = 0;
-    }
-
-    heroSlides[heroCurrentSlide].classList.add("active");
-
-}, heroSlideDuration);
-
-
-/* =========================================================
-   ALL ROOM CARD SLIDESHOW
-========================================================= */
-
-document.querySelectorAll(".room-card-slideshow").forEach(
-    (slideshow) => {
-
-        const slides =
-            slideshow.querySelectorAll(".room-slide");
-
-        if (slides.length <= 1) return;
-
-        let current = 0;
-
-        setInterval(() => {
-
-            slides[current].classList.remove("active");
-
-            current++;
-
-            if (current >= slides.length) {
-                current = 0;
-            }
-
-            slides[current].classList.add("active");
-
-        }, 4000);
-
-    }
-)
-/* =========================================================
-   AUTOMATIC ROOM SELECTION FROM ROOM CARD
-========================================================= */
-
-function selectRoomFromURL() {
-
-    const params = new URLSearchParams(
-        window.location.search
-    );
-
-    const roomName = params.get("room");
-
-    if (!roomName) {
-        return;
-    }
-
-    const roomSelect = document.querySelector(
-        ".room-type[data-room='1']"
-    );
-
-    if (!roomSelect) {
-        return;
-    }
-
-    const targetRoom = roomName
-        .trim()
-        .toLowerCase();
-
-    const option = Array.from(
-        roomSelect.options
-    ).find(function(option) {
-
-        return option.value
-            .trim()
-            .toLowerCase() === targetRoom;
-
-    });
-
-    if (!option) {
-        return;
-    }
-
-    /* Select Room */
-    roomSelect.value = option.value;
-
-    /* Update Adults & Children */
-    updateAdultOptions(roomSelect);
-
-    const adultSelect = document.querySelector(
-        ".adult-count[data-room='1']"
-    );
-
-    if (adultSelect) {
-
-        adultSelect.value = "1";
-
-        updateChildLimit(adultSelect);
-
-    }
-
-}
-
-
-/* =========================================================
-   INITIALIZE ROOM BOOKING
-========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        /* Create Room 1 */
-        createRoomDetails();
-
-        /* Select room from URL */
-        setTimeout(function() {
-            selectRoomFromURL();
-        }, 100);
-
-
-        /* Image Zoom Setup */
-        const image =
-            document.getElementById("singleImage");
-
-        if (image) {
-
-            image.style.cursor = "zoom-in";
-
-            image.style.userSelect = "none";
-
-            image.style.webkitUserSelect = "none";
-
-            image.style.touchAction = "none";
-
-        }
+        updateLiveDateTime();
 
     }
 );
 
-/* =======================================================
-   FAQ ACCORDION
-======================================================= */
-
-const faqQuestions =
-    document.querySelectorAll(".faq-question");
-
-
-faqQuestions.forEach(function(question){
-
-    question.addEventListener("click", function(){
-
-        const currentItem =
-            question.closest(".faq-item");
-
-
-        /* Close other FAQ items */
-
-        document.querySelectorAll(".faq-item").forEach(function(item){
-
-            if(item !== currentItem){
-
-                item.classList.remove("active");
-
-            }
-
-        });
-
-
-        /* Toggle current FAQ */
-
-        currentItem.classList.toggle("active");
-
-    });
-
-});
 
 /* =========================================================
-   SUPER FAMILY DELUXE — IMAGE GALLERY
+   LIVE DATE UPDATE
 ========================================================= */
 
-const superFamilyImages = [
-    "rooms/gallery/super-family-deluxe/room1.jpeg",
-    "rooms/gallery/super-family-deluxe/room2.jpeg",
-    "rooms/gallery/super-family-deluxe/room3.jpeg",
-    "rooms/gallery/super-family-deluxe/room4.jpeg"
-];
-
-let superFamilyCurrentImage = 0;
-
-
-
-function updateSuperFamilyImage() {
-
-    const mainImage =
-        document.getElementById("superFamilyMainImage");
-
-    const thumbnails =
-        document.querySelectorAll(".super-family-thumb");
-
-
-    if (!mainImage) return;
-
-
-    mainImage.src =
-        superFamilyImages[superFamilyCurrentImage];
-
-
-    thumbnails.forEach(function(thumb, index) {
-
-        thumb.classList.toggle(
-            "active",
-            index === superFamilyCurrentImage
-        );
-
-    });
-
-}
-
-
-function selectSuperFamilyImage(index) {
-
-    superFamilyCurrentImage = index;
-
-    updateSuperFamilyImage();
-
-}
-
-
-function changeSuperFamilyImage(direction) {
-
-    superFamilyCurrentImage += direction;
-
-
-    if (
-        superFamilyCurrentImage >=
-        superFamilyImages.length
-    ) {
-
-        superFamilyCurrentImage = 0;
-
-    }
-
-
-    if (superFamilyCurrentImage < 0) {
-
-        superFamilyCurrentImage =
-            superFamilyImages.length - 1;
-
-    }
-
-
-    updateSuperFamilyImage();
-
-}
-
-
-/* =========================================================
-   FAMILY DELUXE — IMAGE GALLERY
-========================================================= */
-
-const familyDeluxeImages = [
-
-    "rooms/family-deluxe/room1.jpeg",
-    "rooms/family-deluxe/room2.jpeg",
-    "rooms/family-deluxe/room3.jpeg",
-    "rooms/family-deluxe/room4.jpeg"
-
-];
-
-
-let familyDeluxeCurrentImage = 0;
-
-
-function selectFamilyDeluxeImage(index) {
-
-    familyDeluxeCurrentImage = index;
-
-
-    const mainImage =
-        document.getElementById("familyDeluxeMainImage");
-
-    const thumbnails =
-        document.querySelectorAll(".family-deluxe-thumb");
-
-
-    if (!mainImage) return;
-
-
-    mainImage.src =
-        familyDeluxeImages[index];
-
-
-    thumbnails.forEach(function(thumb, i) {
-
-        thumb.classList.toggle(
-            "active",
-            i === index
-        );
-
-    });
-
-}
-
-
-function changeFamilyDeluxeImage(direction) {
-
-    familyDeluxeCurrentImage += direction;
-
-
-    if (
-        familyDeluxeCurrentImage >=
-        familyDeluxeImages.length
-    ) {
-
-        familyDeluxeCurrentImage = 0;
-
-    }
-
-
-    if (familyDeluxeCurrentImage < 0) {
-
-        familyDeluxeCurrentImage =
-            familyDeluxeImages.length - 1;
-
-    }
-
-
-    selectFamilyDeluxeImage(
-        familyDeluxeCurrentImage
-    );
-
-}
-
-
-/* =========================================================
-   SUPER DELUXE COTTAGE — IMAGE GALLERY
-========================================================= */
-
-const cottageImages = [
-
-    "rooms/super-deluxe-cottage-1.jpeg",
-    "rooms/super-deluxe-cottage-2.jpeg",
-    "rooms/super-deluxe-cottage-3.jpeg",
-    "rooms/super-deluxe-cottage-4.jpeg",
-    "rooms/super-deluxe-cottage-5.png",
-    "rooms/super-deluxe-cottage-6.png"
-
-];
-
-let cottageCurrentImage = 0;
-
-
-function updateCottageImage() {
-
-    const mainImage =
-        document.getElementById("cottageMainImage");
-
-    const thumbnails =
-        document.querySelectorAll(".cottage-thumb");
-
-    if (!mainImage) return;
-
-    mainImage.src =
-        cottageImages[cottageCurrentImage];
-
-    thumbnails.forEach(function(thumb, index) {
-
-        thumb.classList.toggle(
-            "active",
-            index === cottageCurrentImage
-        );
-
-    });
-
-}
-
-
-function selectCottageImage(index) {
-
-    cottageCurrentImage = index;
-
-    updateCottageImage();
-
-}
-
-
-function changeCottageImage(direction) {
-
-    cottageCurrentImage += direction;
-
-    if (cottageCurrentImage < 0) {
-
-        cottageCurrentImage =
-            cottageImages.length - 1;
-
-    }
-
-    if (
-        cottageCurrentImage >=
-        cottageImages.length
-    ) {
-
-        cottageCurrentImage = 0;
-
-    }
-
-    updateCottageImage();
-
-}
-
-
-/* =========================================================
-   ROOM DETAILS — OPEN
-========================================================= */
-
-function openRoomDetails(id) {
-
-    const modal =
-        document.getElementById(id);
-
-    if (!modal) {
-
-        alert("Modal not found: " + id);
-
-        return;
-
-    }
-
-
-    document
-        .querySelectorAll(".room-details-modal")
-        .forEach(function(item) {
-
-            item.classList.remove("active");
-
-        });
-
-
-    modal.classList.add("active");
-
-    document.body.classList.add("modal-open");
-
-
-    /* Reset selected room gallery */
-
-    if (id === "superFamilyDetails") {
-
-        superFamilyCurrentImage = 0;
-
-        updateSuperFamilyImage();
-
-    }
-
-
-    if (id === "familyDeluxeDetails") {
-
-        familyDeluxeCurrentImage = 0;
-
-        selectFamilyDeluxeImage(0);
-
-    }
-
-
-    if (id === "cottageDetails") {
-
-        cottageCurrentImage = 0;
-
-        updateCottageImage();
-
-    }
-
-
-    if (id === "superDeluxePoolDetails") {
-
-        superDeluxePoolCurrentImage = 0;
-
-        updateSuperDeluxePoolImage();
-
-    }
-
-
-   if (id === "jolojuchonaDetails") {
-
-    jolojuchonaCurrentImage = 0;
-
-    updateJolojuchonaImage();
-
-}
-
-
-if (id === "specialFamilyDetails") {
-
-    specialFamilyCurrentImage = 0;
-
-    updateSpecialFamilyImage();
-
-}
-
-
-if (id === "specialSuperDetails") {
-
-    specialSuperCurrentImage = 0;
-
-    updateSpecialSuperImage();
-
-}
-
-}
-/* =========================================================
-   ROOM DETAILS — CLOSE
-========================================================= */
-
-function closeRoomDetails(id) {
-
-    const modal =
-        document.getElementById(id);
-
-    if (!modal) return;
-
-    modal.classList.remove("active");
-
-    document.body.classList.remove("modal-open");
-
-}
-
-
-/* =========================================================
-   ESC KEY — CLOSE ACTIVE ROOM DETAILS
-========================================================= */
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key !== "Escape") return;
-
-
-    const activeModal =
-        document.querySelector(
-            ".room-details-modal.active"
-        );
-
-
-    if (!activeModal) return;
-
-
-    closeRoomDetails(activeModal.id);
-
-});
-/* =========================================================
-SUPER DELUXE — SWIMMING POOL VIEW GALLERY
-========================================================= */
-
-const superDeluxePoolImages = [
-"rooms/gallery/swimming-pool/room1.jpeg",
-"rooms/gallery/swimming-pool/room2.jpeg",
-"rooms/gallery/swimming-pool/room3.jpeg",
-"rooms/gallery/swimming-pool/room4.jpeg"
-];
-
-let superDeluxePoolCurrentImage = 0;
-
-function updateSuperDeluxePoolImage() {
-
-
-const mainImage =
-    document.getElementById("superDeluxePoolMainImage");
-
-if (!mainImage) return;
-
-mainImage.src =
-    superDeluxePoolImages[superDeluxePoolCurrentImage];
-
-
-document
-    .querySelectorAll(".super-deluxe-pool-thumb")
-    .forEach(function(thumb, index) {
-
-        thumb.classList.toggle(
-            "active",
-            index === superDeluxePoolCurrentImage
-        );
-
-    });
-
-
-}
-
-function selectSuperDeluxePoolImage(index) {
-
-
-superDeluxePoolCurrentImage = index;
-
-updateSuperDeluxePoolImage();
-
-
-}
-
-function changeSuperDeluxePoolImage(direction) {
-
-
-superDeluxePoolCurrentImage += direction;
-
-
-if (
-    superDeluxePoolCurrentImage >=
-    superDeluxePoolImages.length
-) {
-
-    superDeluxePoolCurrentImage = 0;
-
-}
-
-
-if (superDeluxePoolCurrentImage < 0) {
-
-    superDeluxePoolCurrentImage =
-        superDeluxePoolImages.length - 1;
-
-}
-
-
-updateSuperDeluxePoolImage();
-
-
-}
-
-/* =========================================================
-   SUITE JOLOJUCHONA — FLOATING HONEYMOON GALLERY
-========================================================= */
-
-const jolojuchonaImages = [
-    "rooms/gallery/suite-jolojuchona/room1.jpeg",
-    "rooms/gallery/suite-jolojuchona/room2.jpeg",
-    "rooms/gallery/suite-jolojuchona/room3.jpeg",
-    "rooms/gallery/suite-jolojuchona/room4.jpeg",
-    "rooms/gallery/suite-jolojuchona/room5.jpeg",
-    "rooms/gallery/suite-jolojuchona/Room6.png"
-];
-
-let jolojuchonaCurrentImage = 0;
-
-
-function updateJolojuchonaImage() {
-
-    const mainImage =
-        document.getElementById("jolojuchonaMainImage");
-
-    if (!mainImage) return;
-
-    mainImage.src =
-        jolojuchonaImages[jolojuchonaCurrentImage];
-
-
-    document
-        .querySelectorAll(".jolojuchona-thumb")
-        .forEach(function(thumb, index) {
-
-            thumb.classList.toggle(
-                "active",
-                index === jolojuchonaCurrentImage
-            );
-
-        });
-
-}
-
-
-function selectJolojuchonaImage(index) {
-
-    jolojuchonaCurrentImage = index;
-
-    updateJolojuchonaImage();
-
-}
-
-
-function changeJolojuchonaImage(direction) {
-
-    jolojuchonaCurrentImage += direction;
-
-
-    if (
-        jolojuchonaCurrentImage >=
-        jolojuchonaImages.length
-    ) {
-
-        jolojuchonaCurrentImage = 0;
-
-    }
-
-
-    if (jolojuchonaCurrentImage < 0) {
-
-        jolojuchonaCurrentImage =
-            jolojuchonaImages.length - 1;
-
-    }
-
-
-    updateJolojuchonaImage();
-
-}
-/* =========================================================
-   SPECIAL FAMILY DELUXE — SWIMMING POOL VIEW GALLERY
-========================================================= */
-
-const specialFamilyImages = [
-    "rooms/special-family-deluxe/room1.jpeg",
-    "rooms/special-family-deluxe/room2.jpeg",
-    "rooms/special-family-deluxe/room3.jpeg",
-    "rooms/special-family-deluxe/room4.jpeg"
-];
-
-let specialFamilyCurrentImage = 0;
-
-
-function updateSpecialFamilyImage() {
-
-    const mainImage =
-        document.getElementById("specialFamilyMainImage");
-
-    if (!mainImage) return;
-
-    mainImage.src =
-        specialFamilyImages[specialFamilyCurrentImage];
-
-
-    document
-        .querySelectorAll(".special-family-thumb")
-        .forEach(function(thumb, index) {
-
-            thumb.classList.toggle(
-                "active",
-                index === specialFamilyCurrentImage
-            );
-
-        });
-
-}
-
-
-function selectSpecialFamilyImage(index) {
-
-    specialFamilyCurrentImage = index;
-
-    updateSpecialFamilyImage();
-
-}
-
-
-function changeSpecialFamilyImage(direction) {
-
-    specialFamilyCurrentImage += direction;
-
-
-    if (
-        specialFamilyCurrentImage >=
-        specialFamilyImages.length
-    ) {
-
-        specialFamilyCurrentImage = 0;
-
-    }
-
-
-    if (specialFamilyCurrentImage < 0) {
-
-        specialFamilyCurrentImage =
-            specialFamilyImages.length - 1;
-
-    }
-
-
-    updateSpecialFamilyImage();
-
-}
-/* =========================================================
-   SPECIAL SUPER DELUXE — LAKE VIEW GALLERY
-========================================================= */
-
-const specialSuperImages = [
-    "rooms/special-super-deluxe-1.jpeg",
-    "rooms/special-super-deluxe-2.jpeg",
-    "rooms/special-super-deluxe-3.jpeg",
-    "rooms/special-super-deluxe-4.jpeg"
-];
-
-let specialSuperCurrentImage = 0;
-
-
-function updateSpecialSuperImage() {
-
-    const mainImage =
-        document.getElementById("specialSuperMainImage");
-
-    if (!mainImage) return;
-
-    mainImage.src =
-        specialSuperImages[specialSuperCurrentImage];
-
-
-    document
-        .querySelectorAll(".special-super-thumb")
-        .forEach(function(thumb, index) {
-
-            thumb.classList.toggle(
-                "active",
-                index === specialSuperCurrentImage
-            );
-
-        });
-
-}
-
-
-function selectSpecialSuperImage(index) {
-
-    specialSuperCurrentImage = index;
-
-    updateSpecialSuperImage();
-
-}
-
-
-function changeSpecialSuperImage(direction) {
-
-    specialSuperCurrentImage += direction;
-
-
-    if (
-        specialSuperCurrentImage >=
-        specialSuperImages.length
-    ) {
-
-        specialSuperCurrentImage = 0;
-
-    }
-
-
-    if (specialSuperCurrentImage < 0) {
-
-        specialSuperCurrentImage =
-            specialSuperImages.length - 1;
-
-    }
-
-
-    updateSpecialSuperImage();
-
-}
-/* =======================================================
-DAY LONG PACKAGE DETAILS
-======================================================= */
-
-function openPackageDetails(id) {
-
-
-const modal = document.getElementById(id);
-
-if (!modal) return;
-
-modal.classList.add("active");
-
-document.body.classList.add("modal-open");
-
-
-}
-
-function closePackageDetails(id) {
-
-
-const modal = document.getElementById(id);
-
-if (!modal) return;
-
-modal.classList.remove("active");
-
-document.body.classList.remove("modal-open");
-
-
-}
-
-function selectDayLongImage(index) {
-
-
-const images = [
-    "images/packages/day-long.jpeg"
-];
-
-const mainImage = document.getElementById("dayLongMainImage");
-
-if (!mainImage || !images[index]) return;
-
-mainImage.src = images[index];
-
-document.querySelectorAll(".day-long-thumb").forEach(function (thumb, i) {
-
-    thumb.classList.toggle("active", i === index);
-
-});
-
-
-}
-/* =======================================================
-   PACKAGE DETAILS — OPEN
-======================================================= */
-
-function openPackageDetails(id) {
-
-    const modal = document.getElementById(id);
-
-    if (!modal) {
-        alert("Package modal not found: " + id);
-        return;
-    }
-
-    document
-        .querySelectorAll(".package-details-modal.active")
-        .forEach(function(item) {
-            item.classList.remove("active");
-        });
-
-    modal.classList.add("active");
-
-    document.body.classList.add("modal-open");
-}
-
-
-/* =======================================================
-   PACKAGE DETAILS — CLOSE
-======================================================= */
-
-function closePackageDetails(id) {
-
-    const modal = document.getElementById(id);
-
-    if (!modal) return;
-
-    modal.classList.remove("active");
-
-    document.body.classList.remove("modal-open");
-}
-
-
-/* =======================================================
-   DAY LONG PACKAGE IMAGE
-======================================================= */
-
-function selectDayLongImage(index) {
-
-    const images = [
-        "images/packages/day-long.jpeg"
-    ];
-
-    const mainImage =
-        document.getElementById("dayLongMainImage");
-
-    if (!mainImage || !images[index]) return;
-
-    mainImage.src = images[index];
-
-    document
-        .querySelectorAll(".day-long-thumb")
-        .forEach(function(thumb, i) {
-
-            thumb.classList.toggle(
-                "active",
-                i === index
-            );
-
-        });
-}
-
-
-/* =======================================================
-   PACKAGE DETAILS — ESC
-======================================================= */
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key !== "Escape") return;
-
-    const activeModal =
-        document.querySelector(
-            ".package-details-modal.active"
-        );
-
-    if (!activeModal) return;
-
-    closePackageDetails(activeModal.id);
-
-});
-/* =======================================================
-   SWIMMING PACKAGE IMAGE
-======================================================= */
-
-function selectSwimmingImage(index) {
-
-    const images = [
-        "images/packages/swimming.jpeg"
-    ];
-
-    const mainImage =
-        document.getElementById("swimmingMainImage");
-
-    if (!mainImage || !images[index]) return;
-
-    mainImage.src = images[index];
-
-    document
-        .querySelectorAll(".swimming-thumb")
-        .forEach(function(thumb, i) {
-
-            thumb.classList.toggle(
-                "active",
-                i === index
-            );
-
-        });
-}
-/* =======================================================
-   DAY LONG IMAGE
-======================================================= */
-
-function selectDayLongImage(index) {
-
-    const images = [
-        "images/packages/day-long.jpeg"
-    ];
-
-    const mainImage =
-        document.getElementById("dayLongMainImage");
-
-    if (!mainImage || !images[index]) return;
-
-    mainImage.src = images[index];
-
-    document
-        .querySelectorAll(".day-long-thumb")
-        .forEach(function(thumb, i) {
-
-            thumb.classList.toggle(
-                "active",
-                i === index
-            );
-
-        });
-}
-
-
-/* =======================================================
-   DAY LONG FULL SCREEN IMAGE
-======================================================= */
-
-function openDayLongImage() {
-
-    const viewer =
-        document.getElementById("dayLongImageViewer");
-
-    const mainImage =
-        document.getElementById("dayLongMainImage");
-
-    const fullImage =
-        document.getElementById("dayLongFullImage");
-
-    if (!viewer || !mainImage || !fullImage) return;
-
-    fullImage.src = mainImage.src;
-
-    viewer.classList.add("active");
-}
-
-
-function closeDayLongImage() {
-
-    const viewer =
-        document.getElementById("dayLongImageViewer");
-
-    if (!viewer) return;
-
-    viewer.classList.remove("active");
-}
-
-function openPackageImage(imageSrc, imageAlt) {
-
-    const viewer =
-        document.getElementById("dayLongImageViewer");
-
-    const fullImage =
-        document.getElementById("dayLongFullImage");
-
-    if (!viewer || !fullImage) {
-        alert("Full screen image viewer not found");
-        return;
-    }
-
-    fullImage.src = imageSrc;
-    fullImage.alt = imageAlt;
-
-    viewer.classList.add("active");
-}
-
-function selectSnacksImage(index) {
-
-    const images = [
-        "images/packages/snacks.png"
-    ];
-
-    const mainImage =
-        document.getElementById("snacksMainImage");
-
-    if (!mainImage || !images[index]) return;
-
-    mainImage.src = images[index];
-
-    document
-        .querySelectorAll(".snacks-thumb")
-        .forEach(function(thumb, i) {
-
-            thumb.classList.toggle(
-                "active",
-                i === index
-            );
-
-        });
-}
-
-/* =======================================================
-   ESC = CLOSE FULL SCREEN IMAGE
-======================================================= */
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key !== "Escape") return;
-
-    closeDayLongImage();
-
-});
-function closeDayLongImage() {
-
-    const viewer =
-        document.getElementById("dayLongImageViewer");
-
-    if (!viewer) return;
-
-    viewer.classList.remove("active");
-}
-
-function selectSwimmingImage(index) {
-
-    const images = [
-        "images/packages/swimming.jpeg"
-    ];
-
-    const mainImage =
-        document.getElementById("swimmingMainImage");
-
-    if (!mainImage || !images[index]) return;
-
-    mainImage.src = images[index];
-
-    document
-        .querySelectorAll(".swimming-thumb")
-        .forEach(function(thumb, i) {
-
-            thumb.classList.toggle(
-                "active",
-                i === index
-            );
-
-        });
-}
-
-function selectBeverageImage(index) {
-
-    const images = [
-        "images/packages/beverage.png"
-    ];
-
-    const mainImage =
-        document.getElementById("beverageMainImage");
-
-    if (!mainImage || !images[index]) return;
-
-    mainImage.src = images[index];
-
-    document
-        .querySelectorAll(".beverage-thumb")
-        .forEach(function(thumb, i) {
-
-            thumb.classList.toggle(
-                "active",
-                i === index
-            );
-
-        });
-}
-</script>
-<!-- DAY LONG FULL SCREEN IMAGE VIEWER -->
-
-<div id="dayLongImageViewer"
-     class="package-image-viewer"
-     onclick="closeDayLongImage()">
-
-    <button class="package-image-viewer-close"
-            type="button"
-            onclick="event.stopPropagation(); closeDayLongImage()">
-        ×
-    </button>
-
-    <img id="dayLongFullImage"
-         src="images/packages/day-long.jpeg"
-         alt="Day Long Package">
-
-</div>
-
-<div id="dayLongImageViewer"
-     class="package-image-viewer"
-     onclick="closeDayLongImage()">
-
-    <button class="package-image-viewer-close"
-            type="button"
-            onclick="event.stopPropagation(); closeDayLongImage()">
-        ×
-    </button>
-
-    <img id="dayLongFullImage"
-         src="images/packages/day-long.jpeg"
-         alt="Day Long Package">
-
-</div>
-
-<script>
-
-function playRangautiVideo() {
-
-    const video = document.getElementById("rangautiVideo");
-    const button = document.querySelector(".video-play-button");
-
-    video.play();
-
-    button.style.display = "none";
-}
-
-
-/* =======================================================
-   LANGUAGE DROPDOWN
-======================================================= */
-
-function toggleLanguageMenu(){
-
-    const menu =
-        document.querySelector(".language-menu");
-
-    if(menu){
-        menu.classList.toggle("open");
-    }
-}
-
-
-/* =======================================================
-   LANGUAGE SWITCH
-======================================================= */
-
-function setLanguage(language){
-
-    const elements =
-        document.querySelectorAll(
-            "[data-en][data-bn]"
-        );
-
-    elements.forEach(function(element){
-
-        if(language === "bn"){
-
-            element.innerHTML =
-                element.getAttribute("data-bn");
-
-        }else{
-
-            element.innerHTML =
-                element.getAttribute("data-en");
-
-        }
-
-    });
-
-
-    /* Active language */
-
-    const buttons =
-        document.querySelectorAll(
-            ".language-options button"
-        );
-
-    buttons.forEach(function(button){
-
-        button.classList.remove("active");
-
-    });
-
-
-    if(language === "bn"){
-
-        if(buttons[1]){
-            buttons[1].classList.add("active");
-        }
-
-    }else{
-
-        if(buttons[0]){
-            buttons[0].classList.add("active");
-        }
-
-    }
-
-
-    /* Save language */
-
-    localStorage.setItem(
-        "rangautiLanguage",
-        language
-    );
-
-
-    /* Close Language */
-
-    const languageMenu =
-        document.querySelector(".language-menu");
-
-    if(languageMenu){
-        languageMenu.classList.remove("open");
-    }
-
-
-    /* Close 3-dot menu */
-
-    const nav =
-        document.getElementById("navLinks");
-
-    if(nav){
-        nav.classList.remove("active");
-    }
-
-}
-/* =======================================================
-   LOAD SAVED LANGUAGE
-======================================================= */
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    const savedLanguage =
-        localStorage.getItem("rangautiLanguage") || "en";
-
-    setLanguage(savedLanguage);
-
-});
-/* =======================================================
-   LIVE DATE & TIME
-======================================================= */
-
-function updateLiveDateTime(){
-
-    const timeElement =
-        document.getElementById("liveTime");
-
-    const dateElement =
-        document.getElementById("liveDate");
-
-    if(!timeElement || !dateElement){
-        return;
-    }
-
-    const now = new Date();
-
-    /* Get selected language */
-    const currentLanguage =
-        localStorage.getItem("rangautiLanguage") || "en";
-
-
-    /* ===================================================
-       ENGLISH
-    =================================================== */
-
-    if(currentLanguage === "en"){
-
-        const time =
-            now.toLocaleTimeString("en-US", {
-                hour:"2-digit",
-                minute:"2-digit",
-                second:"2-digit",
-                hour12:true
-            });
-
-        const date =
-            now.toLocaleDateString("en-US", {
-                weekday:"long",
-                day:"2-digit",
-                month:"long",
-                year:"numeric"
-            });
-
-        timeElement.textContent = time;
-        dateElement.textContent = date;
-
-    }
-
-
-    /* ===================================================
-       BANGLA
-    =================================================== */
-
-    else{
-
-        const time =
-            now.toLocaleTimeString("bn-BD", {
-                hour:"2-digit",
-                minute:"2-digit",
-                second:"2-digit",
-                hour12:true
-            });
-
-        const date =
-            now.toLocaleDateString("bn-BD", {
-                weekday:"long",
-                day:"2-digit",
-                month:"long",
-                year:"numeric"
-            });
-
-        timeElement.textContent = time;
-        dateElement.textContent = date;
-
-    }
-
-}
-
-/* Initial display */
-
-updateLiveDateTime();
-
-
-/* Update every second */
 setInterval(
     updateLiveDateTime,
     1000
 );
+
+
+/* =========================================================
+   CLOSE LANGUAGE / MENU WHEN CLICKING OUTSIDE
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const languageMenu =
+            document.querySelector(
+                ".language-menu"
+            );
+
+        if (
+            languageMenu &&
+            !languageMenu.contains(
+                event.target
+            )
+        ) {
+
+            languageMenu.classList.remove(
+                "open"
+            );
+
+        }
+
+    }
+);
+
 </script>
+
+
+</div>
 
 </body>
 

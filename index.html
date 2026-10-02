@@ -6839,6 +6839,184 @@ section{
     }
 
 }
+/* =========================================================
+   LUNCH COVER IMAGE — FULL IMAGE
+========================================================= */
+
+.package-card .package-image img[src*="lunch1.jpeg"] {
+     object-fit: cover;
+    object-position: center 90%
+    
+}
+
+/* =========================================================
+   SNACKS THUMBNAILS — EXACT LUNCH STYLE
+========================================================= */
+
+#snacksDetails .room-details-left {
+    min-width: 0;
+    overflow: hidden;
+}
+
+#snacksDetails .room-thumbnails {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 5px 0;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+#snacksDetails .room-thumbnails::-webkit-scrollbar {
+    height: 6px;
+}
+
+#snacksDetails .room-thumbnails img {
+    flex: 0 0 75px;
+    width: 75px;
+    min-width: 75px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 7px;
+    cursor: pointer;
+    display: block;
+}
+/* =========================================================
+   SNACKS THUMBNAILS — HORIZONTAL SCROLL
+========================================================= */
+
+#snacksDetails .room-thumbnails {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 5px 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+}
+
+#snacksDetails .room-thumbnails .snacks-thumb {
+    flex: 0 0 75px;
+    width: 75px;
+    min-width: 75px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 7px;
+    cursor: pointer;
+    display: block;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    #snacksDetails .room-thumbnails {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    #snacksDetails .room-thumbnails .snacks-thumb {
+        flex: 0 0 65px;
+        width: 65px;
+        min-width: 65px;
+        height: 55px;
+    }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    #snacksDetails .room-thumbnails {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    #snacksDetails .room-thumbnails img {
+        flex: 0 0 65px;
+        min-width: 65px;
+        width: 65px;
+        height: 55px;
+    }
+
+}
+/* =========================================================
+   SNACKS THUMBNAILS — SAME AS LUNCH
+========================================================= */
+
+#snacksDetails .room-thumbnails {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 5px 0;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+}
+
+#snacksDetails .room-thumbnails .snacks-thumb {
+    flex: 0 0 75px;
+    width: 75px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 7px;
+    cursor: pointer;
+    display: block;
+}
+/* =========================================================
+   SNACKS COVER PHOTO
+========================================================= */
+
+.package-card .package-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+/* =========================================================
+   SNACKS COVER PHOTO — SHOW FULL IMAGE
+========================================================= */
+
+#snacksDetails .room-main-image {
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    background: #f5f5f5;
+    border-radius: 10px;
+}
+
+#snacksDetails .room-main-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+}
+/* =========================================================
+   SNACKS CARD — SHOW FULL COVER IMAGE
+========================================================= */
+
+.package-card .package-image img[src*="snacks1.jpeg"] {
+    object-fit: contain;
+    object-position: center;
+    background: #f5f5f5;
+}
+/* Snacks cover image position */
+.package-card .package-image img[src*="snacks1.jpeg"] {
+    object-fit: cover;
+    object-position: center 10%;
+}
+
 </style>
 
 </head>
@@ -7368,7 +7546,7 @@ BOOK NOW
 
 <div class="package-image">
 
-<img src="images/packages/snacks.jpeg"
+<img src="images/packages/snacks1.jpeg"
      alt="Snacks Package">
 
 </div>
@@ -9411,26 +9589,64 @@ aria-label="WhatsApp">
 
             <div class="room-main-image">
 
-                <div class="room-main-image">
+                <!-- PREVIOUS -->
+                <button type="button"
+                        class="gallery-prev"
+                        onclick="prevSnacksImage()">
+                    ‹
+                </button>
 
-                    <img
-                        id="snacksMainImage"
-                        src="images/packages/snacks.jpeg"
-                        alt="Snacks Package"
-                        onclick="openPackageImage(this.src, this.alt)">
 
-                </div>
+                <!-- MAIN IMAGE -->
+                <img
+                    id="snacksMainImage"
+                    src="images/packages/snacks1.jpeg"
+                    alt="Snacks Package"
+                    onclick="openSnacksImage()">
+
+
+                <!-- NEXT -->
+                <button type="button"
+                        class="gallery-next"
+                        onclick="nextSnacksImage()">
+                    ›
+                </button>
 
             </div>
 
 
+            <!-- SNACKS THUMBNAILS -->
             <div class="room-thumbnails">
 
                 <img
                     class="snacks-thumb active"
-                    src="images/packages/snacks.jpeg"
+                    src="images/packages/snacks1.jpeg"
                     alt="Snacks Package"
                     onclick="selectSnacksImage(0)">
+
+                <img
+                    class="snacks-thumb"
+                    src="images/packages/snacks2.jpeg"
+                    alt="Snacks Package"
+                    onclick="selectSnacksImage(1)">
+
+                <img
+                    class="snacks-thumb"
+                    src="images/packages/snacks3.jpeg"
+                    alt="Snacks Package"
+                    onclick="selectSnacksImage(2)">
+
+                <img
+                    class="snacks-thumb"
+                    src="images/packages/snacks4.jpeg"
+                    alt="Snacks Package"
+                    onclick="selectSnacksImage(3)">
+
+                <img
+                    class="snacks-thumb"
+                    src="images/packages/snacks5.jpeg"
+                    alt="Snacks Package"
+                    onclick="selectSnacksImage(4)">
 
             </div>
 
@@ -9446,21 +9662,25 @@ aria-label="WhatsApp">
                 ভিজিটর এক্সপেরিয়েন্স
             </div>
 
+
             <h2
                 data-en="Snacks Package"
                 data-bn="স্ন্যাকস প্যাকেজ">
                 স্ন্যাকস প্যাকেজ
             </h2>
-<div class="package-price"
-     data-en="BDT 700 / Person"
-     data-bn="৳ ৭০০ / জন">
-    BDT 700 / Person
-</div>
+
+
+            <div class="package-price"
+                 data-en="BDT 700 / Person"
+                 data-bn="৳ ৭০০ / জন">
+                BDT 700 / Person
+            </div>
 
 
             <div class="room-detail-info">
 
                 <div>
+
                     <strong
                         data-en="Timing"
                         data-bn="সময়">
@@ -9468,13 +9688,16 @@ aria-label="WhatsApp">
                     </strong>
 
                     <span
-    data-en="3:00 PM – 6:00 PM"
-    data-bn="বিকেল ৩টা – সন্ধ্যা ৬টা">
-    বিকেল ৩টা – সন্ধ্যা ৬টা
-</span>
+                        data-en="3:00 PM – 6:00 PM"
+                        data-bn="বিকেল ৩টা – সন্ধ্যা ৬টা">
+                        বিকেল ৩টা – সন্ধ্যা ৬টা
+                    </span>
+
                 </div>
 
+
                 <div>
+
                     <strong
                         data-en="Package Type"
                         data-bn="প্যাকেজের ধরন">
@@ -9486,6 +9709,7 @@ aria-label="WhatsApp">
                         data-bn="স্ন্যাকস এক্সপেরিয়েন্স">
                         স্ন্যাকস এক্সপেরিয়েন্স
                     </span>
+
                 </div>
 
             </div>
@@ -9496,6 +9720,7 @@ aria-label="WhatsApp">
                 data-bn="প্যাকেজের বিস্তারিত">
                 প্যাকেজের বিস্তারিত
             </h3>
+
 
             <ul class="room-amenities">
 
@@ -9532,6 +9757,7 @@ aria-label="WhatsApp">
                 গুরুত্বপূর্ণ তথ্য
             </h3>
 
+
             <p class="room-details-description"
                data-en="Payment can be made at the resort."
                data-bn="রিসোর্টে এসে পেমেন্ট করা যাবে।">
@@ -9560,7 +9786,25 @@ aria-label="WhatsApp">
 
 </div>
 
+<!-- =======================================================
+     SNACKS FULL SCREEN IMAGE VIEWER
+======================================================= -->
 
+<div id="snacksImageViewer"
+     class="package-image-viewer"
+     onclick="closeSnacksImage()">
+
+    <img id="snacksFullImage"
+         src="images/packages/snacks1.jpeg"
+         alt="Snacks Package">
+
+    <button class="package-image-viewer-close"
+            type="button"
+            onclick="event.stopPropagation(); closeSnacksImage()">
+        ×
+    </button>
+
+</div>
 
 <!-- =======================================================
      SWIMMING PACKAGE — DETAILS
@@ -17059,6 +17303,152 @@ function changeLunchImage(direction) {
     if (mainImage && fullImage) {
         fullImage.src = mainImage.src;
     }
+}
+/* =======================================================
+   SNACKS PACKAGE — IMAGE GALLERY
+======================================================= */
+
+const snacksImages = [
+    "images/packages/snacks1.jpeg",
+    "images/packages/snacks2.jpeg",
+    "images/packages/snacks3.jpeg",
+    "images/packages/snacks4.jpeg",
+    "images/packages/snacks5.jpeg"
+];
+
+let currentSnacksImage = 0;
+
+
+function selectSnacksImage(index) {
+
+    const mainImage =
+        document.getElementById("snacksMainImage");
+
+    if (!mainImage || !snacksImages[index]) return;
+
+    currentSnacksImage = index;
+
+    mainImage.src =
+        snacksImages[index];
+
+    document
+        .querySelectorAll(".snacks-thumb")
+        .forEach(function (thumb, i) {
+
+            thumb.classList.toggle(
+                "active",
+                i === index
+            );
+
+        });
+}
+
+
+function nextSnacksImage() {
+
+    currentSnacksImage =
+        (currentSnacksImage + 1) %
+        snacksImages.length;
+
+    selectSnacksImage(
+        currentSnacksImage
+    );
+}
+
+
+function prevSnacksImage() {
+
+    currentSnacksImage =
+        (currentSnacksImage - 1 +
+        snacksImages.length) %
+        snacksImages.length;
+
+    selectSnacksImage(
+        currentSnacksImage
+    );
+}
+/* =======================================================
+   SNACKS — FULL SCREEN IMAGE
+======================================================= */
+
+function openSnacksImage() {
+
+    const viewer = document.getElementById("snacksImageViewer");
+    const fullImage = document.getElementById("snacksFullImage");
+    const mainImage = document.getElementById("snacksMainImage");
+
+    if (!viewer || !fullImage || !mainImage) return;
+
+    fullImage.src = mainImage.src;
+    fullImage.alt = mainImage.alt;
+
+    viewer.classList.add("active");
+
+    document.body.classList.add("modal-open");
+}
+
+
+function closeSnacksImage() {
+
+    const viewer = document.getElementById("snacksImageViewer");
+
+    if (!viewer) return;
+
+    viewer.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+}
+/* =======================================================
+   SNACKS THUMBNAILS — DRAG TO SCROLL
+======================================================= */
+
+const snacksThumbnailBox =
+    document.querySelector("#snacksDetails .room-thumbnails");
+
+if (snacksThumbnailBox) {
+
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    snacksThumbnailBox.addEventListener("mousedown", function (e) {
+
+        isDragging = true;
+        snacksThumbnailBox.classList.add("dragging");
+
+        startX = e.pageX - snacksThumbnailBox.offsetLeft;
+        scrollLeft = snacksThumbnailBox.scrollLeft;
+
+    });
+
+    snacksThumbnailBox.addEventListener("mouseleave", function () {
+
+        isDragging = false;
+        snacksThumbnailBox.classList.remove("dragging");
+
+    });
+
+    snacksThumbnailBox.addEventListener("mouseup", function () {
+
+        isDragging = false;
+        snacksThumbnailBox.classList.remove("dragging");
+
+    });
+
+    snacksThumbnailBox.addEventListener("mousemove", function (e) {
+
+        if (!isDragging) return;
+
+        e.preventDefault();
+
+        const x = e.pageX - snacksThumbnailBox.offsetLeft;
+        const walk = (x - startX) * 1.5;
+
+        snacksThumbnailBox.scrollLeft =
+            scrollLeft - walk;
+
+    });
+
 }
 </script>
 

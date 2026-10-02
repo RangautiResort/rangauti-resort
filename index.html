@@ -6657,6 +6657,188 @@ section{
     }
 
 }
+
+/* =======================================================
+   LUNCH GALLERY — PREV / NEXT BUTTON
+======================================================= */
+
+.room-main-image {
+    position: relative;
+}
+
+.gallery-prev,
+.gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 30px;
+    line-height: 42px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0;
+}
+
+.gallery-prev {
+    left: 12px;
+}
+
+.gallery-next {
+    right: 12px;
+}
+
+.gallery-prev:hover,
+.gallery-next:hover {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+/* =======================================================
+   LUNCH GALLERY — ARROW VISIBILITY FIX
+======================================================= */
+
+.room-main-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.room-main-image .gallery-prev,
+.room-main-image .gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.65);
+    color: #ffffff !important;
+
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    cursor: pointer;
+    z-index: 999;
+
+    transition: 0.25s ease;
+}
+
+.room-main-image .gallery-prev {
+    left: 15px;
+}
+
+.room-main-image .gallery-next {
+    right: 15px;
+}
+
+.room-main-image .gallery-prev:hover,
+.room-main-image .gallery-next:hover {
+    background: rgba(0,0,0,0.85);
+    transform: translateY(-50%) scale(1.08);
+}
+
+/* =========================================================
+   LUNCH PACKAGE CARD IMAGE
+========================================================= */
+
+.lunch-package-card .package-image {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.lunch-package-card .package-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =========================================================
+   LUNCH IMAGE LAYOUT FIX
+========================================================= */
+
+#lunchDetails .room-details-left {
+    min-width: 0;
+    overflow: hidden;
+}
+
+#lunchDetails .room-main-image {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    background: #f5f5f5;
+    border-radius: 10px;
+}
+
+#lunchDetails .room-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* THUMBNAILS */
+
+#lunchDetails .room-thumbnails {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 5px 0;
+    box-sizing: border-box;
+}
+
+#lunchDetails .room-thumbnails img {
+    flex: 0 0 75px;
+    width: 75px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 7px;
+    cursor: pointer;
+    display: block;
+}
+
+/* RIGHT SIDE DETAILS */
+
+#lunchDetails .room-details-right {
+    min-width: 0;
+    overflow: visible;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    #lunchDetails .room-main-image {
+        height: 300px;
+    }
+
+    #lunchDetails .room-thumbnails img {
+        flex-basis: 65px;
+        width: 65px;
+        height: 55px;
+    }
+
+}
 </style>
 
 </head>
@@ -7131,7 +7313,7 @@ BOOK NOW
 
 <div class="package-image">
 
-<img src="images/packages/lunch.png"
+<img src="images/packages/lunch1.jpeg"
      alt="Lunch Package">
 
 </div>
@@ -8760,7 +8942,7 @@ aria-label="WhatsApp">
                      alt="Day Long Package"
                      onclick="selectDayLongImage(2)">
 
-                <img class="day-long-thumb"
+                     <img class="day-long-thumb"
                      src="images/packages/day-long-4.jpeg"
                      alt="Day Long Package"
                      onclick="selectDayLongImage(3)">
@@ -8784,6 +8966,11 @@ aria-label="WhatsApp">
                      src="images/packages/day-long-8.jpeg"
                      alt="Day Long Package"
                      onclick="selectDayLongImage(7)">
+
+                <img class="day-long-thumb"
+                     src="images/packages/day-long-9.jpeg"
+                     alt="Day Long Package"
+                     onclick="selectDayLongImage(8)">
 
             </div>
 
@@ -8949,6 +9136,8 @@ aria-label="WhatsApp">
     </button>
 
 </div>
+
+
 <!-- =======================================================
      LUNCH PACKAGE — DETAILS
 ======================================================= -->
@@ -8970,22 +9159,69 @@ aria-label="WhatsApp">
 
             <div class="room-main-image">
 
-                <img
-                    id="lunchMainImage"
-                    src="images/packages/lunch.png"
-                    alt="Lunch Package"
-                    onclick="openPackageImage(this.src, this.alt)">
+                <!-- PREVIOUS -->
+                <button type="button"
+                        class="gallery-prev"
+                        onclick="prevLunchImage()">
+                    ‹
+                </button>
+
+
+               <!-- MAIN IMAGE -->
+<img
+    id="lunchMainImage"
+    src="images/packages/lunch1.jpeg"
+    alt="Lunch Package"
+    onclick="openLunchImage()">
+
+                <!-- NEXT -->
+                <button type="button"
+                        class="gallery-next"
+                        onclick="nextLunchImage()">
+                    ›
+                </button>
 
             </div>
 
 
+            <!-- LUNCH THUMBNAILS -->
             <div class="room-thumbnails">
 
                 <img
                     class="lunch-thumb active"
-                    src="images/packages/lunch.png"
+                    src="images/packages/lunch1.jpeg"
                     alt="Lunch Package"
                     onclick="selectLunchImage(0)">
+
+                <img
+                    class="lunch-thumb"
+                    src="images/packages/lunch2.jpeg"
+                    alt="Lunch Package"
+                    onclick="selectLunchImage(1)">
+
+                <img
+                    class="lunch-thumb"
+                    src="images/packages/lunch3.jpeg"
+                    alt="Lunch Package"
+                    onclick="selectLunchImage(2)">
+
+                <img
+                    class="lunch-thumb"
+                    src="images/packages/lunch4.jpeg"
+                    alt="Lunch Package"
+                    onclick="selectLunchImage(3)">
+
+                <img
+                    class="lunch-thumb"
+                    src="images/packages/lunch5.jpeg"
+                    alt="Lunch Package"
+                    onclick="selectLunchImage(4)">
+
+                <img
+                    class="lunch-thumb"
+                    src="images/packages/lunch6.jpeg"
+                    alt="Lunch Package"
+                    onclick="selectLunchImage(5)">
 
             </div>
 
@@ -9001,22 +9237,25 @@ aria-label="WhatsApp">
                 ভিজিটর এক্সপেরিয়েন্স
             </div>
 
+
             <h2
                 data-en="Lunch Package"
                 data-bn="লাঞ্চ প্যাকেজ">
                 লাঞ্চ প্যাকেজ
             </h2>
 
+
             <div class="package-price"
-     data-en="BDT 1,100 / Person"
-     data-bn="৳ ১,১০০ / জন">
-    BDT 1,100 / Person
-</div>
+                 data-en="BDT 1,100 / Person"
+                 data-bn="৳ ১,১০০ / জন">
+                BDT 1,100 / Person
+            </div>
 
 
             <div class="room-detail-info">
 
                 <div>
+
                     <strong
                         data-en="Timing"
                         data-bn="সময়">
@@ -9024,13 +9263,16 @@ aria-label="WhatsApp">
                     </strong>
 
                     <span
-    data-en="12:00 PM – 6:00 PM"
-    data-bn="দুপুর ১২টা – সন্ধ্যা ৬টা">
-    দুপুর ১২টা – সন্ধ্যা ৬টা
-</span>
+                        data-en="12:00 PM – 6:00 PM"
+                        data-bn="দুপুর ১২টা – সন্ধ্যা ৬টা">
+                        দুপুর ১২টা – সন্ধ্যা ৬টা
+                    </span>
+
                 </div>
 
+
                 <div>
+
                     <strong
                         data-en="Package Type"
                         data-bn="প্যাকেজের ধরন">
@@ -9042,6 +9284,7 @@ aria-label="WhatsApp">
                         data-bn="লাঞ্চ এক্সপেরিয়েন্স">
                         লাঞ্চ এক্সপেরিয়েন্স
                     </span>
+
                 </div>
 
             </div>
@@ -9052,6 +9295,7 @@ aria-label="WhatsApp">
                 data-bn="প্যাকেজের বিস্তারিত">
                 প্যাকেজের বিস্তারিত
             </h3>
+
 
             <ul class="room-amenities">
 
@@ -9088,6 +9332,7 @@ aria-label="WhatsApp">
                 গুরুত্বপূর্ণ তথ্য
             </h3>
 
+
             <p class="room-details-description"
                data-en="Advance payment is required to confirm booking."
                data-bn="বুকিং নিশ্চিত করার জন্য অগ্রিম পেমেন্ট করতে হবে।">
@@ -9116,8 +9361,35 @@ aria-label="WhatsApp">
 
 </div>
 
+<!-- =======================================================
+     LUNCH FULL SCREEN IMAGE VIEWER
+======================================================= -->
 
+<div id="lunchImageViewer"
+     class="package-image-viewer"
+     onclick="closeLunchImage()">
 
+    
+        ‹
+    </button>
+
+    <!-- FULL IMAGE -->
+    <img id="lunchFullImage"
+         src="images/packages/lunch1.jpeg"
+         alt="Lunch Package">
+
+   
+        ›
+    </button>
+
+    <!-- CLOSE -->
+    <button class="package-image-viewer-close"
+            type="button"
+            onclick="event.stopPropagation(); closeLunchImage()">
+        ×
+    </button>
+
+</div>
 <!-- =======================================================
      SNACKS PACKAGE — DETAILS
 ======================================================= -->
@@ -15548,7 +15820,8 @@ const dayLongImages = [
     "images/packages/day-long-5.jpeg",
     "images/packages/day-long-6.jpeg",
     "images/packages/day-long-7.jpeg",
-    "images/packages/day-long-8.jpeg"
+    "images/packages/day-long-8.jpeg",
+    "images/packages/day-long-9.jpeg"
 
 ];
 
@@ -16640,6 +16913,153 @@ document.addEventListener(
 
     }
 );
+
+/* =======================================================
+   LUNCH PACKAGE — IMAGE GALLERY
+======================================================= */
+
+const lunchImages = [
+    "images/packages/lunch1.jpeg",
+    "images/packages/lunch2.jpeg",
+    "images/packages/lunch3.jpeg",
+    "images/packages/lunch4.jpeg",
+    "images/packages/lunch5.jpeg",
+    "images/packages/lunch6.jpeg"
+];
+
+let currentLunchImage = 0;
+
+
+/* SELECT LUNCH IMAGE */
+
+function selectLunchImage(index) {
+
+    const mainImage = document.getElementById("lunchMainImage");
+
+    if (!mainImage || !lunchImages[index]) return;
+
+    currentLunchImage = index;
+
+    mainImage.src = lunchImages[index];
+
+    document.querySelectorAll(".lunch-thumb").forEach(function (thumb, i) {
+
+        thumb.classList.toggle("active", i === index);
+
+    });
+
+}
+
+
+/* NEXT LUNCH IMAGE */
+
+function nextLunchImage() {
+
+    currentLunchImage++;
+
+    if (currentLunchImage >= lunchImages.length) {
+        currentLunchImage = 0;
+    }
+
+    selectLunchImage(currentLunchImage);
+
+}
+
+
+/* PREVIOUS LUNCH IMAGE */
+
+function prevLunchImage() {
+
+    currentLunchImage--;
+
+    if (currentLunchImage < 0) {
+        currentLunchImage = lunchImages.length - 1;
+    }
+
+    selectLunchImage(currentLunchImage);
+
+}
+
+
+/* =======================================================
+   LUNCH — PREVIOUS / NEXT
+======================================================= */
+
+function nextLunchImage() {
+
+    currentLunchImage =
+        (currentLunchImage + 1) % lunchImages.length;
+
+    selectLunchImage(currentLunchImage);
+}
+
+
+function prevLunchImage() {
+
+    currentLunchImage =
+        (currentLunchImage - 1 + lunchImages.length)
+        % lunchImages.length;
+
+    selectLunchImage(currentLunchImage);
+}
+
+/* =======================================================
+   LUNCH PACKAGE — FULLSCREEN OPEN
+======================================================= */
+
+function openLunchImage() {
+
+    const viewer = document.getElementById("lunchImageViewer");
+    const fullImage = document.getElementById("lunchFullImage");
+    const mainImage = document.getElementById("lunchMainImage");
+
+    if (!viewer || !fullImage || !mainImage) return;
+
+    fullImage.src = mainImage.src;
+    fullImage.alt = mainImage.alt;
+
+    viewer.classList.add("active");
+    document.body.classList.add("modal-open");
+}
+/* =======================================================
+   LUNCH PACKAGE — FULLSCREEN CLOSE
+======================================================= */
+
+function closeLunchImage() {
+
+    const viewer =
+        document.getElementById("lunchImageViewer");
+
+    if (!viewer) return;
+
+    viewer.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+}
+
+
+/* =======================================================
+   LUNCH PACKAGE — FULLSCREEN IMAGE CHANGE
+======================================================= */
+
+function changeLunchImage(direction) {
+
+    if (direction === 1) {
+        nextLunchImage();
+    } else {
+        prevLunchImage();
+    }
+
+    const mainImage =
+        document.getElementById("lunchMainImage");
+
+    const fullImage =
+        document.getElementById("lunchFullImage");
+
+    if (mainImage && fullImage) {
+        fullImage.src = mainImage.src;
+    }
+}
 </script>
 
 
